@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -16,6 +15,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background: linear-gradient(#8B65BF, #BFADD9);
+  font-family: 'Poppins', sans-serif;
 }
 
 section {
@@ -137,60 +137,86 @@ section img#stars {
 /* Fin de menu*/
 
 /* Contenedores de Nosotros */
-/* Estilos generales */
-.centered-content {
+.container_box
+{
+  width: 95%; /* Establece el ancho del contenedor al 95% del ancho del padre o la ventana */
+  margin: 0 auto; /* Centra el contenedor en el medio */
+  background-color: #00ABBD; 
+}
+
+.centered-content 
+{
+  width: 95%; /* Establece el ancho del contenedor al 95% del ancho del padre o la ventana */
+  margin: 0 auto; /* Centra el contenedor en el medio */
   display: flex;
   flex-direction: column; /* Esto hará que los hijos directos se apilen verticalmente */
   align-items: center; /* Esto centrará los elementos horizontalmente */
   justify-content: center; /* Esto centrará los elementos verticalmente */
   padding: 30px;
-  background-color: white;
+  background-color: #00ABBD; 
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.header-title {
+.header-title 
+{
+  color: #FF9944; /* Color brillante para el encabezado */
+  font-size: 2em; /* Hacer el texto un poco más grande */
   text-align: center;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px; /* Espacio entre el título y las cajas */
   width: 100%; /* Aseguramos que el título ocupe todo el ancho */
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  text-shadow: 0.5px  0px 0px black,
+               0px  0.5px 0px black,
+              -0.5px  0px 0px black,
+              0px -0.5px 0px black;
+  font-size: 30px;
 }
 
 
-.box-row {
+.box-row 
+{
   display: flex;
   justify-content: space-between; /* Esto garantiza que haya espacio entre las cajas */
   width: 100%;
 }
 
-.box-item {
+.box-item 
+{ 
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-grow: 1; /* Los cuadrados crecerán para llenar el espacio disponible */
   flex-basis: calc(33.33% - 30px); /* Restamos el margen derecho */
-  border: 1px solid #ccc;
   border-radius: 15px;
-  background-color: #f4f4f4;
-  transition: all 0.3s ease;
-  height: 400px;
+  background-color: #A1C7E0; /* Color principal para los cuadros */
+  border: 2px solid #026E81; /* Bordes oscuros sutiles */
+  height: 450px;
+  transition: background-color 0.5s ease, transform 1s ease;
   overflow: hidden;
   position: relative;
   margin-right: 30px; /* Agregamos un margen derecho a cada caja */
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
 }
 
 /* Quitamos el margen derecho a la última caja para que no haya un espacio extra al final */
-.box-item:last-child {
+.box-item:last-child 
+{
   margin-right: 0;
 }
 
-.box-item:hover {
+.box-item:hover 
+{
   transform: rotate(-2deg);
-  background-color: #e6e6e6;
+  background-color: #A1C7E0; /* Cambio de color al pasar el mouse por encima */
 }
 
-.box-item img {
+.box-item img 
+{
   height: 250px;
   width: 350px;
   object-fit: cover;
@@ -198,20 +224,22 @@ section img#stars {
   transition: transform 0.5s ease; /* Si quieres alguna animación en la imagen cuando se pasa el mouse */
   border-radius: 100%;
   border-style: solid;
-  border-width: 0.5px;
+  border-width: 1px;
 }
 
-.box-title {
+.box-title 
+{
   font-size: 20px;
   font-weight: bold;
   color: black;
   margin-top: 10px; /* Añadir un margen en la parte superior para separar el título de la imagen */
   margin-bottom: 10px; /* Añadir un margen en la parte inferior para separar el título del párrafo */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
 }
 
 .parrafo-porqueNosotros
 {
   padding: 20px;
 }
-
 /* Fin de "Contenedores de Nosotros" */
