@@ -16,7 +16,7 @@ window.addEventListener('scroll', function () {
     let maxMarginRight = desiredHorizontalPosition + 350; // Considering initial right: -350px
 
     // Calculate the new margin-right value based on scroll position
-    let newMarginRight = Math.min(maxMarginRight, value * 4);
+    let newMarginRight = Math.min(maxMarginRight, value * 3.5);
 
 
 
