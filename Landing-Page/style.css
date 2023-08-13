@@ -139,19 +139,19 @@ section img#stars {
 /* Contenedores de Nosotros */
 .container_box
 {
-  width: 95%; /* Establece el ancho del contenedor al 95% del ancho del padre o la ventana */
-  margin: 0 auto; /* Centra el contenedor en el medio */
+  width: 95%; 
+  margin: 0 auto; 
   background-color: #00ABBD; 
 }
 
 .centered-content 
 {
-  width: 95%; /* Establece el ancho del contenedor al 95% del ancho del padre o la ventana */
-  margin: 0 auto; /* Centra el contenedor en el medio */
+  width: 95%; 
+  margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Esto hará que los hijos directos se apilen verticalmente */
-  align-items: center; /* Esto centrará los elementos horizontalmente */
-  justify-content: center; /* Esto centrará los elementos verticalmente */
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
   padding: 30px;
   background-color: #00ABBD; 
   border-radius: 15px;
@@ -160,8 +160,8 @@ section img#stars {
 
 .header-title 
 {
-  color: #FF9944; /* Color brillante para el encabezado */
-  font-size: 2em; /* Hacer el texto un poco más grande */
+  color: #FF9944; 
+  font-size: 2em; 
   text-align: center;
   font-size: 24px;
   font-weight: bold;
@@ -173,14 +173,14 @@ section img#stars {
                0px  0.5px 0px black,
               -0.5px  0px 0px black,
               0px -0.5px 0px black;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 
 .box-row 
 {
   display: flex;
-  justify-content: space-between; /* Esto garantiza que haya espacio entre las cajas */
+  justify-content: space-between; /* Esto deja que haya espacio entre las cajas */
   width: 100%;
 }
 
@@ -189,21 +189,20 @@ section img#stars {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-grow: 1; /* Los cuadrados crecerán para llenar el espacio disponible */
-  flex-basis: calc(33.33% - 30px); /* Restamos el margen derecho */
+  flex-grow: 1;
+  flex-basis: calc(33.33% - 30px); 
   border-radius: 15px;
   background-color: #A1C7E0; /* Color principal para los cuadros */
-  border: 2px solid #026E81; /* Bordes oscuros sutiles */
+  border: 2px solid #026E81; /* Bordes oscuros  */
   height: 450px;
   transition: background-color 0.5s ease, transform 1s ease;
   overflow: hidden;
   position: relative;
-  margin-right: 30px; /* Agregamos un margen derecho a cada caja */
+  margin-right: 30px; 
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 300;
 }
 
-/* Quitamos el margen derecho a la última caja para que no haya un espacio extra al final */
 .box-item:last-child 
 {
   margin-right: 0;
@@ -212,7 +211,7 @@ section img#stars {
 .box-item:hover 
 {
   transform: rotate(-2deg);
-  background-color: #A1C7E0; /* Cambio de color al pasar el mouse por encima */
+  background-color: #A1C7E0; 
 }
 
 .box-item img 
@@ -220,8 +219,8 @@ section img#stars {
   height: 250px;
   width: 350px;
   object-fit: cover;
-  margin: 10px 0; /* Agregar un poco de margen arriba y abajo para separar la imagen del título y del borde de la caja */
-  transition: transform 0.5s ease; /* Si quieres alguna animación en la imagen cuando se pasa el mouse */
+  margin: 10px 0; 
+  transition: transform 0.5s ease; 
   border-radius: 100%;
   border-style: solid;
   border-width: 1px;
@@ -232,10 +231,10 @@ section img#stars {
   font-size: 20px;
   font-weight: bold;
   color: black;
-  margin-top: 10px; /* Añadir un margen en la parte superior para separar el título de la imagen */
-  margin-bottom: 10px; /* Añadir un margen en la parte inferior para separar el título del párrafo */
+  margin-top: 10px; 
+  margin-bottom: 10px; 
   font-family: 'Inter', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .parrafo-porqueNosotros
@@ -243,3 +242,49 @@ section img#stars {
   padding: 20px;
 }
 /* Fin de "Contenedores de Nosotros" */
+
+/* Footer */
+.vet-footer {
+  background-color: #A1C7E0;
+  color: #026E81;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-media, .footer-links, .footer-contact {
+  flex: 1;
+  text-align: center;
+}
+
+.social-icon {
+  margin: 0 15px;
+  font-size: 24px;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #026E81;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bar {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #026E81;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+/*Fin del Footer */
