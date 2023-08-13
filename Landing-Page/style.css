@@ -137,43 +137,81 @@ section img#stars {
 /* Fin de menu*/
 
 /* Contenedores de Nosotros */
-.ContenedorCirculoNosotros {
+/* Estilos generales */
+.centered-content {
   display: flex;
-  justify-content: center;
-  padding-left: 20px;
-  align-items: center;
-  padding: 20px;
-
-}
-
-.Tituloo {
-  color: black;
-  font-style: bold;
-}
-
-#centered {
-  width: 85%;
-  display: flex;
-  justify-content: space-around;
+  flex-direction: column; /* Esto hará que los hijos directos se apilen verticalmente */
+  align-items: center; /* Esto centrará los elementos horizontalmente */
+  justify-content: center; /* Esto centrará los elementos verticalmente */
+  padding: 30px;
   background-color: white;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.CirculoNosotros {
+.header-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px; /* Espacio entre el título y las cajas */
+  width: 100%; /* Aseguramos que el título ocupe todo el ancho */
+}
+
+
+.box-row {
+  display: flex;
+  justify-content: space-between; /* Esto garantiza que haya espacio entre las cajas */
+  width: 100%;
+}
+
+.box-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
-  flex-grow: 1;
+  flex-grow: 1; /* Los cuadrados crecerán para llenar el espacio disponible */
+  flex-basis: calc(33.33% - 30px); /* Restamos el margen derecho */
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #f4f4f4;
+  transition: all 0.3s ease;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 30px; /* Agregamos un margen derecho a cada caja */
 }
 
-.CirculoNosotros img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+/* Quitamos el margen derecho a la última caja para que no haya un espacio extra al final */
+.box-item:last-child {
+  margin-right: 0;
+}
+
+.box-item:hover {
+  transform: rotate(-2deg);
+  background-color: #e6e6e6;
+}
+
+.box-item img {
+  height: 250px;
+  width: 350px;
   object-fit: cover;
-  background: green;
+  margin: 10px 0; /* Agregar un poco de margen arriba y abajo para separar la imagen del título y del borde de la caja */
+  transition: transform 0.5s ease; /* Si quieres alguna animación en la imagen cuando se pasa el mouse */
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+.box-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin-top: 10px; /* Añadir un margen en la parte superior para separar el título de la imagen */
+  margin-bottom: 10px; /* Añadir un margen en la parte inferior para separar el título del párrafo */
+}
+
+.parrafo-porqueNosotros
+{
+  padding: 20px;
 }
 
 /* Fin de "Contenedores de Nosotros" */
