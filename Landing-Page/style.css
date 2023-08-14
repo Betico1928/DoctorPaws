@@ -46,6 +46,7 @@ header .logo
   font-size: 2em;
   text-transform:uppercase;
   letter-spacing: 2px;
+  font-family: 'Borel', cursive;
 }
 
 header ul
@@ -134,6 +135,7 @@ section img#stars {
   white-space: nowrap;
   font-size: 7.5vw;
   z-index: 9;
+  font-family: 'Borel', cursive;
 }
 
 #btn{
