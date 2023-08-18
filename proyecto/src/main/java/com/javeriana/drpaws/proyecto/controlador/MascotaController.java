@@ -21,7 +21,7 @@ public class MascotaController {
 
         model.addAttribute("mascotas", mascotaService.searchAll());
         return "Mostar_Todas_Mascotas"; // TODO: ALBERTO ESTO LO TE LO DEJO este es el html que muestra la lista de
-                                        // todas las mascotas
+                                        // todas la mascotas
 
     }
 
@@ -34,7 +34,8 @@ public class MascotaController {
 
         }
 
-        return "Mostrar_Mascota";
+        return "Mostrar_Mascota"; // TODO: ALBERTO ESTO LO TE LO DEJO este es el html que muestra la mascota con
+                                  // el id indicado
 
     }
 
