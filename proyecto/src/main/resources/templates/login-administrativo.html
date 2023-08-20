@@ -20,12 +20,13 @@
 
 <body>
 
-    <div th:if="${param.error}">
-        <p style="color: red;">Email o contraseña incorrectos.</p>
+    <div th:if="${param.error}" id="error-box">
+        <p>Email o contraseña incorrectos.</p>
     </div>
 
 
-    <!-- Header -->
+
+<!-- Header -->
     <header>
         <a href="./index.html" class="logo">DR.PAWS</a>
         <ul>
