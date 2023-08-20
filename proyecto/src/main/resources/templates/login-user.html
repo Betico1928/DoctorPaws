@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - DR.PAWS</title>
+    <link rel="stylesheet" href="path/to/your/styles.css"> <!-- Asegúrate de cambiar esto al path correcto de tus estilos -->
+</head>
+<body>
+<!-- Header -->
+<header>
+    <a href="#" class="logo">DR.PAWS</a>
+    <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</header>
+
+<!-- Mensaje de Error -->
+<div th:if="${param.error}" id="error-box">
+    <p>ID incorrecto.</p>
+</div>
+
+<!-- Cuerpo de la página (formulario de login de usuario) -->
+<div class="login-container">
+    <h2>Iniciar sesión Usuario</h2>
+    <form action="#" method="post" th:action="@{/userLogin}" th:object="${loginForm}">
+        <div class="form-group">
+            <label for="userId">ID de Usuario:</label>
+            <input type="text" id="userId" name="userId" th:field="*{userId}" required>
+        </div>
+        <button type="submit">Ingresar</button>
+    </form>
+</div>
+
+<!-- Footer -->
+<footer class="vet-footer">
+    <div class="footer-content">
+        <div class="social-media">
+            <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+            <a href="#">Acerca de</a>
+            <a href="#">Testimonios</a>
+        </div>
+
+        <div class="footer-contact">
+            <p>Teléfono: (123) 456-7890</p>
+            <p>Email: woof-woof@veterinariadrpaws.com</p>
+        </div>
+    </div>
+    <div class="footer-bar">
+        <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+</html>
