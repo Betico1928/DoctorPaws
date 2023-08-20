@@ -30,12 +30,12 @@ public class UsuarioController {
 
     // Maneja el POST del formulario de login
     @PostMapping
-    public String handleLogin(@RequestParam(name="userId") Integer userId, Model model) {
+    public String handleLogin(@RequestParam(name="userId") Integer userId, Model model)
+    {
         Usuario user = usuarioRepository.findById(userId);
 
         if(user != null) {
-            // Si el usuario existe, redirige a otra página, por ejemplo, "home".
-            return "redirect:/home";
+            return "redirect:/dashboard-user";
         } else {
             model.addAttribute("error", true);
             return "login-user";  // Vuelve a mostrar la página de login con el mensaje de error.
