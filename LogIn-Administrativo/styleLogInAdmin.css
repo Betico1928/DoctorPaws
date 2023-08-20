@@ -1,0 +1,176 @@
+/* Menu */
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    font-family: 'Borel', cursive;
+}
+
+header ul
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a
+{
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 6px 15px;
+    color:rgb(220, 0, 77);
+}
+
+header ul li a:hover,
+.active
+{
+    background:#fff;
+    color: #2b1055;
+}
+
+/* Fin de menu*/
+
+
+
+/* Estilo general del cuerpo y fondo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('Resources/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilos para el contenedor y formulario de login */
+.login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8); /* fondo blanco con transparencia */
+    margin: 50px;
+    border-radius: 15px;
+}
+
+.login-container h2 {
+    color: #2b1055;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 10px;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: rgb(220, 0, 77);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #cb3963;
+}
+
+/* Footer */
+.vet-footer {
+    background-color: #A1C7E0;
+    color: #026E81;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.85em; /* Reducción del tamaño del texto general */
+}
+
+.footer-content {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-media, .footer-links, .footer-contact {
+    flex: 1;
+    text-align: center;
+    padding: 0 10px; /* Padding lateral para evitar que los elementos se toquen en dispositivos pequeños */
+}
+
+.social-icon {
+    margin: 0 10px;  /* Reducido el margen lateral */
+    font-size: 20px; /* Reducido el tamaño de los íconos */
+}
+
+.footer-links a {
+    margin: 0 5px; /* Reducido el margen lateral */
+    color: #026E81;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    margin: 5px 0; /* Reducido el margen vertical */
+}
+
+.footer-bar {
+    margin-top: 10px;  /* Reducido el margen superior */
+    width: 100%;
+    background-color: #026E81;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0; /* Reducido el padding vertical */
+}
+/*Fin del Footer */
+
+
