@@ -82,7 +82,6 @@ section{
     position: absolute;
     object-position: center;
     object-fit: fill;
-    pointer-events:none;
 }
 
 /*

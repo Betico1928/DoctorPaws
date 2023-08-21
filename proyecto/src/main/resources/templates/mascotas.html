@@ -15,13 +15,12 @@
         </ul>
     </header>
 
-
+    
     <section id="lista">
-        
         <p class="tiMas">Tus mascotas</p>
         <ul th:each="mascota: ${usuario.mascotas}">
             <ul>
-                <li><img th:src="@{'/images/'+${mascota.imagen}+'.jpg'}" th:alt="@{'Foto de'+${mascota.nombre}}"></li>
+                <li><img th:src="@{'/Usuario/Imagen/'+${mascota.imagen}+'.jpg'}" th:alt="@{'Foto de'+${mascota.nombre}}"></li>
                 <li>
                     <table>
                         <td><span th:text="${mascota.nombre}"></span></td>
