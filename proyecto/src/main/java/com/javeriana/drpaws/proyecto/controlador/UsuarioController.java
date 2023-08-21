@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
-import com.javeriana.drpaws.proyecto.repositorio.UsuarioRepository;
+import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 
 @Controller
 @RequestMapping("/loginUsuario")
 public class UsuarioController {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioService usuarioService;
 
 
     // Maneja el GET para mostrar la página de login
@@ -32,10 +32,10 @@ public class UsuarioController {
     @PostMapping
     public String handleLogin(@RequestParam(name="userId") Integer userId, Model model)
     {
-        Usuario user = usuarioRepository.findById(userId);
+        Usuario user = usuarioService.searchById(userId);
 
         if(user != null) {
-            return "redirect:/dashboard-user";
+            return "redirect:/usuario/dash/"+userId;
         } else {
             model.addAttribute("error", true);
             return "login-user";  // Vuelve a mostrar la página de login con el mensaje de error.

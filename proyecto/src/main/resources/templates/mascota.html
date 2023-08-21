@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascota</title>
+    <link href="/Usuario/Mascota/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a th:href="@{'/usuario/dash/'+${usuario.id}}"  class="logo">DR.PAWS</a>
+        <ul>
+          <li><a th:href="@{'/usuario/dash/'+${usuario.id}}">Mis Mascotas</a></li>
+          <li><a href="#">Mi informacion</a></li>
+        </ul>
+    </header>
+
+    <section>
+        <div class = "parent">
+            <div class="left">
+                <p class="miTit">Mi mascota</p>
+                <img th:src="@{'/images/'+${mascota.imagen}+'.jpg'}" width="500px" height="340px" alt="'Imagen de perro">
+            </div>
+            <div class="right">
+                <div class = "info">
+                    <ul>
+                        <p class="TitInfo">Información</p>
+                        <li>Nombre: <span th:text="${mascota.nombre}"></span></li>
+                        <li>Raza: <span th:text="${mascota.raza}"></span></li>
+                        <li>Edad: <span th:text="${mascota.edad}"></span></li>
+                        <li>Peso: <span th:text="${mascota.peso}"></span></li>
+                    </ul>
+                </div>
+                <div class="Enfe">
+                    <p class="TitEnfe">Enfermedades</p>
+                    <ul>
+                        <li th:text="${mascota.enfermedad}"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
