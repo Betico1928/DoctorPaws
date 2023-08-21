@@ -120,10 +120,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #A1C7E0;  /* Agregar este color azulado como color de fondo base */
+    background-color: #6faec5;  /* Se mantiene este color azulado como color de fondo base */
     min-height: 100vh;
 }
-
 /* Fin de estilo general del cuerpo y fondo */
 
 
@@ -158,13 +157,15 @@ body {
     border: 2px solid #026E81;
     border-radius: 15px;
     padding: 20px;
-    transition: transform 0.2s;
     width: 22%;
     margin: 2% 1%;
+    transition: transform 0.3s ease;
 }
 
-.reason-card:hover {
-    transform: translateY(-10px);
+.reason-card:hover
+{
+    transform: scale(1.20);
+    z-index: 10;
 }
 
 .reason-card img {
@@ -174,6 +175,8 @@ body {
     object-fit: cover;
     margin: 0 auto;
     display: block;
+    transform: scale(1.20);
+    transition: transform 0.3s ease;
 }
 
 .reason-card h3 {
@@ -216,12 +219,15 @@ body {
 }
 
 .innovative-video {
-    flex: 0 0 40%;  /* Se define un tamaño fijo del 40% para el contenedor del video */
+    flex: 0 0 10%;  /* Se define un tamaño fijo del 40% para el contenedor del video */
     margin-right: 5%;  /* Usamos la mitad del espacio restante como margen a la derecha */
 }
 
 .innovative-description {
-    flex: 0 0 50%;  /* Se define un tamaño fijo del 50% para el contenedor de la descripción */
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.5;
+    color: #2b1055;
+    margin-bottom: 10px;
 }
 
 .innovative-description p {
