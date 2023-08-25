@@ -24,7 +24,6 @@ public class LoginController {
         return mav;
     }
 
-
     @PostMapping
     public String processLogin(Veterinario loginForm) {
         System.out.println("Email enviado desde el formulario: " + loginForm.getEmail());
@@ -44,4 +43,3 @@ public class LoginController {
     }
 
 }
-

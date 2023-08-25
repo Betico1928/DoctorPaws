@@ -7,8 +7,14 @@ import com.javeriana.drpaws.proyecto.entidad.Usuario;
 
 public interface UsuarioService {
     public Usuario searchById(int id);
-    
+
     public Mascota searchMascota(int uid, int id);
 
     public Collection<Mascota> searchMascotas(int uid);
+
+    public void deleteById(int id);
+
+    public void update(Usuario usuario);
+
+    public void add(Usuario usuario);
 }

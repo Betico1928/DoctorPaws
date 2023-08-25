@@ -15,15 +15,15 @@ public class UsuarioServiceImpl implements UsuarioService {
     UsuarioRepository repo;
 
     @Override
-    public Usuario searchById(int id){
+    public Usuario searchById(int id) {
         return repo.findById(id);
     }
 
     @Override
-    public Mascota searchMascota(int uid, int id){
+    public Mascota searchMascota(int uid, int id) {
         Usuario usuario = repo.findById(uid);
-        for(Mascota mascota  : usuario.getMascotas()){
-            if(mascota.getId() == id){
+        for (Mascota mascota : usuario.getMascotas()) {
+            if (mascota.getId() == id) {
                 return mascota;
             }
         }
@@ -31,8 +31,24 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Collection<Mascota> searchMascotas(int uid){
+    public Collection<Mascota> searchMascotas(int uid) {
         Usuario usuario = repo.findById(uid);
         return usuario.getMascotas();
+    }
+
+    @Override
+    public void deleteById(int id) {
+        repo.deleteById(id);
+    }
+
+    @Override
+    public void update(Usuario usuario) {
+        repo.updatebyId(usuario);
+    }
+
+    @Override
+    public void add(Usuario usuario) {
+        repo.add(usuario);
+
     }
 }

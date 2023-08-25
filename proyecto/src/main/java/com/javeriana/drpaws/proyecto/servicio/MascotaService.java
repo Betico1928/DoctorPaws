@@ -10,4 +10,10 @@ public interface MascotaService {
 
     public Collection<Mascota> searchAll();
 
+    public void deleteById(int id);
+
+    public void update(Mascota mascota);
+
+    public void add(Mascota mascota);
+
 }

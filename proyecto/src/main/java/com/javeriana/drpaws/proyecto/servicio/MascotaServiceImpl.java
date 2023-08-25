@@ -26,4 +26,21 @@ public class MascotaServiceImpl implements MascotaService {
 
     }
 
+    @Override
+    public void deleteById(int id) {
+        repo.deleteById(id);
+
+    }
+
+    @Override
+    public void update(Mascota mascota) {
+        repo.updatebyId(mascota);
+
+    }
+
+    @Override
+    public void add(Mascota mascota) {
+        repo.add(mascota);
+    }
+
 }
