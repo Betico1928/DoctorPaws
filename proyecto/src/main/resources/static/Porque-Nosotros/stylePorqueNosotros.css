@@ -1,0 +1,294 @@
+/* Diseño de la página general*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+
+/* Menu */
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    font-family: 'Borel', cursive;
+}
+/* Diseño de la página general*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Menu */
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    font-family: 'Borel', cursive;
+}
+
+header ul
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a{
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 6px 15px;
+    color:rgb(220, 0, 77);
+}
+
+header ul li a:hover,
+.active
+{
+    background:#fff;
+    color: #2b1055;
+}
+/* Fin de menu*/
+
+
+
+
+
+
+
+
+
+/* Estilo general del cuerpo y fondo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('Resources/background.png'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
+    background-size: cover, cover; /* La primera 'cover' corresponde a la imagen, la segunda al gradiente */
+    background-repeat: no-repeat, no-repeat; /* La primera 'no-repeat' corresponde a la imagen, la segunda al gradiente */
+    background-position: center center, center bottom; /* Posicionamos la imagen al centro y el gradiente abajo */
+    height: 100vh; /* Considera si este ajuste es apropiado dependiendo del contenido de tu página */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #6faec5;  /* Se mantiene este color azulado como color de fondo base */
+    min-height: 100vh;
+}
+/* Fin de estilo general del cuerpo y fondo */
+
+
+
+
+
+
+
+/* Sección "Por qué nosotros" */
+.reasons-section {
+    padding: 200px 100px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para que se vea el fondo */
+    flex: 1 0 auto;
+}
+
+.reasons-section h2 {
+    font-size: 2.5rem;
+    color: rgb(220, 0, 77);
+    margin-bottom: 50px;
+    font-family: 'Borel', cursive;
+}
+
+.reasons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around; /* Añadir espacio entre las tarjetas */
+}
+
+.reason-card {
+    border: 2px solid #026E81;
+    border-radius: 15px;
+    padding: 20px;
+    width: 22%;
+    margin: 2% 1%;
+    transition: transform 0.3s ease;
+}
+
+.reason-card:hover
+{
+    transform: scale(1.20);
+    z-index: 10;
+}
+
+.reason-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Hace la imagen circular */
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+    transform: scale(1.20);
+    transition: transform 0.3s ease;
+}
+
+.reason-card h3 {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #026E81;
+}
+
+.reason-card p {
+    margin-top: 10px;
+    color: #2b1055;
+    font-size: 0.9rem;
+}
+/* Fin de sección "Por qué nosotros" */
+
+
+
+
+
+/* Estilos para el contenedor innovador */
+.innovative-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 100px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.innovative-container h2 {
+    font-family: 'Borel', cursive;
+    color: rgb(220, 0, 77);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.innovative-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   /* Agregamos alineación centrada verticalmente */
+}
+
+.innovative-video {
+    flex: 0 0 10%;  /* Se define un tamaño fijo del 40% para el contenedor del video */
+    margin-right: 5%;  /* Usamos la mitad del espacio restante como margen a la derecha */
+}
+
+.innovative-description {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.5;
+    color: #2b1055;
+    margin-bottom: 10px;
+}
+
+.innovative-description p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #2b1055;
+    margin-bottom: 20px;
+}
+/* Fin de estilos para el contenedor innovador */
+
+
+
+
+
+
+
+/* Footer */
+.vet-footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background-color: #A1C7E0;
+    color: #026E81;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-media, .footer-links, .footer-contact {
+    flex: 1;
+    text-align: center;
+}
+
+.social-icon {
+    margin: 0 15px;
+    font-size: 24px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #026E81;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bar {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #026E81;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+/*Fin del Footer */

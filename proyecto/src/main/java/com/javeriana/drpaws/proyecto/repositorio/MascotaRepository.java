@@ -14,10 +14,10 @@ public class MascotaRepository {
     private Map<Integer, Mascota> mascotas = new HashMap<>();
 
     public MascotaRepository() {
-        mascotas.put(1, new Mascota("Luna", "Pitbull", 1, 20.5f, "Gastronomia"));
-        mascotas.put(2, new Mascota("Guaracha", "Golden", 5, 36.5f, "Goofines"));
-        mascotas.put(3, new Mascota("Jill", "Bull Terrier", 7, 30.5f, "Escoliosis Multiple"));
-        mascotas.put(4, new Mascota("Lola", "Chihuahua", 2, 6.5f, "Posesion Satanica"));
+        mascotas.put(1, new Mascota(1,"Luna", "Pitbull", 1, 20.5f, "Gastronomia","src\\main\\resources\\static\\images\\samoyed.jpg"));
+        mascotas.put(2, new Mascota(2,"Guaracha", "Golden", 5, 36.5f, "Goofines","src\\main\\resources\\static\\images\\samoyed.jpg"));
+        mascotas.put(3, new Mascota(3,"Jill", "Bull Terrier", 7, 30.5f, "Escoliosis Multiple","src\\main\\resources\\static\\images\\samoyed.jpg"));
+        mascotas.put(4, new Mascota(4,"Lola", "Chihuahua", 2, 6.5f, "Posesion Satanica","src\\main\\resources\\static\\images\\samoyed.jpg"));
 
     }
 

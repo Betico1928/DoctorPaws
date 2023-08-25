@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+    <link href="/Usuario/Mascotas/styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a th:href="@{'/usuario/dash/'+${usuario.id}}"  class="logo">DR.PAWS</a>
+        <ul>
+          <li><a th:href="@{'/usuario/dash/'+${usuario.id}}">Mis Mascotas</a></li>
+          <li><a href="#">Mi informacion</a></li>
+        </ul>
+    </header>
+
+    
+    <section id="lista">
+        <p class="tiMas">Tus mascotas</p>
+        <ul th:each="mascota: ${usuario.mascotas}">
+            <ul>
+                <li><img th:src="@{'/Usuario/Imagen/'+${mascota.imagen}+'.jpg'}" th:alt="@{'Foto de'+${mascota.nombre}}"></li>
+                <li>
+                    <table>
+                        <td><span th:text="${mascota.nombre}"></span></td>
+                        <td><a th:href="@{'/usuario/find/'+${usuario.id}+'/'+${mascota.id}}">Ver más</a></td>
+                    </table>
+                </li>
+            </ul>
+        </ul>
+    </section>
+</body>
+</html>

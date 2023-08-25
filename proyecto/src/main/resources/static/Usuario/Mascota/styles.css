@@ -1,0 +1,177 @@
+
+/*
+    Fondo de la página
+    Mascota
+*/
+body{
+    min-height: 100vh;
+    background:linear-gradient(to bottom, #B0E4F4, #D4F6FE);   
+    overflow-x: hidden; 
+    z-index: -10;
+}
+
+
+
+/*
+    Barra de navegación
+*/
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+  }
+  
+  header .logo
+  {
+    background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    font-family: 'Borel', cursive;
+  }
+  header ul
+{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li{
+  list-style: none;
+  margin-left: 20px;
+}
+
+header ul li a{
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 6px 15px;
+  color:rgb(220, 0, 77);
+}
+
+header ul li a:hover,
+.active
+{
+  background:#fff;
+  color: #2b1055;
+}
+/**/
+
+
+
+
+/*
+    Contenedor
+*/
+
+
+.parent{
+    margin-top:150px;
+    display: flex;
+    flex-direction: row;
+}
+
+/*
+    Fin del contendor
+*/
+
+/*
+    Inicio de diseño de la parte derecha
+*/
+
+.right{
+    width: 50%;
+    height: 100%;
+    padding: 20px 20px;
+    right:0;
+}
+
+
+.info{
+    background:#0098ded8;
+    border-radius: 30px;
+    padding-bottom: 20px;
+}
+
+.Enfe{
+    background:#0098ded8;
+    border-radius: 30px;
+    padding-bottom: 20px;
+}
+
+/*
+    Titulos para cada pedazo de información
+*/
+.TitInfo{
+    padding-top: 20px;
+    text-align: left;
+    font-size: 40px;
+}
+
+.TitEnfe{
+    padding-top: 20px;
+    padding-left:30px;
+    text-align: left;
+    font-size: 40px;
+}
+
+
+ul li{
+    color:#fff;
+    list-style-type: none;
+    font-weight: bold;
+    font-size:30px;
+}
+
+ul li span{
+    font-weight: 50;
+    font-size: 25px;
+}
+
+/*
+    Fin del diseño
+    de la parte derecha
+*/
+
+
+/*
+    Inicio del diseño
+    de la parte izquierda
+*/
+.left{
+    width: 50%;
+    height: 100%;
+    margin-right: 50px;
+    margin-left: 30px;
+    left:0;
+    display:flex;
+    justify-content: left;
+    flex-direction: column;
+    border-color: #e69419;
+}
+
+.left img{
+    border: 10px solid;
+    margin-left: 150px;
+    border-image-slice: 4;
+    border-image-source: linear-gradient(to right, #eba122,#e69419 ,#1f6cbf);
+    border-image-width: 20px;
+    border-radius: 30px;
+}
+
+.miTit{
+    text-align: center;
+    font-weight: bold;
+    font-size:40px;
+    padding-left: 100px;
+}
+
