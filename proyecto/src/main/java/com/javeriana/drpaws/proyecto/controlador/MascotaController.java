@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
-import com.javeriana.drpaws.proyecto.servicio.MascotaService;
+import com.javeriana.drpaws.proyecto.servicio.mascota.MascotaService;
 
 @Controller
 @RequestMapping("/mascota")
@@ -43,13 +43,13 @@ public class MascotaController {
     @PostMapping("/agregar")
     public String agregarMascota(Mascota mascota) {
         mascotaService.add(mascota);
-        return "redirect:";
+        return "redirect:/mascota/all";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteMascota(@PathVariable("id") int id) {
         mascotaService.deleteById(id);
-        return "redirect:";
+        return "redirect:/mascota/all";
 
     }
 
@@ -63,7 +63,7 @@ public class MascotaController {
     @PostMapping("/update/{id}")
     public String updateMascota(@PathVariable("id") int id, @ModelAttribute("mascota") Mascota mascota) {
         mascotaService.update(mascota);
-        return "redirect:";
+        return "redirect:/mascota/all";
     }
 
 }

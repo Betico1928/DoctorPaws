@@ -8,7 +8,6 @@ public class Usuario {
     private String especialidad;
     private String foto;
     private int noAtenciones;
-    private List<Mascota> mascotas;
 
     public Usuario() {
 
@@ -54,17 +53,12 @@ public class Usuario {
         this.noAtenciones = noAtenciones;
     }
 
-    public List<Mascota> getMascotas() {
-        return mascotas;
-    }
-
-    public void setMascotas(List<Mascota> mascotas) {
-        this.mascotas = mascotas;
-    }
-
-    public Usuario(int id, String contraseña, String especialidad, String foto, int noAtenciones,
-            List<Mascota> mascotas) {
-
+    public Usuario(int id, String contraseña, String especialidad, String foto, int noAtenciones) {
+        this.id = id;
+        this.contraseña = contraseña;
+        this.especialidad = especialidad;
+        this.foto = foto;
+        this.noAtenciones = noAtenciones;
     }
 
 }
