@@ -18,7 +18,7 @@ import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 
 @Controller
 @RequestMapping("/loginUsuario")
-public class UsuarioController {
+public class UsuarioLoginController {
 
     @Autowired
     private UsuarioService usuarioService;

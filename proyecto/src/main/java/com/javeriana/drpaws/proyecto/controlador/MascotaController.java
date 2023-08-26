@@ -10,30 +10,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
-import com.javeriana.drpaws.proyecto.entidad.Usuario;
 import com.javeriana.drpaws.proyecto.servicio.MascotaService;
-import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 
 @Controller
-@RequestMapping("/usuario")
+@RequestMapping("/mascota")
 public class MascotaController {
 
     @Autowired
-    UsuarioService usuarioService;
     MascotaService mascotaService;
 
-    @GetMapping("/dash/{id}")
+    @GetMapping("/all")
     public String getAllMascotas(Model model, @PathVariable("id") int id) {
-        Usuario usuario = usuarioService.searchById(id);
-        model.addAttribute("usuario", usuario);
+
+        model.addAttribute("mascotas", mascotaService.searchAll());
         return "mascotas";
 
     }
 
-    @GetMapping("/find/{uid}/{id}")
+    @GetMapping("/find/{id}")
     public String getMascotaById(Model model, @PathVariable("uid") int uid, @PathVariable("id") int id) {
-        model.addAttribute("mascota", usuarioService.searchMascota(uid, id));
-        model.addAttribute("usuario", usuarioService.searchById(uid));
+        model.addAttribute("mascota", mascotaService.searchById(id));
         return "mascota";
     }
 
