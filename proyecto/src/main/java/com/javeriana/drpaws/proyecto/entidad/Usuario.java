@@ -1,7 +1,5 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
-import java.util.List;
-
 public class Usuario {
     private int id;
     private String contraseña;

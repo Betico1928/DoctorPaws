@@ -2,10 +2,8 @@ package com.javeriana.drpaws.proyecto.repositorio;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import org.springframework.stereotype.Repository;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 
