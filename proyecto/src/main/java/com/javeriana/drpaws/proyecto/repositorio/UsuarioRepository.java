@@ -1,5 +1,6 @@
 package com.javeriana.drpaws.proyecto.repositorio;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,23 +17,15 @@ public class UsuarioRepository {
     public UsuarioRepository() {
 
         usuarios.put(1234,
-                new Usuario(1234, "contraseña1234", "Especialidad1", "foto1", 5,
-                        List.of(new Mascota(1, "Luna", "Pitbull", 1, 20.5f, "Gastritis", "samoyed"),
-                                new Mascota(2, "Guaracha", "Golden", 5, 36.5f, "Rabia", "pug"))));
+                new Usuario(1234, "contraseña1234", "Especialidad1", "foto1", 5));
 
-        usuarios.put(5678, new Usuario(5678, "contraseña5678", "Especialidad2", "foto2", 7,
-                List.of(new Mascota(1, "Guaracha", "Golden", 5, 36.5f, "Rabia", "samoyed"),
-                        new Mascota(2, "Jill", "Bull Terrier", 7, 30.5f, "Brucelosis", "pug"))));
+        usuarios.put(5678, new Usuario(5678, "contraseña5678", "Especialidad2", "foto2", 7));
 
         usuarios.put(9012,
-                new Usuario(9012, "contraseña9012", "Especialidad3", "foto3", 3,
-                        List.of(new Mascota(1, "Jill", "Bull Terrier", 7, 30.5f, "Brucelosis", "beagle"),
-                                new Mascota(2, "Lola", "Chihuahua", 2, 6.5f, "Rabia", "shiba"))));
+                new Usuario(9012, "contraseña9012", "Especialidad3", "foto3", 3));
 
         usuarios.put(3456,
-                new Usuario(3456, "contraseña3456", "Especialidad4", "foto4", 2,
-                        List.of(new Mascota(1, "Lola", "Chihuahua", 2, 6.5f, "Moquillo", "shiba"),
-                                new Mascota(2, "Guaracha", "Golden", 5, 36.5f, "Moquillo", "beagle"))));
+                new Usuario(3456, "contraseña3456", "Especialidad4", "foto4", 2));
 
     }
 
@@ -54,6 +47,10 @@ public class UsuarioRepository {
         usuario.setId(lastId + 1);
         usuarios.put(lastId + 1, usuario);
 
+    }
+
+    public Collection<Usuario> findAll() {
+        return usuarios.values();
     }
 
 }

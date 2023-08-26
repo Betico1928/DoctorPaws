@@ -20,23 +20,6 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Mascota searchMascota(int uid, int id) {
-        Usuario usuario = repo.findById(uid);
-        for (Mascota mascota : usuario.getMascotas()) {
-            if (mascota.getId() == id) {
-                return mascota;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public Collection<Mascota> searchMascotas(int uid) {
-        Usuario usuario = repo.findById(uid);
-        return usuario.getMascotas();
-    }
-
-    @Override
     public void deleteById(int id) {
         repo.deleteById(id);
     }
@@ -49,6 +32,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void add(Usuario usuario) {
         repo.add(usuario);
+
+    }
+
+    @Override
+    public Collection<Usuario> searchAll() {
+        return repo.findAll();
 
     }
 }
