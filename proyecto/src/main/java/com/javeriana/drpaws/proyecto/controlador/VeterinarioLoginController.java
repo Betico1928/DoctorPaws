@@ -12,7 +12,7 @@ import com.javeriana.drpaws.proyecto.repositorio.VeterinarioRepository;
 
 @Controller
 @RequestMapping("/loginVeterinario")
-public class LoginController {
+public class VeterinarioLoginController {
 
     @Autowired
     private VeterinarioRepository veterinarioRepository;
