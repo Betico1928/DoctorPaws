@@ -25,7 +25,7 @@ public class Mascota {
     private String elegirRandom(){
         ArrayList<String> razas = new ArrayList<>();
         razas.add("toby.jpg");
-        razas.add("toby.jpg");
+        razas.add("Sparky.jpg");
         razas.add("Lulu.png");
         razas.add("Bella.png");
 
