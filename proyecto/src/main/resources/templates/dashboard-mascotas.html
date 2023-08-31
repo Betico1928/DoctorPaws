@@ -56,10 +56,8 @@
             <tbody>
             <!-- Bucle para recorrer todas las mascotas y mostrarlas en la tabla -->
             <tr th:each="mascota : ${mascotas}">
-                <!-- Nombre de la mascota. Al hacer clic, redirige a la página de detalles de la mascota -->
-                <td>
-                    <a th:href="@{/mascota/find/{id}(id=${mascota.id})}" th:text="${mascota.nombre}"></a>
-                </td>
+                <!-- Nombre de la mascota. Ahora solo muestra información sin opción a clickear -->
+                <td th:text="${mascota.nombre}"></td>
 
                 <!-- Raza de la mascota -->
                 <td th:text="${mascota.raza}"></td>
@@ -70,8 +68,11 @@
                 <!-- Peso de la mascota -->
                 <td th:text="${mascota.peso}"></td>
 
-                <!-- Acciones disponibles: Modificar y Eliminar -->
+                <!-- Acciones disponibles: Ver, Modificar y Eliminar -->
                 <td>
+                    <!-- Botón para ver detalles de la mascota -->
+                    <a class="btn btn-primary" th:href="@{/mascota/find/{id}(id=${mascota.id})}">Ver Mascota</a>
+
                     <!-- Botón para modificar la mascota -->
                     <a class="btn btn-info" th:href="@{/mascota/actualizar/{id}(id=${mascota.id})}">Modificar</a>
 

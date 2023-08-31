@@ -30,7 +30,7 @@ public class MascotaController {
     @GetMapping("/find/{id}")
     public String getMascotaById(Model model, @PathVariable("id") int id) {
         model.addAttribute("mascota", mascotaService.searchById(id));
-        return "mascota";
+        return "ver-mascota";
     }
 
     @GetMapping("/add")
