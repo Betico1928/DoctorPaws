@@ -17,12 +17,11 @@ public class UsuarioRepository {
     private Map<Integer, Usuario> usuarios = new HashMap<>();
 
     public UsuarioRepository() {
-        usuarios.put(1,new Usuario(1,"Erick", "erick@gmail.com","544-545-4545","contraseña", new ArrayList<>(
-            List.of(1,2)),"download"));
+        usuarios.put(1,new Usuario(1,"Alejandro Sanz", "alejandro-sanz@gmail.com","+34 612-34-56-78","contraseña", new ArrayList<>(List.of(1,2)),"alejandro_sanz.jpg"));
                     usuarios.put(2,new Usuario(2,"Daniela", "daniela@gmail.com","333-455-5685","contraseña", new ArrayList<>(
-            List.of(2,3)),"download"));
+            List.of(2,3)),"alejandro_sanz.jpg"));
                     usuarios.put(3,new Usuario(3,"Santiago", "erick@gmail.com","234-344-2342","contraseña", new ArrayList<>(
-            List.of(4,1)),"perfil"));
+            List.of(4,1)),"alejandro_sanz.jpg"));
     }
 
     public Usuario findById(int id) {

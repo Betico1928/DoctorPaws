@@ -37,21 +37,38 @@
 
 
 <!-- Contenedor principal translúcido -->
-<div class="main-container">
+<div class="dashboard-container">
 
-    <!-- Contenedor de información del usuario -->
-    <div class="user-container">
-        <h1>Información de usuario</h1>
+    <!-- Sección de información del usuario -->
+    <!-- Sección de información del usuario -->
+    <div class="user-info">
         <div class="user-pic">
-            <img th:src="@{'/Usuario/Imagen/' + ${usuario.imagen} + '.jpg'}" alt="Imagen de usuario">
+            <img th:src="@{'/Imagenes/PerfilesUsuarios/' + ${usuario.imagen}}" alt="Imagen de usuario">
         </div>
-        <h3 th:text="${usuario.nombre}">Nombre del usuario</h3>
-        <h3 th:text="${usuario.celular}">Número del celular</h3>
-        <h2 th:text="${usuario.correo}">Correo electrónico</h2>
+
+        <div class="user-details">
+            <div class="detail">
+                <span>Nombre</span>
+                <h2 th:text="${usuario.nombre}">Nombre del usuario</h2>
+            </div>
+
+            <div class="detail">
+                <span>Correo Electrónico</span>
+                <h2 th:text="${usuario.correo}">Correo electrónico</h2>
+            </div>
+
+            <div class="detail">
+                <span>Teléfono</span>
+                <h2 th:text="${usuario.celular}">Número del celular</h2>
+            </div>
+        </div>
     </div>
 
-    <!-- Contenedor de información de las mascotas -->
-    <div class="pet-container">
+
+
+
+    <!-- Sección de información de las mascotas -->
+    <section class="pet-info">
         <h1>Mascotas</h1>
         <table class="pet-table">
             <thead>
@@ -71,9 +88,9 @@
             </tr>
             </tbody>
         </table>
-    </div>
+    </section>
 </div>
-<!-- Fin del contenedor principal translúcido -->
+
 
 
 

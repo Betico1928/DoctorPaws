@@ -100,51 +100,111 @@ body {
 
 
 
-
-
 /* Contenedor principal translúcido */
-.main-container {
-    background-color: rgba(255, 255, 255, 0.6);
-    width: 80%;
-    margin: 50px auto;
-    padding: 20px;
+.dashboard-container {
+    background-color: rgba(247, 247, 251, 0.85); /* F7F7FB con transparencia */
+    width: 100%;
+    height: calc(100vh - 110px);
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px 0;
+    border-top: 5px solid #03A3AC; /* Bordo superior con el color indicado */
+    border-bottom: 5px solid #03A3AC; /* Bordo inferior con el color indicado */
 }
 
-/* Contenedor de información del usuario (cubo rojo) */
-.user-container {
-    flex: 1;
-    background-color: rgba(255, 0, 0, 0.6);
-    margin-right: 20px;
+/* Estilo para la sección de información del usuario */
+.user-info {
+    display: flex;
+    align-items: center;
     padding: 20px;
-    border-radius: 10px;
+    background-color: #F4FEFE; /* Color de fondo del recuadro basado en la paleta proporcionada */
+    border-radius: 15px; /* Bordes redondeados del recuadro */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para darle profundidad */
+    margin: 20px 0; /* Espacio alrededor del recuadro */
 }
 
 .user-pic img {
-    width: 100%;
-    max-width: 150px;
-    display: block;
-    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 50px;
 }
 
-/* Contenedor de información de las mascotas (cubo azul) */
-.pet-container {
-    flex: 1;
-    background-color: rgba(0, 0, 255, 0.6);
-    padding: 20px;
+.user-info .detail span {
+    font-size: 28px;
+    font-weight: bold; 
+    margin-bottom: 5px;
+    display: block; /* Para que el elemento ocupe toodo el ancho disponible */
+    color: #03A3AC;
+}
+
+
+.user-details {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espacio entre los detalles */
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.detail span {
+    color: #03A3AC; /* Color para las etiquetas (Nombre, Correo Electrónico, Teléfono) */
+    font-weight: 600; /* Fuente más gruesa para destacar las etiquetas */
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el dato */
+}
+
+.user-details h2 {
+    background-color: #F7F7FB; /* Color de fondo basado en la paleta proporcionada */
+    padding: 8px 15px;
     border-radius: 10px;
+    font-size: 1.2em; /* Ajustamos el tamaño de fuente para los datos del usuario */
+}
+
+
+
+
+
+
+
+/* Estilo para la sección de información de las mascotas */
+.pet-info {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo ligeramente translúcido */
+    border: 2px solid #76CAB5; /* Borde colorido */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 20px;
+}
+
+.pet-info h1 {
+    color: #03A3AC;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .pet-table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+    margin-top: 20px;
 }
 
 .pet-table th, .pet-table td {
     padding: 8px 12px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #03A3AC; /* Borde de color */
+    color: #2b1055; /* Color oscuro para el texto */
+}
+
+/* Añadimos estilos para los encabezados de la tabla */
+.pet-table th {
+    background-color: #76CAB5; /* Usamos uno de los colores principales */
+    color: #FFF; /* Color blanco para el texto del encabezado */
 }
 
 
