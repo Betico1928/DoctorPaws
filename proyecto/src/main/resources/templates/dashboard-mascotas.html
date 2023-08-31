@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Dashboard-Mascotas/stylesDashboardMascotas.css">
+    <title>Dr. Paws - Información de mascotas</title>
+
+    <!-- Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+    <!-- Fin del Font  -->
+
+    <!-- Footer-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Fin del Footer-->
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="/"  class="logo">DR.PAWS</a>
+        <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/porqueNosotros">About</a></li>
+            <li><a href="/loginVeterinario">Login Administrativo</a></li>
+            <li><a href="/loginUsuario">Login Usuario</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <!-- Fin del Header -->
+
+    <div class="table-container">
+        <!-- Título de la página -->
+        <p class="titulo">
+            Mascotas de la veterinaria Dr. Paws
+        </p>
+
+        <!-- Inicio de la tabla que muestra las mascotas -->
+        <table class="table table-success table-striped center">
+            <thead>
+            <tr>
+                <!-- Encabezado de las columnas -->
+                <th scope="col">Nombre</th>
+                <th scope="col">Raza</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Peso</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Bucle para recorrer todas las mascotas y mostrarlas en la tabla -->
+            <tr th:each="mascota : ${mascotas}">
+                <!-- Nombre de la mascota. Al hacer clic, redirige a la página de detalles de la mascota -->
+                <td>
+                    <a th:href="@{/mascota/find/{id}(id=${mascota.id})}" th:text="${mascota.nombre}"></a>
+                </td>
+
+                <!-- Raza de la mascota -->
+                <td th:text="${mascota.raza}"></td>
+
+                <!-- Edad de la mascota -->
+                <td th:text="${mascota.edad}"></td>
+
+                <!-- Peso de la mascota -->
+                <td th:text="${mascota.peso}"></td>
+
+                <!-- Acciones disponibles: Modificar y Eliminar -->
+                <td>
+                    <!-- Botón para modificar la mascota -->
+                    <a class="btn btn-info" th:href="@{/mascota/actualizar/{id}(id=${mascota.id})}">Modificar</a>
+
+                    <!-- Botón para eliminar la mascota -->
+                    <a class="btn btn-danger" th:href="@{/mascota/delete/{id}(id=${mascota.id})}">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- Botón para agregar una nueva mascota -->
+        <a class="btn btn-info center" href="/mascota/add">Agregar</a>
+        <!-- Fin de la tabla que muestra las mascotas -->
+    </div>
+
+
+
+    <!-- Footer -->    <!-- Footer-->
+    <footer class="vet-footer">
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Inicio</a>
+                <a href="#">Servicios</a>
+                <a href="#">Contacto</a>
+                <a href="/porqueNosotros">About</a>
+                <a href="#">Testimonios</a>
+            </div>
+
+            <div class="footer-contact">
+                <p>Teléfono: (123) 456-7890</p>
+                <p>Email: woof-woof@veterinariadrpaws.com</p>
+            </div>
+        </div>
+        <div class="footer-bar">
+            <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- Fin del Footer-->
+</body>
+</html>

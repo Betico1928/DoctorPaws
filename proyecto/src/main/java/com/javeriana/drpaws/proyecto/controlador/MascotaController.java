@@ -23,7 +23,7 @@ public class MascotaController {
     public String getAllMascotas(Model model) {
 
         model.addAttribute("mascotas", mascotaService.searchAll());
-        return "mascotas";
+        return "dashboard-mascotas";
 
     }
 

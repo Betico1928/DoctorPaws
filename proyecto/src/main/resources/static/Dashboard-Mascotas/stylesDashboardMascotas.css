@@ -1,0 +1,250 @@
+/* Diseño de la página general*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Menu */
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    font-family: 'Borel', cursive;
+}
+
+header ul
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a{
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 6px 15px;
+    color:rgb(220, 0, 77);
+}
+
+header ul li a:hover,
+.active
+{
+    background:#fff;
+    color: #2b1055;
+}
+
+/* Fin de menu*/
+
+
+
+
+
+
+.table-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar hijos horizontalmente */
+    justify-content: center; /* Centrar hijos verticalmente */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con un 70% de opacidad */
+    margin: 100px auto 0 auto; /* Margen superior de 40px, centrado horizontalmente */
+    border-radius: 15px; /* bordes redondeados, puedes ajustar a tu gusto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Una ligera sombra para darle un efecto elevado */
+    overflow: hidden; /* Asegura que nada sobresalga del contenedor, incluido el borde redondeado */
+    max-width: 95%; /* Limita el ancho máximo para asegurar margen a los lados en vistas pequeñas */
+    padding: 10px;
+}
+
+/* Estilos para la tabla */
+.table {
+    width: 100%;  /* Asegurar que la tabla ocupe el ancho de su contenedor */
+    border-collapse: collapse;
+    font-size: 18px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.table thead {
+    border-bottom: 2px solid #026E81;  /* Color de tu paleta */
+}
+
+.table th, .table td {
+    padding: 15px 20px;
+}
+
+.table tr:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0; /* Añade una delgada línea entre las filas para separarlas visualmente */
+}
+
+/* Estilos para los botones dentro de la tabla */
+.btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-info {
+    background-color: #026E81;  /* Color de tu paleta */
+    color: #fff;
+}
+
+.btn-info:hover {
+    background-color: #014d5c;  /* Oscurecer un poco al hacer hover */
+}
+
+.btn-danger {
+    background-color: #cb3963;  /* Color de tu paleta */
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #a9264f;  /* Oscurecer un poco al hacer hover */
+}
+
+/* Estilos para el título de la página */
+.titulo {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 60px;  /* Espaciado en la parte superior */
+    color: #026E81;    /* Color de tu paleta */
+}
+
+/* Estilo para las filas de la tabla al pasar el mouse por encima */
+.table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Cambia el color a un gris muy suave */
+}
+/* Transición suave para las filas de la tabla */
+.table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+body::before {
+    content: "";
+    position: fixed;  /* Se asegura de que el cuadrado quede fijo y ocupe toda la pantalla */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6); /* Blanco con un 70% de opacidad */
+    z-index: -1;  /* Se asegura de que el cuadrado quede detrás de todo el contenido */
+}
+
+
+
+/* Estilo general del cuerpo y fondo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('Resources/background.jpg'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
+    background-size: cover, cover; /* La primera 'cover' corresponde a la imagen, la segunda al gradiente */
+    background-repeat: no-repeat, no-repeat; /* La primera 'no-repeat' corresponde a la imagen, la segunda al gradiente */
+    background-position: center center, center bottom; /* Posicionamos la imagen al centro y el gradiente abajo */
+    height: 100vh; /* Considera si este ajuste es apropiado dependiendo del contenido de tu página */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #6faec5;  /* Se mantiene este color azulado como color de fondo base */
+    min-height: 100vh;
+}
+/* Fin de estilo general del cuerpo y fondo */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+.vet-footer {
+    background-color: #A1C7E0;
+    color: #026E81;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-media, .footer-links, .footer-contact {
+    flex: 1;
+    text-align: center;
+}
+
+.social-icon {
+    margin: 0 15px;
+    font-size: 24px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #026E81;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bar {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #026E81;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+/*Fin del Footer */
