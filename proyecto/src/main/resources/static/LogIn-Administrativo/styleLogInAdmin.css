@@ -1,4 +1,26 @@
+/* Diseño de la página general*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Menu */
+
 header{
     position: absolute;
     top: 0;
@@ -36,8 +58,7 @@ header ul li{
     margin-left: 20px;
 }
 
-header ul li a
-{
+header ul li a{
     text-decoration: none;
     border-radius: 20px;
     padding: 6px 15px;
@@ -52,6 +73,10 @@ header ul li a:hover,
 }
 
 /* Fin de menu*/
+
+
+
+
 
 
 
@@ -129,7 +154,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 0.85em; /* Reducción del tamaño del texto general */
 }
 
 .footer-content {
@@ -141,16 +165,15 @@ button:hover {
 .social-media, .footer-links, .footer-contact {
     flex: 1;
     text-align: center;
-    padding: 0 10px; /* Padding lateral para evitar que los elementos se toquen en dispositivos pequeños */
 }
 
 .social-icon {
-    margin: 0 10px;  /* Reducido el margen lateral */
-    font-size: 20px; /* Reducido el tamaño de los íconos */
+    margin: 0 15px;
+    font-size: 24px;
 }
 
 .footer-links a {
-    margin: 0 5px; /* Reducido el margen lateral */
+    margin: 0 10px;
     color: #026E81;
     text-decoration: none;
 }
@@ -159,19 +182,21 @@ button:hover {
     text-decoration: underline;
 }
 
-.footer-contact p {
-    margin: 5px 0; /* Reducido el margen vertical */
-}
-
 .footer-bar {
-    margin-top: 10px;  /* Reducido el margen superior */
+    margin-top: 20px;
     width: 100%;
     background-color: #026E81;
     color: #fff;
     text-align: center;
-    padding: 5px 0; /* Reducido el padding vertical */
+    padding: 10px 0;
 }
 /*Fin del Footer */
+
+
+
+
+
+
 
 /* Estilos para el mensaje de error */
 #error-box {
