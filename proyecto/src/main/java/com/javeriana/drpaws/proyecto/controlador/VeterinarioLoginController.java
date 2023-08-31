@@ -25,18 +25,21 @@ public class VeterinarioLoginController {
     }
 
     @PostMapping
-    public String processLogin(Veterinario loginForm) {
+    public String processLogin(Veterinario loginForm)
+    {
         System.out.println("Email enviado desde el formulario: " + loginForm.getEmail());
         System.out.println("Contraseña enviada desde el formulario: " + loginForm.getPassword());
 
         Veterinario existente = veterinarioRepository.findByEmail(loginForm.getEmail());
 
-        if (existente != null) {
+        if (existente != null)
+        {
             System.out.println("Email en el repositorio: " + existente.getEmail());
             System.out.println("Contraseña en el repositorio: " + existente.getPassword());
 
-            if (existente.getPassword().equals(loginForm.getPassword())) {
-                return "redirect:/Ayuda_saquenme_de_aqui";
+            if (existente.getPassword().equals(loginForm.getPassword()))
+            {
+                return "redirect:/mascota/all";
             }
         }
         return "redirect:/loginVeterinario?error=true";
