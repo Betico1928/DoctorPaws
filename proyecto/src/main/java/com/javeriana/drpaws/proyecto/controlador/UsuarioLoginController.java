@@ -30,7 +30,8 @@ public class UsuarioLoginController {
     public String handleLogin(@RequestParam(name = "userId") Integer userId, Model model) {
         Usuario user = usuarioService.searchById(userId);
 
-        if (user != null) {
+        if (user != null)
+        {
             return "redirect:/usuario/find/" + userId;
         } else {
             model.addAttribute("error", true);

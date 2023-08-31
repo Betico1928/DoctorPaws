@@ -24,53 +24,70 @@ public class UsuarioController {
     private MascotaService mascotaService;
 
     @GetMapping("/all")
-    public String getAllUsuarios(Model model) {
+    public String getAllUsuarios(Model model)
+    {
         model.addAttribute("usuarios", usuarioService.searchAll());
         return "usuarios";
     }
 
     @GetMapping("/find/{id}")
-    public String getUsuario(@PathVariable("id") int id, Model model) {
+    public String getUsuario(@PathVariable("id") int id, Model model)
+    {
         Usuario usuario = usuarioService.searchById(id);
-        if(usuario != null){
+
+        if(usuario != null)
+        {
         model.addAttribute("mascotas",usuarioService.findMascotas(mascotaService.searchAll(), id));
         model.addAttribute("usuario", usuario);
+
         return "usuario";
         }
-        else{
+
+        else
+        {
             throw new NotFoundException(id);
         }
     }
 
     @GetMapping("/add")
-    public String formularioCrear(Model model) {
+    public String formularioCrear(Model model)
+    {
         Usuario usuario = new Usuario(0,"","","","", null,"");
         model.addAttribute("usuario", usuario);
+
         return "add-usuario";
     }
 
     @PostMapping("/agregar")
-    public String agregarUsuario(Usuario usuario) {
+    public String agregarUsuario(Usuario usuario)
+    {
         usuarioService.add(usuario);
+
         return "redirect:/usuario/all";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUsuario(@PathVariable("id") int id) {
+    public String deleteUsuario(@PathVariable("id") int id)
+    {
         usuarioService.deleteById(id);
+
         return "redirect:/usuario/all";
     }
 
     @GetMapping("/update/{id}")
-    public String updateUsuario(@PathVariable("id") int id, Model model) {
+    public String updateUsuario(@PathVariable("id") int id, Model model)
+    {
         Usuario usuario = usuarioService.searchById(id);
         model.addAttribute("usuario", usuario);
+
         return "update-usuario";
     }
 
     @PostMapping("/update/{id}")
-    public String updateUsuario(@PathVariable("id") int id, @ModelAttribute("usuario") Usuario usuario) {
+    public String updateUsuario(@PathVariable("id") int id, @ModelAttribute("usuario") Usuario usuario)
+    {
         usuarioService.update(usuario);
+
         return "redirect:/usuario/all";
     }
 
