@@ -135,7 +135,7 @@ body {
 
 .user-info .detail span {
     font-size: 28px;
-    font-weight: bold; 
+    font-weight: bold;
     margin-bottom: 5px;
     display: block; /* Para que el elemento ocupe toodo el ancho disponible */
     color: #03A3AC;
@@ -206,6 +206,18 @@ body {
     background-color: #76CAB5; /* Usamos uno de los colores principales */
     color: #FFF; /* Color blanco para el texto del encabezado */
 }
+
+/* Añade estilos para las filas de la tabla cuando el mouse pasa por encima */
+.pet-table tbody tr:hover {
+    background-color: rgba(100, 210, 180, 0.15); /* Un tono verdoso ligeramente opaco para un cambio sutil */
+}
+
+/* Suaviza la transición del cambio de color */
+.pet-table tbody tr {
+    transition: background-color 0.3s ease-in-out; /* Transición suave */
+}
+
+
 
 
 
