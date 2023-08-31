@@ -1,0 +1,203 @@
+/* Diseño de la página general*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+
+/* Menu */
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    font-family: 'Borel', cursive;
+}
+
+header ul
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a{
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 6px 15px;
+    color:rgb(220, 0, 77);
+}
+
+header ul li a:hover,
+.active
+{
+    background:#fff;
+    color: #2b1055;
+}
+
+/* Fin de menu*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo general del cuerpo y fondo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('Resources/background.jpg'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
+    background-size: cover, cover; /* La primera 'cover' corresponde a la imagen, la segunda al gradiente */
+    background-repeat: no-repeat, no-repeat; /* La primera 'no-repeat' corresponde a la imagen, la segunda al gradiente */
+    background-position: center center, center bottom; /* Posicionamos la imagen al centro y el gradiente abajo */
+    height: 100vh; /* Considera si este ajuste es apropiado dependiendo del contenido de tu página */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #6faec5;  /* Se mantiene este color azulado como color de fondo base */
+    min-height: 100vh;
+}
+/* Fin de estilo general del cuerpo y fondo */
+
+
+
+
+
+
+
+/* Contenedor principal translúcido */
+.main-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Contenedor de información del usuario (cubo rojo) */
+.user-container {
+    flex: 1;
+    background-color: rgba(255, 0, 0, 0.6);
+    margin-right: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.user-pic img {
+    width: 100%;
+    max-width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Contenedor de información de las mascotas (cubo azul) */
+.pet-container {
+    flex: 1;
+    background-color: rgba(0, 0, 255, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.pet-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.pet-table th, .pet-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+.vet-footer {
+    background-color: #A1C7E0;
+    color: #026E81;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-media, .footer-links, .footer-contact {
+    flex: 1;
+    text-align: center;
+}
+
+.social-icon {
+    margin: 0 15px;
+    font-size: 24px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #026E81;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bar {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #026E81;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+/*Fin del Footer */

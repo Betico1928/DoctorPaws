@@ -34,11 +34,15 @@ public class UsuarioController {
     public String getUsuario(@PathVariable("id") int id, Model model)
     {
         Usuario usuario = usuarioService.searchById(id);
-        if (usuario != null) {
+        if (usuario != null)
+        {
             model.addAttribute("mascotas", usuarioService.findMascotas(mascotaService.searchAll(), id));
             model.addAttribute("usuario", usuario);
-            return "usuario";
-        } else {
+
+            return "dashboard-usuario";
+        }
+        else
+        {
             throw new NotFoundException(id);
         }
     }

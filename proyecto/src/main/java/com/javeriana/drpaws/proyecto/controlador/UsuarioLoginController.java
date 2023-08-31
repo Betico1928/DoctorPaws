@@ -33,7 +33,9 @@ public class UsuarioLoginController {
         if (user != null)
         {
             return "redirect:/usuario/find/" + userId;
-        } else {
+        }
+        else
+        {
             model.addAttribute("error", true);
             return "login-user"; // Vuelve a mostrar la página de login con el mensaje de error.
         }
