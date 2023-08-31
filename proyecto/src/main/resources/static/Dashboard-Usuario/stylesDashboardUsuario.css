@@ -217,6 +217,31 @@ body {
     transition: background-color 0.3s ease-in-out; /* Transición suave */
 }
 
+.pet-table td:last-child {
+    text-align: center;
+}
+
+.pet-table td:last-child {
+    padding: 8px 20px;
+}
+
+
+.view-pet-btn {
+    background-color: #76CAB5;
+    color: #FFF;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    display: block;
+    text-align: center; /* Centra el texto del botón */
+}
+
+
+.view-pet-btn:hover {
+    background-color: #03A3AC; /* Color secundario al pasar el cursor */
+}
+
 
 
 

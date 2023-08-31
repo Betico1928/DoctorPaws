@@ -77,6 +77,7 @@
                 <th scope="col">Raza</th>
                 <th scope="col">Edad</th>
                 <th scope="col">Peso</th>
+                <th scope="col" style="width: 200px;"></th>
             </tr>
             </thead>
             <tbody>
@@ -85,8 +86,13 @@
                 <td th:text="${mascota.raza}">Raza de la mascota</td>
                 <td th:text="${mascota.edad}">Edad de la mascota</td>
                 <td th:text="${mascota.peso}">Peso de la mascota</td>
+                <!-- Columna para el botón -->
+                <td>
+                    <a th:href="@{/mascota/find/{id}(id=${mascota.id})}" class="view-pet-btn">Ver Mascota</a>
+                </td>
             </tr>
             </tbody>
+
         </table>
     </section>
 </div>
