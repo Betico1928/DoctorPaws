@@ -1,4 +1,4 @@
-package com.javeriana.drpaws.proyecto.servicio.Mascota;
+package com.javeriana.drpaws.proyecto.servicio.mascota;
 
 import java.util.Collection;
 

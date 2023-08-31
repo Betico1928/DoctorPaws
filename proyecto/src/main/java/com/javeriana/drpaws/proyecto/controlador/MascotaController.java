@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
-import com.javeriana.drpaws.proyecto.servicio.Mascota.MascotaService;
+import com.javeriana.drpaws.proyecto.servicio.mascota.MascotaService;
 
 @Controller
 @RequestMapping("/mascota")
