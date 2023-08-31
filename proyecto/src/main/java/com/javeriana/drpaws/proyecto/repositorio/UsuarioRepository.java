@@ -1,10 +1,14 @@
 package com.javeriana.drpaws.proyecto.repositorio;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
+
+import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 
 @Repository
@@ -13,18 +17,12 @@ public class UsuarioRepository {
     private Map<Integer, Usuario> usuarios = new HashMap<>();
 
     public UsuarioRepository() {
-
-        usuarios.put(1234,
-                new Usuario(1234, "contraseña1234", "Especialidad1", "foto1", 5));
-
-        usuarios.put(5678, new Usuario(5678, "contraseña5678", "Especialidad2", "foto2", 7));
-
-        usuarios.put(9012,
-                new Usuario(9012, "contraseña9012", "Especialidad3", "foto3", 3));
-
-        usuarios.put(3456,
-                new Usuario(3456, "contraseña3456", "Especialidad4", "foto4", 2));
-
+        usuarios.put(1,new Usuario(1,"Erick", "erick@gmail.com","544-545-4545","contraseña", new ArrayList<>(
+            List.of(1,2)),"download"));
+                    usuarios.put(2,new Usuario(2,"Daniela", "daniela@gmail.com","333-455-5685","contraseña", new ArrayList<>(
+            List.of(2,3)),"download"));
+                    usuarios.put(3,new Usuario(3,"Santiago", "erick@gmail.com","234-344-2342","contraseña", new ArrayList<>(
+            List.of(4,1)),"perfil"));
     }
 
     public Usuario findById(int id) {
@@ -49,6 +47,18 @@ public class UsuarioRepository {
 
     public Collection<Usuario> findAll() {
         return usuarios.values();
+    }
+
+    public Collection<Mascota> findMascotas(Collection<Mascota> mascotas, Integer uid){
+       Usuario usuario = usuarios.get(uid);
+       ArrayList<Mascota> myPets = new ArrayList<>();
+       for(Mascota mascota : mascotas){
+        if(usuario.getMascotas().contains(mascota.getId())){
+            myPets.add(mascota);
+        }
+       }
+
+       return myPets;
     }
 
 }

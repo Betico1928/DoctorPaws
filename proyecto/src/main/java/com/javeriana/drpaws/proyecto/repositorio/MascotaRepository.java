@@ -15,14 +15,13 @@ public class MascotaRepository {
 
     public MascotaRepository() {
         mascotas.put(1, new Mascota(1, "Luna", "Pitbull", 1, 20.5f, "Gastronomia",
-                "src\\main\\resources\\static\\images\\samoyed.jpg"));
+                "samoyed"));
         mascotas.put(2, new Mascota(2, "Guaracha", "Golden", 5, 36.5f, "Goofines",
-                "src\\main\\resources\\static\\images\\samoyed.jpg"));
+                "beagle"));
         mascotas.put(3, new Mascota(3, "Jill", "Bull Terrier", 7, 30.5f, "Escoliosis Multiple",
-                "src\\main\\resources\\static\\images\\samoyed.jpg"));
+                "pug"));
         mascotas.put(4, new Mascota(4, "Lola", "Chihuahua", 2, 6.5f, "Posesion Satanica",
-                "src\\main\\resources\\static\\images\\samoyed.jpg"));
-
+                "shiba"));
     }
 
     public Mascota findById(int id) {

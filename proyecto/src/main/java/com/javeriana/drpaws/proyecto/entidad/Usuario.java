@@ -1,62 +1,78 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
+import java.util.ArrayList;
+
 public class Usuario {
-    private int id;
+    private Integer id;
+    private String nombre;
+    private String correo;
+    private String celular;
     private String contraseña;
-    private String especialidad;
-    private String foto;
-    private int noAtenciones;
+    private String imagen;
+    private ArrayList<Integer> mascotas;
 
-    public Usuario() {
-
+    public Usuario(Integer id, String nombre, String correo, String celular, String contraseña, ArrayList<Integer> mascotas, String imagen) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.celular = celular;
+        this.contraseña = contraseña;
+        this.mascotas = mascotas;
+        this.imagen = imagen;
     }
 
-    public int getId() {
+    public Usuario(){
+    }
+
+    public Integer getId() {
         return id;
     }
-
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getCorreo() {
+        return correo;
+    }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    public String getCelular() {
+        return celular;
+    }
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
     public String getContraseña() {
         return contraseña;
     }
-
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
+    public ArrayList<Integer> getMascotas() {
+        return mascotas;
     }
 
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
+    public void setMascotas(ArrayList<Integer> mascotas) {
+        this.mascotas = mascotas;
     }
 
-    public String getFoto() {
-        return foto;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
-    public int getNoAtenciones() {
-        return noAtenciones;
-    }
 
-    public void setNoAtenciones(int noAtenciones) {
-        this.noAtenciones = noAtenciones;
-    }
 
-    public Usuario(int id, String contraseña, String especialidad, String foto, int noAtenciones) {
-        this.id = id;
-        this.contraseña = contraseña;
-        this.especialidad = especialidad;
-        this.foto = foto;
-        this.noAtenciones = noAtenciones;
-    }
+   
 
 }

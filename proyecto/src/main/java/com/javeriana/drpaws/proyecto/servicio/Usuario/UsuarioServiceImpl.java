@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 import com.javeriana.drpaws.proyecto.repositorio.UsuarioRepository;
 
@@ -39,4 +40,10 @@ public class UsuarioServiceImpl implements UsuarioService {
         return repo.findAll();
 
     }
+
+    @Override
+    public Collection<Mascota> findMascotas(Collection<Mascota> mascotas, Integer uid) {
+        return repo.findMascotas(mascotas, uid);
+    }
+
 }

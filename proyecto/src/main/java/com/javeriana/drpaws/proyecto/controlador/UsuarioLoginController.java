@@ -31,7 +31,7 @@ public class UsuarioLoginController {
         Usuario user = usuarioService.searchById(userId);
 
         if (user != null) {
-            return "redirect:/usuario/dash/" + userId;
+            return "redirect:/usuario/find/" + userId;
         } else {
             model.addAttribute("error", true);
             return "login-user"; // Vuelve a mostrar la página de login con el mensaje de error.

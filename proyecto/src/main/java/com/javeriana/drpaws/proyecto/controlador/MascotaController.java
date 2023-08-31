@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
-import com.javeriana.drpaws.proyecto.servicio.mascota.MascotaService;
+import com.javeriana.drpaws.proyecto.servicio.Mascota.MascotaService;
 
 @Controller
 @RequestMapping("/mascota")
@@ -20,7 +20,7 @@ public class MascotaController {
     MascotaService mascotaService;
 
     @GetMapping("/all")
-    public String getAllMascotas(Model model, @PathVariable("id") int id) {
+    public String getAllMascotas(Model model) {
 
         model.addAttribute("mascotas", mascotaService.searchAll());
         return "mascotas";
@@ -28,7 +28,7 @@ public class MascotaController {
     }
 
     @GetMapping("/find/{id}")
-    public String getMascotaById(Model model, @PathVariable("uid") int uid, @PathVariable("id") int id) {
+    public String getMascotaById(Model model, @PathVariable("id") int id) {
         model.addAttribute("mascota", mascotaService.searchById(id));
         return "mascota";
     }
@@ -53,7 +53,7 @@ public class MascotaController {
 
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/actualizar/{id}")
     public String updateMascota(@PathVariable("id") int id, Model model) {
         Mascota mascota = mascotaService.searchById(id);
         model.addAttribute("mascota", mascota);

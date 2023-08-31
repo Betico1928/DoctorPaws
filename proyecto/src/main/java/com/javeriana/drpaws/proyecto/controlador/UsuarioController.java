@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
+import com.javeriana.drpaws.proyecto.servicio.Mascota.MascotaService;
 import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 
 @Controller
@@ -19,6 +20,9 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private MascotaService mascotaService;
+
     @GetMapping("/all")
     public String getAllUsuarios(Model model) {
         model.addAttribute("usuarios", usuarioService.searchAll());
@@ -27,13 +31,20 @@ public class UsuarioController {
 
     @GetMapping("/find/{id}")
     public String getUsuario(@PathVariable("id") int id, Model model) {
-        model.addAttribute("usuario", usuarioService.searchById(id));
+        Usuario usuario = usuarioService.searchById(id);
+        if(usuario != null){
+        model.addAttribute("mascotas",usuarioService.findMascotas(mascotaService.searchAll(), id));
+        model.addAttribute("usuario", usuario);
         return "usuario";
+        }
+        else{
+            throw new NotFoundException(id);
+        }
     }
 
     @GetMapping("/add")
     public String formularioCrear(Model model) {
-        Usuario usuario = new Usuario(0, "", "", "", 0);
+        Usuario usuario = new Usuario(0,"","","","", null,"");
         model.addAttribute("usuario", usuario);
         return "add-usuario";
     }

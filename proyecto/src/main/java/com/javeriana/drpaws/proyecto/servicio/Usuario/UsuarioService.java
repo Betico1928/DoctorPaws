@@ -2,6 +2,7 @@ package com.javeriana.drpaws.proyecto.servicio.Usuario;
 
 import java.util.Collection;
 
+import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 
 public interface UsuarioService {
@@ -14,4 +15,6 @@ public interface UsuarioService {
     public void update(Usuario usuario);
 
     public void add(Usuario usuario);
+
+    public Collection<Mascota> findMascotas(Collection<Mascota> mascotas, Integer uid);
 }
