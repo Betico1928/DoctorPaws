@@ -1,0 +1,215 @@
+/* Diseño de la página general*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+
+/* Menu */
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    font-family: 'Borel', cursive;
+}
+
+header ul
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a{
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 6px 15px;
+    color:rgb(220, 0, 77);
+}
+
+header ul li a:hover,
+.active
+{
+    background:#fff;
+    color: #2b1055;
+}
+
+/* Fin de menu*/
+
+
+/* Estilo general del cuerpo y fondo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('Resources/background.jpg'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
+    background-size: cover, cover; /* La primera 'cover' corresponde a la imagen, la segunda al gradiente */
+    background-repeat: no-repeat, no-repeat; /* La primera 'no-repeat' corresponde a la imagen, la segunda al gradiente */
+    background-position: center center, center bottom; /* Posicionamos la imagen al centro y el gradiente abajo */
+    height: 100vh; /* Considera si este ajuste es apropiado dependiendo del contenido de tu página */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #6faec5;  /* Se mantiene este color azulado como color de fondo base */
+    min-height: 100vh;
+}
+/* Fin de estilo general del cuerpo y fondo */
+
+
+
+
+
+
+.mascota-section, .enfermedades-section
+{
+
+    padding: 50px 100px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    margin: 100px auto;
+    max-width: 1100px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mascota-container {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mascota-image img {
+    width: 250px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.mascota-info {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.mascota-info th, .mascota-info td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.mascota-info th {
+    background-color: #f2f2f2;
+    color: #2b1055;
+}
+
+.enfermedades-section {
+    margin-top: 10px; /* menor margen entre las secciones */
+    padding: 20px 100px;
+    width: 70%; /* Ocupa el 70% del ancho horizontal de la página */
+    margin-left: auto; /* Centra el recuadro en la página */
+    margin-right: auto;
+}
+
+.enfermedades-section h3 {
+    color: #2b1055;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.mascota-enfermedades li {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+.enfermedades-section ul {
+    list-style-type: none; /* Elimina el bullet point */
+    padding-left: 0; /* Elimina el padding izquierdo que suele acompañar a las listas */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+.vet-footer {
+    background-color: #A1C7E0;
+    color: #026E81;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-media, .footer-links, .footer-contact {
+    flex: 1;
+    text-align: center;
+}
+
+.social-icon {
+    margin: 0 15px;
+    font-size: 24px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #026E81;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bar {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #026E81;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+/*Fin del Footer */
