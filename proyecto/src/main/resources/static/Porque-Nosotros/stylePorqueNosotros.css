@@ -13,40 +13,7 @@
 
 
 /* Menu */
-header{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10000;
-}
 
-header .logo
-{
-    background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 2em;
-    text-transform:uppercase;
-    letter-spacing: 2px;
-    font-family: 'Borel', cursive;
-}
-/* Diseño de la página general*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-}
-
-/* Menu */
 header{
     position: absolute;
     top: 0;
@@ -97,6 +64,7 @@ header ul li a:hover,
     background:#fff;
     color: #2b1055;
 }
+
 /* Fin de menu*/
 
 
@@ -246,9 +214,6 @@ body {
 
 /* Footer */
 .vet-footer {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
     background-color: #A1C7E0;
     color: #026E81;
     padding: 20px 0;
