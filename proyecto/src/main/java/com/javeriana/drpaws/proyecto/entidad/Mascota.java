@@ -24,10 +24,10 @@ public class Mascota {
 
     private String elegirRandom(){
         ArrayList<String> razas = new ArrayList<>();
-        razas.add("beagle");
-        razas.add("pug");
-        razas.add("shiba");
-        razas.add("samoyed");
+        razas.add("toby.jpg");
+        razas.add("toby.jpg");
+        razas.add("Lulu.png");
+        razas.add("Bella.png");
 
         int min = 0; // Minimum value of range
         int max = razas.size()-1; // Maximum value of range
