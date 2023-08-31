@@ -246,7 +246,6 @@ body {
 
 /* Footer */
 .vet-footer {
-    position: sticky;
     bottom: 0;
     width: 100%;
     background-color: #A1C7E0;
