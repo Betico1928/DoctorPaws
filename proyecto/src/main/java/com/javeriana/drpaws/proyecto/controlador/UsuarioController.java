@@ -31,7 +31,7 @@ public class UsuarioController {
 
     // http://localhost:8080/usuario/find/1
     @GetMapping("/find/{id}")
-    public String getUsuario(@PathVariable("id") int id, Model model) {
+    public String getUsuario(@PathVariable("id") Long id, Model model) {
         Usuario usuario = usuarioService.searchById(id);
         if (usuario != null) {
             model.addAttribute("mascotas", usuarioService.getMascotasByUsuarioID(id));
@@ -59,14 +59,14 @@ public class UsuarioController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUsuario(@PathVariable("id") int id) {
+    public String deleteUsuario(@PathVariable("id") Long id) {
         usuarioService.deleteById(id);
 
         return "redirect:/usuario/all";
     }
 
     @GetMapping("/update/{id}")
-    public String updateUsuario(@PathVariable("id") int id, Model model) {
+    public String updateUsuario(@PathVariable("id") Long id, Model model) {
         Usuario usuario = usuarioService.searchById(id);
         model.addAttribute("usuario", usuario);
 
@@ -74,7 +74,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateUsuario(@PathVariable("id") int id, @ModelAttribute("usuario") Usuario usuario) {
+    public String updateUsuario(@PathVariable("id") Long id, @ModelAttribute("usuario") Usuario usuario) {
         usuarioService.update(usuario);
 
         return "redirect:/usuario/all";

@@ -13,7 +13,7 @@ import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
-    List<Mascota> findMascotasById(Integer id);
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+    List<Mascota> findMascotasById(Long Long);
 
 }

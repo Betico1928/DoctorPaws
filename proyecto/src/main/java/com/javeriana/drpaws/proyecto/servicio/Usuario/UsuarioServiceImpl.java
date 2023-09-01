@@ -1,6 +1,7 @@
 package com.javeriana.drpaws.proyecto.servicio.Usuario;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +16,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     UsuarioRepository repo;
 
     @Override
-    public Usuario searchById(int id) {
+    public Usuario searchById(Long id) {
         return repo.findById(id).get();
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         repo.deleteById(id);
     }
 
@@ -42,7 +43,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Collection<Mascota> getMascotasByUsuarioID(Integer id) {
+    public List<Mascota> getMascotasByUsuarioID(Long id) {
         return repo.findMascotasById(id);
     }
 

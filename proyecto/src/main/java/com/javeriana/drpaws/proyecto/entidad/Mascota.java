@@ -22,6 +22,9 @@ public class Mascota {
     @GeneratedValue
     private Long id;
 
+    @ManyToOne
+    private Usuario usuario;
+
     public Mascota(String nombre, String raza, int edad, float peso, String enfermedad, String imagen) {
 
         this.nombre = nombre;
@@ -29,22 +32,10 @@ public class Mascota {
         this.edad = edad;
         this.peso = peso;
         this.enfermedad = enfermedad;
-        this.imagen = elegirRandom();
+        this.imagen = imagen;
     }
 
-    private String elegirRandom() {
-        ArrayList<String> razas = new ArrayList<>();
-        razas.add("toby.jpg");
-        razas.add("Sparky.jpg");
-        razas.add("Lulu.png");
-        razas.add("Bella.png");
-
-        int min = 0; // Minimum value of range
-        int max = razas.size() - 1; // Maximum value of range
-
-        int random_int = (int) Math.floor(Math.random() * (max - min + 1) + min);
-
-        return razas.get(random_int);
+    public Mascota() {
     }
 
     public String getNombre() {
