@@ -30,6 +30,7 @@ public class UsuarioController {
         return "usuarios";
     }
 
+    //http://localhost:8080/usuario/find/1
     @GetMapping("/find/{id}")
     public String getUsuario(@PathVariable("id") int id, Model model)
     {
