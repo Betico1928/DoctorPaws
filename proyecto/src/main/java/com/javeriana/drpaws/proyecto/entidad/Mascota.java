@@ -2,8 +2,14 @@ package com.javeriana.drpaws.proyecto.entidad;
 
 import java.util.ArrayList;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class Mascota {
-    private Integer id;
+
     private String nombre;
     private String raza;
     private int edad;
@@ -11,8 +17,13 @@ public class Mascota {
     private String enfermedad;
     private String imagen;
 
-    public Mascota(Integer id, String nombre, String raza, int edad, float peso, String enfermedad, String imagen) {
-        this.id = id;
+    // nuevo
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    public Mascota(String nombre, String raza, int edad, float peso, String enfermedad, String imagen) {
+
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
@@ -21,8 +32,7 @@ public class Mascota {
         this.imagen = elegirRandom();
     }
 
-
-    private String elegirRandom(){
+    private String elegirRandom() {
         ArrayList<String> razas = new ArrayList<>();
         razas.add("toby.jpg");
         razas.add("Sparky.jpg");
@@ -30,9 +40,9 @@ public class Mascota {
         razas.add("Bella.png");
 
         int min = 0; // Minimum value of range
-        int max = razas.size()-1; // Maximum value of range
+        int max = razas.size() - 1; // Maximum value of range
 
-        int random_int = (int)Math.floor(Math.random() * (max - min + 1) + min);
+        int random_int = (int) Math.floor(Math.random() * (max - min + 1) + min);
 
         return razas.get(random_int);
     }
@@ -75,14 +85,6 @@ public class Mascota {
 
     public void setEnfermedad(String enfermedad) {
         this.enfermedad = enfermedad;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getImagen() {

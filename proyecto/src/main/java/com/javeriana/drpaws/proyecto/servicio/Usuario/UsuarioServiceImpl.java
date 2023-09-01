@@ -16,7 +16,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario searchById(int id) {
-        return repo.findById(id);
+        return repo.findById(id).get();
     }
 
     @Override
@@ -26,12 +26,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public void update(Usuario usuario) {
-        repo.updatebyId(usuario);
+        repo.save(usuario);
     }
 
     @Override
     public void add(Usuario usuario) {
-        repo.add(usuario);
+        repo.save(usuario);
 
     }
 
@@ -42,8 +42,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Collection<Mascota> findMascotas(Collection<Mascota> mascotas, Integer uid) {
-        return repo.findMascotas(mascotas, uid);
+    public Collection<Mascota> getMascotasByUsuarioID(Integer id) {
+        return repo.findMascotasById(id);
     }
 
 }

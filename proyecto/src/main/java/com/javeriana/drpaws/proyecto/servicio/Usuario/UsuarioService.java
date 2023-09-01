@@ -16,5 +16,5 @@ public interface UsuarioService {
 
     public void add(Usuario usuario);
 
-    public Collection<Mascota> findMascotas(Collection<Mascota> mascotas, Integer uid);
+    public Collection<Mascota> getMascotasByUsuarioID(Integer id);
 }
