@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
-import com.javeriana.drpaws.proyecto.servicio.mascota.MascotaService;
 import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 
 @Controller
@@ -19,9 +18,6 @@ import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-
-    @Autowired
-    private MascotaService mascotaService;
 
     @GetMapping("/all")
     public String getAllUsuarios(Model model) {
