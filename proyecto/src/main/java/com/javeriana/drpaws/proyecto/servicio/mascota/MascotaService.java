@@ -6,11 +6,11 @@ import com.javeriana.drpaws.proyecto.entidad.Mascota;
 
 public interface MascotaService {
 
-    public Mascota searchById(int id);
+    public Mascota searchById(Long id);
 
     public Collection<Mascota> searchAll();
 
-    public void deleteById(int id);
+    public void deleteById(Long id);
 
     public void update(Mascota mascota);
 

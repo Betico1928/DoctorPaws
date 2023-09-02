@@ -1,9 +1,13 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
-import java.util.ArrayList;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
+@Entity
 public class Mascota {
-    private Integer id;
+
     private String nombre;
     private String raza;
     private int edad;
@@ -11,30 +15,25 @@ public class Mascota {
     private String enfermedad;
     private String imagen;
 
-    public Mascota(Integer id, String nombre, String raza, int edad, float peso, String enfermedad, String imagen) {
-        this.id = id;
+    // nuevo
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @ManyToOne
+    private Usuario usuario;
+
+    public Mascota(String nombre, String raza, int edad, float peso, String enfermedad, String imagen) {
+
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.peso = peso;
         this.enfermedad = enfermedad;
-        this.imagen = elegirRandom();
+        this.imagen = imagen;
     }
 
-
-    private String elegirRandom(){
-        ArrayList<String> razas = new ArrayList<>();
-        razas.add("toby.jpg");
-        razas.add("Sparky.jpg");
-        razas.add("Lulu.png");
-        razas.add("Bella.png");
-
-        int min = 0; // Minimum value of range
-        int max = razas.size()-1; // Maximum value of range
-
-        int random_int = (int)Math.floor(Math.random() * (max - min + 1) + min);
-
-        return razas.get(random_int);
+    public Mascota() {
     }
 
     public String getNombre() {
@@ -77,20 +76,20 @@ public class Mascota {
         this.enfermedad = enfermedad;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getImagen() {
         return imagen;
     }
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
 }

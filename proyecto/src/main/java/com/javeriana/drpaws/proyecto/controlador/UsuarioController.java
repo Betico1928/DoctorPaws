@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
-import com.javeriana.drpaws.proyecto.servicio.mascota.MascotaService;
 import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 
 @Controller
@@ -20,61 +19,50 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @Autowired
-    private MascotaService mascotaService;
-
     @GetMapping("/all")
-    public String getAllUsuarios(Model model)
-    {
+    public String getAllUsuarios(Model model) {
         model.addAttribute("usuarios", usuarioService.searchAll());
         return "usuarios";
     }
 
-    //http://localhost:8080/usuario/find/1
+    // http://localhost:8080/usuario/find/1
     @GetMapping("/find/{id}")
-    public String getUsuario(@PathVariable("id") int id, Model model)
-    {
+    public String getUsuario(@PathVariable("id") Long id, Model model) {
         Usuario usuario = usuarioService.searchById(id);
-        if (usuario != null)
-        {
-            model.addAttribute("mascotas", usuarioService.findMascotas(mascotaService.searchAll(), id));
+        if (usuario != null) {
+            model.addAttribute("mascotas", usuarioService.getMascotasByUsuarioID(id));
             model.addAttribute("usuario", usuario);
 
             return "dashboard-usuario";
-        }
-        else
-        {
+        } else {
             throw new NotFoundException(id);
         }
     }
 
     @GetMapping("/add")
     public String formularioCrear(Model model) {
-        Usuario usuario = new Usuario(0, "", "", "", "", null, "");
+        Usuario usuario = new Usuario("", "", "", "", "", "");
         model.addAttribute("usuario", usuario);
 
         return "add-usuario";
     }
 
     @PostMapping("/agregar")
-    public String agregarUsuario(Usuario usuario)
-    {
+    public String agregarUsuario(Usuario usuario) {
         usuarioService.add(usuario);
 
         return "redirect:/usuario/all";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUsuario(@PathVariable("id") int id)
-    {
+    public String deleteUsuario(@PathVariable("id") Long id) {
         usuarioService.deleteById(id);
 
         return "redirect:/usuario/all";
     }
 
     @GetMapping("/update/{id}")
-    public String updateUsuario(@PathVariable("id") int id, Model model)
-    {
+    public String updateUsuario(@PathVariable("id") Long id, Model model) {
         Usuario usuario = usuarioService.searchById(id);
         model.addAttribute("usuario", usuario);
 
@@ -82,8 +70,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateUsuario(@PathVariable("id") int id, @ModelAttribute("usuario") Usuario usuario)
-    {
+    public String updateUsuario(@PathVariable("id") Long id, @ModelAttribute("usuario") Usuario usuario) {
         usuarioService.update(usuario);
 
         return "redirect:/usuario/all";
