@@ -79,6 +79,8 @@ header ul li a:hover,
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Una ligera sombra para darle un efecto elevado */
     overflow: hidden; /* Asegura que nada sobresalga del contenedor, incluido el borde redondeado */
     max-width: 95%; /* Limita el ancho máximo para asegurar margen a los lados en vistas pequeñas */
+    max-height: 600px; /* o el valor que consideres adecuado */
+    overflow-y: auto; /* Añade scroll vertical sólo cuando sea necesario */
     padding: 10px;
 }
 

@@ -45,7 +45,8 @@
         <table class="table table-success table-striped center">
             <thead>
             <tr>
-                <!-- Encabezado de las columnas -->
+                <!-- Encabezado para el número de fila -->
+                <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Raza</th>
                 <th scope="col">Edad</th>
@@ -55,8 +56,11 @@
             </thead>
             <tbody>
             <!-- Bucle para recorrer todas las mascotas y mostrarlas en la tabla -->
-            <tr th:each="mascota : ${mascotas}">
-                <!-- Nombre de la mascota. Ahora solo muestra información sin opción a clickear -->
+            <tr th:each="mascota, stat : ${mascotas}">
+                <!-- Número de fila -->
+                <td th:text="${stat.count}"></td>
+
+                <!-- Nombre de la mascota -->
                 <td th:text="${mascota.nombre}"></td>
 
                 <!-- Raza de la mascota -->
