@@ -69,7 +69,6 @@ header ul li a:hover,
 
 .table-container
 {
-    display: flex;
     flex-direction: column;
     align-items: center; /* Centrar hijos horizontalmente */
     justify-content: center; /* Centrar hijos verticalmente */
@@ -81,7 +80,8 @@ header ul li a:hover,
     max-width: 95%; /* Limita el ancho máximo para asegurar margen a los lados en vistas pequeñas */
     max-height: 600px; /* o el valor que consideres adecuado */
     overflow-y: auto; /* Añade scroll vertical sólo cuando sea necesario */
-    padding: 10px;
+    padding: 0;
+    height: 600px;
 }
 
 /* Estilos para la tabla */
@@ -89,8 +89,8 @@ header ul li a:hover,
     width: 100%;  /* Asegurar que la tabla ocupe el ancho de su contenedor */
     border-collapse: collapse;
     font-size: 18px;
-    margin: 0 auto;
     text-align: left;
+    margin: 10px;
 }
 
 .table thead {
@@ -113,6 +113,15 @@ header ul li a:hover,
     font-weight: bold;
     transition: background-color 0.3s;
 }
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que el contenedor ocupe el ancho disponible */
+    margin-bottom: 10px;
+}
+
 
 .btn-info {
     background-color: #026E81;  /* Color de tu paleta */
@@ -151,7 +160,7 @@ header ul li a:hover,
 .titulo {
     text-align: center;
     font-size: 2.5em;
-    margin-top: 60px;  /* Espaciado en la parte superior */
+    margin-top: 20px;  /* Espaciado en la parte superior */
     color: #026E81;    /* Color de tu paleta */
 }
 

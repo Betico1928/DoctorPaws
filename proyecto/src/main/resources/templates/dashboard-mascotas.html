@@ -88,7 +88,9 @@
         </table>
 
         <!-- Botón para agregar una nueva mascota -->
-        <a class="btn btn-info center" href="/mascota/add">Agregar</a>
+        <div class="btn-container">
+            <a class="btn btn-info" href="/mascota/add">Agregar</a>
+        </div>
         <!-- Fin de la tabla que muestra las mascotas -->
     </div>
 
@@ -121,5 +123,15 @@
         </div>
     </footer>
     <!-- Fin del Footer-->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.querySelector('.table-container');
+            console.log("Altura del contenedor:", container.scrollHeight);
+            console.log("Altura visible:", container.clientHeight);
+            console.log("Diferencia (esto debe ser cercano al desplazamiento máximo):", container.scrollHeight - container.clientHeight);
+        });
+    </script>
+
 </body>
 </html>
