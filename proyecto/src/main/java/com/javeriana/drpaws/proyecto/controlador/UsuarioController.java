@@ -45,7 +45,7 @@ public class UsuarioController {
 
     @GetMapping("/add")
     public String formularioCrear(Model model) {
-        Usuario usuario = new Usuario("", "", "", "", "");
+        Usuario usuario = new Usuario("", "", "", "", "", "");
         model.addAttribute("usuario", usuario);
 
         return "add-usuario";

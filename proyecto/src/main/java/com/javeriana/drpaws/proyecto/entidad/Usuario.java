@@ -14,24 +14,33 @@ public class Usuario {
     @GeneratedValue
     private Long id;
 
+    private String cedula;
     private String nombre;
     private String correo;
     private String celular;
     private String contraseña;
     private String imagen;
 
-    @OneToMany
+    @OneToMany(mappedBy = "usuario")
     private List<Mascota> mascotas = new ArrayList<>();
 
-    public Usuario(String nombre, String correo, String celular, String contraseña,
+    public Usuario(String cedula, String nombre, String correo, String celular, String contraseña,
             String imagen) {
 
+        this.cedula = cedula;
         this.nombre = nombre;
         this.correo = correo;
         this.celular = celular;
         this.contraseña = contraseña;
-
         this.imagen = imagen;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public Usuario() {
