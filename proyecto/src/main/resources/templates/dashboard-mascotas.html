@@ -67,21 +67,29 @@
                 <td th:text="${mascota.raza}"></td>
 
                 <!-- Edad de la mascota -->
-                <td th:text="${mascota.edad}"></td>
+                <td th:text="${mascota.edad + ' años'}"></td>
 
                 <!-- Peso de la mascota -->
-                <td th:text="${mascota.peso}"></td>
+                <td th:text="${mascota.peso} + ' Kg'"></td>
 
                 <!-- Acciones disponibles: Ver, Modificar y Eliminar -->
                 <td>
-                    <!-- Botón para ver detalles de la mascota -->
-                    <a class="btn btn-primary" th:href="@{/mascota/find/{id}(id=${mascota.id})}">Ver Mascota</a>
+                    <div class="btn-group">
+                        <!-- Botón para ver detalles de la mascota -->
+                        <a class="btn btn-primary" th:href="@{/mascota/find/{id}(id=${mascota.id})}">
+                            <i class="fas fa-eye"></i>
+                        </a>
 
-                    <!-- Botón para modificar la mascota -->
-                    <a class="btn btn-info" th:href="@{/mascota/actualizar/{id}(id=${mascota.id})}">Modificar</a>
+                        <!-- Botón para modificar la mascota -->
+                        <a class="btn btn-info" th:href="@{/mascota/actualizar/{id}(id=${mascota.id})}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
 
-                    <!-- Botón para eliminar la mascota -->
-                    <a class="btn btn-danger" th:href="@{/mascota/delete/{id}(id=${mascota.id})}">Eliminar</a>
+                        <!-- Botón para eliminar la mascota -->
+                        <a class="btn btn-danger" th:href="@{/mascota/delete/{id}(id=${mascota.id})}">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
             </tbody>
@@ -89,7 +97,9 @@
 
         <!-- Botón para agregar una nueva mascota -->
         <div class="btn-container">
-            <a class="btn btn-info" href="/mascota/add">Agregar</a>
+            <a class="btn btn-info" href="/mascota/add">
+                <i class="fas fa-plus"></i>
+            </a>
         </div>
         <!-- Fin de la tabla que muestra las mascotas -->
     </div>

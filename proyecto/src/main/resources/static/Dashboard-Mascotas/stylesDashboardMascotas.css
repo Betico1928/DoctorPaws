@@ -122,6 +122,14 @@ header ul li a:hover,
     margin-bottom: 10px;
 }
 
+.btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Establece un espacio de 5px entre los botones */
+}
+
+
 
 .btn-info {
     background-color: #026E81;  /* Color de tu paleta */
