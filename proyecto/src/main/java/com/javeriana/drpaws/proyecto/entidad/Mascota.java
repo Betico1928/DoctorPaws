@@ -92,4 +92,8 @@ public class Mascota {
         this.usuario = usuario;
     }
 
+    public Long getId() {
+        return id;
+    }
+
 }

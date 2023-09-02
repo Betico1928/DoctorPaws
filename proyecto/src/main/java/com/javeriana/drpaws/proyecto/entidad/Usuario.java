@@ -86,4 +86,8 @@ public class Usuario {
         this.imagen = imagen;
     }
 
+    public Long getId() {
+        return id;
+    }
+
 }
