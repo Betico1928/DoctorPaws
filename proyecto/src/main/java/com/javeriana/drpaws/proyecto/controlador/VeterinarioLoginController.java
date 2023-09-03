@@ -37,6 +37,7 @@ public class VeterinarioLoginController {
             System.out.println("Email en el repositorio: " + existente.getEmail());
             System.out.println("Contraseña en el repositorio: " + existente.getPassword());
 
+
             if (existente.getPassword().equals(loginForm.getPassword()))
             {
                 return "redirect:/mascota/all";

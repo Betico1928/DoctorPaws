@@ -3,142 +3,108 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Mascota</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Update-Mascota/stylesUpdateMascota.css">
+    <title>Dr. Paws - Información de mascotas</title>
+
+    <!-- Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+    <!-- Fin del Font  -->
+
+    <!-- Footer-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Fin del Footer-->
 </head>
 
+<!-- Header -->
+<header>
+    <a href="/"  class="logo">DR.PAWS</a>
+    <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/porqueNosotros">About</a></li>
+        <li><a href="/loginVeterinario">Login Administrativo</a></li>
+        <li><a href="/loginUsuario">Login Usuario</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</header>
+<!-- Fin del Header -->
+
 <body>
-    <div class="container">
-        <form th:object="${mascota}" th:action="@{/mascota/update/{id}(id=${id})}" th:method="post">
-            <div class="titulo">Actualización de la mascota</div>
-            <div class="user-details">
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input th:field="*{nombre}" type="text" class="form-control" id="nombre"
-                        placeholder="Nombre de la mascota">
-                </div>
-                <div class="form-group">
-                    <label for="raza">Raza</label>
-                    <input th:field="*{raza}" type="text" class="form-control" id="raza"
-                        placeholder="Raza de la mascota">
-                </div>
-                <div class="form-group">
-                    <label for="edad">Edad</label>
-                    <input th:field="*{edad}" type="number" class="form-control" id="edad"
-                        placeholder="Edad de la mascota">
-                </div>
-                <div class="form-group">
-                    <label for="peso">Peso</label>
-                    <input th:field="*{peso}" type="number" class="form-control" id="peso"
-                        placeholder="Peso de la mascota">
-                </div>
-                <div class="form-group">
-                    <label for="enfermedad">Enfermedad</label>
-                    <input th:field="*{enfermedad}" type="text" class="form-control" id="enfermedad"
-                        placeholder="Enfermedad">
-                </div>
+<div class="container">
+    <form th:object="${mascota}" th:action="@{/mascota/update/{id}(id=${id})}" th:method="post">
+        <div class="titulo">Actualización de la mascota</div>
+        <div class="user-details">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input th:field="*{nombre}" type="text" class="form-control" id="nombre"
+                       placeholder="Nombre de la mascota" required>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </div>
+            <div class="form-group">
+                <label for="raza">Raza</label>
+                <input th:field="*{raza}" type="text" class="form-control" id="raza"
+                       placeholder="Raza de la mascota" required>
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad</label>
+                <input th:field="*{edad}" type="number" class="form-control" id="edad"
+                       placeholder="Edad de la mascota" required>
+            </div>
+            <div class="form-group">
+                <label for="peso">Peso</label>
+                <input th:field="*{peso}" type="number" class="form-control" id="peso"
+                       placeholder="Peso de la mascota" step="0.01" pattern="\d+(\.\d{1,2})?" required>
+            </div>
+            <div class="form-group">
+                <label for="enfermedad">Enfermedad</label>
+                <input th:field="*{enfermedad}" type="text" class="form-control" id="enfermedad"
+                       placeholder="Enfermedad" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+
+<!-- Footer -->    <!-- Footer-->
+    <footer class="vet-footer">
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Inicio</a>
+                <a href="#">Servicios</a>
+                <a href="#">Contacto</a>
+                <a href="/porqueNosotros">About</a>
+                <a href="#">Testimonios</a>
+            </div>
+
+            <div class="footer-contact">
+                <p>Teléfono: (123) 456-7890</p>
+                <p>Email: woof-woof@veterinariadrpaws.com</p>
+            </div>
+        </div>
+        <div class="footer-bar">
+            <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- Fin del Footer-->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.querySelector('.table-container');
+            console.log("Altura del contenedor:", container.scrollHeight);
+            console.log("Altura visible:", container.clientHeight);
+            console.log("Diferencia (esto debe ser cercano al desplazamiento máximo):", container.scrollHeight - container.clientHeight);
+        });
+    </script>
 
 </body>
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-        display: flex;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(135deg, #71b7e6, #59b6b5);
-    }
-
-    .container {
-        max-width: 700px;
-        width: 100%;
-        background: #fff;
-        padding: 25px 30px;
-        border-radius: 5px;
-    }
-
-    .container .title {
-        font-size: 25px;
-        font-weight: 500;
-        position: relative;
-    }
-
-    .titulo {
-        font-weight: bold;
-        font-size: large;
-        text-align: center;
-        background: linear-gradient(to left, #cb3963, rgb(220, 0, 77));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 2em;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-family: 'Borel', cursive;
-    }
-
-    .container .title::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 3px;
-        width: 30px;
-        background: #59b6b5;
-    }
-
-    .container form .user-details {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-    }
-
-    form .user-details .form-group {
-        width: calc(100%/2 -20px);
-    }
-
-    .user-details .input-box .details {
-        display: block;
-        font-weight: 500;
-        margin-bottom: 5px;
-    }
-
-    .form-group label {
-        color: #59b6b5;
-    }
-
-    .user-details .form-group input {
-        height: 45px;
-        width: 100%;
-        outline: none;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        padding-left: 15px;
-        font-size: 16px;
-        border-bottom-width: 2px;
-        transition: all 0.3s ease;
-    }
-
-    .user-details .input-box input:focus,
-    .user-details .input-box input:valid {
-        border-color: #59b6b5;
-
-    }
-</style>
-
 </html>
