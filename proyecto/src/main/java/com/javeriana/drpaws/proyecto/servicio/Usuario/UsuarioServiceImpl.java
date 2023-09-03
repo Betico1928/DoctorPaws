@@ -2,6 +2,7 @@ package com.javeriana.drpaws.proyecto.servicio.Usuario;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     UsuarioRepository repo;
 
-    @Override
     public Usuario searchById(Long id) {
-        return repo.findById(id).get();
+        return repo.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Usuario not found with ID: " + id));
     }
 
     @Override

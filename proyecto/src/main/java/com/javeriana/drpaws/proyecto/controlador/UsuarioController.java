@@ -1,5 +1,7 @@
 package com.javeriana.drpaws.proyecto.controlador;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 
@@ -30,9 +33,9 @@ public class UsuarioController {
     public String getUsuario(@PathVariable("id") Long id, Model model) {
         Usuario usuario = usuarioService.searchById(id);
         if (usuario != null) {
-            model.addAttribute("mascotas", usuarioService.getMascotasByUsuarioID(id));
+            List<Mascota> mascotas = usuarioService.getMascotasByUsuarioID(id);
+            model.addAttribute("mascotas", mascotas);
             model.addAttribute("usuario", usuario);
-
             return "dashboard-usuario";
         } else {
             throw new NotFoundException(id);
