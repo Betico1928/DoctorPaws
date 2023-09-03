@@ -6,10 +6,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class ErrorController {
-    
-    @ExceptionHandler(NotFoundException.class)
-    public String error(Model model, NotFoundException exception){
-        model.addAttribute("id", exception.getId());
+
+    @ExceptionHandler(Exception.class) // Esto manejará todas las excepciones
+    public String handleError(Model model, Exception exception) {
+        // Aquí puedes agregar atributos adicionales relacionados con la excepción
+        model.addAttribute("message", exception.getMessage());
+        model.addAttribute("exceptionType", exception.getClass().getSimpleName());
+
         return "pagina_error";
     }
 }
+
