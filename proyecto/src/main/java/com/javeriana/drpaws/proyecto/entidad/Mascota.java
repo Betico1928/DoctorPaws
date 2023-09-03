@@ -96,4 +96,14 @@ public class Mascota {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Mascota [nombre=" + nombre + ", raza=" + raza + ", edad=" + edad + ", peso=" + peso + ", enfermedad="
+                + enfermedad + ", imagen=" + imagen + ", id=" + id + ", usuario=" + usuario + "]";
+    }
+
 }
