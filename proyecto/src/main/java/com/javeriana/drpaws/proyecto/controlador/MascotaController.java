@@ -62,8 +62,7 @@ public class MascotaController {
 
     @PostMapping("/actualizar/{id}")
     public String updateMascota(@PathVariable("id") Long id, @ModelAttribute("mascota") Mascota mascota) {
-        System.out.println("Updating user with ID: " + id);
-
+        mascotaService.update(mascota);
         return "redirect:/mascota/all";
     }
 
