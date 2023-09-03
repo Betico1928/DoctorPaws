@@ -9,7 +9,7 @@
 
 /* Menu */
 
-header{
+header {
     position: absolute;
     top: 0;
     left: 0;
@@ -21,46 +21,42 @@ header{
     z-index: 10000;
 }
 
-header .logo
-{
-    background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
+header .logo {
+    background: linear-gradient(to left, #cb3963, rgb(220, 0, 77));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
     text-decoration: none;
     font-size: 2em;
-    text-transform:uppercase;
+    text-transform: uppercase;
     letter-spacing: 2px;
     font-family: 'Borel', cursive;
 }
 
-header ul
-{
-    display:flex;
+header ul {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-header ul li{
+header ul li {
     list-style: none;
     margin-left: 20px;
 }
 
-header ul li a{
+header ul li a {
     text-decoration: none;
     border-radius: 20px;
     padding: 6px 15px;
-    color:rgb(220, 0, 77);
+    color: rgb(220, 0, 77);
 }
 
 /* Fin de menu*/
 
 
-
-
 /* Estilos Generales */
 body {
-    background-image: url('Resources/background.jpg'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
+    background-image: url('Resources/background.jpg'), linear-gradient(to bottom, rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
     margin: 0;
     padding: 0;
     color: #333;
@@ -71,13 +67,13 @@ body {
 
 body::before {
     content: "";
-    position: fixed;  /* Se asegura de que el cuadrado quede fijo y ocupe toda la pantalla */
+    position: fixed; /* Se asegura de que el cuadrado quede fijo y ocupe toda la pantalla */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.6); /* Color de fondo con transparencia */
-    z-index: -1;  /* Se asegura de que el cuadrado quede detrás del contenido */
+    z-index: -1; /* Se asegura de que el cuadrado quede detrás del contenido */
 }
 
 .container {
@@ -139,12 +135,6 @@ body::before {
 }
 
 
-
-
-
-
-
-
 /* Footer */
 .vet-footer {
     background-color: #A1C7E0;
@@ -189,4 +179,5 @@ body::before {
     text-align: center;
     padding: 10px 0;
 }
+
 /*Fin del Footer */
