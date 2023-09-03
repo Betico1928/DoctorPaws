@@ -60,7 +60,7 @@ public class MascotaController {
         return "update-mascota";
     }
 
-    @PostMapping("/update/{id}")
+    @PostMapping("/actualizar/{id}")
     public String updateMascota(@PathVariable("id") Long id, @ModelAttribute("mascota") Mascota mascota) {
         mascotaService.update(mascota);
         return "redirect:/mascota/all";

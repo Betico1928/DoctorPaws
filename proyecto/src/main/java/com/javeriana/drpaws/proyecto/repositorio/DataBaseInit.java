@@ -28,13 +28,13 @@ public class DataBaseInit implements ApplicationRunner {
 
         // usuarios
         repoUsuario.save(
-                new Usuario("lacedula", "admin", "admin@admin.com", "3161234567", "password", "path/to/imageadmin"));
+                new Usuario("123", "admin", "admin@admin.com", "3161234567", "password", "path/to/imageadmin"));
         repoUsuario.save(
-                new Usuario("lacedula2", "user", "user@suemail.com", "3161232567", "password1", "path/to/imageuser"));
-        repoUsuario.save(new Usuario("lacedula3", "user2", "user2@axdxd.com", "311231234567", "password2",
+                new Usuario("456", "user", "user@suemail.com", "3161232567", "password1", "path/to/imageuser"));
+        repoUsuario.save(new Usuario("789", "user2", "user2@axdxd.com", "311231234567", "password2",
                 "path/to/imageuser2"));
         repoUsuario.save(
-                new Usuario("lacedula4", "user3", "user3@aaa.com", "3161234567", "password3", "path/to/imageuser3"));
+                new Usuario("321", "user3", "user3@aaa.com", "3161234567", "password3", "path/to/imageuser3"));
 
         // mascotas
 
