@@ -37,5 +37,5 @@ build/
 
 Videos/Dr. Paws - Entrega 1.mov
 *.mov
-mydatabase.mv.db
-mydatabase.trace.db
+**/*mv.db
+**/*trace.db
