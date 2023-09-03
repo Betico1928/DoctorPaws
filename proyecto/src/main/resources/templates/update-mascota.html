@@ -35,7 +35,7 @@
 
 <body>
 <div class="container">
-    <form th:object="${mascota}" th:action="@{/mascota/update/{id}(id=${id})}" th:method="post">
+    <form th:object="${mascota}" th:action="@{/mascota/update/{id}(id=${mascota.id})}" th:method="post">
         <div class="titulo">Actualización de la mascota</div>
         <div class="user-details">
             <div class="form-group">

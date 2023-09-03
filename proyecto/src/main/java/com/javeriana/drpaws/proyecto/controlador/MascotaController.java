@@ -54,7 +54,7 @@ public class MascotaController {
     }
 
     @GetMapping("/actualizar/{id}")
-    public String updateMascota(@PathVariable("id") Long id, Model model) {
+    public String updateMascotaForm(@PathVariable("id") Long id, Model model) {
         Mascota mascota = mascotaService.searchById(id);
         model.addAttribute("mascota", mascota);
         return "update-mascota";
@@ -62,7 +62,8 @@ public class MascotaController {
 
     @PostMapping("/actualizar/{id}")
     public String updateMascota(@PathVariable("id") Long id, @ModelAttribute("mascota") Mascota mascota) {
-        mascotaService.update(mascota);
+        System.out.println("Updating user with ID: " + id);
+
         return "redirect:/mascota/all";
     }
 

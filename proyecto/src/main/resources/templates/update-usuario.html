@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <form th:object="${usuario}" th:action="@{/usuario/update/{id}(id=${id})}" th:method="post">
+        <form th:object="${usuario}" th:action="@{/usuario/update/{id}(id=${usuario.id})}" th:method="post">
             <div class="titulo">Registro del usuario</div>
             <div class="user-details">
                 <div class="form-group">

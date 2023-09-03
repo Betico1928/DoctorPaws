@@ -90,4 +90,14 @@ public class Usuario {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", correo=" + correo + ", celular="
+                + celular + ", contraseña=" + contraseña + ", imagen=" + imagen + ", mascotas=" + mascotas + "]";
+    }
+
 }

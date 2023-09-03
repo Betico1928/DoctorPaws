@@ -70,6 +70,9 @@ public class UsuarioController {
 
     @PostMapping("/update/{id}")
     public String updateUsuario(@PathVariable("id") Long id, @ModelAttribute("usuario") Usuario usuario) {
+
+        System.out.println("Updating user with ID: " + id);
+        System.out.println("User object: " + usuario.toString());
         usuarioService.update(usuario);
 
         return "redirect:/usuario/all";
