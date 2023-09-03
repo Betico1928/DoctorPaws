@@ -129,7 +129,7 @@ body::before {
 }
 
 .mascota-info th {
-    background-color: #2b1055;
+    background-color: rgb(220, 0, 77);
     color: #fff;
     font-weight: 600;
 }
