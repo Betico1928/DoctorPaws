@@ -53,15 +53,17 @@ public class MascotaController {
 
     }
 
-    @GetMapping("/actualizar/{id}")
+    @GetMapping("/update/{id}")
     public String updateMascotaForm(@PathVariable("id") Long id, Model model) {
-        Mascota mascota = mascotaService.searchById(id);
-        model.addAttribute("mascota", mascota);
+
+        model.addAttribute("mascota", mascotaService.searchById(id));
         return "update-mascota";
     }
 
-    @PostMapping("/actualizar/{id}")
+    @PostMapping("/update/{id}")
     public String updateMascota(@PathVariable("id") Long id, @ModelAttribute("mascota") Mascota mascota) {
+        System.out.println("Updating mascota with ID: " + id);
+        System.out.println("Mascota object: " + mascota.toString());
         mascotaService.update(mascota);
         return "redirect:/mascota/all";
     }
