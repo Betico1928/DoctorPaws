@@ -7,13 +7,7 @@
     scroll-behavior: smooth;
 }
 
-
-
-
-
-
 /* Menu */
-
 header{
     position: absolute;
     top: 0;
@@ -26,8 +20,7 @@ header{
     z-index: 10000;
 }
 
-header .logo
-{
+header .logo {
     background: linear-gradient(to left,#cb3963,rgb(220, 0, 77));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -39,19 +32,18 @@ header .logo
     font-family: 'Borel', cursive;
 }
 
-header ul
-{
+header ul {
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
-header ul li{
+header ul li {
     list-style: none;
     margin-left: 20px;
 }
 
-header ul li a{
+header ul li a {
     text-decoration: none;
     border-radius: 20px;
     padding: 6px 15px;
@@ -59,43 +51,44 @@ header ul li a{
 }
 
 header ul li a:hover,
-.active
-{
+.active {
     background:#fff;
     color: #2b1055;
 }
 
 /* Fin de menu*/
 
-
 /* Estilo general del cuerpo y fondo */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-image: url('Resources/background.jpg'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7); /* Añadido el gradiente después de la imagen */
-    background-size: cover, cover; /* La primera 'cover' corresponde a la imagen, la segunda al gradiente */
-    background-repeat: no-repeat, no-repeat; /* La primera 'no-repeat' corresponde a la imagen, la segunda al gradiente */
-    background-position: center center, center bottom; /* Posicionamos la imagen al centro y el gradiente abajo */
-    height: 100vh; /* Considera si este ajuste es apropiado dependiendo del contenido de tu página */
+    background-image: url('Resources/background.jpg'), linear-gradient(to bottom,rgb(118, 248, 241), #d1cdd7);
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center center, center bottom;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #6faec5;  /* Se mantiene este color azulado como color de fondo base */
+    background-color: #6faec5;
     min-height: 100vh;
 }
-/* Fin de estilo general del cuerpo y fondo */
 
-
-
-
-
-
-.mascota-section, .enfermedades-section
-{
-
-    padding: 50px 100px;
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(255, 255, 255, 0.6);
+    z-index: -1;
+}
+
+.mascota-section, .enfermedades-section {
+    padding: 50px 100px;
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 20px;
     margin: 100px auto;
     max-width: 1100px;
@@ -117,58 +110,109 @@ body {
     margin: 20px 0;
 }
 
+/* Diseño mejorado para la tabla */
 .mascota-info {
     width: 100%;
-    border-collapse: collapse;
     margin-top: 20px;
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    overflow: hidden;
+    border-collapse: separate; /* Cambia esto de collapse a separate */
+    border-spacing: 0; /* Esto elimina cualquier espacio entre celdas */
 }
 
 .mascota-info th, .mascota-info td {
     border: 1px solid #ddd;
-    padding: 8px 12px;
+    padding: 12px 16px;
     text-align: left;
+    transition: background-color 0.3s;
 }
 
 .mascota-info th {
-    background-color: #f2f2f2;
-    color: #2b1055;
+    background-color: rgb(220, 0, 77);
+    color: #fff;
+    font-weight: 600;
 }
 
+.mascota-info td {
+    background-color: #fff;
+}
+
+.mascota-info tr:hover td {
+    background-color: #ebebeb;
+}
+
+.mascota-info tr:first-child th {
+    border-top: none;
+}
+.mascota-info tr:last-child td {
+    border-bottom: none;
+}
+.mascota-info tr td:first-child,
+.mascota-info tr th:first-child {
+    border-left: none;
+}
+.mascota-info tr td:last-child,
+.mascota-info tr th:last-child {
+    border-right: none;
+}
+
+.mascota-info th:last-child {
+    border-top-right-radius: 15px;
+}
+
+.mascota-info tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+
 .enfermedades-section {
-    margin-top: 10px; /* menor margen entre las secciones */
+    margin-top: 10px;
     padding: 20px 100px;
-    width: 70%; /* Ocupa el 70% del ancho horizontal de la página */
-    margin-left: auto; /* Centra el recuadro en la página */
+    width: 70%;
+    margin-left: auto;
     margin-right: auto;
 }
 
 .enfermedades-section h3 {
     color: #2b1055;
-    font-size: 1.5em;
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
-.mascota-enfermedades li {
-    font-size: 1.1em;
-    margin-bottom: 8px;
+.enfermedades-list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.enfermedades-section ul {
-    list-style-type: none; /* Elimina el bullet point */
-    padding-left: 0; /* Elimina el padding izquierdo que suele acompañar a las listas */
+.enfermedad-card {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.enfermedad-card p {
+    margin: 0;
+    padding: 0;
+    color: #2b1055;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.enfermedad-card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 10px 0;
 }
 
 
-
-
-
-
-
-
-
-
-
-/* Footer */
+/* Estilos para el footer *//* Footer */
 .vet-footer {
     background-color: #A1C7E0;
     color: #026E81;

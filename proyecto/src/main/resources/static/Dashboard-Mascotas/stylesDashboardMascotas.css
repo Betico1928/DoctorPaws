@@ -69,7 +69,6 @@ header ul li a:hover,
 
 .table-container
 {
-    display: flex;
     flex-direction: column;
     align-items: center; /* Centrar hijos horizontalmente */
     justify-content: center; /* Centrar hijos verticalmente */
@@ -79,7 +78,10 @@ header ul li a:hover,
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Una ligera sombra para darle un efecto elevado */
     overflow: hidden; /* Asegura que nada sobresalga del contenedor, incluido el borde redondeado */
     max-width: 95%; /* Limita el ancho máximo para asegurar margen a los lados en vistas pequeñas */
-    padding: 10px;
+    max-height: 600px; /* o el valor que consideres adecuado */
+    overflow-y: auto; /* Añade scroll vertical sólo cuando sea necesario */
+    padding: 0;
+    height: 600px;
 }
 
 /* Estilos para la tabla */
@@ -87,8 +89,8 @@ header ul li a:hover,
     width: 100%;  /* Asegurar que la tabla ocupe el ancho de su contenedor */
     border-collapse: collapse;
     font-size: 18px;
-    margin: 0 auto;
     text-align: left;
+    margin: 10px;
 }
 
 .table thead {
@@ -111,6 +113,23 @@ header ul li a:hover,
     font-weight: bold;
     transition: background-color 0.3s;
 }
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que el contenedor ocupe el ancho disponible */
+    margin-bottom: 10px;
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Establece un espacio de 5px entre los botones */
+}
+
+
 
 .btn-info {
     background-color: #026E81;  /* Color de tu paleta */
@@ -149,7 +168,7 @@ header ul li a:hover,
 .titulo {
     text-align: center;
     font-size: 2.5em;
-    margin-top: 60px;  /* Espaciado en la parte superior */
+    margin-top: 20px;  /* Espaciado en la parte superior */
     color: #026E81;    /* Color de tu paleta */
 }
 
@@ -178,7 +197,7 @@ body::before {
     right: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.6); /* Blanco con un 70% de opacidad */
-    z-index: -1;  /* Se asegura de que el cuadrado quede detrás de todo el contenido */
+    z-index: -1;  /* Se asegura de que el cuadrado quede detrás del contenido */
 }
 
 
