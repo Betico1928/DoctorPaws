@@ -62,9 +62,8 @@ public class UsuarioController {
     }
 
     @GetMapping("/update/{id}")
-    public String updateUsuario(@PathVariable("id") Long id, Model model) {
-        Usuario usuario = usuarioService.searchById(id);
-        model.addAttribute("usuario", usuario);
+    public String updateUsuarioForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("usuario", usuarioService.searchById(id));
 
         return "update-usuario";
     }
