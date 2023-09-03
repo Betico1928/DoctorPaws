@@ -197,7 +197,7 @@ body::before {
     right: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.6); /* Blanco con un 70% de opacidad */
-    z-index: -1;  /* Se asegura de que el cuadrado quede detrás de todo el contenido */
+    z-index: -1;  /* Se asegura de que el cuadrado quede detrás del contenido */
 }
 
 
