@@ -16,9 +16,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     UsuarioRepository repo;
 
+    @Override
     public Usuario searchById(Long id) {
-        return repo.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Usuario not found with ID: " + id));
+        return repo.findById(id).get();
+
     }
 
     @Override
