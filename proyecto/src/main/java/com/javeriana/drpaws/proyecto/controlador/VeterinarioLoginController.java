@@ -32,6 +32,12 @@ public class VeterinarioLoginController {
 
         Veterinario existente = veterinarioRepository.findByEmail(loginForm.getEmail());
 
+        // Mirar si es el admin:
+        if ("admin@drpaws.com".equals(loginForm.getEmail().trim()) && "admin".equals(loginForm.getPassword().trim()))
+        {
+            return "redirect:/usuario/all";
+        }
+
         if (existente != null)
         {
             System.out.println("Email en el repositorio: " + existente.getEmail());
