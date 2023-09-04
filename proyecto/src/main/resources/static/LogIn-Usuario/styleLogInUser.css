@@ -209,7 +209,7 @@ button:hover {
 /* Estilos para el mensaje de error */
 #error-box {
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 15px 25px;
