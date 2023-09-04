@@ -74,14 +74,14 @@ header ul li a:hover,
 }
 
 .table-container {
-    width: 48%;
-    box-sizing: border-box;
-    max-height: 600px; /* ajusta este valor según tus necesidades */
-    overflow-y: auto;
     margin: 100px auto 0 auto; /* Margen superior de 40px, centrado horizontalmente */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Una ligera sombra para darle un efecto elevado */
     background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con un 70% de opacidad */
     border-radius: 15px; /* bordes redondeados, puedes ajustar a tu gusto */
+    width: 48%;
+    box-sizing: border-box;
+    max-height: calc(100vh - 100px - 160px); /* 100vh es el alto total del viewport, 100px para el header y 20px de margen */
+    overflow-y: auto;
 }
 
 /* Estilo para colocar las tablas una al lado de la otra */

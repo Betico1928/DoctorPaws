@@ -42,7 +42,12 @@
         <h2>Mi Mascota</h2>
         <!-- Parte izquierda del div que muestra la imagen de la mascota -->
         <div class="mascota-image">
-            <img th:src="@{'/Imagenes/Perros/' + ${mascota.getImagen()}}" alt="Imagen de la mascota">
+
+            
+            <!-- <img src="/Imagenes/Perros/LA FOTO" alt="Imagen de la mascota">  TODO PONER EL VERDADERO PATH-->
+
+
+            <img th:src="@{'/Ver-Mascota/Resources/ImagenMascota.jpg'}" alt="Imagen de la mascota">
         </div>
         <!-- Parte derecha del div que muestra la información de la mascota en forma de tabla -->
         <table class="mascota-info">
