@@ -35,7 +35,7 @@ public class VeterinarioLoginController {
         // Mirar si es el admin:
         if ("admin@drpaws.com".equals(loginForm.getEmail().trim()) && "admin".equals(loginForm.getPassword().trim()))
         {
-            return "redirect:/usuario/all";
+            return "redirect:admin/dashboard";
         }
 
         if (existente != null)

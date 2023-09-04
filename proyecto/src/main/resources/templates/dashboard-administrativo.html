@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Dashboard-Administrador/stylesDashboardAdministrador.css">
+    <title>Dr. Paws - Información de mascotas</title>
+
+    <!-- Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+    <!-- Fin del Font  -->
+
+    <!-- Footer-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Fin del Footer-->
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <a href="/" class="logo">DR.PAWS</a>
+    <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/porqueNosotros">About</a></li>
+        <li><a href="/loginVeterinario">Login Administrativo</a></li>
+        <li><a href="/loginUsuario">Login Usuario</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</header>
+<!-- Fin del Header -->
+
+
+<div class="tablas-contenedor">
+    <div class="table-container">
+        <!-- Título de la página -->
+        <p class="titulo">
+            Mascotas de la veterinaria Dr. Paws
+        </p>
+        <!-- Inicio de la tabla que muestra las mascotas -->
+        <table>
+            <thead>
+            <tr>
+                <!-- Encabezado para el número de fila -->
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Raza</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Peso</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Bucle para recorrer todas las mascotas y mostrarlas en la tabla -->
+            <tr th:each="mascota, stat : ${mascotas}">
+                <!-- Número de fila -->
+                <td th:text="${stat.count}"></td>
+
+                <!-- Nombre de la mascota -->
+                <td th:text="${mascota.nombre}"></td>
+
+                <!-- Raza de la mascota -->
+                <td th:text="${mascota.raza}"></td>
+
+                <!-- Edad de la mascota -->
+                <td th:text="${mascota.edad + ' años'}"></td>
+
+                <!-- Peso de la mascota -->
+                <td th:text="${mascota.peso} + ' Kg'"></td>
+
+                <!-- Acciones disponibles: Ver, Modificar y Eliminar -->
+                <td>
+                    <div class="btn-group">
+                        <!-- Botón para ver detalles de la mascota -->
+                        <a class="btn btn-primary" th:href="@{/mascota/find/{id}(id=${mascota.id})}">
+                            <i class="fas fa-eye"></i>
+                        </a>
+
+                        <!-- Botón para modificar la mascota -->
+                        <a class="btn btn-info" th:href="@{/mascota/update/{id}(id=${mascota.id})}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+
+                        <!-- Botón para eliminar la mascota -->
+                        <a class="btn btn-danger" th:href="@{/mascota/delete/{id}(id=${mascota.id})}">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- Botón para agregar una nueva mascota -->
+        <div class="btn-container">
+            <a class="btn btn-info" href="/mascota/add">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+        <!-- Fin de la tabla que muestra las mascotas -->
+    </div>
+
+    <!-- Inicio de la tabla que muestra los usuarios -->
+    <div class="table-container">
+        <!-- Título de la página -->
+        <p class="titulo">
+            Usuarios de la veterinaria Dr. Paws
+        </p>
+
+        <!-- Inicio de la tabla que muestra los usuarios -->
+        <table>
+            <thead>
+            <tr>
+                <!-- Encabezados para los usuarios -->
+                <th scope="col">#</th>
+                <th scope="col">Cédula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Celular</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Bucle para recorrer todos los usuarios y mostrarlos en la tabla -->
+            <tr th:each="usuario, stat : ${usuarios}">
+                <!-- Número de fila -->
+                <td th:text="${stat.count}"></td>
+
+                <!-- Cédula del usuario -->
+                <td th:text="${usuario.cedula}"></td>
+
+                <!-- Nombre del usuario -->
+                <td th:text="${usuario.nombre}"></td>
+
+                <!-- Correo del usuario -->
+                <td th:text="${usuario.correo}"></td>
+
+                <!-- Celular del usuario -->
+                <td th:text="${usuario.celular}"></td>
+
+                <!-- Acciones disponibles: Asumiendo acciones similares a las de mascotas por ahora -->
+                <td>
+                    <div class="btn-group">
+                        <!-- Botón para ver detalles del usuario -->
+                        <a class="btn btn-primary" th:href="@{/usuario/find/{id}(id=${usuario.id})}">
+                            <i class="fas fa-eye"></i>
+                        </a>
+
+                        <!-- Botón para modificar el usuario -->
+                        <a class="btn btn-info" th:href="@{/usuario/update/{id}(id=${usuario.id})}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+
+                        <!-- Botón para eliminar el usuario -->
+                        <a class="btn btn-danger" th:href="@{/usuario/delete/{id}(id=${usuario.id})}">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- Botón para agregar un nuevo usuario -->
+        <div class="btn-container">
+            <a class="btn btn-info" href="/usuario/add">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+        <!-- Fin de la tabla que muestra los usuarios -->
+    </div>
+</div>
+
+
+<!-- Footer -->    <!-- Footer-->
+<footer class="vet-footer">
+    <div class="footer-content">
+        <div class="social-media">
+            <a href="#" class="social-icon"><i class="fab fa-twitter" style="color: #0099DD;"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube" style="color: #fa2828;"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram" style="color: #FF9944;"></i></a>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+            <a href="/porqueNosotros">About</a>
+            <a href="#">Testimonios</a>
+        </div>
+
+        <div class="footer-contact">
+            <p>Teléfono: (123) 456-7890</p>
+            <p>Email: woof-woof@veterinariadrpaws.com</p>
+        </div>
+    </div>
+    <div class="footer-bar">
+        <p>&copy; 2023 Veterinaria Dr. Paws - Todos los derechos reservados.</p>
+    </div>
+</footer>
+<!-- Fin del Footer-->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const container = document.querySelector('.table-container');
+        console.log("Altura del contenedor:", container.scrollHeight);
+        console.log("Altura visible:", container.clientHeight);
+        console.log("Diferencia (esto debe ser cercano al desplazamiento máximo):", container.scrollHeight - container.clientHeight);
+    });
+</script>
+
+</body>
+</html>
