@@ -3,7 +3,7 @@ package com.javeriana.drpaws.proyecto.controlador;
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
-import com.javeriana.drpaws.proyecto.servicio.mascota.MascotaService;
+import com.javeriana.drpaws.proyecto.servicio.Mascota.MascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
