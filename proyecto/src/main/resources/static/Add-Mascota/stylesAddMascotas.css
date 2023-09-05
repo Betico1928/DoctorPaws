@@ -63,6 +63,9 @@ body {
     background-size: cover, cover; /* Asegúrate de que la imagen cubra el viewport */
     background-repeat: no-repeat, no-repeat; /* Evita que la imagen se repita */
     background-position: center center, center center; /* Centra la imagen en el viewport */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Establece una altura mínima basada en el viewport */
 }
 
 body::before {
@@ -143,6 +146,7 @@ body::before {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: auto;
 }
 
 .footer-content {
