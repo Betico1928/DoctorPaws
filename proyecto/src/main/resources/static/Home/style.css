@@ -133,7 +133,7 @@ section img#stars {
   color: #ff0000ce;
   white-space: nowrap;
   font-size: 7.5vw;
-  z-index: 9;
+  z-index: 0;
   font-family: 'Borel', cursive;
 }
 
