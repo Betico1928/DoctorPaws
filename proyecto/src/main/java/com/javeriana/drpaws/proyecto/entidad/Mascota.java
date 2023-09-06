@@ -1,27 +1,40 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+import jakarta.persistence.JoinColumn;
 
 @Entity
 public class Mascota {
 
-    private String nombre;
-    private String raza;
-    private int edad;
-    private float peso;
-    private String enfermedad;
-    private String imagen;
-
-    // nuevo
     @Id
     @GeneratedValue
     private Long id;
 
+    private String nombre;
+    private String raza;
+    private Integer edad;
+    private float peso;
+    private String enfermedad;
+    private String imagen;
+
     @ManyToOne
     private Usuario usuario;
+
+    @ManyToMany
+    @JoinTable(name = "tratamiento", joinColumns = @JoinColumn(name = "mascota_id"), inverseJoinColumns = @JoinColumn(name = "veterinario_id"))
+    private List<Veterinario> veterinarios = new ArrayList<>();
 
     public Mascota(String nombre, String raza, int edad, float peso, String enfermedad, String imagen) {
 
@@ -104,6 +117,14 @@ public class Mascota {
     public String toString() {
         return "Mascota [nombre=" + nombre + ", raza=" + raza + ", edad=" + edad + ", peso=" + peso + ", enfermedad="
                 + enfermedad + ", imagen=" + imagen + ", id=" + id + ", usuario=" + usuario + "]";
+    }
+
+    public List<Veterinario> getVeterinarios() {
+        return veterinarios;
+    }
+
+    public void setVeterinarios(List<Veterinario> veterinarios) {
+        this.veterinarios = veterinarios;
     }
 
 }
