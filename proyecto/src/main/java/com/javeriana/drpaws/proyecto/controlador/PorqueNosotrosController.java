@@ -11,4 +11,10 @@ public class PorqueNosotrosController
     {
         return "porque-nosotros";
     }
+
+    @RequestMapping("/porqueNosotros/testimonios")
+    public String showTestimoniosPage()
+    {
+        return "testimonios";
+    }
 }
