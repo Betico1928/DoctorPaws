@@ -1,0 +1,463 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Menu */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo {
+    background: linear-gradient(to left, #cb3963, rgb(220, 0, 77));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Borel', cursive;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 6px 15px;
+    color: rgb(220, 0, 77);
+}
+
+header ul li a:hover,
+.active {
+    background: #fff;
+    color: #2b1055;
+}
+
+/* Fin de menu*/
+
+.stats {
+    padding-top: 60px;
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    background-color: transparent;
+    background-image: url("../Contacto/images/fondo.jpg");
+    background-size: cover;
+    display: flex;
+    overflow: hidden;
+}
+
+body {
+    background-color: white;
+}
+
+.overlay {
+    width: 100%;
+    height: 85vh;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.mensaje {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+.mensaje a {
+    text-decoration: none;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background: linear-gradient(to left, #cb3963, rgb(220, 0, 77));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2em;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.mensaje .underline {
+    padding-bottom: 0.25rem;
+    position: relative;
+}
+
+.mensaje .underline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    text-align: center;
+    height: 2px;
+    background-color: #0099DD;
+    transition: width 0.55s ease-out;
+}
+
+.mensaje .underline:hover::before {
+    width: 100%;
+}
+
+.wrapper {
+    width: fit-content;
+    margin-top: 10px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 20vw;
+    top: 60%;
+    left: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.container {
+    width: 20vmin;
+    height: 28vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1em 0;
+    position: relative;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #343b4c;
+    border-bottom: 10px solid rgb(220, 0, 77);
+    ;
+}
+
+i {
+    color: rgb(220, 0, 77);
+    font-size: 2.5em;
+    text-align: center;
+}
+
+span.num {
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    font-size: 3em;
+}
+
+span.text {
+    color: #e0e0e0;
+    font-size: 1em;
+    text-align: center;
+    pad: 0.7em 0;
+    font-weight: 400;
+    line-height: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 85vw;
+    }
+
+    .container {
+        height: 26vmin;
+        width: 26vmin;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        width: 902v;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .container {
+        width: calc(50%-40px);
+        height: 30vmin;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .wrapper {
+        gap: 15px;
+    }
+
+    .container {
+        width: 100%;
+        height: 25vmin;
+        font-size: 8px;
+    }
+}
+
+/*
+    Contact page
+*/
+
+#contact {
+    position: relative;
+    min-height: 140vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url("/Contacto/images/dibujo.png");
+    background-size: cover;
+
+
+}
+
+#contact .content {
+    max-width: 880px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#contact .content h2 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #00bcd4;
+}
+
+#contact .content p {
+    font-weight: 300;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 20px;
+    color: #000;
+}
+
+.container2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.container2 .contactInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container2 .contactInfo .box {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+
+.container2 .contactInfo .box .icon {
+    min-width: 60px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+.container2 .contactInfo .box .text {
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #000;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.container2 .contactInfo .box .text h3 {
+    font-weight: 500;
+    color: #00ABBD;
+}
+
+/**
+    Inicio del formulario
+**/
+.contactForm {
+    width: 40%;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.contactForm h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+.contactForm .inputBox {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox textarea {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+}
+
+.contactForm .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+}
+
+.contactForm .inputBox input:focus~span,
+.contactForm .inputBox input:valid~span,
+.contactForm .inputBox textarea:focus~span,
+.contactForm .inputBox textarea:valid~span {
+    color: #e91e63;
+    font-size: 12px;
+    transform: translateY(-20px);
+
+}
+
+.contactForm .inputBox input:hover~span,
+.contactForm .inputBox textarea:hover~span {
+    color: #e91e63;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+.contactForm .inputBox input[type="submit"] {
+    width: 100px;
+    background: #00bcd4;
+    border-radius: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/*
+    Fin del formulario
+*/
+
+
+/*
+    Web responsive
+*/
+@media (max-width: 991px) {
+    #contact {
+        margin-top: 50px;
+        overflow: hidden;
+        padding: 50px;
+    }
+
+    .container2 {
+        flex-direction: column;
+    }
+
+    .container2 .contactInfo {
+        margin-bottom: 40px;
+    }
+
+    .container2 .contactInfo,
+    .contactForm {
+        width: 100%
+    }
+
+}
+
+
+
+
+/**
+    Fin de Contact Page
+**/
+
+
+/*
+    Inicio Footer
+*/
+.vet-footer {
+    background-color: #A1C7E0;
+    color: #026E81;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-media,
+.footer-links,
+.footer-contact {
+    flex: 1;
+    text-align: center;
+}
+
+.social-icon {
+    margin: 0 15px;
+    font-size: 24px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #026E81;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bar {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #026E81;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/*
+    Fin footer
+*/

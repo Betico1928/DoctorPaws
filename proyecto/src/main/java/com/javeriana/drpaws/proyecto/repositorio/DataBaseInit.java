@@ -366,7 +366,7 @@ public class DataBaseInit implements ApplicationRunner {
         // Mascota #12 - Bear
         repoMascota.save(new Mascota("Bear", "Chow Chow", 6, 59.0f, "Sarna (ácaros)", "path/to/image12"));
 
-        // Mascota #13 - Molly
+        // Mascota #13 - Moll
         repoMascota.save(new Mascota("Molly", "Labrador Retriever", 10, 36.4f, "Hepatitis infecciosa canina", "path/to/image13"));
 
         // Mascota #14 - Duke

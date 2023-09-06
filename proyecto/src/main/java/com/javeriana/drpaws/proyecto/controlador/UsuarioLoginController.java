@@ -27,14 +27,33 @@ public class UsuarioLoginController {
 
     // Maneja el POST del formulario de login
     @PostMapping
-    public String handleLogin(@RequestParam(name = "userId") Long userId, Model model) {
-        Usuario user = usuarioService.searchById(userId);
+    public String handleLogin(@RequestParam(name = "userId") String userInput, Model model) {
+        try
+        {
+            Long userId = Long.parseLong(userInput);
+            Usuario user = usuarioService.searchById(userId);
 
-        if (user != null) {
-            return "redirect:/usuario/find/" + userId;
-        } else {
-            model.addAttribute("error", true);
-            return "login-user"; // Vuelve a mostrar la página de login con el mensaje de error.
+            if (user != null)
+            {
+                return "redirect:/usuario/find/" + userId;
+            }
+            else
+            {
+                model.addAttribute("error", "Usuario no encontrado");
+                return "login-user";
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            // Si el usuario introduce texto en lugar de un número
+            model.addAttribute("error", "ID introducido no es válido");
+            return "login-user";
+        }
+        catch (Exception e)
+        {
+            // Otros errores no especificados
+            model.addAttribute("error", "Ha ocurrido un error desconocido");
+            return "login-user";
         }
     }
 
