@@ -26,12 +26,23 @@ public class Tratamiento {
 
     private String nombre;
 
-    public Tratamiento(String nombre) {
+    private String fecha;
+
+    public Tratamiento(String nombre, String fecha) {
         this.nombre = nombre;
+        this.fecha = fecha;
     }
 
     public Tratamiento() {
 
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public Long getId() {
