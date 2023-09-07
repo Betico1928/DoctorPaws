@@ -17,13 +17,18 @@ public class VeterinarioLoginController {
     @Autowired
     private VeterinarioRepository veterinarioRepository;
 
+
+    //http://localhost:8080/loginVeterinario  -> Vista del login de veterinario
     @GetMapping
-    public ModelAndView showLoginForm() {
+    public ModelAndView showLoginForm()
+    {
         ModelAndView mav = new ModelAndView("/login-administrativo");
         mav.addObject("loginForm", new Veterinario());
         return mav;
     }
 
+
+    //http://localhost:8080/loginVeterinario  -> Procesar el login de veterinario
     @PostMapping
     public String processLogin(Veterinario loginForm)
     {

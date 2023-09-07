@@ -22,15 +22,18 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    // http://localhost:8080/usuario/all -> Vista de todos los usuarios
     @GetMapping("/all")
-    public String getAllUsuarios(Model model) {
+    public String getAllUsuarios(Model model)
+    {
         model.addAttribute("usuarios", usuarioService.searchAll());
         return "usuarios";
     }
 
-    // http://localhost:8080/usuario/find/1
+    // http://localhost:8080/usuario/find/1 -> Vista de un usuario en específico
     @GetMapping("/find/{id}")
-    public String getUsuario(@PathVariable("id") Long id, Model model) {
+    public String getUsuario(@PathVariable("id") Long id, Model model)
+    {
         Usuario usuario = usuarioService.searchById(id);
         if (usuario != null) {
             List<Mascota> mascotas = usuarioService.getMascotasByUsuarioID(id);
@@ -42,43 +45,53 @@ public class UsuarioController {
         }
     }
 
+
+    // http://localhost:8080/usuario/add -> Vista del formulario para crear un usuario
     @GetMapping("/add")
-    public String formularioCrear(Model model) {
+    public String formularioCrear(Model model)
+    {
         Usuario usuario = new Usuario("", "", "", "", "", "");
         model.addAttribute("usuario", usuario);
 
         return "add-usuario";
     }
 
+
+    // http://localhost:8080/usuario/agregar -> Agregar un usuario
     @PostMapping("/agregar")
-    public String agregarUsuario(Usuario usuario) {
+    public String agregarUsuario(Usuario usuario)
+    {
         usuarioService.add(usuario);
-
         return "redirect:/usuario/all";
     }
 
+
+    // http://localhost:8080/usuario/delete/1 -> Eliminar un usuario
     @GetMapping("/delete/{id}")
-    public String deleteUsuario(@PathVariable("id") Long id) {
+    public String deleteUsuario(@PathVariable("id") Long id)
+    {
         usuarioService.deleteById(id);
-
         return "redirect:/usuario/all";
     }
 
-    @GetMapping("/update/{id}")
-    public String updateUsuarioForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("usuario", usuarioService.searchById(id));
 
+    // http://localhost:8080/usuario/update/1 -> Vista del formulario para actualizar un usuario
+    @GetMapping("/update/{id}")
+    public String updateUsuarioForm(@PathVariable("id") Long id, Model model)
+    {
+        model.addAttribute("usuario", usuarioService.searchById(id));
         return "update-usuario";
     }
 
-    @PostMapping("/update/{id}")
-    public String updateUsuario(@PathVariable("id") Long id, @ModelAttribute("usuario") Usuario usuario) {
 
+    // http://localhost:8080/usuario/actualizar/1 -> Actualizar un usuario
+    @PostMapping("/update/{id}")
+    public String updateUsuario(@PathVariable("id") Long id, @ModelAttribute("usuario") Usuario usuario)
+    {
         System.out.println("Updating user with ID: " + id);
         System.out.println("User object: " + usuario.toString());
         usuarioService.update(usuario);
 
         return "redirect:/usuario/all";
     }
-
 }
