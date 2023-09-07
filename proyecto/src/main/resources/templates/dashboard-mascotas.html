@@ -15,16 +15,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
     <!-- Fin del Font  -->
 
-    <!-- Footer-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <!-- Fin del Footer-->
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
 
     <!-- Header -->
     <header>
-        <a href="/"  class="logo">DR.PAWS</a>
+        <a href="/" class="logo">DR.PAWS</a>
         <ul>
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/porqueNosotros">About</a></li>
@@ -35,63 +34,82 @@
     </header>
     <!-- Fin del Header -->
 
+    <div class="popup">
+        <div class="overlay"></div>
+        <div class="content">
+            <div  class="close-btn">&times;</div>
+            <div class="form">
+                <h2> Ingrese el nombre de la mascota</h2>
+                <div class="inputBox">
+                    <input type="text" name="" required="required">
+                    <span>Nombre de la mascota</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="table-container">
-        <!-- Título de la página -->
-        <p class="titulo">
-            Mascotas de la veterinaria Dr. Paws
-        </p>
+
+        <div class="top-bar">
+            <!-- Título de la página -->
+            <p class="titulo">
+                Mascotas de la veterinaria Dr. Paws
+            </p>
+            <!-- Opción de busqueda -->
+            <i class="fa-solid fa-magnifying-glass search"></i>
+        </div>
 
         <!-- Inicio de la tabla que muestra las mascotas -->
         <table class="table table-success table-striped center">
             <thead>
-            <tr>
-                <!-- Encabezado para el número de fila -->
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Raza</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Peso</th>
-                <th>Acciones</th>
-            </tr>
+                <tr>
+                    <!-- Encabezado para el número de fila -->
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Raza</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Peso</th>
+                    <th>Acciones</th>
+                </tr>
             </thead>
             <tbody>
-            <!-- Bucle para recorrer todas las mascotas y mostrarlas en la tabla -->
-            <tr th:each="mascota, stat : ${mascotas}">
-                <!-- Número de fila -->
-                <td th:text="${stat.count}"></td>
+                <!-- Bucle para recorrer todas las mascotas y mostrarlas en la tabla -->
+                <tr th:each="mascota, stat : ${mascotas}">
+                    <!-- Número de fila -->
+                    <td th:text="${stat.count}"></td>
 
-                <!-- Nombre de la mascota -->
-                <td th:text="${mascota.nombre}"></td>
+                    <!-- Nombre de la mascota -->
+                    <td th:text="${mascota.nombre}"></td>
 
-                <!-- Raza de la mascota -->
-                <td th:text="${mascota.raza}"></td>
+                    <!-- Raza de la mascota -->
+                    <td th:text="${mascota.raza}"></td>
 
-                <!-- Edad de la mascota -->
-                <td th:text="${mascota.edad + ' años'}"></td>
+                    <!-- Edad de la mascota -->
+                    <td th:text="${mascota.edad + ' años'}"></td>
 
-                <!-- Peso de la mascota -->
-                <td th:text="${mascota.peso} + ' Kg'"></td>
+                    <!-- Peso de la mascota -->
+                    <td th:text="${mascota.peso} + ' Kg'"></td>
 
-                <!-- Acciones disponibles: Ver, Modificar y Eliminar -->
-                <td>
-                    <div class="btn-group">
-                        <!-- Botón para ver detalles de la mascota -->
-                        <a class="btn btn-primary" th:href="@{/mascota/find/{id}(id=${mascota.id})}">
-                            <i class="fas fa-eye"></i>
-                        </a>
+                    <!-- Acciones disponibles: Ver, Modificar y Eliminar -->
+                    <td>
+                        <div class="btn-group">
+                            <!-- Botón para ver detalles de la mascota -->
+                            <a class="btn btn-primary" th:href="@{/mascota/find/{id}(id=${mascota.id})}">
+                                <i class="fas fa-eye"></i>
+                            </a>
 
-                        <!-- Botón para modificar la mascota -->
-                        <a class="btn btn-info" th:href="@{/mascota/update/{id}(id=${mascota.id})}">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
+                            <!-- Botón para modificar la mascota -->
+                            <a class="btn btn-info" th:href="@{/mascota/update/{id}(id=${mascota.id})}">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
 
-                        <!-- Botón para eliminar la mascota -->
-                        <a class="btn btn-danger" th:href="@{/mascota/delete/{id}(id=${mascota.id})}">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
+                            <!-- Botón para eliminar la mascota -->
+                            <a class="btn btn-danger" th:href="@{/mascota/delete/{id}(id=${mascota.id})}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 
@@ -106,7 +124,7 @@
 
 
 
-    <!-- Footer -->    <!-- Footer-->
+    <!-- Footer --> <!-- Footer-->
     <footer class="vet-footer">
         <div class="footer-content">
             <div class="social-media">
@@ -135,7 +153,7 @@
     <!-- Fin del Footer-->
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const container = document.querySelector('.table-container');
             console.log("Altura del contenedor:", container.scrollHeight);
             console.log("Altura visible:", container.clientHeight);
@@ -144,4 +162,5 @@
     </script>
 
 </body>
+
 </html>
