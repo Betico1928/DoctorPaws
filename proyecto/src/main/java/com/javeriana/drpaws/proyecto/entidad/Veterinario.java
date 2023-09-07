@@ -21,7 +21,6 @@ public class Veterinario {
     private String email;
     private String password;
     private String imagen;
-    private Integer numAtenciuones;
 
     @ManyToMany
     @JoinTable(name = "tratamiento", joinColumns = @JoinColumn(name = "veterinario_id"), inverseJoinColumns = @JoinColumn(name = "mascota_id"))
@@ -36,14 +35,13 @@ public class Veterinario {
 
     }
 
-    public Veterinario(String especialidad, String nombre, String email, String password, String imagen,
-            Integer numAtenciuones) {
+    public Veterinario(String especialidad, String nombre, String email, String password, String imagen) {
         this.especialidad = especialidad;
         this.nombre = nombre;
         this.email = email;
         this.password = password;
         this.imagen = imagen;
-        this.numAtenciuones = numAtenciuones;
+
     }
 
     // Getters y Setters
@@ -81,14 +79,6 @@ public class Veterinario {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
-    }
-
-    public Integer getNumAtenciuones() {
-        return numAtenciuones;
-    }
-
-    public void setNumAtenciuones(Integer numAtenciuones) {
-        this.numAtenciuones = numAtenciuones;
     }
 
     public void setEmail(String email) {

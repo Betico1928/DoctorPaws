@@ -1,9 +1,14 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Medicamento {
@@ -14,8 +19,8 @@ public class Medicamento {
     private String nombre;
     private float precio;
 
-    @ManyToOne
-    private Tratamiento tratamiento;
+    @OneToMany(mappedBy = "medicamento")
+    private List<Tratamiento> tratamientos = new ArrayList<>();
 
     public Medicamento(String nombre, float precio) {
         this.nombre = nombre;
@@ -51,12 +56,12 @@ public class Medicamento {
         this.id = id;
     }
 
-    public Tratamiento getTratamiento() {
-        return tratamiento;
+    public List<Tratamiento> getTratamientos() {
+        return tratamientos;
     }
 
-    public void setTratamiento(Tratamiento tratamiento) {
-        this.tratamiento = tratamiento;
+    public void setTratamientos(List<Tratamiento> tratamientos) {
+        this.tratamientos = tratamientos;
     }
 
 }
