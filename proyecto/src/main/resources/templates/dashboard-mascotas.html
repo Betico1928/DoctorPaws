@@ -34,19 +34,23 @@
     </header>
     <!-- Fin del Header -->
 
-    <div class="popup">
-        <div class="overlay"></div>
+    <div class="popup" id="popup-1">
+        <div class="overlay" onclick="togglePopup()"></div>
         <div class="content">
-            <div  class="close-btn">&times;</div>
+            <!-- Para cerrar la ventana emergante-->
+            <div class="close-btn">
+                <i class="fa-regular fa-circle-xmark x clickable" onclick="togglePopup()"></i>
+            </div>
             <div class="form">
                 <h2> Ingrese el nombre de la mascota</h2>
                 <div class="inputBox">
-                    <input type="text" name="" required="required">
+                    <input type="text" name="" required="required" id="search_bar">
                     <span>Nombre de la mascota</span>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="table-container">
 
@@ -56,11 +60,15 @@
                 Mascotas de la veterinaria Dr. Paws
             </p>
             <!-- Opción de busqueda -->
-            <i class="fa-solid fa-magnifying-glass search"></i>
+            <i class="fa-solid fa-magnifying-glass search clickable" onclick="togglePopup()"></i>
+
+            <!--- Opción de resturar-->
+            <i class="fa-solid fa-arrow-rotate-left load clickable" id="restore" onclick="removeFilter()"></i>
         </div>
 
         <!-- Inicio de la tabla que muestra las mascotas -->
-        <table class="table table-success table-striped center">
+        <table class="table table-success table-striped center" id="Mascotas">
+
             <thead>
                 <tr>
                     <!-- Encabezado para el número de fila -->
@@ -113,6 +121,9 @@
             </tbody>
         </table>
 
+        <div class="error"  id="error_result">
+            <h1 id="message">¡No se encontraron resultados en tu busqueda!</h1>
+        </div>
         <!-- Botón para agregar una nueva mascota -->
         <div class="btn-container">
             <a class="btn btn-info" href="/mascota/add">
@@ -160,6 +171,8 @@
             console.log("Diferencia (esto debe ser cercano al desplazamiento máximo):", container.scrollHeight - container.clientHeight);
         });
     </script>
+    <!-- Script de popup-->
+    <script src="/Dashboard-Mascotas/script.js"></script>
 
 </body>
 
