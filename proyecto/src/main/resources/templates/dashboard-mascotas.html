@@ -29,6 +29,7 @@
             <li><a href="/porqueNosotros">About</a></li>
             <li><a href="/loginVeterinario">Login Administrativo</a></li>
             <li><a href="/loginUsuario">Login Usuario</a></li>
+            <li><a href="/usuario/all">Usuarios</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </header>
@@ -63,7 +64,9 @@
             <i class="fa-solid fa-magnifying-glass search clickable" onclick="togglePopup()"></i>
 
             <!--- Opción de resturar-->
-            <i class="fa-solid fa-arrow-rotate-left load clickable" id="restore" onclick="removeFilter()"></i>
+            <div class="rotate">
+                <i class="fa-solid fa-arrow-rotate-left load clickable" id="restore" onclick="removeFilter()"></i>
+            </div>
         </div>
 
         <!-- Inicio de la tabla que muestra las mascotas -->
