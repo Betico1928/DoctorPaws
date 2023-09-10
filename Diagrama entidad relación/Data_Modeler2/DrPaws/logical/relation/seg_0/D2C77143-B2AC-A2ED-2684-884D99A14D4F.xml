@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Recetado" directorySegmentName="seg_0" id="D2C77143-B2AC-A2ED-2684-884D99A14D4F">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:18:50 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<sourceTransferable>false</sourceTransferable>
+<sourcePk>4FE40E8B-5416-B71E-E809-18AAA4339B75</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>CCF42C85-9DC8-1CB8-D21A-AF2ED63CCFEB</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E009A57D-C778-076F-FCAB-BA8B66582A17</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
