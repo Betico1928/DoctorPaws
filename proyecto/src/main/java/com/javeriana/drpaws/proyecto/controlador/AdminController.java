@@ -21,6 +21,7 @@ public class AdminController
     @Autowired
     private MascotaService mascotaService;
 
+    //http://localhost:8080/admin/dashboard  -> Vista del dashboard de administrador
     @RequestMapping("/dashboard")
     public String dashboard(Model model)
     {

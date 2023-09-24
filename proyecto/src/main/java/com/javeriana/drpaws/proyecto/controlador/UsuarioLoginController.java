@@ -20,14 +20,16 @@ public class UsuarioLoginController {
 
     // Maneja el GET para mostrar la página de login
     @GetMapping
-    public String showLoginPage(Model model) {
+    public String showLoginPage(Model model)
+    {
         model.addAttribute("loginForm", new Usuario()); // Añadir un objeto Usuario para binding
         return "login-user";
     }
 
     // Maneja el POST del formulario de login
     @PostMapping
-    public String handleLogin(@RequestParam(name = "userId") String userInput, Model model) {
+    public String handleLogin(@RequestParam(name = "userId") String userInput, Model model)
+    {
         try
         {
             Long userId = Long.parseLong(userInput);
@@ -56,5 +58,4 @@ public class UsuarioLoginController {
             return "login-user";
         }
     }
-
 }
