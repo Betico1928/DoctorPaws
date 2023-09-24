@@ -3,6 +3,7 @@ package com.javeriana.drpaws.proyecto.entidad;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -21,7 +22,7 @@ public class Usuario {
     private String contraseña;
     private String imagen;
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private List<Mascota> mascotas = new ArrayList<>();
 
     public Usuario(String cedula, String nombre, String correo, String celular, String contraseña,
