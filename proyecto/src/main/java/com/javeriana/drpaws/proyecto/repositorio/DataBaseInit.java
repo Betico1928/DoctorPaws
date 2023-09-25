@@ -32,14 +32,76 @@ public class DataBaseInit implements ApplicationRunner {
 
         // --- VETERINARIOS ---
         // Veterinario #1 - Dr. Juan Perez
-        repoVeterinario.save(new Veterinario("Corazon", "Dr. Juan Perez", "perezj@email.com", "password",
-                "path/to/imagevet1"));
+            repoVeterinario.save(new Veterinario("Cardiología", "Dr. Juan Perez", "perezj@email.com", "password1", "path/to/imagevet1"));
 
         // Veterinario #2 - Dra. Maria Rodriguez
-        repoVeterinario.save(new Veterinario("Ojos", "Dra. Maria Rodriguez", "rodrim@email.com",
-                "passwordloca", "path/to/imagevet2"));
+            repoVeterinario.save(new Veterinario("Cirugía", "Dra. Maria Rodriguez", "rodrim@email.com", "password2", "path/to/imagevet2"));
 
-        // usuarios
+        // Veterinario #3 - Dr. Carlos Garcia
+            repoVeterinario.save(new Veterinario("Dermatología", "Dr. Carlos Garcia", "garciac@email.com", "password3", "path/to/imagevet3"));
+
+        // Veterinario #4 - Dra. Laura Lopez
+            repoVeterinario.save(new Veterinario("Oftalmología", "Dra. Laura Lopez", "lopezl@email.com", "password4", "path/to/imagevet4"));
+
+        // Veterinario #5 - Dr. Pedro Gutierrez
+            repoVeterinario.save(new Veterinario("Ortopedia", "Dr. Pedro Gutierrez", "gutierrezp@email.com", "password5", "path/to/imagevet5"));
+
+        // Veterinario #6 - Dra. Isabel Morales
+            repoVeterinario.save(new Veterinario("Odontología", "Dra. Isabel Morales", "moralesi@email.com", "password6", "path/to/imagevet6"));
+
+        // Veterinario #7 - Dr. Fernando Torres
+            repoVeterinario.save(new Veterinario("Radiología", "Dr. Fernando Torres", "torresf@email.com", "password7", "path/to/imagevet7"));
+
+        // Veterinario #8 - Dra. Gabriela Soto
+            repoVeterinario.save(new Veterinario("Neurología", "Dra. Gabriela Soto", "sotog@email.com", "password8", "path/to/imagevet8"));
+
+        // Veterinario #9 - Dr. Sergio Mendez
+            repoVeterinario.save(new Veterinario("Endocrinología", "Dr. Sergio Mendez", "mendezs@email.com", "password9", "path/to/imagevet9"));
+
+        // Veterinario #10 - Dra. Rosa Maldonado
+            repoVeterinario.save(new Veterinario("Gastroenterología", "Dra. Rosa Maldonado", "maldonador@email.com", "password10", "path/to/imagevet10"));
+
+        // Veterinario #11 - Dr. Alberto Ruiz
+            repoVeterinario.save(new Veterinario("Oncología", "Dr. Alberto Ruiz", "ruiza@email.com", "password11", "path/to/imagevet11"));
+
+        // Veterinario #12 - Dra. Patricia Ponce
+            repoVeterinario.save(new Veterinario("Urología", "Dra. Patricia Ponce", "poncep@email.com", "password12", "path/to/imagevet12"));
+
+        // Veterinario #13 - Dr. Rafael Vargas
+            repoVeterinario.save(new Veterinario("Anestesiología", "Dr. Rafael Vargas", "vargasr@email.com", "password13", "path/to/imagevet13"));
+
+        // Veterinario #14 - Dra. Teresa Delgado
+            repoVeterinario.save(new Veterinario("Inmunología", "Dra. Teresa Delgado", "delgadot@email.com", "password14", "path/to/imagevet14"));
+
+        // Veterinario #15 - Dr. Guillermo Navarro
+            repoVeterinario.save(new Veterinario("Hematología", "Dr. Guillermo Navarro", "navarrog@email.com", "password15", "path/to/imagevet15"));
+
+        // Veterinario #16 - Dra. Alicia Ortega
+            repoVeterinario.save(new Veterinario("Fisioterapia", "Dra. Alicia Ortega", "ortegaa@email.com", "password16", "path/to/imagevet16"));
+
+        // Veterinario #17 - Dr. Jorge Pena
+            repoVeterinario.save(new Veterinario("Genética", "Dr. Jorge Pena", "penaj@email.com", "password17", "path/to/imagevet17"));
+
+        // Veterinario #18 - Dra. Carmen Lara
+            repoVeterinario.save(new Veterinario("Geriatría", "Dra. Carmen Lara", "larac@email.com", "password18", "path/to/imagevet18"));
+
+        // Veterinario #19 - Dr. Enrique Dominguez
+            repoVeterinario.save(new Veterinario("Rehabilitación", "Dr. Enrique Dominguez", "domingueze@email.com", "password19", "path/to/imagevet19"));
+
+        // Veterinario #20 - Dra. Monica Rios
+            repoVeterinario.save(new Veterinario("Nutrición", "Dra. Monica Rios", "riosm@email.com", "password20", "path/to/imagevet20"));
+
+
+
+
+
+
+
+
+
+
+            
+        // USUARIOS
         // Usuario #1 - Selena Gomez
         repoUsuario.save(new Usuario("111111100", "Selena Gomez", "selena-gomez@yahoo.com", "+57 269 508 6240",
                 "password1", "path/to/imageuser1"));

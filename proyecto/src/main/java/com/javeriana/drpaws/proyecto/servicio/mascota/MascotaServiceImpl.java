@@ -1,4 +1,4 @@
-package com.javeriana.drpaws.proyecto.servicio.Mascota;
+package com.javeriana.drpaws.proyecto.servicio.mascota;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.repositorio.MascotaRepository;
 
 @Service
-public class MascotaServiceImpl implements MascotaService {
+public class MascotaServiceImpl implements com.javeriana.drpaws.proyecto.servicio.Mascota.MascotaService {
 
     @Autowired
     MascotaRepository repo;
@@ -42,5 +42,4 @@ public class MascotaServiceImpl implements MascotaService {
     public void add(Mascota mascota) {
         repo.save(mascota);
     }
-
 }
