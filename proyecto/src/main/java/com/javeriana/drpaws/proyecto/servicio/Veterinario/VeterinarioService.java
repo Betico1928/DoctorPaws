@@ -11,4 +11,6 @@ public interface VeterinarioService {
 
     public void add(Veterinario veterinario);
 
+    public Veterinario searchByEmail(String email);
+
 }

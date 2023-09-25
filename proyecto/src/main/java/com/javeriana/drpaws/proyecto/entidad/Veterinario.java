@@ -26,11 +26,6 @@ public class Veterinario {
     @JoinTable(name = "tratamiento", joinColumns = @JoinColumn(name = "veterinario_id"), inverseJoinColumns = @JoinColumn(name = "mascota_id"))
     private List<Mascota> mascotas = new ArrayList<>();
 
-    public Veterinario(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
     public Veterinario() {
 
     }
