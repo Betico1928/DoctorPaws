@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Collection;
 
+//Conroller para el dashboard de administrador
+
 @Controller
 @RequestMapping("/admin")
-public class AdminController
-{
+public class AdminController {
     @Autowired
     private UsuarioService usuarioService;
 
     @Autowired
     private MascotaService mascotaService;
 
-    //http://localhost:8080/admin/dashboard  -> Vista del dashboard de administrador
+    // http://localhost:8080/admin/dashboard -> Vista del dashboard de administrador
     @RequestMapping("/dashboard")
-    public String dashboard(Model model)
-    {
+    public String dashboard(Model model) {
         // Obtener los datos de ambos servicios
         Collection<Usuario> usuarios = usuarioService.searchAll();
         Collection<Mascota> mascotas = mascotaService.searchAll();

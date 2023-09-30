@@ -21,8 +21,8 @@ public class Tratamiento {
     @ManyToOne
     private Mascota mascota;
 
-    @OneToMany(mappedBy = "tratamiento")
-    List<Medicamento> medicamentos = new ArrayList<>();
+    @ManyToOne
+    private Medicamento medicamento;
 
     private String nombre;
 
@@ -53,14 +53,6 @@ public class Tratamiento {
         this.id = id;
     }
 
-    public List<Medicamento> getMedicamentos() {
-        return medicamentos;
-    }
-
-    public void setMedicamentos(List<Medicamento> medicamentos) {
-        this.medicamentos = medicamentos;
-    }
-
     public Veterinario getVeterinario() {
         return veterinario;
     }
@@ -83,6 +75,14 @@ public class Tratamiento {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Medicamento getMedicamento() {
+        return medicamento;
+    }
+
+    public void setMedicamento(Medicamento medicamento) {
+        this.medicamento = medicamento;
     }
 
 }
