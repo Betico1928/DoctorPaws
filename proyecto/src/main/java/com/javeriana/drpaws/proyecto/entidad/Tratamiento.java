@@ -15,74 +15,143 @@ public class Tratamiento {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
-    private Veterinario veterinario;
+    private String nombre;
+
+    private String descripcion;
+
+    private String fechaInicio;
+
+    private String fechaFin;
+
+    private float costo;
+
+    private String frecuencia;
 
     @ManyToOne
     private Mascota mascota;
 
     @ManyToOne
+    private Veterinario veterinario;
+
+    @ManyToOne
     private Medicamento medicamento;
 
-    private String nombre;
 
-    private String fecha;
 
-    public Tratamiento(String nombre, String fecha) {
+    // Constructor
+    public Tratamiento(Long id, String nombre, String descripcion, String fechaInicio, String fechaFin, float costo, String frecuencia) {
+        this.id = id;
         this.nombre = nombre;
-        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.costo = costo;
+        this.frecuencia = frecuencia;
     }
 
-    public Tratamiento() {
 
-    }
+    // Constructor Vacío
+    public Tratamiento() {}
 
-    public String getFecha() {
-        return fecha;
-    }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public Long getId() {
+    // Getters y Setters
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
-    public Veterinario getVeterinario() {
-        return veterinario;
-    }
-
-    public void setVeterinario(Veterinario veterinario) {
-        this.veterinario = veterinario;
-    }
-
-    public Mascota getMascota() {
-        return mascota;
-    }
-
-    public void setMascota(Mascota mascota) {
-        this.mascota = mascota;
-    }
-
-    public String getNombre() {
+    public String getNombre()
+    {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre)
+    {
         this.nombre = nombre;
     }
 
-    public Medicamento getMedicamento() {
+    public String getDescripcion()
+    {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion)
+    {
+        this.descripcion = descripcion;
+    }
+
+    public String getFechaInicio()
+    {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio)
+    {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getFechaFin()
+    {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin)
+    {
+        this.fechaFin = fechaFin;
+    }
+
+    public float getCosto()
+    {
+        return costo;
+    }
+
+    public void setCosto(float costo)
+    {
+        this.costo = costo;
+    }
+
+    public String getFrecuencia()
+    {
+        return frecuencia;
+    }
+
+    public void setFrecuencia(String frecuencia)
+    {
+        this.frecuencia = frecuencia;
+    }
+
+    public Mascota getMascota()
+    {
+        return mascota;
+    }
+
+    public void setMascota(Mascota mascota)
+    {
+        this.mascota = mascota;
+    }
+
+    public Veterinario getVeterinario()
+    {
+        return veterinario;
+    }
+
+    public void setVeterinario(Veterinario veterinario)
+    {
+        this.veterinario = veterinario;
+    }
+
+    public Medicamento getMedicamento()
+    {
         return medicamento;
     }
 
-    public void setMedicamento(Medicamento medicamento) {
+    public void setMedicamento(Medicamento medicamento)
+    {
         this.medicamento = medicamento;
     }
-
 }
