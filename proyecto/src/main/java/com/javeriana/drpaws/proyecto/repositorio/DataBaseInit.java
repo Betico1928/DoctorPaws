@@ -2829,7 +2829,7 @@ public class DataBaseInit implements ApplicationRunner {
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        Random random = new Random();
+        Random random = new Random(1);
 
         // Obtener todas las mascotas, veterinarios, y medicamentos de la BD
         List<Mascota> mascotas = repoMascota.findAll();
