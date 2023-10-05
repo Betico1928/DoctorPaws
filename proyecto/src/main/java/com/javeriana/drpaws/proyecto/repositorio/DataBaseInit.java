@@ -1,17 +1,15 @@
 package com.javeriana.drpaws.proyecto.repositorio;
 
+import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
-import com.javeriana.drpaws.proyecto.entidad.Medicamento;
+import com.javeriana.drpaws.proyecto.entidad.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Controller;
-
-import com.javeriana.drpaws.proyecto.entidad.Mascota;
-import com.javeriana.drpaws.proyecto.entidad.Usuario;
-import com.javeriana.drpaws.proyecto.entidad.Veterinario;
 
 import jakarta.transaction.Transactional;
 
@@ -30,6 +28,9 @@ public class DataBaseInit implements ApplicationRunner {
 
     @Autowired
     MedicamentoRepository repoMedicamento;
+
+    @Autowired
+    TratamientoRepository repoTratamiento;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -2783,13 +2784,95 @@ public class DataBaseInit implements ApplicationRunner {
         repoMedicamento.save(new Medicamento("METROTAB", 169.300F, 135.440F, 9, 0));
 
 
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        Random random = new Random();
+
+        // Obtener todas las mascotas, veterinarios, y medicamentos de la BD
+        List<Mascota> mascotas = repoMascota.findAll();
+        List<Veterinario> veterinarios = repoVeterinario.findAll();
+        List<Medicamento> medicamentos = repoMedicamento.findAll();
+
+        // Verificar si hay datos suficientes para asociar
+        if(mascotas.isEmpty() || veterinarios.isEmpty() || medicamentos.isEmpty())
+        {
+            throw new IllegalStateException("No hay suficientes mascotas/veterinarios/medicamentos en la BD");
+        }
+
+        String[] nombresTratamientos = {
+                "Cirugía de Cadera",
+                "Tratamiento Dental",
+                "Vacunación Antirrábica",
+                "Desparasitación",
+                "Quimioterapia",
+                "Radiografía",
+                "Ecografía",
+                "Operación de Tumor",
+                "Amputación",
+                "Cirugía de Ojo"
+        };
+
+        String[] descripcionesTratamientos = {
+                "Cirugía de urgencia debido a displasia de cadera",
+                "Limpieza y extracción dental debido a enfermedad periodontal",
+                "Vacunación requerida para prevenir la rabia",
+                "Eliminación de parásitos internos y externos",
+                "Serie de tratamientos para combatir el cáncer",
+                "Imágenes radiográficas para diagnosticar condiciones internas",
+                "Estudio de órganos internos mediante ultrasonido",
+                "Extirpación quirúrgica de un tumor maligno",
+                "Remoción de una extremidad para prevenir la propagación de infecciones o tumores",
+                "Procedimiento quirúrgico para tratar cataratas o lesiones oculares"
+        };
+
+        for (int i = 0; i < 10; i++)
+        {
+            Tratamiento tratamiento = new Tratamiento();
+
+            // Seleccionar nombres y descripciones al azar
+            tratamiento.setNombre(nombresTratamientos[random.nextInt(nombresTratamientos.length)]);
+            tratamiento.setDescripcion(descripcionesTratamientos[random.nextInt(descripcionesTratamientos.length)]);
+
+            tratamiento.setFechaInicio("2023-01-01");
+
+            tratamiento.setFechaFin("2023-12-31");
+
+            // Generar un costo aleatorio entre 50.000 y 950.000
+            float randomCost = (random.nextInt(950000 - 50000 + 1) + 50000) / 1000.0f;
+
+            // Asegurarse de que el formato siempre tiene tres dígitos después del punto decimal
+            DecimalFormat df = new DecimalFormat("#.000");
+            randomCost = Float.parseFloat(df.format(randomCost));
+
+            tratamiento.setCosto(randomCost);
+
+
+            tratamiento.setFrecuencia("Semanal");
+
+
+            // Obtener una mascota, veterinario, y medicamento al azar de las listas.
+            tratamiento.setMascota(mascotas.get(random.nextInt(mascotas.size())));
+            tratamiento.setVeterinario(veterinarios.get(random.nextInt(veterinarios.size())));
+            tratamiento.setMedicamento(medicamentos.get(random.nextInt(medicamentos.size())));
+
+            // Guardar el objeto tratamiento en la base de datos.
+            repoTratamiento.save(tratamiento);
+        }
+
+
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
         // Retrieve all Usuario objects
         List<Usuario> usuarios = repoUsuario.findAll();
 
         // Retrieve all Mascota objects
-        List<Mascota> mascotas = repoMascota.findAll();
+        // Agregado arriba - List<Mascota> mascotas = repoMascota.findAll();
 
         // Shuffle the list of Mascota objects to randomize their order
         Collections.shuffle(mascotas);
