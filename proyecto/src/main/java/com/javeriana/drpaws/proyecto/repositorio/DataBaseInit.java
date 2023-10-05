@@ -1,5 +1,8 @@
 package com.javeriana.drpaws.proyecto.repositorio;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.List;
@@ -1213,6 +1216,7 @@ public class DataBaseInit implements ApplicationRunner {
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+        /*
         // MEDICAMENTOS:
         // ACOLAN - (1)
         repoMedicamento.save(new Medicamento("ACOLAN", 151.300F, 60.520F, 4, 0));
@@ -2782,6 +2786,43 @@ public class DataBaseInit implements ApplicationRunner {
 
         // METROTAB - (523)
         repoMedicamento.save(new Medicamento("METROTAB", 169.300F, 135.440F, 9, 0));
+         */
+
+        // Extrayendo los medicamentos desde el Excel:
+        String csvFile = "/Users/case/Desktop/UNIVERSITY/6to Semestre/Desarrollo Web/DoctorPaws/Archivos Varios/MEDICAMENTOS_VETERINARIA.csv";
+        String line;
+        String csvSplitBy = ";";  // Separador de las celdas, en este caso punto y coma
+
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+
+            // Opcional: omitir la primera línea si es el encabezado
+            br.readLine();
+
+            System.out.println("Inicio de la lectura del archivo...");
+
+            while ((line = br.readLine()) != null) {
+                System.out.println("Leyendo línea: " + line);
+
+                String[] medicamentoData = line.split(csvSplitBy);
+
+                String nombre = medicamentoData[0].replace("\"", "");
+                float precioVenta = Float.parseFloat(medicamentoData[1].replace("$", "").replace("\"", ""));
+                float precioCompra = Float.parseFloat(medicamentoData[2].replace("$", "").replace("\"", ""));
+                int unidadesDisponibles = Integer.parseInt(medicamentoData[3].replace("\"", ""));
+                int unidadesVendidas = Integer.parseInt(medicamentoData[4].replace("\"", ""));
+
+                System.out.println("Creando objeto Medicamento...");
+                Medicamento medicamento = new Medicamento(nombre, precioVenta, precioCompra, unidadesDisponibles, unidadesVendidas);
+                repoMedicamento.save(medicamento);
+                System.out.println("Guardado: " + medicamento.getNombre());
+                System.out.println("--------------------------------------------------\n");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2897,7 +2938,8 @@ public class DataBaseInit implements ApplicationRunner {
                 break;
             }
         }
-
+        System.out.println("\n------------------------------------------------------");
+        System.out.println("- - - - - - - - - REPOSITORIO CARGADO - - - - - - - - -");
+        System.out.println("------------------------------------------------------\n");
     }
-
 }
