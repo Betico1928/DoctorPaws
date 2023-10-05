@@ -36,7 +36,7 @@ public class Medicamento {
 
     // Constructor Vacío
     public Medicamento() {}
-    
+
 
     // Getters y Setters
     public Long getId()

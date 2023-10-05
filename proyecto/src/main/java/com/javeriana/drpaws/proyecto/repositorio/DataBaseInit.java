@@ -3,6 +3,7 @@ package com.javeriana.drpaws.proyecto.repositorio;
 import java.util.Collections;
 import java.util.List;
 
+import com.javeriana.drpaws.proyecto.entidad.Medicamento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -26,6 +27,9 @@ public class DataBaseInit implements ApplicationRunner {
 
     @Autowired
     VeterinarioRepository repoVeterinario;
+
+    @Autowired
+    MedicamentoRepository repoMedicamento;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -1144,87 +1148,1642 @@ public class DataBaseInit implements ApplicationRunner {
                 "path/to/image180"));
 
         // Mascota #181 - Coco
-        repoMascota.save(new Mascota("Coco", "Rottweiler", 3, 41.6f, "Gusano del corazón (Dirofilaria immitis)",
-                "path/to/image181"));
+        repoMascota.save(new Mascota("Coco", "Rottweiler", 3, 41.6f, "Gusano del corazón (Dirofilaria immitis)", "path/to/image181"));
 
         // Mascota #182 - Finn
         repoMascota.save(new Mascota("Finn", "Pembroke Welsh Corgi", 13, 24.2f, "Sarna (ácaros)", "path/to/image182"));
 
         // Mascota #183 - Willow
-        repoMascota.save(
-                new Mascota("Willow", "West Highland White Terrier", 13, 49.8f, "Leptospirosis", "path/to/image183"));
+        repoMascota.save(new Mascota("Willow", "West Highland White Terrier", 13, 49.8f, "Leptospirosis", "path/to/image183"));
 
         // Mascota #184 - Kobe
-        repoMascota.save(new Mascota("Kobe", "Shetland Sheepdog", 2, 25.7f,
-                "Traqueobronquitis infecciosa canina (Tos de las perreras)", "path/to/image184"));
+        repoMascota.save(new Mascota("Kobe", "Shetland Sheepdog", 2, 25.7f, "Traqueobronquitis infecciosa canina (Tos de las perreras)", "path/to/image184"));
 
         // Mascota #185 - Lady
-        repoMascota.save(new Mascota("Lady", "Chihuahua", 5, 38.3f,
-                "Traqueobronquitis infecciosa canina (Tos de las perreras)", "path/to/image185"));
+        repoMascota.save(new Mascota("Lady", "Chihuahua", 5, 38.3f, "Traqueobronquitis infecciosa canina (Tos de las perreras)", "path/to/image185"));
 
         // Mascota #186 - Lilly
-        repoMascota.save(new Mascota("Lilly", "Shetland Sheepdog", 0, 41.0f, "Enfermedad de Lyme (Borreliosis)",
-                "path/to/image186"));
+        repoMascota.save(new Mascota("Lilly", "Shetland Sheepdog", 0, 41.0f, "Enfermedad de Lyme (Borreliosis)", "path/to/image186"));
 
         // Mascota #187 - Jackson
-        repoMascota.save(new Mascota("Jackson", "Bichon Frise", 1, 47.4f, "Gusano del corazón (Dirofilaria immitis)",
-                "path/to/image187"));
+        repoMascota.save(new Mascota("Jackson", "Bichon Frise", 1, 47.4f, "Gusano del corazón (Dirofilaria immitis)", "path/to/image187"));
 
         // Mascota #188 - Coco
         repoMascota.save(new Mascota("Coco", "Afghan Hound", 7, 59.9f, "Rabia", "path/to/image188"));
 
         // Mascota #189 - Finn
-        repoMascota.save(new Mascota("Finn", "Border Collie", 6, 23.5f, "Gusano del corazón (Dirofilaria immitis)",
-                "path/to/image189"));
+        repoMascota.save(new Mascota("Finn", "Border Collie", 6, 23.5f, "Gusano del corazón (Dirofilaria immitis)", "path/to/image189"));
 
         // Mascota #190 - Willow
-        repoMascota.save(
-                new Mascota("Willow", "West Highland White Terrier", 6, 55.4f, "Sarna (ácaros)", "path/to/image190"));
+        repoMascota.save(new Mascota("Willow", "West Highland White Terrier", 6, 55.4f, "Sarna (ácaros)", "path/to/image190"));
 
         // Mascota #191 - Kobe
-        repoMascota.save(
-                new Mascota("Kobe", "Bichon Frise", 15, 31.5f, "Distemper (Moquillo canino)", "path/to/image191"));
+        repoMascota.save(new Mascota("Kobe", "Bichon Frise", 15, 31.5f, "Distemper (Moquillo canino)", "path/to/image191"));
 
         // Mascota #192 - Lady
         repoMascota.save(new Mascota("Lady", "Airedale Terrier", 10, 6.1f, "Parvovirus canino", "path/to/image192"));
 
         // Mascota #193 - Nala
-        repoMascota.save(new Mascota("Nala", "Newfoundland", 11, 36.8f, "Gusano del corazón (Dirofilaria immitis)",
-                "path/to/image193"));
+        repoMascota.save(new Mascota("Nala", "Newfoundland", 11, 36.8f, "Gusano del corazón (Dirofilaria immitis)", "path/to/image193"));
 
         // Mascota #194 - Jake
-        repoMascota.save(new Mascota("Jake", "Yorkshire Terrier", 11, 34.6f,
-                "Traqueobronquitis infecciosa canina (Tos de las perreras)", "path/to/image194"));
+        repoMascota.save(new Mascota("Jake", "Yorkshire Terrier", 11, 34.6f, "Traqueobronquitis infecciosa canina (Tos de las perreras)", "path/to/image194"));
 
         // Mascota #195 - Emma
-        repoMascota.save(new Mascota("Emma", "Border Collie", 1, 2.9f, "Parásitos intestinales (como lombrices)",
-                "path/to/image195"));
+        repoMascota.save(new Mascota("Emma", "Border Collie", 1, 2.9f, "Parásitos intestinales (como lombrices)", "path/to/image195"));
 
         // Mascota #196 - Riley
-        repoMascota.save(new Mascota("Riley", "Boston Terrier", 8, 16.8f, "Enfermedad de Lyme (Borreliosis)",
-                "path/to/image196"));
+        repoMascota.save(new Mascota("Riley", "Boston Terrier", 8, 16.8f, "Enfermedad de Lyme (Borreliosis)", "path/to/image196"));
 
         // Mascota #197 - Athena
-        repoMascota.save(new Mascota("Athena", "Rhodesian Ridgeback", 10, 26.8f,
-                "Gusano del corazón (Dirofilaria immitis)", "path/to/image197"));
+        repoMascota.save(new Mascota("Athena", "Rhodesian Ridgeback", 10, 26.8f, "Gusano del corazón (Dirofilaria immitis)", "path/to/image197"));
 
         // Mascota #198 - Santiago
-        repoMascota.save(
-                new Mascota("Santiago", "Shih Tzu", 15, 30.8f, "Distemper (Moquillo canino)", "path/to/image198"));
+        repoMascota.save(new Mascota("Santiago", "Shih Tzu", 15, 30.8f, "Distemper (Moquillo canino)", "path/to/image198"));
 
         // Mascota #199 - Temistocles
         repoMascota.save(new Mascota("Temistocles", "Akita", 9, 55.6f, "Rabia", "path/to/image199"));
 
         // Mascota #200 - Pericles
-        repoMascota
-                .save(new Mascota("Pericles", "Poodle", 14, 35.3f, "Distemper (Moquillo canino)", "path/to/image200"));
+        repoMascota.save(new Mascota("Pericles", "Poodle", 14, 35.3f, "Distemper (Moquillo canino)", "path/to/image200"));
 
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        //
+        // MEDICAMENTOS:
+        // ACOLAN - (1)
+        repoMedicamento.save(new Medicamento("ACOLAN", 151.300F, 60.520F, 4, 0));
+
+        // ACTIONIS - (2)
+        repoMedicamento.save(new Medicamento("ACTIONIS", 155.100F, 124.080F, 4, 0));
+
+        // ACUIMIX - (3)
+        repoMedicamento.save(new Medicamento("ACUIMIX", 114.800F, 91.840F, 4, 0));
+
+        // ADVOCIN - (4)
+        repoMedicamento.save(new Medicamento("ADVOCIN", 147.600F, 103.320F, 1, 0));
+
+        // AEROFAR - (5)
+        repoMedicamento.save(new Medicamento("AEROFAR", 129.000F, 64.500F, 10, 0));
+
+        // AIVLOSIN - (6)
+        repoMedicamento.save(new Medicamento("AIVLOSIN", 164.900F, 115.430F, 10, 0));
+
+        // ALAMYCIN - (7)
+        repoMedicamento.save(new Medicamento("ALAMYCIN", 125.800F, 100.640F, 6, 0));
+
+        // ALBIOTIC - (8)
+        repoMedicamento.save(new Medicamento("ALBIOTIC", 79.100F, 47.460F, 2, 0));
+
+        // ALSIR - (9)
+        repoMedicamento.save(new Medicamento("ALSIR", 182.000F, 109.200F, 4, 0));
+
+        // ALTIDOX - (10)
+        repoMedicamento.save(new Medicamento("ALTIDOX", 133.400F, 80.040F, 4, 0));
+
+        // AMOXAL - (11)
+        repoMedicamento.save(new Medicamento("AMOXAL", 135.500F, 108.400F, 7, 0));
+
+        // AMOXIBACTIN - (12)
+        repoMedicamento.save(new Medicamento("AMOXIBACTIN", 86.800F, 52.080F, 1, 0));
+
+        // AMOXICILINA - (13)
+        repoMedicamento.save(new Medicamento("AMOXICILINA", 182.900F, 109.740F, 9, 0));
+
+        // AMOXICIVEN - (14)
+        repoMedicamento.save(new Medicamento("AMOXICIVEN", 141.600F, 70.800F, 3, 0));
+
+        // AMOXIDIAN - (15)
+        repoMedicamento.save(new Medicamento("AMOXIDIAN", 146.800F, 102.760F, 2, 0));
+
+        // AMOXIPOL - (16)
+        repoMedicamento.save(new Medicamento("AMOXIPOL", 58.600F, 29.300F, 3, 0));
+
+        // AMOXOIL - (17)
+        repoMedicamento.save(new Medicamento("AMOXOIL", 50.700F, 25.350F, 4, 0));
+
+        // AMPHEN - (18)
+        repoMedicamento.save(new Medicamento("AMPHEN", 198.200F, 158.560F, 6, 0));
+
+        // AMPIMASTINA - (19)
+        repoMedicamento.save(new Medicamento("AMPIMASTINA", 84.500F, 59.150F, 8, 0));
+
+        // ANIMEDAZON - (20)
+        repoMedicamento.save(new Medicamento("ANIMEDAZON", 64.000F, 44.800F, 3, 0));
+
+        // APODERM - (21)
+        repoMedicamento.save(new Medicamento("APODERM", 182.300F, 91.150F, 3, 0));
+
+        // APRAVET - (22)
+        repoMedicamento.save(new Medicamento("APRAVET", 93.100F, 65.170F, 1, 0));
+
+        // APSALIQ - (23)
+        repoMedicamento.save(new Medicamento("APSALIQ", 86.100F, 34.440F, 8, 0));
+
+        // APSAMIX - (24)
+        repoMedicamento.save(new Medicamento("APSAMIX", 52.600F, 21.040F, 6, 0));
+
+        // APSASOL - (25)
+        repoMedicamento.save(new Medicamento("APSASOL", 142.800F, 114.240F, 5, 0));
+
+        // AQUACEN - (26)
+        repoMedicamento.save(new Medicamento("AQUACEN", 133.500F, 93.450F, 2, 0));
+
+        // AQUACOLI - (27)
+        repoMedicamento.save(new Medicamento("AQUACOLI", 90.200F, 45.100F, 9, 0));
+
+        // AQUADOX-S.P. - (28)
+        repoMedicamento.save(new Medicamento("AQUADOX-S.P.", 104.500F, 41.800F, 2, 0));
+
+        // AQUAFLOR - (29)
+        repoMedicamento.save(new Medicamento("AQUAFLOR", 151.400F, 75.700F, 10, 0));
+
+        // AQUAMICIN - (30)
+        repoMedicamento.save(new Medicamento("AQUAMICIN", 193.000F, 77.200F, 4, 0));
+
+        // ARENTOR - (31)
+        repoMedicamento.save(new Medicamento("ARENTOR", 190.000F, 95.000F, 7, 0));
+
+        // ASMOSERINE - (32)
+        repoMedicamento.save(new Medicamento("ASMOSERINE", 162.000F, 97.200F, 10, 0));
+
+        // AURIZON - (33)
+        repoMedicamento.save(new Medicamento("AURIZON", 190.200F, 152.160F, 9, 0));
+
+        // AUROFAC - (34)
+        repoMedicamento.save(new Medicamento("AUROFAC", 177.900F, 124.530F, 6, 0));
+
+        // AVIAMOX - (35)
+        repoMedicamento.save(new Medicamento("AVIAMOX", 141.800F, 99.260F, 8, 0));
+
+        // AVIPEN - (36)
+        repoMedicamento.save(new Medicamento("AVIPEN", 144.200F, 57.680F, 8, 0));
+
+        // BACIPREMIX - (37)
+        repoMedicamento.save(new Medicamento("BACIPREMIX", 188.700F, 75.480F, 10, 0));
+
+        // BACIVET - (38)
+        repoMedicamento.save(new Medicamento("BACIVET", 155.400F, 77.700F, 4, 0));
+
+        // BAYTRIL - (39)
+        repoMedicamento.save(new Medicamento("BAYTRIL", 110.500F, 77.350F, 9, 0));
+
+        // BAYTRILUNO - (40)
+        repoMedicamento.save(new Medicamento("BAYTRILUNO", 118.100F, 47.240F, 9, 0));
+
+        // BENZATARD - (41)
+        repoMedicamento.save(new Medicamento("BENZATARD", 148.700F, 89.220F, 2, 0));
+
+        // BETAMAXYL - (42)
+        repoMedicamento.save(new Medicamento("BETAMAXYL", 155.700F, 77.850F, 2, 0));
+
+        // BETAMOX - (43)
+        repoMedicamento.save(new Medicamento("BETAMOX", 131.000F, 65.500F, 2, 0));
+
+        // BICLOX - (44)
+        repoMedicamento.save(new Medicamento("BICLOX", 106.400F, 85.120F, 6, 0));
+
+        // BILOVET - (45)
+        repoMedicamento.save(new Medicamento("BILOVET", 131.300F, 105.040F, 6, 0));
+
+        // BIMOXYL - (46)
+        repoMedicamento.save(new Medicamento("BIMOXYL", 63.000F, 31.500F, 2, 0));
+
+        // BIOTILINA - (47)
+        repoMedicamento.save(new Medicamento("BIOTILINA", 181.800F, 109.080F, 5, 0));
+
+        // BISEPTYL - (48)
+        repoMedicamento.save(new Medicamento("BISEPTYL", 131.900F, 79.140F, 4, 0));
+
+        // BOFLOX - (49)
+        repoMedicamento.save(new Medicamento("BOFLOX", 53.600F, 37.520F, 8, 0));
+
+        // BORGAL - (50)
+        repoMedicamento.save(new Medicamento("BORGAL", 167.700F, 117.390F, 6, 0));
+
+        // BOVIGAM - (51)
+        repoMedicamento.save(new Medicamento("BOVIGAM", 125.700F, 87.990F, 1, 0));
+
+        // CADOREX - (52)
+        repoMedicamento.save(new Medicamento("CADOREX", 143.200F, 57.280F, 8, 0));
+
+        // CALIERMUTIN - (53)
+        repoMedicamento.save(new Medicamento("CALIERMUTIN", 76.000F, 53.200F, 8, 0));
+
+        // CALIMICINA - (54)
+        repoMedicamento.save(new Medicamento("CALIMICINA", 113.700F, 90.960F, 7, 0));
+
+        // CANAURAL - (55)
+        repoMedicamento.save(new Medicamento("CANAURAL", 58.500F, 40.950F, 1, 0));
+
+        // CEBIN - (56)
+        repoMedicamento.save(new Medicamento("CEBIN", 64.400F, 38.640F, 3, 0));
+
+        // CEFABACTIN - (57)
+        repoMedicamento.save(new Medicamento("CEFABACTIN", 142.300F, 71.150F, 4, 0));
+
+        // CEFA-CURE - (58)
+        repoMedicamento.save(new Medicamento("CEFA-CURE", 108.800F, 76.160F, 1, 0));
+
+        // CEFAMAX - (59)
+        repoMedicamento.save(new Medicamento("CEFAMAX", 113.500F, 56.750F, 9, 0));
+
+        // CEFA-SAFE - (60)
+        repoMedicamento.save(new Medicamento("CEFA-SAFE", 124.700F, 99.760F, 10, 0));
+
+        // CEFASEPTIN - (61)
+        repoMedicamento.save(new Medicamento("CEFASEPTIN", 198.800F, 99.400F, 2, 0));
+
+        // CEFAVEX - (62)
+        repoMedicamento.save(new Medicamento("CEFAVEX", 185.500F, 148.400F, 4, 0));
+
+        // CEFENIL - (63)
+        repoMedicamento.save(new Medicamento("CEFENIL", 139.400F, 111.520F, 7, 0));
+
+        // CEFFECT - (64)
+        repoMedicamento.save(new Medicamento("CEFFECT", 178.300F, 142.640F, 1, 0));
+
+        // CEFQUINOR - (65)
+        repoMedicamento.save(new Medicamento("CEFQUINOR", 96.800F, 48.400F, 7, 0));
+
+        // CEFQUITAN - (66)
+        repoMedicamento.save(new Medicamento("CEFQUITAN", 180.200F, 126.140F, 8, 0));
+
+        // CEFTIOCYL - (67)
+        repoMedicamento.save(new Medicamento("CEFTIOCYL", 92.400F, 64.680F, 7, 0));
+
+        // CEFTIOMAX - (68)
+        repoMedicamento.save(new Medicamento("CEFTIOMAX", 67.600F, 54.080F, 6, 0));
+
+        // CEFTIONIL - (69)
+        repoMedicamento.save(new Medicamento("CEFTIONIL", 107.600F, 53.800F, 6, 0));
+
+        // CEFTIOSAN - (70)
+        repoMedicamento.save(new Medicamento("CEFTIOSAN", 165.800F, 132.640F, 10, 0));
+
+        // CEMAY - (71)
+        repoMedicamento.save(new Medicamento("CEMAY", 109.700F, 65.820F, 8, 0));
+
+        // CENAMUTIN - (72)
+        repoMedicamento.save(new Medicamento("CENAMUTIN", 137.600F, 96.320F, 8, 0));
+
+        // CEN-A-PEN - (73)
+        repoMedicamento.save(new Medicamento("CEN-A-PEN", 90.300F, 63.210F, 10, 0));
+
+        // CENDOX - (74)
+        repoMedicamento.save(new Medicamento("CENDOX", 129.700F, 77.820F, 8, 0));
+
+        // CENFLOX - (75)
+        repoMedicamento.save(new Medicamento("CENFLOX", 108.600F, 86.880F, 8, 0));
+
+        // CENLINCO - (76)
+        repoMedicamento.save(new Medicamento("CENLINCO", 167.300F, 100.380F, 9, 0));
+
+        // CENMICIN - (77)
+        repoMedicamento.save(new Medicamento("CENMICIN", 76.100F, 53.270F, 1, 0));
+
+        // CENOXY - (78)
+        repoMedicamento.save(new Medicamento("CENOXY", 58.500F, 23.400F, 1, 0));
+
+        // CENPREMIX - (79)
+        repoMedicamento.save(new Medicamento("CENPREMIX", 143.500F, 100.450F, 3, 0));
+
+        // CENSULFATRIM - (80)
+        repoMedicamento.save(new Medicamento("CENSULFATRIM", 92.800F, 37.120F, 7, 0));
+
+        // CENTIDOX - (81)
+        repoMedicamento.save(new Medicamento("CENTIDOX", 163.400F, 130.720F, 7, 0));
+
+        // CENVIMOX - (82)
+        repoMedicamento.save(new Medicamento("CENVIMOX", 55.000F, 38.500F, 1, 0));
+
+        // CEPEDOX - (83)
+        repoMedicamento.save(new Medicamento("CEPEDOX", 160.700F, 64.280F, 9, 0));
+
+        // CEPHACARE - (84)
+        repoMedicamento.save(new Medicamento("CEPHACARE", 58.000F, 46.400F, 4, 0));
+
+        // CEPOREX - (85)
+        repoMedicamento.save(new Medicamento("CEPOREX", 120.900F, 48.360F, 2, 0));
+
+        // CEPRAVIN - (86)
+        repoMedicamento.save(new Medicamento("CEPRAVIN", 117.500F, 94.000F, 4, 0));
+
+        // CEPRITECT - (87)
+        repoMedicamento.save(new Medicamento("CEPRITECT", 98.600F, 69.020F, 1, 0));
+
+        // CEVAXEL-RTU - (88)
+        repoMedicamento.save(new Medicamento("CEVAXEL-RTU", 57.600F, 40.320F, 7, 0));
+
+        // CITRAMOX - (89)
+        repoMedicamento.save(new Medicamento("CITRAMOX", 104.500F, 62.700F, 8, 0));
+
+        // CLAMOXYL - (90)
+        repoMedicamento.save(new Medicamento("CLAMOXYL", 118.100F, 82.670F, 10, 0));
+
+        // CLAVASEPTIN - (91)
+        repoMedicamento.save(new Medicamento("CLAVASEPTIN", 51.500F, 36.050F, 4, 0));
+
+        // CLAVUBACTIN - (92)
+        repoMedicamento.save(new Medicamento("CLAVUBACTIN", 183.900F, 128.730F, 6, 0));
+
+        // CLAVUBAY - (93)
+        repoMedicamento.save(new Medicamento("CLAVUBAY", 156.600F, 78.300F, 10, 0));
+
+        // CLAVUCILL - (94)
+        repoMedicamento.save(new Medicamento("CLAVUCILL", 62.700F, 43.890F, 7, 0));
+
+        // CLAVUDALE - (95)
+        repoMedicamento.save(new Medicamento("CLAVUDALE", 52.200F, 26.100F, 10, 0));
+
+        // CLINDABACTIN - (96)
+        repoMedicamento.save(new Medicamento("CLINDABACTIN", 186.800F, 112.080F, 1, 0));
+
+        // CLINDACUTIN - (97)
+        repoMedicamento.save(new Medicamento("CLINDACUTIN", 133.000F, 53.200F, 9, 0));
+
+        // CLINDASEPTIN - (98)
+        repoMedicamento.save(new Medicamento("CLINDASEPTIN", 197.200F, 118.320F, 3, 0));
+
+        // CLORAMIVET - (99)
+        repoMedicamento.save(new Medicamento("CLORAMIVET", 179.900F, 125.930F, 7, 0));
+
+        // CLORIVEN - (100)
+        repoMedicamento.save(new Medicamento("CLORIVEN", 152.200F, 91.320F, 10, 0));
+
+        // CLORTETRA - (101)
+        repoMedicamento.save(new Medicamento("CLORTETRA", 110.800F, 55.400F, 8, 0));
+
+        // CLORTETRACICLINA - (102)
+        repoMedicamento.save(new Medicamento("CLORTETRACICLINA", 52.000F, 26.000F, 7, 0));
+
+        // CLORVIOGEN - (103)
+        repoMedicamento.save(new Medicamento("CLORVIOGEN", 112.500F, 90.000F, 6, 0));
+
+        // COBACTAN - (104)
+        repoMedicamento.save(new Medicamento("COBACTAN", 118.500F, 71.100F, 9, 0));
+
+        // COLFIVE - (105)
+        repoMedicamento.save(new Medicamento("COLFIVE", 71.100F, 35.550F, 4, 0));
+
+        // COLICEN - (106)
+        repoMedicamento.save(new Medicamento("COLICEN", 199.900F, 119.940F, 2, 0));
+
+        // COLIMICINA - (107)
+        repoMedicamento.save(new Medicamento("COLIMICINA", 91.600F, 64.120F, 1, 0));
+
+        // COLIMIX - (108)
+        repoMedicamento.save(new Medicamento("COLIMIX", 58.800F, 41.160F, 6, 0));
+
+        // COLIMUTINA - (109)
+        repoMedicamento.save(new Medicamento("COLIMUTINA", 87.800F, 52.680F, 9, 0));
+
+        // COLIONE - (110)
+        repoMedicamento.save(new Medicamento("COLIONE", 195.800F, 97.900F, 4, 0));
+
+        // COLIPLUS - (111)
+        repoMedicamento.save(new Medicamento("COLIPLUS", 102.100F, 61.260F, 3, 0));
+
+        // COLIPREMIX - (112)
+        repoMedicamento.save(new Medicamento("COLIPREMIX", 56.100F, 33.660F, 4, 0));
+
+        // COLISOL - (113)
+        repoMedicamento.save(new Medicamento("COLISOL", 84.400F, 50.640F, 2, 0));
+
+        // COLISTINA - (114)
+        repoMedicamento.save(new Medicamento("COLISTINA", 181.700F, 109.020F, 6, 0));
+
+        // COLIVALL - (115)
+        repoMedicamento.save(new Medicamento("COLIVALL", 196.000F, 156.800F, 2, 0));
+
+        // COLIVET - (116)
+        repoMedicamento.save(new Medicamento("COLIVET", 59.300F, 47.440F, 1, 0));
+
+        // COLIXYME - (117)
+        repoMedicamento.save(new Medicamento("COLIXYME", 177.800F, 71.120F, 3, 0));
+
+        // COLMYC - (118)
+        repoMedicamento.save(new Medicamento("COLMYC", 168.400F, 134.720F, 9, 0));
+
+        // CONFLOX - (119)
+        repoMedicamento.save(new Medicamento("CONFLOX", 146.900F, 117.520F, 5, 0));
+
+        // CONOFITE - (120)
+        repoMedicamento.save(new Medicamento("CONOFITE", 190.600F, 152.480F, 10, 0));
+
+        // CONVENIA - (121)
+        repoMedicamento.save(new Medicamento("CONVENIA", 75.700F, 60.560F, 2, 0));
+
+        // COTRISUL - (122)
+        repoMedicamento.save(new Medicamento("COTRISUL", 78.400F, 39.200F, 3, 0));
+
+        // CUNITOTAL. - (123)
+        repoMedicamento.save(new Medicamento("CUNITOTAL.", 128.400F, 64.200F, 8, 0));
+
+        // CURACEF - (124)
+        repoMedicamento.save(new Medicamento("CURACEF", 99.300F, 59.580F, 4, 0));
+
+        // CYCLO - (125)
+        repoMedicamento.save(new Medicamento("CYCLO", 82.900F, 49.740F, 10, 0));
+
+        // CYLANIC - (126)
+        repoMedicamento.save(new Medicamento("CYLANIC", 149.000F, 104.300F, 4, 0));
+
+        // DENAGARD - (127)
+        repoMedicamento.save(new Medicamento("DENAGARD", 77.600F, 54.320F, 5, 0));
+
+        // DEPOCILLIN - (128)
+        repoMedicamento.save(new Medicamento("DEPOCILLIN", 94.800F, 75.840F, 2, 0));
+
+        // DEXABIOPEN - (129)
+        repoMedicamento.save(new Medicamento("DEXABIOPEN", 123.300F, 73.980F, 10, 0));
+
+        // DFV - (130)
+        repoMedicamento.save(new Medicamento("DFV", 129.900F, 51.960F, 9, 0));
+
+        // DIACEF - (131)
+        repoMedicamento.save(new Medicamento("DIACEF", 162.500F, 113.750F, 8, 0));
+
+        // DIACIPRIM - (132)
+        repoMedicamento.save(new Medicamento("DIACIPRIM", 196.700F, 157.360F, 3, 0));
+
+        // DIACOL - (133)
+        repoMedicamento.save(new Medicamento("DIACOL", 183.900F, 110.340F, 2, 0));
+
+        // DIAMULIN - (134)
+        repoMedicamento.save(new Medicamento("DIAMULIN", 145.300F, 116.240F, 4, 0));
+
+        // DIATRIM - (135)
+        repoMedicamento.save(new Medicamento("DIATRIM", 84.700F, 67.760F, 4, 0));
+
+        // DIHIDROESTREPTOMICINA-IVEN - (136)
+        repoMedicamento.save(new Medicamento("DIHIDROESTREPTOMICINA-IVEN", 134.600F, 107.680F, 2, 0));
+
+        // DILUDOX - (137)
+        repoMedicamento.save(new Medicamento("DILUDOX", 110.000F, 88.000F, 10, 0));
+
+        // DORAXX - (138)
+        repoMedicamento.save(new Medicamento("DORAXX", 156.300F, 125.040F, 4, 0));
+
+        // DOX - (139)
+        repoMedicamento.save(new Medicamento("DOX", 108.300F, 54.150F, 2, 0));
+
+        // DOXBROM - (140)
+        repoMedicamento.save(new Medicamento("DOXBROM", 133.700F, 80.220F, 3, 0));
+
+        // DOXI - (141)
+        repoMedicamento.save(new Medicamento("DOXI", 143.000F, 85.800F, 7, 0));
+
+        // DOXI-10 - (142)
+        repoMedicamento.save(new Medicamento("DOXI-10", 139.700F, 111.760F, 10, 0));
+
+        // DOXICICLINA - (143)
+        repoMedicamento.save(new Medicamento("DOXICICLINA", 112.700F, 56.350F, 2, 0));
+
+        // DOXICIVALL - (144)
+        repoMedicamento.save(new Medicamento("DOXICIVALL", 196.200F, 137.340F, 3, 0));
+
+        // DOXIDOL - (145)
+        repoMedicamento.save(new Medicamento("DOXIDOL", 195.000F, 156.000F, 2, 0));
+
+        // DOXIDOL100 - (146)
+        repoMedicamento.save(new Medicamento("DOXIDOL100", 123.900F, 49.560F, 2, 0));
+
+        // DOXINYL - (147)
+        repoMedicamento.save(new Medicamento("DOXINYL", 155.500F, 93.300F, 5, 0));
+
+        // DOXIPORC - (148)
+        repoMedicamento.save(new Medicamento("DOXIPORC", 158.400F, 110.880F, 3, 0));
+
+        // DOXIPULVIS - (149)
+        repoMedicamento.save(new Medicamento("DOXIPULVIS", 199.400F, 99.700F, 7, 0));
+
+        // DOXMAY - (150)
+        repoMedicamento.save(new Medicamento("DOXMAY", 68.500F, 47.950F, 4, 0));
+
+        // DOXYBACTIN - (151)
+        repoMedicamento.save(new Medicamento("DOXYBACTIN", 112.800F, 45.120F, 8, 0));
+
+        // DOXYCARE - (152)
+        repoMedicamento.save(new Medicamento("DOXYCARE", 173.400F, 104.040F, 9, 0));
+
+        // DOXYPREX - (153)
+        repoMedicamento.save(new Medicamento("DOXYPREX", 192.600F, 115.560F, 9, 0));
+
+        // DOXYVETO - (154)
+        repoMedicamento.save(new Medicamento("DOXYVETO", 162.900F, 65.160F, 3, 0));
+
+        // DRAXXIN - (155)
+        repoMedicamento.save(new Medicamento("DRAXXIN", 156.600F, 62.640F, 9, 0));
+
+        // DYNAMUTILIN - (156)
+        repoMedicamento.save(new Medicamento("DYNAMUTILIN", 91.800F, 45.900F, 6, 0));
+
+        // EASOTIC - (157)
+        repoMedicamento.save(new Medicamento("EASOTIC", 177.000F, 123.900F, 5, 0));
+
+        // ECONOR - (158)
+        repoMedicamento.save(new Medicamento("ECONOR", 108.100F, 43.240F, 9, 0));
+
+        // EFEX - (159)
+        repoMedicamento.save(new Medicamento("EFEX", 161.100F, 96.660F, 3, 0));
+
+        // EFICUR - (160)
+        repoMedicamento.save(new Medicamento("EFICUR", 167.100F, 83.550F, 1, 0));
+
+        // E-FLOX - (161)
+        repoMedicamento.save(new Medicamento("E-FLOX", 143.800F, 100.660F, 5, 0));
+
+        // ENGEMICINA - (162)
+        repoMedicamento.save(new Medicamento("ENGEMICINA", 175.000F, 70.000F, 2, 0));
+
+        // ENROCAT - (163)
+        repoMedicamento.save(new Medicamento("ENROCAT", 186.300F, 111.780F, 5, 0));
+
+        // ENROCILL - (164)
+        repoMedicamento.save(new Medicamento("ENROCILL", 133.500F, 66.750F, 4, 0));
+
+        // ENRODEXIL - (165)
+        repoMedicamento.save(new Medicamento("ENRODEXIL", 137.300F, 109.840F, 7, 0));
+
+        // ENROSYVA - (166)
+        repoMedicamento.save(new Medicamento("ENROSYVA", 169.200F, 101.520F, 4, 0));
+
+        // ENROTAB - (167)
+        repoMedicamento.save(new Medicamento("ENROTAB", 120.600F, 96.480F, 2, 0));
+
+        // ENROTRIL - (168)
+        repoMedicamento.save(new Medicamento("ENROTRIL", 177.600F, 142.080F, 1, 0));
+
+        // ENROTRON - (169)
+        repoMedicamento.save(new Medicamento("ENROTRON", 143.800F, 71.900F, 9, 0));
+
+        // ENROVALL - (170)
+        repoMedicamento.save(new Medicamento("ENROVALL", 102.900F, 41.160F, 9, 0));
+
+        // ENROVET - (171)
+        repoMedicamento.save(new Medicamento("ENROVET", 166.400F, 116.480F, 7, 0));
+
+        // ENROX - (172)
+        repoMedicamento.save(new Medicamento("ENROX", 178.100F, 106.860F, 6, 0));
+
+        // ENROXAL - (173)
+        repoMedicamento.save(new Medicamento("ENROXAL", 87.800F, 70.240F, 2, 0));
+
+        // ENTEROSTREP - (174)
+        repoMedicamento.save(new Medicamento("ENTEROSTREP", 136.300F, 109.040F, 1, 0));
+
+        // EQUIBACTIN - (175)
+        repoMedicamento.save(new Medicamento("EQUIBACTIN", 90.100F, 54.060F, 3, 0));
+
+        // ESBANE - (176)
+        repoMedicamento.save(new Medicamento("ESBANE", 192.100F, 115.260F, 10, 0));
+
+        // ESPECTINOCEN - (177)
+        repoMedicamento.save(new Medicamento("ESPECTINOCEN", 118.700F, 83.090F, 5, 0));
+
+        // ESPECTINOMICINA - (178)
+        repoMedicamento.save(new Medicamento("ESPECTINOMICINA", 58.400F, 40.880F, 4, 0));
+
+        // ESPIRAMICIL - (179)
+        repoMedicamento.save(new Medicamento("ESPIRAMICIL", 51.700F, 36.190F, 2, 0));
+
+        // ESTREPTOLAB - (180)
+        repoMedicamento.save(new Medicamento("ESTREPTOLAB", 139.400F, 55.760F, 6, 0));
+
+        // ESTREPTOSAL - (181)
+        repoMedicamento.save(new Medicamento("ESTREPTOSAL", 152.200F, 91.320F, 3, 0));
+
+        // EUPENCLAV - (182)
+        repoMedicamento.save(new Medicamento("EUPENCLAV", 136.700F, 82.020F, 8, 0));
+
+        // EUPENPLUS - (183)
+        repoMedicamento.save(new Medicamento("EUPENPLUS", 103.200F, 61.920F, 10, 0));
+
+
+        // EUPENSOL - (184)
+        repoMedicamento.save(new Medicamento("EUPENSOL", 81.600F, 40.800F, 3, 0));
+
+        // EXABIOPEN - (185)
+        repoMedicamento.save(new Medicamento("EXABIOPEN", 200.000F, 120.000F, 1, 0));
+
+        // EXCENEL - (186)
+        repoMedicamento.save(new Medicamento("EXCENEL", 53.600F, 32.160F, 7, 0));
+
+        // FATROFLOX - (187)
+        repoMedicamento.save(new Medicamento("FATROFLOX", 141.700F, 56.680F, 9, 0));
+
+        // FENOVET - (188)
+        repoMedicamento.save(new Medicamento("FENOVET", 196.900F, 137.830F, 9, 0));
+
+        // FENOXIPEN - (189)
+        repoMedicamento.save(new Medicamento("FENOXIPEN", 136.100F, 108.880F, 2, 0));
+
+        // FINOXALINE - (190)
+        repoMedicamento.save(new Medicamento("FINOXALINE", 112.200F, 89.760F, 1, 0));
+
+        // FLODOEX - (191)
+        repoMedicamento.save(new Medicamento("FLODOEX", 198.400F, 99.200F, 9, 0));
+
+        // FLOMAC - (192)
+        repoMedicamento.save(new Medicamento("FLOMAC", 136.600F, 68.300F, 4, 0));
+
+        // FLORDOFEN - (193)
+        repoMedicamento.save(new Medicamento("FLORDOFEN", 65.400F, 39.240F, 6, 0));
+
+        // FLORFENICEN - (194)
+        repoMedicamento.save(new Medicamento("FLORFENICEN", 91.200F, 36.480F, 8, 0));
+
+        // FLORFENIS - (195)
+        repoMedicamento.save(new Medicamento("FLORFENIS", 180.600F, 144.480F, 6, 0));
+
+        // FLORGANE - (196)
+        repoMedicamento.save(new Medicamento("FLORGANE", 164.500F, 82.250F, 10, 0));
+
+        // FLORINJECT - (197)
+        repoMedicamento.save(new Medicamento("FLORINJECT", 168.000F, 134.400F, 9, 0));
+
+        // FLORKEM - (198)
+        repoMedicamento.save(new Medicamento("FLORKEM", 55.700F, 22.280F, 7, 0));
+
+        // FLOROLAB - (199)
+        repoMedicamento.save(new Medicamento("FLOROLAB", 136.100F, 81.660F, 2, 0));
+
+        // FLORON - (200)
+        repoMedicamento.save(new Medicamento("FLORON", 82.600F, 57.820F, 2, 0));
+
+        // FLORTEK - (201)
+        repoMedicamento.save(new Medicamento("FLORTEK", 170.100F, 102.060F, 3, 0));
+
+        // FLORVEX - (202)
+        repoMedicamento.save(new Medicamento("FLORVEX", 179.300F, 125.510F, 8, 0));
+
+        // FLOXABACTIN - (203)
+        repoMedicamento.save(new Medicamento("FLOXABACTIN", 169.600F, 67.840F, 1, 0));
+
+        // FLOXACIVEN - (204)
+        repoMedicamento.save(new Medicamento("FLOXACIVEN", 69.300F, 55.440F, 1, 0));
+
+        // FLOXAVEX - (205)
+        repoMedicamento.save(new Medicamento("FLOXAVEX", 177.500F, 124.250F, 7, 0));
+
+        // FLOXICEN - (206)
+        repoMedicamento.save(new Medicamento("FLOXICEN", 107.300F, 85.840F, 4, 0));
+
+        // FLOXYME - (207)
+        repoMedicamento.save(new Medicamento("FLOXYME", 140.400F, 84.240F, 9, 0));
+
+        // FLUMESYVA - (208)
+        repoMedicamento.save(new Medicamento("FLUMESYVA", 57.900F, 28.950F, 1, 0));
+
+        // FLUQUICEN - (209)
+        repoMedicamento.save(new Medicamento("FLUQUICEN", 165.400F, 82.700F, 3, 0));
+
+        // FLUQUINOL - (210)
+        repoMedicamento.save(new Medicamento("FLUQUINOL", 53.300F, 31.980F, 6, 0));
+
+        // FORCYL - (211)
+        repoMedicamento.save(new Medicamento("FORCYL", 118.300F, 47.320F, 10, 0));
+
+        // FORESPIX - (212)
+        repoMedicamento.save(new Medicamento("FORESPIX", 120.500F, 72.300F, 10, 0));
+
+        // FORMULA - (213)
+        repoMedicamento.save(new Medicamento("FORMULA", 65.700F, 32.850F, 4, 0));
+
+        // FORTICLINA - (214)
+        repoMedicamento.save(new Medicamento("FORTICLINA", 53.200F, 42.560F, 5, 0));
+
+        // FORTIPERAZONE - (215)
+        repoMedicamento.save(new Medicamento("FORTIPERAZONE", 160.700F, 64.280F, 7, 0));
+
+        // FRAMICAS - (216)
+        repoMedicamento.save(new Medicamento("FRAMICAS", 181.400F, 108.840F, 2, 0));
+
+        // GABBROCOL - (217)
+        repoMedicamento.save(new Medicamento("GABBROCOL", 127.700F, 89.390F, 3, 0));
+
+        // GABBROVET - (218)
+        repoMedicamento.save(new Medicamento("GABBROVET", 97.800F, 78.240F, 10, 0));
+
+        // GALACTOLIN - (219)
+        repoMedicamento.save(new Medicamento("GALACTOLIN", 80.600F, 32.240F, 1, 0));
+
+        // GALLUDOXX - (220)
+        repoMedicamento.save(new Medicamento("GALLUDOXX", 133.900F, 80.340F, 9, 0));
+
+        // GANADEXIL - (221)
+        repoMedicamento.save(new Medicamento("GANADEXIL", 168.100F, 84.050F, 10, 0));
+
+        // GANAMIX - (222)
+        repoMedicamento.save(new Medicamento("GANAMIX", 162.700F, 97.620F, 1, 0));
+
+        // GANAPORK - (223)
+        repoMedicamento.save(new Medicamento("GANAPORK", 84.100F, 50.460F, 3, 0));
+
+        // GENTACALIER - (224)
+        repoMedicamento.save(new Medicamento("GENTACALIER", 107.200F, 75.040F, 5, 0));
+
+        // GENTACEN - (225)
+        repoMedicamento.save(new Medicamento("GENTACEN", 129.000F, 64.500F, 9, 0));
+
+        // GENTA-EQUINE - (226)
+        repoMedicamento.save(new Medicamento("GENTA-EQUINE", 177.100F, 106.260F, 5, 0));
+
+        // GENTAMOX - (227)
+        repoMedicamento.save(new Medicamento("GENTAMOX", 172.900F, 138.320F, 1, 0));
+
+        // GENTAORAL - (228)
+        repoMedicamento.save(new Medicamento("GENTAORAL", 84.300F, 67.440F, 8, 0));
+
+        // GENTASOL - (229)
+        repoMedicamento.save(new Medicamento("GENTASOL", 62.100F, 49.680F, 3, 0));
+
+        // GENTAVALL - (230)
+        repoMedicamento.save(new Medicamento("GENTAVALL", 61.700F, 37.020F, 2, 0));
+
+        // GENTAVET - (231)
+        repoMedicamento.save(new Medicamento("GENTAVET", 124.000F, 99.200F, 8, 0));
+
+        // GENTAVIN - (232)
+        repoMedicamento.save(new Medicamento("GENTAVIN", 154.700F, 92.820F, 7, 0));
+
+        // GENTICINA - (233)
+        repoMedicamento.save(new Medicamento("GENTICINA", 135.100F, 67.550F, 9, 0));
+
+        // GIROLAN - (234)
+        repoMedicamento.save(new Medicamento("GIROLAN", 124.200F, 74.520F, 10, 0));
+
+        // GLUCILIN-D - (235)
+        repoMedicamento.save(new Medicamento("GLUCILIN-D", 105.100F, 42.040F, 9, 0));
+
+        // HIDROCOL - (236)
+        repoMedicamento.save(new Medicamento("HIDROCOL", 121.000F, 48.400F, 6, 0));
+
+        // HIDRODOX - (237)
+        repoMedicamento.save(new Medicamento("HIDRODOX", 115.600F, 57.800F, 5, 0));
+
+        // HIDROMUTIN - (238)
+        repoMedicamento.save(new Medicamento("HIDROMUTIN", 138.800F, 69.400F, 5, 0));
+
+        // HIDROTIL - (239)
+        repoMedicamento.save(new Medicamento("HIDROTIL", 161.800F, 97.080F, 2, 0));
+
+        // HIPRALONA - (240)
+        repoMedicamento.save(new Medicamento("HIPRALONA", 161.300F, 129.040F, 8, 0));
+
+        // HUVAMOX - (241)
+        repoMedicamento.save(new Medicamento("HUVAMOX", 141.600F, 99.120F, 5, 0));
+
+        // HYMATIL - (242)
+        repoMedicamento.save(new Medicamento("HYMATIL", 108.000F, 75.600F, 9, 0));
+
+        // HYPERSOL - (243)
+        repoMedicamento.save(new Medicamento("HYPERSOL", 86.700F, 52.020F, 8, 0));
+
+        // ILOVET-CLOX - (244)
+        repoMedicamento.save(new Medicamento("ILOVET-CLOX", 96.700F, 67.690F, 5, 0));
+
+        // ILOVET-DHIPEN - (245)
+        repoMedicamento.save(new Medicamento("ILOVET-DHIPEN", 166.300F, 83.150F, 8, 0));
+
+        // ILOVETMR - (246)
+        repoMedicamento.save(new Medicamento("ILOVETMR", 157.000F, 94.200F, 1, 0));
+
+        // ILOVET-SECADO - (247)
+        repoMedicamento.save(new Medicamento("ILOVET-SECADO", 160.900F, 80.450F, 3, 0));
+
+        // INCREXXA - (248)
+        repoMedicamento.save(new Medicamento("INCREXXA", 185.200F, 111.120F, 8, 0));
+
+        // INHIBACTEN - (249)
+        repoMedicamento.save(new Medicamento("INHIBACTEN", 101.200F, 50.600F, 1, 0));
+
+        // INTERFLOX - (250)
+        repoMedicamento.save(new Medicamento("INTERFLOX", 113.000F, 90.400F, 4, 0));
+
+        // INTERMAX-PREMEZCLA - (251)
+        repoMedicamento.save(new Medicamento("INTERMAX-PREMEZCLA", 68.200F, 47.740F, 6, 0));
+
+        // ISATHAL - (252)
+        repoMedicamento.save(new Medicamento("ISATHAL", 126.300F, 88.410F, 5, 0));
+
+        // IVENCILINA - (253)
+        repoMedicamento.save(new Medicamento("IVENCILINA", 60.300F, 48.240F, 4, 0));
+
+        // KARIDOX - (254)
+        repoMedicamento.save(new Medicamento("KARIDOX", 70.000F, 49.000F, 1, 0));
+
+        // KARIFLOX - (255)
+        repoMedicamento.save(new Medicamento("KARIFLOX", 144.000F, 100.800F, 7, 0));
+
+        // KARIMULINA - (256)
+        repoMedicamento.save(new Medicamento("KARIMULINA", 162.000F, 129.600F, 9, 0));
+
+        // K-DOX - (257)
+        repoMedicamento.save(new Medicamento("K-DOX", 134.600F, 80.760F, 10, 0));
+
+        // KELACYL - (258)
+        repoMedicamento.save(new Medicamento("KELACYL", 77.300F, 61.840F, 1, 0));
+
+        // KESIUM - (259)
+        repoMedicamento.save(new Medicamento("KESIUM", 98.700F, 59.220F, 3, 0));
+
+        // KEYTIL - (260)
+        repoMedicamento.save(new Medicamento("KEYTIL", 76.100F, 60.880F, 7, 0));
+
+        // K-FLOX - (261)
+        repoMedicamento.save(new Medicamento("K-FLOX", 185.900F, 74.360F, 3, 0));
+
+        // KIN-O-FLOX - (262)
+        repoMedicamento.save(new Medicamento("KIN-O-FLOX", 168.300F, 117.810F, 2, 0));
+
+        // LAMOX - (263)
+        repoMedicamento.save(new Medicamento("LAMOX", 189.100F, 113.460F, 7, 0));
+
+        // LANFLOX - (264)
+        repoMedicamento.save(new Medicamento("LANFLOX", 116.900F, 70.140F, 2, 0));
+
+        // LATROXIN - (265)
+        repoMedicamento.save(new Medicamento("LATROXIN", 161.100F, 80.550F, 7, 0));
+
+        // LEVOFLOK - (266)
+        repoMedicamento.save(new Medicamento("LEVOFLOK", 110.600F, 88.480F, 6, 0));
+
+        // LINALTEN - (267)
+        repoMedicamento.save(new Medicamento("LINALTEN", 57.900F, 46.320F, 2, 0));
+
+        // LINCEX - (268)
+        repoMedicamento.save(new Medicamento("LINCEX", 138.500F, 69.250F, 8, 0));
+
+        // LINCO - (269)
+        repoMedicamento.save(new Medicamento("LINCO", 80.400F, 32.160F, 5, 0));
+
+        // LINCOIVEN - (270)
+        repoMedicamento.save(new Medicamento("LINCOIVEN", 172.700F, 69.080F, 3, 0));
+
+        // LINCOLAB - (271)
+        repoMedicamento.save(new Medicamento("LINCOLAB", 138.000F, 96.600F, 9, 0));
+
+        // LINCOMASTINA - (272)
+        repoMedicamento.save(new Medicamento("LINCOMASTINA", 111.500F, 89.200F, 9, 0));
+
+        // LINCOMAY - (273)
+        repoMedicamento.save(new Medicamento("LINCOMAY", 195.800F, 117.480F, 3, 0));
+
+        // LINCOMICINA - (274)
+        repoMedicamento.save(new Medicamento("LINCOMICINA", 119.900F, 59.950F, 3, 0));
+
+        // LINCOMIX - (275)
+        repoMedicamento.save(new Medicamento("LINCOMIX", 80.500F, 56.350F, 5, 0));
+
+        // LINCO-RES - (276)
+        repoMedicamento.save(new Medicamento("LINCO-RES", 159.700F, 95.820F, 8, 0));
+
+        // LINCOSAN - (277)
+        repoMedicamento.save(new Medicamento("LINCOSAN", 189.400F, 94.700F, 1, 0));
+
+        // LINCOSOL - (278)
+        repoMedicamento.save(new Medicamento("LINCOSOL", 104.200F, 52.100F, 3, 0));
+
+        // LINCO-SPECTIN - (279)
+        repoMedicamento.save(new Medicamento("LINCO-SPECTIN", 71.300F, 49.910F, 7, 0));
+
+        // LINCOSTRAN - (280)
+        repoMedicamento.save(new Medicamento("LINCOSTRAN", 72.500F, 29.000F, 7, 0));
+
+        // LINCOTRIMEX - (281)
+        repoMedicamento.save(new Medicamento("LINCOTRIMEX", 184.500F, 73.800F, 8, 0));
+
+        // LINCOVALL - (282)
+        repoMedicamento.save(new Medicamento("LINCOVALL", 60.300F, 30.150F, 8, 0));
+
+        // LINCOXIL - (283)
+        repoMedicamento.save(new Medicamento("LINCOXIL", 167.300F, 117.110F, 9, 0));
+
+        // LINESVALL - (284)
+        repoMedicamento.save(new Medicamento("LINESVALL", 70.300F, 56.240F, 10, 0));
+
+        // LISMAY - (285)
+        repoMedicamento.save(new Medicamento("LISMAY", 191.100F, 76.440F, 2, 0));
+
+        // LUNGOCIL - (286)
+        repoMedicamento.save(new Medicamento("LUNGOCIL", 126.700F, 63.350F, 7, 0));
+
+        // LYDAXX - (287)
+        repoMedicamento.save(new Medicamento("LYDAXX", 145.900F, 87.540F, 3, 0));
+
+        // MACROMUTIN - (288)
+        repoMedicamento.save(new Medicamento("MACROMUTIN", 89.200F, 71.360F, 9, 0));
+
+        // MACROSYN - (289)
+        repoMedicamento.save(new Medicamento("MACROSYN", 134.100F, 107.280F, 7, 0));
+
+        // MAMIFORT - (290)
+        repoMedicamento.save(new Medicamento("MAMIFORT", 180.400F, 108.240F, 10, 0));
+
+        // MAMYZIN - (291)
+        repoMedicamento.save(new Medicamento("MAMYZIN", 126.900F, 101.520F, 8, 0));
+
+        // MARBOCARE - (292)
+        repoMedicamento.save(new Medicamento("MARBOCARE", 177.500F, 106.500F, 6, 0));
+
+        // MARBOCEN - (293)
+        repoMedicamento.save(new Medicamento("MARBOCEN", 182.000F, 145.600F, 1, 0));
+
+        // MARBOCOLI - (294)
+        repoMedicamento.save(new Medicamento("MARBOCOLI", 61.900F, 24.760F, 10, 0));
+        // MARBOCYL - (295)
+        repoMedicamento.save(new Medicamento("MARBOCYL", 117.300F, 93.840F, 5, 0));
+
+        // MARBOFLOXORAL - (296)
+        repoMedicamento.save(new Medicamento("MARBOFLOXORAL", 141.000F, 84.600F, 8, 0));
+
+        // MARBOSOL - (297)
+        repoMedicamento.save(new Medicamento("MARBOSOL", 119.700F, 71.820F, 4, 0));
+
+        // MARBOSYVA - (298)
+        repoMedicamento.save(new Medicamento("MARBOSYVA", 135.500F, 94.850F, 1, 0));
+
+        // MARBOTAB - (299)
+        repoMedicamento.save(new Medicamento("MARBOTAB", 63.900F, 51.120F, 10, 0));
+
+        // MARBOVET - (300)
+        repoMedicamento.save(new Medicamento("MARBOVET", 83.500F, 58.450F, 5, 0));
+
+        // MARBOX - (301)
+        repoMedicamento.save(new Medicamento("MARBOX", 197.600F, 98.800F, 5, 0));
+
+        // MARFLOQUIN - (302)
+        repoMedicamento.save(new Medicamento("MARFLOQUIN", 127.700F, 63.850F, 5, 0));
+
+        // MARFLOXIN - (303)
+        repoMedicamento.save(new Medicamento("MARFLOXIN", 181.500F, 127.050F, 10, 0));
+
+        // MARVETIN - (304)
+        repoMedicamento.save(new Medicamento("MARVETIN", 128.200F, 76.920F, 8, 0));
+
+        // MASTERFLOX - (305)
+        repoMedicamento.save(new Medicamento("MASTERFLOX", 184.700F, 92.350F, 3, 0));
+
+        // MASTERMIX - (306)
+        repoMedicamento.save(new Medicamento("MASTERMIX", 63.100F, 50.480F, 9, 0));
+
+        // MASTIPLAN - (307)
+        repoMedicamento.save(new Medicamento("MASTIPLAN", 145.500F, 72.750F, 5, 0));
+
+        // MASTIVET - (308)
+        repoMedicamento.save(new Medicamento("MASTIVET", 93.700F, 37.480F, 7, 0));
+
+        // MASTORANGE - (309)
+        repoMedicamento.save(new Medicamento("MASTORANGE", 96.600F, 57.960F, 5, 0));
+
+        // MAXYL - (310)
+        repoMedicamento.save(new Medicamento("MAXYL", 160.100F, 112.070F, 10, 0));
+
+        // MAYCILINA - (311)
+        repoMedicamento.save(new Medicamento("MAYCILINA", 145.600F, 87.360F, 9, 0));
+
+        // MAYCOLI - (312)
+        repoMedicamento.save(new Medicamento("MAYCOLI", 86.400F, 69.120F, 3, 0));
+
+        // MAYDOX - (313)
+        repoMedicamento.save(new Medicamento("MAYDOX", 84.900F, 50.940F, 7, 0));
+
+        // MAYLOSINA - (314)
+        repoMedicamento.save(new Medicamento("MAYLOSINA", 118.300F, 82.810F, 8, 0));
+
+        // MAYMOXI - (315)
+        repoMedicamento.save(new Medicamento("MAYMOXI", 86.700F, 69.360F, 10, 0));
+
+        // MAYMULINA - (316)
+        repoMedicamento.save(new Medicamento("MAYMULINA", 74.100F, 29.640F, 3, 0));
+
+        // MAYPRACINA - (317)
+        repoMedicamento.save(new Medicamento("MAYPRACINA", 70.600F, 56.480F, 1, 0));
+
+        // MAYSULPRIM - (318)
+        repoMedicamento.save(new Medicamento("MAYSULPRIM", 125.800F, 75.480F, 5, 0));
+
+        // METAMPEN - (319)
+        repoMedicamento.save(new Medicamento("METAMPEN", 126.100F, 75.660F, 4, 0));
+
+        // METAXOL - (320)
+        repoMedicamento.save(new Medicamento("METAXOL", 184.200F, 73.680F, 2, 0));
+
+        // METHOXASOL - (321)
+        repoMedicamento.save(new Medicamento("METHOXASOL", 195.400F, 136.780F, 3, 0));
+
+        // METRICURE - (322)
+        repoMedicamento.save(new Medicamento("METRICURE", 68.700F, 48.090F, 6, 0));
+
+        // METROBACTIN - (323)
+        repoMedicamento.save(new Medicamento("METROBACTIN", 54.200F, 27.100F, 6, 0));
+
+        // METROCARE - (324)
+        repoMedicamento.save(new Medicamento("METROCARE", 110.300F, 66.180F, 10, 0));
+
+        // METROVIS - (325)
+        repoMedicamento.save(new Medicamento("METROVIS", 90.700F, 54.420F, 6, 0));
+
+        // METROZENIL - (326)
+        repoMedicamento.save(new Medicamento("METROZENIL", 181.800F, 72.720F, 1, 0));
+
+        // MICOTIL - (327)
+        repoMedicamento.save(new Medicamento("MICOTIL", 170.600F, 85.300F, 5, 0));
+
+        // MITEX - (328)
+        repoMedicamento.save(new Medicamento("MITEX", 168.200F, 117.740F, 1, 0));
+
+        // MOXAPULVIS - (329)
+        repoMedicamento.save(new Medicamento("MOXAPULVIS", 95.900F, 67.130F, 6, 0));
+
+        // MULTISHIELD - (330)
+        repoMedicamento.save(new Medicamento("MULTISHIELD", 76.700F, 30.680F, 10, 0));
+
+        // MYCOFLOR - (331)
+        repoMedicamento.save(new Medicamento("MYCOFLOR", 117.400F, 82.180F, 10, 0));
+
+        // MYCOGAL - (332)
+        repoMedicamento.save(new Medicamento("MYCOGAL", 109.900F, 76.930F, 1, 0));
+
+        // NAXCEL - (333)
+        repoMedicamento.save(new Medicamento("NAXCEL", 136.600F, 95.620F, 10, 0));
+
+        // NEMICINA - (334)
+        repoMedicamento.save(new Medicamento("NEMICINA", 98.300F, 58.980F, 6, 0));
+
+        // NEMUTIN - (335)
+        repoMedicamento.save(new Medicamento("NEMUTIN", 55.400F, 27.700F, 2, 0));
+
+        // NEOACTIVE - (336)
+        repoMedicamento.save(new Medicamento("NEOACTIVE", 135.500F, 81.300F, 2, 0));
+
+        // NEOCIL - (337)
+        repoMedicamento.save(new Medicamento("NEOCIL", 124.200F, 86.940F, 2, 0));
+
+        // NEOCLOR-T - (338)
+        repoMedicamento.save(new Medicamento("NEOCLOR-T", 77.200F, 46.320F, 8, 0));
+
+        // NEOMAY - (339)
+        repoMedicamento.save(new Medicamento("NEOMAY", 165.400F, 82.700F, 2, 0));
+
+        // NEOMICINA - (340)
+        repoMedicamento.save(new Medicamento("NEOMICINA", 72.000F, 50.400F, 7, 0));
+
+        // NEPTRA - (341)
+        repoMedicamento.save(new Medicamento("NEPTRA", 159.600F, 79.800F, 5, 0));
+
+        // NEUDIAVALL - (342)
+        repoMedicamento.save(new Medicamento("NEUDIAVALL", 148.200F, 88.920F, 2, 0));
+
+        // NEUMOVEX - (343)
+        repoMedicamento.save(new Medicamento("NEUMOVEX", 101.400F, 81.120F, 7, 0));
+
+        // NICILAN - (344)
+        repoMedicamento.save(new Medicamento("NICILAN", 53.200F, 21.280F, 7, 0));
+
+        // NIFENCOL - (345)
+        repoMedicamento.save(new Medicamento("NIFENCOL", 138.800F, 69.400F, 7, 0));
+
+        // NIPOXYME - (346)
+        repoMedicamento.save(new Medicamento("NIPOXYME", 78.400F, 31.360F, 5, 0));
+
+        // NISAMOX - (347)
+        repoMedicamento.save(new Medicamento("NISAMOX", 177.600F, 106.560F, 2, 0));
+
+        // NISINJECT - (348)
+        repoMedicamento.save(new Medicamento("NISINJECT", 72.700F, 36.350F, 10, 0));
+
+        // NOROCLAV - (349)
+        repoMedicamento.save(new Medicamento("NOROCLAV", 115.500F, 46.200F, 4, 0));
+
+        // NUFLOR - (350)
+        repoMedicamento.save(new Medicamento("NUFLOR", 76.700F, 46.020F, 2, 0));
+
+        // OCNIL - (351)
+        repoMedicamento.save(new Medicamento("OCNIL", 163.300F, 130.640F, 9, 0));
+
+        // OCTACILLIN - (352)
+        repoMedicamento.save(new Medicamento("OCTACILLIN", 130.800F, 65.400F, 7, 0));
+
+        // ODIMAR - (353)
+        repoMedicamento.save(new Medicamento("ODIMAR", 101.400F, 50.700F, 5, 0));
+
+        // OPHTOCYCLINE - (354)
+        repoMedicamento.save(new Medicamento("OPHTOCYCLINE", 174.400F, 104.640F, 8, 0));
+
+        // ORATIL - (355)
+        repoMedicamento.save(new Medicamento("ORATIL", 188.500F, 150.800F, 1, 0));
+
+        // ORBENIN - (356)
+        repoMedicamento.save(new Medicamento("ORBENIN", 141.300F, 70.650F, 10, 0));
+
+        // ORONDO - (357)
+        repoMedicamento.save(new Medicamento("ORONDO", 59.400F, 35.640F, 6, 0));
+
+        // OSURNIA - (358)
+        repoMedicamento.save(new Medicamento("OSURNIA", 110.700F, 44.280F, 10, 0));
+
+        // OTOMAX - (359)
+        repoMedicamento.save(new Medicamento("OTOMAX", 154.200F, 92.520F, 3, 0));
+
+        // OTOTOP - (360)
+        repoMedicamento.save(new Medicamento("OTOTOP", 54.400F, 43.520F, 5, 0));
+
+        // OTOXOLAN - (361)
+        repoMedicamento.save(new Medicamento("OTOXOLAN", 83.500F, 58.450F, 7, 0));
+
+        // OXICIVEN - (362)
+        repoMedicamento.save(new Medicamento("OXICIVEN", 163.500F, 98.100F, 9, 0));
+
+        // OXICLIN - (363)
+        repoMedicamento.save(new Medicamento("OXICLIN", 97.200F, 58.320F, 3, 0));
+
+        // OXILABICICLINA - (364)
+        repoMedicamento.save(new Medicamento("OXILABICICLINA", 114.000F, 91.200F, 10, 0));
+
+        // OXIPOL - (365)
+        repoMedicamento.save(new Medicamento("OXIPOL", 189.400F, 113.640F, 6, 0));
+
+        // OXIRETARD - (366)
+        repoMedicamento.save(new Medicamento("OXIRETARD", 87.700F, 35.080F, 8, 0));
+
+        // OXISAN - (367)
+        repoMedicamento.save(new Medicamento("OXISAN", 50.500F, 20.200F, 5, 0));
+
+        // OXITETRACICLINA - (368)
+        repoMedicamento.save(new Medicamento("OXITETRACICLINA", 156.800F, 62.720F, 7, 0));
+
+        // OXITEVALL - (369)
+        repoMedicamento.save(new Medicamento("OXITEVALL", 89.700F, 71.760F, 8, 0));
+
+        // OXITEVE - (370)
+        repoMedicamento.save(new Medicamento("OXITEVE", 139.900F, 69.950F, 1, 0));
+
+        // OXYGAN - (371)
+        repoMedicamento.save(new Medicamento("OXYGAN", 82.100F, 41.050F, 10, 0));
+
+        // PANTOMICINA - (372)
+        repoMedicamento.save(new Medicamento("PANTOMICINA", 155.200F, 62.080F, 9, 0));
+
+        // PANTOYET - (373)
+        repoMedicamento.save(new Medicamento("PANTOYET", 106.700F, 64.020F, 4, 0));
+
+        // PARACILLIN - (374)
+        repoMedicamento.save(new Medicamento("PARACILLIN", 81.100F, 40.550F, 5, 0));
+
+        // PAROFOR - (375)
+        repoMedicamento.save(new Medicamento("PAROFOR", 86.400F, 43.200F, 1, 0));
+
+        // PEDERIPRA - (376)
+        repoMedicamento.save(new Medicamento("PEDERIPRA", 95.700F, 38.280F, 6, 0));
+
+        // PEDEROL - (377)
+        repoMedicamento.save(new Medicamento("PEDEROL", 143.900F, 57.560F, 4, 0));
+
+        // PENETHAONE - (378)
+        repoMedicamento.save(new Medicamento("PENETHAONE", 164.700F, 115.290F, 4, 0));
+
+        // PENIVET - (379)
+        repoMedicamento.save(new Medicamento("PENIVET", 192.700F, 134.890F, 1, 0));
+
+        // PENIVEX - (380)
+        repoMedicamento.save(new Medicamento("PENIVEX", 115.400F, 92.320F, 1, 0));
+
+        // PERMACYL - (381)
+        repoMedicamento.save(new Medicamento("PERMACYL", 146.400F, 87.840F, 10, 0));
+
+        // PERMAWAY - (382)
+        repoMedicamento.save(new Medicamento("PERMAWAY", 52.100F, 20.840F, 10, 0));
+
+        // PHARMASIN - (383)
+        repoMedicamento.save(new Medicamento("PHARMASIN", 63.200F, 37.920F, 4, 0));
+
+        // PHENOCILLIN - (384)
+        repoMedicamento.save(new Medicamento("PHENOCILLIN", 148.100F, 74.050F, 3, 0));
+
+        // PIRSUE - (385)
+        repoMedicamento.save(new Medicamento("PIRSUE", 172.600F, 103.560F, 4, 0));
+
+        // PLENIX - (386)
+        repoMedicamento.save(new Medicamento("PLENIX", 119.400F, 59.700F, 7, 0));
+
+        // PLUSCOLAN - (387)
+        repoMedicamento.save(new Medicamento("PLUSCOLAN", 127.800F, 63.900F, 4, 0));
+
+        // POSATEX - (388)
+        repoMedicamento.save(new Medicamento("POSATEX", 90.800F, 72.640F, 4, 0));
+
+        // POTENCIL - (389)
+        repoMedicamento.save(new Medicamento("POTENCIL", 99.100F, 49.550F, 7, 0));
+
+        // POTENMIX - (390)
+        repoMedicamento.save(new Medicamento("POTENMIX", 170.200F, 102.120F, 3, 0));
+
+        // POWDOX - (391)
+        repoMedicamento.save(new Medicamento("POWDOX", 186.700F, 74.680F, 3, 0));
+
+        // PRADOXIN - (392)
+        repoMedicamento.save(new Medicamento("PRADOXIN", 156.200F, 93.720F, 4, 0));
+
+        // PRIMOX - (393)
+        repoMedicamento.save(new Medicamento("PRIMOX", 192.000F, 76.800F, 5, 0));
+
+        // PROBENCIL - (394)
+        repoMedicamento.save(new Medicamento("PROBENCIL", 172.400F, 137.920F, 7, 0));
+
+        // PROCACTIVE - (395)
+        repoMedicamento.save(new Medicamento("PROCACTIVE", 113.100F, 79.170F, 5, 0));
+
+        // PROCAPEN - (396)
+        repoMedicamento.save(new Medicamento("PROCAPEN", 83.300F, 66.640F, 10, 0));
+
+        // PROCIPEN - (397)
+        repoMedicamento.save(new Medicamento("PROCIPEN", 109.900F, 43.960F, 10, 0));
+
+        // PROTOZOKS - (398)
+        repoMedicamento.save(new Medicamento("PROTOZOKS", 154.200F, 77.100F, 2, 0));
+
+        // PULMOBAS - (399)
+        repoMedicamento.save(new Medicamento("PULMOBAS", 76.900F, 61.520F, 3, 0));
+
+        // PULMODOX - (400)
+        repoMedicamento.save(new Medicamento("PULMODOX", 184.500F, 110.700F, 4, 0));
+
+        // PULMOTIL - (401)
+        repoMedicamento.save(new Medicamento("PULMOTIL", 176.800F, 70.720F, 2, 0));
+
+        // PULMOVALL - (402)
+        repoMedicamento.save(new Medicamento("PULMOVALL", 91.200F, 54.720F, 4, 0));
+
+        // PULMOVET - (403)
+        repoMedicamento.save(new Medicamento("PULMOVET", 172.800F, 86.400F, 4, 0));
+
+        // QIVITAN - (404)
+        repoMedicamento.save(new Medicamento("QIVITAN", 99.400F, 79.520F, 9, 0));
+
+        // QUIMIOCOLI - (405)
+        repoMedicamento.save(new Medicamento("QUIMIOCOLI", 194.100F, 77.640F, 8, 0));
+
+        // QUINOBAL - (406)
+        repoMedicamento.save(new Medicamento("QUINOBAL", 196.700F, 98.350F, 1, 0));
+
+        // QUINOCILIN - (407)
+        repoMedicamento.save(new Medicamento("QUINOCILIN", 134.100F, 93.870F, 6, 0));
+
+        // QUINOLCEN - (408)
+        repoMedicamento.save(new Medicamento("QUINOLCEN", 96.100F, 57.660F, 8, 0));
+
+        // QUINOVET - (409)
+        repoMedicamento.save(new Medicamento("QUINOVET", 186.900F, 130.830F, 5, 0));
+
+        // RESFLOR - (410)
+        repoMedicamento.save(new Medicamento("RESFLOR", 171.900F, 103.140F, 6, 0));
+
+        // RESPIFLOR - (411)
+        repoMedicamento.save(new Medicamento("RESPIFLOR", 138.700F, 55.480F, 9, 0));
+
+        // REVOZYN - (412)
+        repoMedicamento.save(new Medicamento("REVOZYN", 167.700F, 134.160F, 5, 0));
+
+        // REXXOLIDE - (413)
+        repoMedicamento.save(new Medicamento("REXXOLIDE", 87.000F, 34.800F, 1, 0));
+
+        // RHEMOX - (414)
+        repoMedicamento.save(new Medicamento("RHEMOX", 113.900F, 68.340F, 1, 0));
+
+        // RIFACETRIL - (415)
+        repoMedicamento.save(new Medicamento("RIFACETRIL", 76.300F, 61.040F, 8, 0));
+
+        // RILEXINE - (416)
+        repoMedicamento.save(new Medicamento("RILEXINE", 145.800F, 116.640F, 8, 0));
+
+        // RIMASTINA - (417)
+        repoMedicamento.save(new Medicamento("RIMASTINA", 98.400F, 39.360F, 2, 0));
+
+        // ROBUCINA - (418)
+        repoMedicamento.save(new Medicamento("ROBUCINA", 66.300F, 46.410F, 8, 0));
+
+        // ROLAXIN - (419)
+        repoMedicamento.save(new Medicamento("ROLAXIN", 170.900F, 85.450F, 8, 0));
+
+        // RONAXAN - (420)
+        repoMedicamento.save(new Medicamento("RONAXAN", 75.400F, 30.160F, 8, 0));
+
+        // ROXACIN - (421)
+        repoMedicamento.save(new Medicamento("ROXACIN", 131.500F, 65.750F, 9, 0));
+
+        // SACHET - (422)
+        repoMedicamento.save(new Medicamento("SACHET", 132.000F, 92.400F, 5, 0));
+
+        // SELECTAN - (423)
+        repoMedicamento.save(new Medicamento("SELECTAN", 73.300F, 29.320F, 6, 0));
+
+        // SEMELCEF - (424)
+        repoMedicamento.save(new Medicamento("SEMELCEF", 129.800F, 64.900F, 5, 0));
+
+        // SERIFLOX - (425)
+        repoMedicamento.save(new Medicamento("SERIFLOX", 131.500F, 105.200F, 7, 0));
+
+        // SERIOX - (426)
+        repoMedicamento.save(new Medicamento("SERIOX", 125.600F, 100.480F, 5, 0));
+
+        // SERISEPT - (427)
+        repoMedicamento.save(new Medicamento("SERISEPT", 184.000F, 147.200F, 5, 0));
+
+        // SOLAMOCTA - (428)
+        repoMedicamento.save(new Medicamento("SOLAMOCTA", 97.000F, 58.200F, 4, 0));
+
+        // SOLDOXIN - (429)
+        repoMedicamento.save(new Medicamento("SOLDOXIN", 199.100F, 139.370F, 1, 0));
+
+        // SOLIGENTAL - (430)
+        repoMedicamento.save(new Medicamento("SOLIGENTAL", 167.700F, 100.620F, 5, 0));
+
+        // SOLUDOX - (431)
+        repoMedicamento.save(new Medicamento("SOLUDOX", 121.000F, 96.800F, 5, 0));
+
+        // SORANOX - (432)
+        repoMedicamento.save(new Medicamento("SORANOX", 70.800F, 56.640F, 2, 0));
+
+        // SPIR - (433)
+        repoMedicamento.save(new Medicamento("SPIR", 133.400F, 53.360F, 3, 0));
+
+        // SPIZOBACTIN - (434)
+        repoMedicamento.save(new Medicamento("SPIZOBACTIN", 119.100F, 95.280F, 9, 0));
+
+        // STABOX - (435)
+        repoMedicamento.save(new Medicamento("STABOX", 73.600F, 51.520F, 8, 0));
+
+        // STOMORGYL - (436)
+        repoMedicamento.save(new Medicamento("STOMORGYL", 72.700F, 36.350F, 2, 0));
+
+        // STRENZEN - (437)
+        repoMedicamento.save(new Medicamento("STRENZEN", 189.900F, 151.920F, 3, 0));
+
+        // SUIDOX - (438)
+        repoMedicamento.save(new Medicamento("SUIDOX", 59.000F, 47.200F, 7, 0));
+
+        // SULFADIM - (439)
+        repoMedicamento.save(new Medicamento("SULFADIM", 52.800F, 26.400F, 4, 0));
+
+        // SULFAMETOX - (440)
+        repoMedicamento.save(new Medicamento("SULFAMETOX", 175.500F, 140.400F, 10, 0));
+
+        // SULFAPREX - (441)
+        repoMedicamento.save(new Medicamento("SULFAPREX", 62.300F, 24.920F, 6, 0));
+
+        // SULFAPRIM - (442)
+        repoMedicamento.save(new Medicamento("SULFAPRIM", 165.000F, 66.000F, 9, 0));
+
+        // SUPER'S - (443)
+        repoMedicamento.save(new Medicamento("SUPER'S", 51.200F, 20.480F, 2, 0));
+
+        // SUROLAN - (444)
+        repoMedicamento.save(new Medicamento("SUROLAN", 172.600F, 120.820F, 1, 0));
+
+        // SYNULOX - (445)
+        repoMedicamento.save(new Medicamento("SYNULOX", 195.000F, 97.500F, 9, 0));
+
+        // SYVAMOX - (446)
+        repoMedicamento.save(new Medicamento("SYVAMOX", 110.900F, 77.630F, 3, 0));
+
+        // SYVAQUINOL - (447)
+        repoMedicamento.save(new Medicamento("SYVAQUINOL", 160.300F, 128.240F, 5, 0));
+
+        // TABERNIL - (448)
+        repoMedicamento.save(new Medicamento("TABERNIL", 168.600F, 118.020F, 10, 0));
+
+        // TAF - (449)
+        repoMedicamento.save(new Medicamento("TAF", 69.900F, 48.930F, 6, 0));
+
+        // TAILAN - (450)
+        repoMedicamento.save(new Medicamento("TAILAN", 101.400F, 50.700F, 10, 0));
+
+        // TENALINA - (451)
+        repoMedicamento.save(new Medicamento("TENALINA", 126.700F, 101.360F, 7, 0));
+
+        // TENICOL - (452)
+        repoMedicamento.save(new Medicamento("TENICOL", 89.700F, 35.880F, 7, 0));
+
+        // TERRALON - (453)
+        repoMedicamento.save(new Medicamento("TERRALON", 84.400F, 33.760F, 6, 0));
+
+        // TERRAMICINA - (454)
+        repoMedicamento.save(new Medicamento("TERRAMICINA", 196.800F, 137.760F, 5, 0));
+
+        // TETRACICLINA - (455)
+        repoMedicamento.save(new Medicamento("TETRACICLINA", 135.000F, 108.000F, 5, 0));
+
+        // TETRALONG - (456)
+        repoMedicamento.save(new Medicamento("TETRALONG", 61.800F, 24.720F, 10, 0));
+
+        // TETRAMAY - (457)
+        repoMedicamento.save(new Medicamento("TETRAMAY", 109.800F, 76.860F, 2, 0));
+
+        // TETROXYVET - (458)
+        repoMedicamento.save(new Medicamento("TETROXYVET", 80.800F, 64.640F, 1, 0));
+
+        // THERIOS - (459)
+        repoMedicamento.save(new Medicamento("THERIOS", 52.300F, 26.150F, 7, 0));
+
+        // TIALIN - (460)
+        repoMedicamento.save(new Medicamento("TIALIN", 81.300F, 56.910F, 3, 0));
+
+        // TIAMINVALL - (461)
+        repoMedicamento.save(new Medicamento("TIAMINVALL", 58.100F, 29.050F, 2, 0));
+
+        // TIAMULAB - (462)
+        repoMedicamento.save(new Medicamento("TIAMULAB", 127.600F, 102.080F, 7, 0));
+
+        // TIAMULINA - (463)
+        repoMedicamento.save(new Medicamento("TIAMULINA", 179.800F, 143.840F, 10, 0));
+
+        // TIAMUMIX - (464)
+        repoMedicamento.save(new Medicamento("TIAMUMIX", 181.000F, 144.800F, 4, 0));
+
+        // TILKOMAY - (465)
+        repoMedicamento.save(new Medicamento("TILKOMAY", 107.800F, 64.680F, 6, 0));
+
+        // TILMICOSIN - (466)
+        repoMedicamento.save(new Medicamento("TILMICOSIN", 84.200F, 42.100F, 10, 0));
+
+        // TILMICOSOL - (467)
+        repoMedicamento.save(new Medicamento("TILMICOSOL", 199.500F, 99.750F, 4, 0));
+
+        // TILMI-KEL - (468)
+        repoMedicamento.save(new Medicamento("TILMI-KEL", 177.500F, 142.000F, 7, 0));
+
+        // TILMIPRIL - (469)
+        repoMedicamento.save(new Medicamento("TILMIPRIL", 198.900F, 119.340F, 6, 0));
+
+        // TILMISONE - (470)
+        repoMedicamento.save(new Medicamento("TILMISONE", 90.600F, 54.360F, 9, 0));
+
+        // TILMOVET - (471)
+        repoMedicamento.save(new Medicamento("TILMOVET", 156.700F, 109.690F, 4, 0));
+
+        // TILOCEN - (472)
+        repoMedicamento.save(new Medicamento("TILOCEN", 146.000F, 87.600F, 7, 0));
+
+        // TILOMAY - (473)
+        repoMedicamento.save(new Medicamento("TILOMAY", 68.500F, 47.950F, 10, 0));
+
+        // TILOSINA - (474)
+        repoMedicamento.save(new Medicamento("TILOSINA", 152.300F, 106.610F, 2, 0));
+
+        // TILOSIVEN - (475)
+        repoMedicamento.save(new Medicamento("TILOSIVEN", 144.900F, 72.450F, 7, 0));
+
+        // TILOSUL - (476)
+        repoMedicamento.save(new Medicamento("TILOSUL", 175.200F, 140.160F, 3, 0));
+
+        // TILOVALL - (477)
+        repoMedicamento.save(new Medicamento("TILOVALL", 166.400F, 133.120F, 5, 0));
+
+        // TILOVEX - (478)
+        repoMedicamento.save(new Medicamento("TILOVEX", 183.500F, 73.400F, 8, 0));
+
+        // TIRSANICOL - (479)
+        repoMedicamento.save(new Medicamento("TIRSANICOL", 123.200F, 49.280F, 9, 0));
+
+        // TIRSANORAL - (480)
+        repoMedicamento.save(new Medicamento("TIRSANORAL", 179.100F, 107.460F, 4, 0));
+
+        // TISERGEN - (481)
+        repoMedicamento.save(new Medicamento("TISERGEN", 103.000F, 61.800F, 6, 0));
+
+        // TORUL - (482)
+        repoMedicamento.save(new Medicamento("TORUL", 117.700F, 70.620F, 6, 0));
+
+        // TRELACON - (483)
+        repoMedicamento.save(new Medicamento("TRELACON", 98.700F, 59.220F, 7, 0));
+
+        // TRIDERM - (484)
+        repoMedicamento.save(new Medicamento("TRIDERM", 114.400F, 91.520F, 6, 0));
+
+        // TRIMACROL - (485)
+        repoMedicamento.save(new Medicamento("TRIMACROL", 52.500F, 42.000F, 3, 0));
+
+        // TRIMITOS - (486)
+        repoMedicamento.save(new Medicamento("TRIMITOS", 57.500F, 23.000F, 10, 0));
+
+        // TRIMSULFASOL - (487)
+        repoMedicamento.save(new Medicamento("TRIMSULFASOL", 181.400F, 90.700F, 10, 0));
+
+        // TROXXAN - (488)
+        repoMedicamento.save(new Medicamento("TROXXAN", 180.600F, 90.300F, 5, 0));
+
+        // TSEFALEN - (489)
+        repoMedicamento.save(new Medicamento("TSEFALEN", 178.700F, 125.090F, 10, 0));
+
+        // TULAJECT - (490)
+        repoMedicamento.save(new Medicamento("TULAJECT", 158.100F, 110.670F, 9, 0));
+
+        // TULAVEN - (491)
+        repoMedicamento.save(new Medicamento("TULAVEN", 95.700F, 76.560F, 3, 0));
+
+        // TULIEVE - (492)
+        repoMedicamento.save(new Medicamento("TULIEVE", 199.800F, 119.880F, 6, 0));
+
+        // TULINOVET - (493)
+        repoMedicamento.save(new Medicamento("TULINOVET", 134.400F, 107.520F, 10, 0));
+
+        // TULISSIN - (494)
+        repoMedicamento.save(new Medicamento("TULISSIN", 154.700F, 123.760F, 8, 0));
+
+        // TULLAVIS - (495)
+        repoMedicamento.save(new Medicamento("TULLAVIS", 122.000F, 97.600F, 3, 0));
+
+        // TULOXXIN - (496)
+        repoMedicamento.save(new Medicamento("TULOXXIN", 126.300F, 88.410F, 6, 0));
+
+        // TYLMASIN - (497)
+        repoMedicamento.save(new Medicamento("TYLMASIN", 75.300F, 45.180F, 10, 0));
+
+        // TYLUCYL - (498)
+        repoMedicamento.save(new Medicamento("TYLUCYL", 101.300F, 60.780F, 3, 0));
+
+        // UBROLEXIN - (499)
+        repoMedicamento.save(new Medicamento("UBROLEXIN", 144.600F, 86.760F, 8, 0));
+
+        // UBROPEN - (500)
+        repoMedicamento.save(new Medicamento("UBROPEN", 136.600F, 68.300F, 5, 0));
+
+        // ULFAPRISOL - (501)
+        repoMedicamento.save(new Medicamento("ULFAPRISOL", 142.300F, 85.380F, 8, 0));
+
+        // ULTRADIAZINE - (502)
+        repoMedicamento.save(new Medicamento("ULTRADIAZINE", 121.100F, 48.440F, 7, 0));
+
+        // UNISOL - (503)
+        repoMedicamento.save(new Medicamento("UNISOL", 172.600F, 138.080F, 10, 0));
+
+        // UTERSOL - (504)
+        repoMedicamento.save(new Medicamento("UTERSOL", 159.500F, 63.800F, 6, 0));
+
+        // UTERTAB - (505)
+        repoMedicamento.save(new Medicamento("UTERTAB", 147.100F, 102.970F, 1, 0));
+
+        // VERAFLOX - (506)
+        repoMedicamento.save(new Medicamento("VERAFLOX", 100.700F, 50.350F, 4, 0));
+
+        // VETDRAX - (507)
+        repoMedicamento.save(new Medicamento("VETDRAX", 112.000F, 67.200F, 9, 0));
+
+        // VETMULIN - (508)
+        repoMedicamento.save(new Medicamento("VETMULIN", 198.400F, 79.360F, 1, 0));
+
+        // VETRIMOXIN - (509)
+        repoMedicamento.save(new Medicamento("VETRIMOXIN", 68.000F, 54.400F, 7, 0));
+
+        // VIRBACTAN - (510)
+        repoMedicamento.save(new Medicamento("VIRBACTAN", 181.900F, 145.520F, 3, 0));
+
+        // XEDEN - (511)
+        repoMedicamento.save(new Medicamento("XEDEN", 194.700F, 116.820F, 9, 0));
+
+        // YODIMASPEN - (512)
+        repoMedicamento.save(new Medicamento("YODIMASPEN", 136.900F, 82.140F, 1, 0));
+
+        // Z-19 - (513)
+        repoMedicamento.save(new Medicamento("Z-19", 150.600F, 60.240F, 10, 0));
+
+        // ZACTRAN - (514)
+        repoMedicamento.save(new Medicamento("ZACTRAN", 76.200F, 53.340F, 4, 0));
+
+        // ZELERIS - (515)
+        repoMedicamento.save(new Medicamento("ZELERIS", 175.300F, 122.710F, 1, 0));
+
+        // Z-MULIN - (516)
+        repoMedicamento.save(new Medicamento("Z-MULIN", 102.400F, 81.920F, 1, 0));
+
+        // ZODON - (517)
+        repoMedicamento.save(new Medicamento("ZODON", 60.000F, 30.000F, 4, 0));
+
+        // ZOOBIOTIC - (518)
+        repoMedicamento.save(new Medicamento("ZOOBIOTIC", 103.400F, 72.380F, 6, 0));
+
+        // ZOOTYL - (519)
+        repoMedicamento.save(new Medicamento("ZOOTYL", 93.300F, 65.310F, 1, 0));
+
+        // ZUPREVO - (520)
+        repoMedicamento.save(new Medicamento("ZUPREVO", 126.200F, 75.720F, 5, 0));
+
+        // FLORFEKSYL - (521)
+        repoMedicamento.save(new Medicamento("FLORFEKSYL", 197.000F, 118.200F, 3, 0));
+
+        // TILOLAB - (522)
+        repoMedicamento.save(new Medicamento("TILOLAB", 187.000F, 149.600F, 9, 0));
+
+        // METROTAB - (523)
+        repoMedicamento.save(new Medicamento("METROTAB", 169.300F, 135.440F, 9, 0));
+
+
+
 
         // Retrieve all Usuario objects
         List<Usuario> usuarios = repoUsuario.findAll();
