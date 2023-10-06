@@ -1,6 +1,6 @@
 package com.javeriana.drpaws.proyecto.servicio.Mascota;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
 
@@ -8,7 +8,7 @@ public interface MascotaService {
 
     public Mascota searchById(Long id);
 
-    public Collection<Mascota> searchAll();
+    public List<Mascota> searchAll();
 
     public void deleteById(Long id);
 

@@ -3,6 +3,8 @@ package com.javeriana.drpaws.proyecto.entidad;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -25,9 +27,11 @@ public class Mascota {
     private String enfermedad;
     private String imagen;
 
+    @JsonIgnore
     @ManyToOne
     private Usuario usuario;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "tratamiento", joinColumns = @JoinColumn(name = "mascota_id"), inverseJoinColumns = @JoinColumn(name = "veterinario_id"))
     private List<Veterinario> veterinarios = new ArrayList<>();

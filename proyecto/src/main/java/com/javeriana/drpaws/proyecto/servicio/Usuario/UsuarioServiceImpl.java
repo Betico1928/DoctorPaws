@@ -37,7 +37,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Collection<Usuario> searchAll() {
+    public List<Usuario> searchAll() {
         return repo.findAll();
 
     }

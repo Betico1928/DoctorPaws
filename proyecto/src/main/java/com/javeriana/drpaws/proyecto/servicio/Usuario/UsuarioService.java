@@ -9,7 +9,7 @@ import com.javeriana.drpaws.proyecto.entidad.Usuario;
 public interface UsuarioService {
     public Usuario searchById(Long id);
 
-    public Collection<Usuario> searchAll();
+    public List<Usuario> searchAll();
 
     public void deleteById(Long id);
 
