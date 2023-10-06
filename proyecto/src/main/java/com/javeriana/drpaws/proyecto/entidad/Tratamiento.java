@@ -1,13 +1,9 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Tratamiento {
@@ -36,10 +32,9 @@ public class Tratamiento {
     @ManyToOne
     private Medicamento medicamento;
 
-
-
     // Constructor
-    public Tratamiento(Long id, String nombre, String descripcion, String fechaInicio, String fechaFin, float costo, String frecuencia) {
+    public Tratamiento(Long id, String nombre, String descripcion, String fechaInicio, String fechaFin, float costo,
+            String frecuencia) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -49,109 +44,88 @@ public class Tratamiento {
         this.frecuencia = frecuencia;
     }
 
-
     // Constructor Vacío
-    public Tratamiento() {}
-
+    public Tratamiento() {
+    }
 
     // Getters y Setters
-    public Long getId()
-    {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNombre()
-    {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre)
-    {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getDescripcion()
-    {
+    public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion)
-    {
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    public String getFechaInicio()
-    {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio)
-    {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getFechaFin()
-    {
+    public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(String fechaFin)
-    {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 
-    public float getCosto()
-    {
+    public float getCosto() {
         return costo;
     }
 
-    public void setCosto(float costo)
-    {
+    public void setCosto(float costo) {
         this.costo = costo;
     }
 
-    public String getFrecuencia()
-    {
+    public String getFrecuencia() {
         return frecuencia;
     }
 
-    public void setFrecuencia(String frecuencia)
-    {
+    public void setFrecuencia(String frecuencia) {
         this.frecuencia = frecuencia;
     }
 
-    public Mascota getMascota()
-    {
+    public Mascota getMascota() {
         return mascota;
     }
 
-    public void setMascota(Mascota mascota)
-    {
+    public void setMascota(Mascota mascota) {
         this.mascota = mascota;
     }
 
-    public Veterinario getVeterinario()
-    {
+    public Veterinario getVeterinario() {
         return veterinario;
     }
 
-    public void setVeterinario(Veterinario veterinario)
-    {
+    public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
 
-    public Medicamento getMedicamento()
-    {
+    public Medicamento getMedicamento() {
         return medicamento;
     }
 
-    public void setMedicamento(Medicamento medicamento)
-    {
+    public void setMedicamento(Medicamento medicamento) {
         this.medicamento = medicamento;
     }
 }

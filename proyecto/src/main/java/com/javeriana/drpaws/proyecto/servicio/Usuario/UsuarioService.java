@@ -1,6 +1,5 @@
 package com.javeriana.drpaws.proyecto.servicio.Usuario;
 
-import java.util.Collection;
 import java.util.List;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
