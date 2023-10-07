@@ -1,5 +1,6 @@
 package com.javeriana.drpaws.proyecto.servicio.Veterinario;
 
+import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
 
 public interface VeterinarioService {
@@ -12,5 +13,7 @@ public interface VeterinarioService {
     public void add(Veterinario veterinario);
 
     public Veterinario searchByEmail(String email);
+
+    public Veterinario autenticarVeterinario(CredencialesDTO credenciales);
 
 }

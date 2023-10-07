@@ -19,20 +19,20 @@ public class Usuario {
     private String nombre;
     private String correo;
     private String celular;
-    private String contraseña;
+    private String contrasenna;
     private String imagen;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private List<Mascota> mascotas = new ArrayList<>();
 
-    public Usuario(String cedula, String nombre, String correo, String celular, String contraseña,
+    public Usuario(String cedula, String nombre, String correo, String celular, String contrasenna,
             String imagen) {
 
         this.cedula = cedula;
         this.nombre = nombre;
         this.correo = correo;
         this.celular = celular;
-        this.contraseña = contraseña;
+        this.contrasenna = contrasenna;
         this.imagen = imagen;
     }
 
@@ -71,12 +71,12 @@ public class Usuario {
         this.celular = celular;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenna() {
+        return contrasenna;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenna(String contrasenna) {
+        this.contrasenna = contrasenna;
     }
 
     public String getImagen() {
@@ -98,7 +98,7 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", correo=" + correo + ", celular="
-                + celular + ", contraseña=" + contraseña + ", imagen=" + imagen + ", mascotas=" + mascotas + "]";
+                + celular + ", contraseña=" + contrasenna + ", imagen=" + imagen + ", mascotas=" + mascotas + "]";
     }
 
 }

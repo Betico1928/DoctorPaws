@@ -3019,7 +3019,7 @@ public class DataBaseInit implements ApplicationRunner {
                  */
 
                 // Extrayendo los medicamentos desde el Excel:
-                String csvFile = "Archivos Varios\\MEDICAMENTOS_VETERINARIA.csv";
+                String csvFile = "src\\main\\resources\\static\\Archivos Varios\\MEDICAMENTOS_VETERINARIA.csv";
                 String line;
                 String csvSplitBy = ";"; // Separador de las celdas, en este caso punto y coma
 

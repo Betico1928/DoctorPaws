@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 import com.javeriana.drpaws.proyecto.repositorio.UsuarioRepository;
@@ -44,6 +45,25 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public List<Mascota> getMascotasByUsuarioID(Long id) {
         return repo.findMascotasById(id);
+    }
+
+    @Override
+    public Usuario findByCorreo(String correo) {
+        return repo.findByCorreo(correo);
+    }
+
+    @Override
+    public Usuario autenticarUsuario(CredencialesDTO credenciales) {
+        String correo = credenciales.getCorreo();
+        String contrasena = credenciales.getContrasenna();
+
+        Usuario usuario = repo.findByCorreo(correo);
+
+        if (usuario != null && usuario.getContrasenna().equals(contrasena)) {
+            return usuario; // Credenciales válidas, devuelve el usuario
+        } else {
+            return new Usuario(); // Credenciales inválidas, devuelve un usuario vacío
+        }
     }
 
 }

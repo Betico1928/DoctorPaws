@@ -11,4 +11,8 @@ import com.javeriana.drpaws.proyecto.entidad.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query("SELECT m FROM Mascota m WHERE m.usuario.id = :id")
     List<Mascota> findMascotasById(@Param("id") Long id);
+
+    public Usuario findByCorreo(String correo);
+
+    Usuario findByCorreoAndContrasenna(String correo, String contrasenna);
 }
