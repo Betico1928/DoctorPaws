@@ -34,6 +34,7 @@ public class Mascota {
     @JsonIgnore
     @ManyToMany
     @JoinTable(name = "tratamiento", joinColumns = @JoinColumn(name = "mascota_id"), inverseJoinColumns = @JoinColumn(name = "veterinario_id"))
+
     private List<Veterinario> veterinarios = new ArrayList<>();
 
     public Mascota(String nombre, String raza, int edad, float peso, String enfermedad, String imagen) {

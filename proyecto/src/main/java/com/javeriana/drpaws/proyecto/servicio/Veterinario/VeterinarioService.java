@@ -1,10 +1,16 @@
 package com.javeriana.drpaws.proyecto.servicio.Veterinario;
 
+
+
+import java.util.List;
+
 import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
 
 public interface VeterinarioService {
     public Veterinario searchById(Long id);
+
+    public List<Veterinario> searchAll();
 
     public void deleteById(Long id);
 
