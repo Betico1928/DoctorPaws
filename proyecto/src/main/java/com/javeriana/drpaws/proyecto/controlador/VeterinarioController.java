@@ -15,7 +15,7 @@ import com.javeriana.drpaws.proyecto.entidad.Veterinario;
 import com.javeriana.drpaws.proyecto.servicio.Veterinario.VeterinarioService;
 
 @RestController
-@RequestMapping("/veterinarios")
+@RequestMapping("/veterinario")
 @CrossOrigin(origins = "http://localhost:4200")
 public class VeterinarioController {
 
