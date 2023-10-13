@@ -63,6 +63,7 @@ public class MascotaController {
     }
 
 
+<<<<<<< Updated upstream
     // http://localhost:8080/mascota/update/1 -> Vista del formulario para actualizar una mascota
     @GetMapping("/update/{id}")
     public String updateMascotaForm(@PathVariable("id") Long id, Model model)
@@ -80,5 +81,16 @@ public class MascotaController {
         System.out.println("Mascota object: " + mascota.toString());
         mascotaService.update(mascota);
         return "redirect:/mascota/all";
+=======
+
+    // http://localhost:8080/mascota/actualizar/1 -> Actualizar una mascota
+    @PostMapping("/update/{id}")
+    public void updateMascota(@PathVariable("id") Long id, @RequestBody Mascota mascota)
+    {
+        System.out.println("\nMascota a actualizar: ");
+        System.out.print(System.lineSeparator());
+        System.out.println("ID: " + mascota.getId() + " - Nombre: " + mascota.getNombre() + " - Raza: " + mascota.getRaza() + " - Edad: " + mascota.getEdad() + " - Peso: " + mascota.getPeso() + " - Enfermedad: " + mascota.getEnfermedad());
+        mascotaService.update(mascota);
+>>>>>>> Stashed changes
     }
 }
