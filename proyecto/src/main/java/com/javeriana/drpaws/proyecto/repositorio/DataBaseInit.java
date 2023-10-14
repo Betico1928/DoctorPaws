@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -3108,10 +3109,13 @@ public class DataBaseInit implements ApplicationRunner {
                         tratamiento.setDescripcion(
                                         descripcionesTratamientos[random.nextInt(descripcionesTratamientos.length)]);
 
-                        tratamiento.setFechaInicio("2023-01-01");
+                        LocalDate startDate = LocalDate.now().minusMonths(1); // One month ago
+                        System.out.println("startDate: " + startDate);
+                        LocalDate endDate = LocalDate.now();
+                        System.out.println("endDate: " + endDate);
 
-                        tratamiento.setFechaFin("2023-12-31");
-
+                        tratamiento.setFechaInicio(startDate);
+                        tratamiento.setFechaFin(endDate);
                         // Generar un costo aleatorio entre 50.000 y 950.000
                         float randomCost = (random.nextInt(950000 - 50000 + 1) + 50000) / 1000.0f;
 

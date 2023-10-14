@@ -22,6 +22,8 @@ public class Veterinario {
     private String password;
     private String imagen;
 
+    private boolean activo = true;
+
     @ManyToMany
     @JoinTable(name = "tratamiento", joinColumns = @JoinColumn(name = "veterinario_id"), inverseJoinColumns = @JoinColumn(name = "mascota_id"))
     private List<Mascota> mascotas = new ArrayList<>();
@@ -94,6 +96,14 @@ public class Veterinario {
 
     public void setMascotas(List<Mascota> mascotas) {
         this.mascotas = mascotas;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }
