@@ -26,12 +26,12 @@ public class Mascota {
     private float peso;
     private String enfermedad;
     private String imagen;
+    private boolean activo = true;
 
     @JsonIgnore
     @ManyToOne
     private Usuario usuario;
 
-    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "tratamiento", joinColumns = @JoinColumn(name = "mascota_id"), inverseJoinColumns = @JoinColumn(name = "veterinario_id"))
 
@@ -126,6 +126,14 @@ public class Mascota {
 
     public void setVeterinarios(List<Veterinario> veterinarios) {
         this.veterinarios = veterinarios;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }

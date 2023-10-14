@@ -20,6 +20,6 @@ public interface TratamientoService {
 
     public List<Tratamiento> getAll();
 
-    public List<MedicamentoDTO> countTratamientosPorTipoMedicamentoAdminsitradoEnUltimoMes();
+    public List<Object[]> obtenerCantidadTratamientosPorMedicamentoEnUltimoMes();
 
 }

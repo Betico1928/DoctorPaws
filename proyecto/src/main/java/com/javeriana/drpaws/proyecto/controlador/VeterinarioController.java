@@ -49,4 +49,14 @@ public class VeterinarioController {
     public List<Veterinario> getAllVeterinarios() {
         return veterinarioService.searchAll();
     }
+
+    @GetMapping("/query/count-active")
+    public Long obtenerCantidadVeterinariosActivos() {
+        return veterinarioService.obtenerCantidadVeterinariosActivos();
+    }
+
+    @GetMapping("/query/count-inactive")
+    public Long obtenerCantidadVeterinariosInactivos() {
+        return veterinarioService.obtenerCantidadVeterinariosInactivos();
+    }
 }

@@ -56,7 +56,7 @@ public class TratamientoController {
     }
 
     @GetMapping("/count-last-month-by-medicamento")
-    public List<MedicamentoDTO> countTratamientosPorTipoMedicamentoAdminsitradoEnUltimoMes() {
-        return tratamientoService.countTratamientosPorTipoMedicamentoAdminsitradoEnUltimoMes();
+    public List<Object[]> countTratamientosPorTipoMedicamentoAdminsitradoEnUltimoMes() {
+        return tratamientoService.obtenerCantidadTratamientosPorMedicamentoEnUltimoMes();
     }
 }

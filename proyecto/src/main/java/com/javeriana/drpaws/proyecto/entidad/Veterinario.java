@@ -106,4 +106,8 @@ public class Veterinario {
         this.activo = activo;
     }
 
+    public void getTratamientos() {
+
+    }
+
 }

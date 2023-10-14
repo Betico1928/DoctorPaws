@@ -66,4 +66,13 @@ public class VeterinarioServiceImpl implements VeterinarioService {
 
     }
 
+    public Long obtenerCantidadVeterinariosActivos() {
+        return repo.countVeterinariosActivos();
+    }
+
+    @Override
+    public Long obtenerCantidadVeterinariosInactivos() {
+        return repo.countVeterinariosInactivos();
+    }
+
 }

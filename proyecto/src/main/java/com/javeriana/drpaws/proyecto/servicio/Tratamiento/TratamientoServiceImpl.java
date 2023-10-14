@@ -55,36 +55,13 @@ public class TratamientoServiceImpl implements TratamientoService {
         return repo.findAll();
     }
 
-    @Override
-    public List<MedicamentoDTO> countTratamientosPorTipoMedicamentoAdminsitradoEnUltimoMes() {
-        LocalDate endDate = LocalDate.now(); // Current date
-        LocalDate startDate = endDate.minus(Period.ofMonths(1)); // One month ago
-        List<Medicamento> medicamentos = repo.countTratamientosPorTipoMedicamentoAdminsitradoEnUltimoMes(startDate,
-                endDate);
+    public List<Object[]> obtenerCantidadTratamientosPorMedicamentoEnUltimoMes() {
+        // Calcular las fechas para el último mes
+        LocalDate fechaFin = LocalDate.now();
+        LocalDate fechaInicio = fechaFin.minusMonths(1);
 
-        List<MedicamentoDTO> medicamentoDTOs = new ArrayList<>();
-        for (Medicamento medicamento : medicamentos) {
-            MedicamentoDTO dto = new MedicamentoDTO();
-            dto.setId(medicamento.getId());
-            dto.setNombre(medicamento.getNombre());
-            int cantidad = countTratamientosForMedicamento(medicamento, startDate, endDate);
-            dto.setCantidadTratamientos(cantidad);
-            medicamentoDTOs.add(dto);
-        }
-
-        return medicamentoDTOs;
-    }
-
-    // Helper method to count treatments for a specific Medicamento
-    private int countTratamientosForMedicamento(Medicamento medicamento, LocalDate startDate, LocalDate endDate) {
-        int cantidad = 0;
-        for (Tratamiento tratamiento : medicamento.getTratamientos()) {
-            LocalDate fechaInicio = tratamiento.getFechaInicio();
-            if (fechaInicio != null && fechaInicio.isAfter(startDate) && fechaInicio.isBefore(endDate)) {
-                cantidad++;
-            }
-        }
-        return cantidad;
+        // Llamar a la consulta personalizada en el repositorio
+        return repo.countTratamientosPorMedicamentoEnUltimoMes(fechaInicio, fechaFin);
     }
 
 }
