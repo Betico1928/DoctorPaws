@@ -15,8 +15,7 @@ import java.util.Collection;
 
 @Controller
 @RequestMapping("/admin")
-public class AdminController
-{
+public class AdminController {
     @Autowired
     private UsuarioService usuarioService;
 
@@ -36,4 +35,5 @@ public class AdminController
 
         return "dashboard-administrativo";
     }
+
 }
