@@ -30,7 +30,17 @@ public class MascotaController {
 
     // http://localhost:8080/mascota/agregar -> Agregar una mascota
     @PostMapping("/agregar")
-    public void agregarMascota(@RequestBody Mascota mascota) {
+    public void agregarMascota(@RequestBody Mascota mascota)
+    {
+        System.out.println("\nInformación de la mascota a añadir:");
+        System.out.println("+-----------------+--------------------------------+");
+        System.out.printf("| %-15s | %-30s |\n", "Nombre", mascota.getNombre());
+        System.out.printf("| %-15s | %-30s |\n", "Raza", mascota.getRaza());
+        System.out.printf("| %-15s | %-30s |\n", "Edad", mascota.getEdad() + " años");
+        System.out.printf("| %-15s | %-30s |\n", "Peso", mascota.getPeso() + " kg");
+        System.out.printf("| %-15s | %-30s |\n", "Enfermedad", (mascota.getEnfermedad() != null ? mascota.getEnfermedad() : "Ninguna"));
+        System.out.println("+-----------------+--------------------------------+");
+        
         mascotaService.add(mascota);
     }
 
@@ -42,9 +52,18 @@ public class MascotaController {
 
     // http://localhost:8080/mascota/actualizar/1 -> Actualizar una mascota
     @PostMapping("/update/{id}")
-    public void updateMascota(@PathVariable("id") Long id, @RequestBody Mascota mascota) {
+    public void updateMascota(@PathVariable("id") Long id, @RequestBody Mascota mascota)
+    {
+        System.out.println("\nInformación de la mascota a actualizar:");
+        System.out.println("+-----------------+--------------------------------+");
+        System.out.printf("| %-15s | %-30s |\n", "ID de la mascota", mascota.getId());
+        System.out.printf("| %-15s | %-30s |\n", "Nombre", mascota.getNombre());
+        System.out.printf("| %-15s | %-30s |\n", "Raza", mascota.getRaza());
+        System.out.printf("| %-15s | %-30s |\n", "Edad", mascota.getEdad() + " años");
+        System.out.printf("| %-15s | %-30s |\n", "Peso", mascota.getPeso() + " kg");
+        System.out.printf("| %-15s | %-30s |\n", "Enfermedad", (mascota.getEnfermedad() != null ? mascota.getEnfermedad() : "Ninguna"));
+        System.out.println("+-----------------+--------------------------------+");
 
         mascotaService.update(mascota);
-
     }
 }
