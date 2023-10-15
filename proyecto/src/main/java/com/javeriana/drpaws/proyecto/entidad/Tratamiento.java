@@ -2,6 +2,8 @@ package com.javeriana.drpaws.proyecto.entidad;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -25,12 +27,15 @@ public class Tratamiento {
 
     private String frecuencia;
 
+    @JsonIgnore
     @ManyToOne
     private Mascota mascota;
 
+    @JsonIgnore
     @ManyToOne
     private Veterinario veterinario;
 
+    @JsonIgnore
     @ManyToOne
     private Medicamento medicamento;
 
