@@ -45,7 +45,7 @@ public class VeterinarioController {
         System.out.printf("| %-14s | %-35s |\n", "Especialidad", veterinario.getEspecialidad());
         System.out.printf("| %-14s | %-35s |\n", "Nombre", veterinario.getNombre());
         System.out.printf("| %-14s | %-35s |\n", "Email", veterinario.getEmail());
-        System.out.printf("| %-14s | %-35s |\n", "Password", "****"); // No es recomendable imprimir contraseñas
+        System.out.printf("| %-14s | %-35s |\n", "Password", veterinario.getPassword());
         System.out.printf("| %-14s | %-35s |\n", "Imagen URL", veterinario.getImagen());
         System.out.printf("| %-14s | %-35s |\n", "Activo", veterinario.isActivo() ? "Sí" : "No");
         System.out.println("+----------------+-------------------------------------+");
@@ -64,7 +64,7 @@ public class VeterinarioController {
         System.out.printf("| %-14s | %-35s |\n", "Especialidad", veterinario.getEspecialidad());
         System.out.printf("| %-14s | %-35s |\n", "Nombre", veterinario.getNombre());
         System.out.printf("| %-14s | %-35s |\n", "Email", veterinario.getEmail());
-        System.out.printf("| %-14s | %-35s |\n", "Password", "****"); // No es recomendable imprimir contraseñas
+        System.out.printf("| %-14s | %-35s |\n", "Password", veterinario.getPassword());
         System.out.printf("| %-14s | %-35s |\n", "Imagen URL", veterinario.getImagen());
         System.out.printf("| %-14s | %-35s |\n", "Activo", veterinario.isActivo() ? "Sí" : "No");
         System.out.println("+----------------+-------------------------------------+");
