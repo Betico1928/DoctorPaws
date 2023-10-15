@@ -3,6 +3,7 @@ package com.javeriana.drpaws.proyecto.servicio.Mascota;
 import java.util.List;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
+import com.javeriana.drpaws.proyecto.entidad.Tratamiento;
 
 public interface MascotaService {
 
@@ -20,4 +21,5 @@ public interface MascotaService {
 
     public Long totalMascotasActivas();
 
+    public List<Tratamiento> getTratamientosByNombreMascota(String nombreMascota);
 }

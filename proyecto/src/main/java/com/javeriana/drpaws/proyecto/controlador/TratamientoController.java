@@ -45,13 +45,4 @@ public class TratamientoController {
 
     }
 
-    @GetMapping("/count-last-month")
-    public Long countTratamientosAdminsitradosEnUltimoMes() {
-        return tratamientoService.countTratamientosAdminsitradosEnUltimoMes();
-    }
-
-    @GetMapping("/count-last-month-by-medicamento")
-    public List<Object[]> countTratamientosPorTipoMedicamentoAdminsitradoEnUltimoMes() {
-        return tratamientoService.obtenerCantidadTratamientosPorMedicamentoEnUltimoMes();
-    }
 }

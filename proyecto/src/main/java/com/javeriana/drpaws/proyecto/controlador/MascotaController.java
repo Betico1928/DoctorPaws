@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
+import com.javeriana.drpaws.proyecto.entidad.Tratamiento;
 import com.javeriana.drpaws.proyecto.servicio.Mascota.MascotaService;
 
 import java.util.List;
@@ -68,13 +69,8 @@ public class MascotaController {
         mascotaService.update(mascota);
     }
 
-    @GetMapping("/query/total")
-    public Long getTotalMascotas() {
-        return mascotaService.totalMascotas();
-    }
-
-    @GetMapping("/query/total-active")
-    public Long getTotalMascotasActivas() {
-        return mascotaService.totalMascotasActivas();
+    @GetMapping("/tratamientos/{nombreMascota}")
+    public List<Tratamiento> getTratamientosByNombreMascota(@PathVariable("nombreMascota") String nombreMascota) {
+        return mascotaService.getTratamientosByNombreMascota(nombreMascota);
     }
 }
