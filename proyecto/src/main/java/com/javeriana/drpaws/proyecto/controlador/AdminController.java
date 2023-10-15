@@ -35,7 +35,7 @@ public class AdminController {
         return mascotaService.totalMascotas();
     }
 
-    @GetMapping("/query/total-active")
+    @GetMapping("/query/total-active-mascotas")
     public Long getTotalMascotasActivas() {
         return mascotaService.totalMascotasActivas();
     }
