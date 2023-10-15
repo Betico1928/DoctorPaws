@@ -28,7 +28,9 @@ public class AutenticacionController {
 
     // http://localhost:8080/autenticacion/user -> Autenticar un usuario
     @PostMapping("/user")
-    public ResponseEntity<Object> autenticarUser(@RequestBody CedulaDTO credenciales) {
+    public ResponseEntity<Object> autenticarUser(@RequestBody CedulaDTO credenciales)
+    {
+        System.out.println("Cedula recibida para autenticación:" + credenciales.getCedula());
         Usuario usuarioAutenticado = usuarioService.autenticarUsuario(credenciales);
 
         if (usuarioAutenticado.getId() != null) {
