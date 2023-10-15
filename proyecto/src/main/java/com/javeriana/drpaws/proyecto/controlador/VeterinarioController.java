@@ -26,7 +26,7 @@ public class VeterinarioController {
     }
 
     @GetMapping("/{id}")
-    public Veterinario getVeterinario(@PathVariable Long id) {
+    public Veterinario getVeterinario(@PathVariable("id") Long id) {
         return veterinarioService.searchById(id);
     }
 
@@ -36,12 +36,12 @@ public class VeterinarioController {
     }
 
     @PostMapping("/update/{id}")
-    public void updateVeterinario(@PathVariable Long id, @RequestBody Veterinario veterinario) {
+    public void updateVeterinario(@PathVariable("id") Long id, @RequestBody Veterinario veterinario) {
         veterinarioService.update(veterinario);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteVeterinario(@PathVariable Long id) {
+    public void deleteVeterinario(@PathVariable("id") Long id) {
         veterinarioService.deleteById(id);
     }
 
