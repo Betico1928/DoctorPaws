@@ -32,6 +32,7 @@ public class Mascota {
     @ManyToOne
     private Usuario usuario;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "tratamiento", joinColumns = @JoinColumn(name = "mascota_id"), inverseJoinColumns = @JoinColumn(name = "veterinario_id"))
 
