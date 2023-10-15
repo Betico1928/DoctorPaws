@@ -25,36 +25,51 @@ public class VeterinarioController {
         this.veterinarioService = veterinarioService;
     }
 
+    // Para buscar a un veterinario en especifico:
+    // http://localhost:8080/veterinario/{id}
     @GetMapping("/{id}")
     public Veterinario getVeterinario(@PathVariable("id") Long id) {
         return veterinarioService.searchById(id);
     }
 
+    // Para crear a un veterinario
+    // http://localhost:8080/veterinario/add
     @PostMapping("/add")
     public void createVeterinario(@RequestBody Veterinario veterinario) {
         veterinarioService.add(veterinario);
     }
 
+    // Para actualizar a un veterinario en especifico:
+    // http://localhost:8080/veterinario/update/{id}
     @PostMapping("/update/{id}")
     public void updateVeterinario(@PathVariable("id") Long id, @RequestBody Veterinario veterinario) {
         veterinarioService.update(veterinario);
     }
 
+    // Para borrar a un veterinario en especifico:
+    // http://localhost:8080/veterinario/delete/{id}
     @DeleteMapping("/delete/{id}")
     public void deleteVeterinario(@PathVariable("id") Long id) {
         veterinarioService.deleteById(id);
     }
 
+    // Para buscar a todos los veterinarios:
+    // http://localhost:8080/veterinario/all
     @GetMapping("/all")
     public List<Veterinario> getAllVeterinarios() {
+        System.out.println("Buscando a todos los veterinarios...");
         return veterinarioService.searchAll();
     }
 
+    // Para obtener a todos los veterinarios activos:
+    // http://localhost:8080/veterinario/query/count-active
     @GetMapping("/query/count-active")
     public Long obtenerCantidadVeterinariosActivos() {
         return veterinarioService.obtenerCantidadVeterinariosActivos();
     }
 
+    // Para obtener a todos los veterinarios NO activos:
+    // http://localhost:8080/veterinario/query/count-inactive
     @GetMapping("/query/count-inactive")
     public Long obtenerCantidadVeterinariosInactivos() {
         return veterinarioService.obtenerCantidadVeterinariosInactivos();
