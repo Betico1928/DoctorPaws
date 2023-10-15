@@ -28,35 +28,64 @@ public class VeterinarioController {
     // Para buscar a un veterinario en especifico:
     // http://localhost:8080/veterinario/{id}
     @GetMapping("/{id}")
-    public Veterinario getVeterinario(@PathVariable("id") Long id) {
+    public Veterinario getVeterinario(@PathVariable("id") Long id)
+    {
+        System.out.println("Buscando al veterinario con ID: " + id);
         return veterinarioService.searchById(id);
     }
 
     // Para crear a un veterinario
     // http://localhost:8080/veterinario/add
     @PostMapping("/add")
-    public void createVeterinario(@RequestBody Veterinario veterinario) {
+    public void createVeterinario(@RequestBody Veterinario veterinario)
+    {
+        System.out.println("\nInformación del veterinario a crear:");
+        System.out.println("+----------------+-------------------------------------+");
+        System.out.printf("| %-14s | %-35s |\n", "ID", veterinario.getId());
+        System.out.printf("| %-14s | %-35s |\n", "Especialidad", veterinario.getEspecialidad());
+        System.out.printf("| %-14s | %-35s |\n", "Nombre", veterinario.getNombre());
+        System.out.printf("| %-14s | %-35s |\n", "Email", veterinario.getEmail());
+        System.out.printf("| %-14s | %-35s |\n", "Password", "****"); // No es recomendable imprimir contraseñas
+        System.out.printf("| %-14s | %-35s |\n", "Imagen URL", veterinario.getImagen());
+        System.out.printf("| %-14s | %-35s |\n", "Activo", veterinario.isActivo() ? "Sí" : "No");
+        System.out.println("+----------------+-------------------------------------+");
+
         veterinarioService.add(veterinario);
     }
 
     // Para actualizar a un veterinario en especifico:
     // http://localhost:8080/veterinario/update/{id}
     @PostMapping("/update/{id}")
-    public void updateVeterinario(@PathVariable("id") Long id, @RequestBody Veterinario veterinario) {
+    public void updateVeterinario(@PathVariable("id") Long id, @RequestBody Veterinario veterinario)
+    {
+        System.out.println("\nInformación del veterinario a actualizar:");
+        System.out.println("+----------------+-------------------------------------+");
+        System.out.printf("| %-14s | %-35s |\n", "ID", veterinario.getId());
+        System.out.printf("| %-14s | %-35s |\n", "Especialidad", veterinario.getEspecialidad());
+        System.out.printf("| %-14s | %-35s |\n", "Nombre", veterinario.getNombre());
+        System.out.printf("| %-14s | %-35s |\n", "Email", veterinario.getEmail());
+        System.out.printf("| %-14s | %-35s |\n", "Password", "****"); // No es recomendable imprimir contraseñas
+        System.out.printf("| %-14s | %-35s |\n", "Imagen URL", veterinario.getImagen());
+        System.out.printf("| %-14s | %-35s |\n", "Activo", veterinario.isActivo() ? "Sí" : "No");
+        System.out.println("+----------------+-------------------------------------+");
+
         veterinarioService.update(veterinario);
     }
 
     // Para borrar a un veterinario en especifico:
     // http://localhost:8080/veterinario/delete/{id}
     @DeleteMapping("/delete/{id}")
-    public void deleteVeterinario(@PathVariable("id") Long id) {
+    public void deleteVeterinario(@PathVariable("id") Long id)
+    {
+        System.out.println("Borrando al veterinario con ID: " + id);
         veterinarioService.deleteById(id);
     }
 
     // Para buscar a todos los veterinarios:
     // http://localhost:8080/veterinario/all
     @GetMapping("/all")
-    public List<Veterinario> getAllVeterinarios() {
+    public List<Veterinario> getAllVeterinarios()
+    {
         System.out.println("Buscando a todos los veterinarios...");
         return veterinarioService.searchAll();
     }
