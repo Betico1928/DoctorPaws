@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.javeriana.drpaws.proyecto.controlador.DTO.CedulaDTO;
 import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
@@ -27,7 +28,7 @@ public class AutenticacionController {
 
     // http://localhost:8080/autenticacion/user -> Autenticar un usuario
     @PostMapping("/user")
-    public ResponseEntity<Object> autenticarUser(@RequestBody CredencialesDTO credenciales) {
+    public ResponseEntity<Object> autenticarUser(@RequestBody CedulaDTO credenciales) {
         Usuario usuarioAutenticado = usuarioService.autenticarUsuario(credenciales);
 
         if (usuarioAutenticado.getId() != null) {

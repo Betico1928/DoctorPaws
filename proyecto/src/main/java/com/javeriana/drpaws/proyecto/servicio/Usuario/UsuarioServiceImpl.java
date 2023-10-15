@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javeriana.drpaws.proyecto.controlador.DTO.CedulaDTO;
 import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
@@ -53,17 +54,32 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario autenticarUsuario(CredencialesDTO credenciales) {
-        String correo = credenciales.getCorreo();
-        String contrasena = credenciales.getContrasenna();
+    public Usuario autenticarUsuario(CedulaDTO credenciales) {
 
-        Usuario usuario = repo.findByCorreo(correo);
+        String cedula = credenciales.getCedula();
 
-        if (usuario != null && usuario.getContrasenna().equals(contrasena)) {
+        Usuario usuario = repo.findByCedula(cedula);
+
+        if (usuario != null) {
             return usuario; // Credenciales válidas, devuelve el usuario
         } else {
             return new Usuario(); // Credenciales inválidas, devuelve un usuario vacío
         }
+
     }
+
+    // @Override
+    // public Usuario autenticarUsuario(CredencialesDTO credenciales) {
+    // String correo = credenciales.getCorreo();
+    // String contrasena = credenciales.getContrasenna();
+
+    // Usuario usuario = repo.findByCorreo(correo);
+
+    // if (usuario != null && usuario.getContrasenna().equals(contrasena)) {
+    // return usuario; // Credenciales válidas, devuelve el usuario
+    // } else {
+    // return new Usuario(); // Credenciales inválidas, devuelve un usuario vacío
+    // }
+    // }
 
 }

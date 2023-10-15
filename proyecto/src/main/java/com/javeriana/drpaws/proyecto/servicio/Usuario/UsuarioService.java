@@ -2,6 +2,7 @@ package com.javeriana.drpaws.proyecto.servicio.Usuario;
 
 import java.util.List;
 
+import com.javeriana.drpaws.proyecto.controlador.DTO.CedulaDTO;
 import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
@@ -21,5 +22,5 @@ public interface UsuarioService {
 
     public Usuario findByCorreo(String correo);
 
-    public Usuario autenticarUsuario(CredencialesDTO credenciales);
+    public Usuario autenticarUsuario(CedulaDTO credenciales);
 }
