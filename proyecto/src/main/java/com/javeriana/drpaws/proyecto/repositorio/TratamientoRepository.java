@@ -7,9 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.javeriana.drpaws.proyecto.controlador.DTO.MedicamentoDTO;
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
-import com.javeriana.drpaws.proyecto.entidad.Medicamento;
 import com.javeriana.drpaws.proyecto.entidad.Tratamiento;
 
 public interface TratamientoRepository extends JpaRepository<Tratamiento, Long> {

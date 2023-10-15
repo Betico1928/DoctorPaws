@@ -1,13 +1,8 @@
 package com.javeriana.drpaws.proyecto.controlador;
 
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.javeriana.drpaws.proyecto.controlador.DTO.MedicamentoDTO;
-import com.javeriana.drpaws.proyecto.entidad.Medicamento;
 import com.javeriana.drpaws.proyecto.entidad.Tratamiento;
 import com.javeriana.drpaws.proyecto.servicio.Tratamiento.TratamientoService;
 

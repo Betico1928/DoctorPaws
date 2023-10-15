@@ -1,10 +1,7 @@
 package com.javeriana.drpaws.proyecto.servicio.Tratamiento;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import com.javeriana.drpaws.proyecto.controlador.DTO.MedicamentoDTO;
-import com.javeriana.drpaws.proyecto.entidad.Medicamento;
 import com.javeriana.drpaws.proyecto.entidad.Tratamiento;
 
 public interface TratamientoService {
