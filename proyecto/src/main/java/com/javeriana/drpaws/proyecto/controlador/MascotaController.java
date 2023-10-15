@@ -47,6 +47,7 @@ public class MascotaController {
     // http://localhost:8080/mascota/delete/1 -> Eliminar una mascota
     @DeleteMapping("/delete/{id}")
     public void deleteMascota(@PathVariable("id") Long id) {
+        System.out.println("ID de la mascota a eliminar: " + id);
         mascotaService.deleteById(id);
     }
 

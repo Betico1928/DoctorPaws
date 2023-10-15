@@ -44,13 +44,16 @@ public class AutenticacionController {
     // http://localhost:8080/autenticacion/vet -> Autenticar un veterinario
     @PostMapping("/vet")
     public ResponseEntity<Object> autenticarVet(@RequestBody CredencialesDTO credenciales) {
-        System.out.println(credenciales);
+        System.out.println("Correo a autenticar: " + credenciales.getCorreo());
+        System.out.println("Contraseña a autenticar: " + credenciales.getContrasenna());
         Veterinario veterinarioAutenticado = veterinarioService.autenticarVeterinario(credenciales);
 
         if (veterinarioAutenticado.getId() != null) {
+            System.out.println("Credenciales válidas - Puede entrar el veterinario con ID: " + veterinarioAutenticado.getId() + "\n");
             return ResponseEntity.ok(veterinarioAutenticado); // Credenciales válidas
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas"); // Credenciales
+            System.out.println("Credenciales Incorrectas");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas\n"); // Credenciales
                                                                                                     // inválidas
         }
     }
