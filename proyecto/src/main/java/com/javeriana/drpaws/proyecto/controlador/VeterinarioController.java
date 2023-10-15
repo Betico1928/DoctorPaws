@@ -43,7 +43,19 @@ public class VeterinarioController {
     // Para actualizar a un veterinario en especifico:
     // http://localhost:8080/veterinario/update/{id}
     @PostMapping("/update/{id}")
-    public void updateVeterinario(@PathVariable Long id, @RequestBody Veterinario veterinario) {
+    public void updateVeterinario(@PathVariable Long id, @RequestBody Veterinario veterinario)
+    {
+        System.out.println("\nInformación del veterinario a actualizar:");
+        System.out.println("+----------------+-------------------------------------+");
+        System.out.printf("| %-14s | %-35s |\n", "ID", veterinario.getId());
+        System.out.printf("| %-14s | %-35s |\n", "Especialidad", veterinario.getEspecialidad());
+        System.out.printf("| %-14s | %-35s |\n", "Nombre", veterinario.getNombre());
+        System.out.printf("| %-14s | %-35s |\n", "Email", veterinario.getEmail());
+        System.out.printf("| %-14s | %-35s |\n", "Password", veterinario.getPassword());
+        System.out.printf("| %-14s | %-35s |\n", "Imagen URL", veterinario.getImagen());
+        System.out.printf("| %-14s | %-35s |\n", "Activo", veterinario.isActivo() ? "Sí" : "No");
+        System.out.println("+----------------+-------------------------------------+");
+
         veterinarioService.update(veterinario);
     }
 
