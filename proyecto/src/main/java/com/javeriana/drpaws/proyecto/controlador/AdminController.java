@@ -32,8 +32,9 @@ public class AdminController {
     public Long getTotalMascotas() {
         return mascotaService.totalMascotas();
     }
-    
-    // Para obtener la cantidad total de mascotas activas en tratamiento en la veterinaria
+
+    // Para obtener la cantidad total de mascotas activas en tratamiento en la
+    // veterinaria
     // http://localhost:8080/admin/query/total-active-mascotas
     @GetMapping("/query/total-active-mascotas")
     public Long getTotalMascotasActivas() {
@@ -61,8 +62,9 @@ public class AdminController {
         return tratamientoService.countTratamientosAdminsitradosEnUltimoMes();
     }
 
-    // Para obtener una tabla de los medicamentos y su cantidad suministrada el ultimo mes
-    // http://localhost:8080/admin/query/count-last-month-by-medicamento 
+    // Para obtener una tabla de los medicamentos y su cantidad suministrada el
+    // ultimo mes
+    // http://localhost:8080/admin/query/count-last-month-by-medicamento
     @GetMapping("/query/count-last-month-by-medicamento")
     public List<Object[]> countTratamientosPorTipoMedicamentoAdminsitradoEnUltimoMes() {
         return tratamientoService.obtenerCantidadTratamientosPorMedicamentoEnUltimoMes();
@@ -70,25 +72,23 @@ public class AdminController {
 
     // Las tres drogas más vendidas en los tratamientos
     // http://localhost:8080/admin/query/find-Top3
-    @GetMapping("/query/find-Top3")
-    public List<Object[]> findTop3Tratamientos(){
+    @GetMapping("/query/find-top3")
+    public List<Object[]> findTop3Tratamientos() {
         return tratamientoService.findTop3Treatments();
     }
 
     // Para obtener las ventas totales de la veterinaria
     // http://localhost:8080/admin/query/sales
     @GetMapping("/query/sales")
-    public Object computeSales(){
+    public Object computeSales() {
         return tratamientoService.computeSales();
     }
 
     // Para obtener las ganancias de las veterinarias
     // http://localhost:8080/admin/query/profit
     @GetMapping("/query/profit")
-    public Object computeProfit(){
+    public Object computeProfit() {
         return tratamientoService.computeProfit();
     }
-
-
 
 }
