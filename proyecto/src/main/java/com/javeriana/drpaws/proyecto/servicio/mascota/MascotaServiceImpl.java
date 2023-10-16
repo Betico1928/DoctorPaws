@@ -72,13 +72,12 @@ public class MascotaServiceImpl implements com.javeriana.drpaws.proyecto.servici
         }
     }
 
-    public List<Tratamiento> getTratamientosByNombreMascota(String nombreMascota) {
-        Mascota mascota = repo.findByNombre(nombreMascota);
+    public List<Tratamiento> getTratamientosByNombreMascota(Long id) {
+        Mascota mascota = repo.findById(id).get();
         if (mascota != null) {
             return tratamientoRepository.findTratamientosByMascota(mascota);
         } else {
-            // Manejo de error si la mascota no se encuentra
-            throw new MascotaNotFoundException("La mascota con nombre " + nombreMascota + " no se encontró");
+            return null;
         }
     }
 
