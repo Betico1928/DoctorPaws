@@ -57,7 +57,6 @@ public class VeterinarioController {
     public void updateVeterinario(@PathVariable("id") Long id, @RequestBody Veterinario veterinario) {
         System.out.println("\nInformación del veterinario a actualizar:");
         System.out.println("+----------------+-------------------------------------+");
-        System.out.printf("| %-14s | %-35s |\n", "ID", veterinario.getId());
         System.out.printf("| %-14s | %-35s |\n", "Especialidad", veterinario.getEspecialidad());
         System.out.printf("| %-14s | %-35s |\n", "Nombre", veterinario.getNombre());
         System.out.printf("| %-14s | %-35s |\n", "Email", veterinario.getEmail());
