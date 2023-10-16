@@ -1,7 +1,5 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
-import java.util.ArrayList;
-
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -23,8 +21,7 @@ public class Medicamento {
 
 
     @OneToMany(mappedBy = "medicamento")
-    private List<Tratamiento> tratamientos = new ArrayList<>();
-
+    private List<Tratamiento> tratamientos;
     // Constructor
     public Medicamento(String nombre, float precioVenta, float precioCompra, int unidadesDisponibles, int unidadesVendidas) {
         this.nombre = nombre;

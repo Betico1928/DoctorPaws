@@ -1,6 +1,5 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -23,7 +22,7 @@ public class Usuario {
     private String imagen;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-    private List<Mascota> mascotas = new ArrayList<>();
+    private List<Mascota> mascotas;
 
     public Usuario(String cedula, String nombre, String correo, String celular, String contrasenna,
             String imagen) {

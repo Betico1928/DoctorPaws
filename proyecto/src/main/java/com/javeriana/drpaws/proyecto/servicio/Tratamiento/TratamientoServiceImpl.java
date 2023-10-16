@@ -60,4 +60,20 @@ public class TratamientoServiceImpl implements TratamientoService {
         return repo.countTratamientosPorMedicamentoEnUltimoMes(fechaInicio, fechaFin);
     }
 
+    @Override
+    public List<Object[]> findTop3Treatments(){
+        return repo.findTop3Treatments();
+    }
+
+    @Override
+    public Object computeSales(){
+        return repo.computeSales();
+    }
+
+    @Override
+    public Object computeProfit(){
+        return repo.computeProfit();
+    }
+
+
 }

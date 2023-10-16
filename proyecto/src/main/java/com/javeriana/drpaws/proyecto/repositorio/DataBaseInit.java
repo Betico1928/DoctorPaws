@@ -3062,7 +3062,7 @@ public class DataBaseInit implements ApplicationRunner {
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-                Random random = new Random(1);
+                Random random = new Random();
 
                 // Obtener todas las mascotas, veterinarios, y medicamentos de la BD
                 List<Mascota> mascotas = repoMascota.findAll();
@@ -3101,7 +3101,7 @@ public class DataBaseInit implements ApplicationRunner {
                                 "Procedimiento quirúrgico para tratar cataratas o lesiones oculares"
                 };
 
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < 100; i++) {
                         Tratamiento tratamiento = new Tratamiento();
 
                         // Seleccionar nombres y descripciones al azar
@@ -3121,7 +3121,7 @@ public class DataBaseInit implements ApplicationRunner {
 
                         // Asegurarse de que el formato siempre tiene tres dígitos después del punto
                         // decimal
-                        DecimalFormat df = new DecimalFormat("#.000");
+                        DecimalFormat df = new DecimalFormat("#,000");
                         randomCost = Float.parseFloat(df.format(randomCost));
 
                         tratamiento.setCosto(randomCost);
@@ -3131,8 +3131,25 @@ public class DataBaseInit implements ApplicationRunner {
                         // Obtener una mascota, veterinario, y medicamento al azar de las listas.
                         tratamiento.setMascota(mascotas.get(random.nextInt(mascotas.size())));
                         tratamiento.setVeterinario(veterinarios.get(random.nextInt(veterinarios.size())));
-                        tratamiento.setMedicamento(medicamentos.get(random.nextInt(medicamentos.size())));
 
+                        boolean posible = true;
+                        do{
+                                int index = random.nextInt(medicamentos.size());
+                                if (medicamentos.get(index).getUnidadesDisponibles()>0){
+                                        medicamentos.get(index).setUnidadesDisponibles(medicamentos.get(index).getUnidadesDisponibles()-1);
+                                        medicamentos.get(index).setUnidadesVendidas(medicamentos.get(index).getUnidadesVendidas()+1);
+                                        tratamiento.setMedicamento(medicamentos.get(index));
+                                        posible = true;
+                                }
+                                else{
+                                        posible = false;
+                                }
+                        }
+                        while(!posible);
+                        System.out.println("ID de la mascota");
+                        System.out.println(tratamiento.getMascota().getId());
+                        System.out.println("Nombre del medicamento");
+                        System.out.println(tratamiento.getMedicamento().getNombre());
                         // Guardar el objeto tratamiento en la base de datos.
                         repoTratamiento.save(tratamiento);
                 }

@@ -19,4 +19,11 @@ public interface TratamientoService {
 
     public List<Object[]> obtenerCantidadTratamientosPorMedicamentoEnUltimoMes();
 
+    public List<Object[]> findTop3Treatments();
+
+    public Object computeSales();
+
+    public Object computeProfit();
+    
+
 }
