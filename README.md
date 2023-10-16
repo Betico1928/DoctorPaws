@@ -43,6 +43,7 @@ El propósito central de este proyecto es digitalizar las operaciones de una cl�
 
 ## Especificaciones Adicionales
 
+
 - Se puede registrar una mascota con un campo de enfermedad como "vacío" hasta que sea atendida.
 - Una mascota puede ser tratada por múltiples veterinarios y viceversa.
 - Un dueño puede tener múltiples mascotas hospitalizadas.

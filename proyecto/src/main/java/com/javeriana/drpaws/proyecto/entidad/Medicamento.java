@@ -2,6 +2,8 @@ package com.javeriana.drpaws.proyecto.entidad;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,6 +22,7 @@ public class Medicamento {
     private int unidadesVendidas;
 
 
+    @JsonIgnore
     @OneToMany(mappedBy = "medicamento")
     private List<Tratamiento> tratamientos;
     // Constructor

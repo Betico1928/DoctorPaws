@@ -1,6 +1,12 @@
 package com.javeriana.drpaws.proyecto.controlador.DTO;
 
 public class CredencialesDTO {
+
+    /*
+     * Credenciales DTO
+     * El servidor recibe la petición de autenticación del administrador o veterianario
+     * Se envia en el cuerpo de la petición el correo y la contraseña 
+     */
     private String correo;
     private String contrasenna;
 

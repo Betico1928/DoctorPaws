@@ -48,17 +48,21 @@ public class MascotaServiceImpl implements com.javeriana.drpaws.proyecto.servici
         repo.save(mascota);
     }
 
+    // Retorna el número de mascotas que hay en el sistema
     @Override
     public Long totalMascotas() {
         return repo.count();
     }
 
+    // Retorna el número de mascotas que tienen tratamiento
     @Override
     public Long totalMascotasActivas() {
         desactivarMascotasSinTratamiento();
         return repo.countMascotasActivas();
     }
 
+    // Esta función cambia el atributo Activo de mascotas a falso si 
+    // esta mascota no tiene un registro de tratamientos.
     public void desactivarMascotasSinTratamiento() {
         List<Mascota> mascotas = repo.findAll();
 
@@ -72,6 +76,7 @@ public class MascotaServiceImpl implements com.javeriana.drpaws.proyecto.servici
         }
     }
 
+    // Devuelve los tratamiento que se le han hecho a una mascota dado su id
     public List<Tratamiento> getTratamientosByNombreMascota(Long id) {
         Mascota mascota = repo.findById(id).get();
         if (mascota != null) {
