@@ -69,8 +69,8 @@ public class MascotaController {
         mascotaService.update(mascota);
     }
 
-    @GetMapping("/tratamientos/{nombreMascota}")
-    public List<Tratamiento> getTratamientosByNombreMascota(@PathVariable("nombreMascota") String nombreMascota) {
-        return mascotaService.getTratamientosByNombreMascota(nombreMascota);
+    @GetMapping("/tratamientos/{id}")
+    public List<Tratamiento> getTratamientosByNombreMascota(@PathVariable("id") Long id) {
+        return mascotaService.getTratamientosByNombreMascota(id);
     }
 }

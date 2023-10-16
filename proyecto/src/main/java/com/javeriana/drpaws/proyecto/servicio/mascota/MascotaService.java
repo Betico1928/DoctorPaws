@@ -21,5 +21,5 @@ public interface MascotaService {
 
     public Long totalMascotasActivas();
 
-    public List<Tratamiento> getTratamientosByNombreMascota(String nombreMascota);
+    public List<Tratamiento> getTratamientosByNombreMascota(Long id);
 }
