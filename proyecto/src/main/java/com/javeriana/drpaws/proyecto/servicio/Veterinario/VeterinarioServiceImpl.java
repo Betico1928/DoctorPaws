@@ -36,12 +36,16 @@ public class VeterinarioServiceImpl implements VeterinarioService {
         repo.save(veterinario);
     }
 
+    // Busca un veterinario por su correo
     @Override
     public Veterinario searchByEmail(String email) {
 
         return repo.findByEmail(email);
     }
 
+    // Autentica un veterinario por sus credenciales
+    // Las credenciales del veterinario son su correo y contraseña
+    // Si exitosa, se devuelve un veterinario
     @Override
     public Veterinario autenticarVeterinario(CredencialesDTO credenciales) {
         String correo = credenciales.getCorreo();
@@ -66,14 +70,15 @@ public class VeterinarioServiceImpl implements VeterinarioService {
 
     }
 
+    // Devuelve la cantidad de veterinarios activos en el sistema
     public Long obtenerCantidadVeterinariosActivos() {
         return repo.countVeterinariosActivos();
     }
 
+    // Devuleve la cantidad de veterinarios inactivos en el sistema
     @Override
     public Long obtenerCantidadVeterinariosInactivos() {
-        cambiarEstadoVeterinarios();
-
+        //cambiarEstadoVeterinarios(); // Funcion de prueba para verificar que se contaban los veterinarios inactivos del sistema
         return repo.countVeterinariosInactivos();
     }
 

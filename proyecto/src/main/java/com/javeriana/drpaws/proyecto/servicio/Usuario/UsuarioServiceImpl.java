@@ -42,17 +42,22 @@ public class UsuarioServiceImpl implements UsuarioService {
         return repo.findAll();
 
     }
-
+    
+    // Obtiene las mascotas de un usuario dado su id
     @Override
     public List<Mascota> getMascotasByUsuarioID(Long id) {
         return repo.findMascotasById(id);
     }
+    
 
     @Override
     public Usuario findByCorreo(String correo) {
         return repo.findByCorreo(correo);
     }
 
+    // Recibe un objeto de tipo CEDULODTO que contiene las 
+    // credenciales necesarias para poder autenticarse en 
+    // este caso su cedula
     @Override
     public Usuario autenticarUsuario(CedulaDTO credenciales) {
 
