@@ -36,8 +36,15 @@ public class DataBaseInit implements ApplicationRunner {
         @Autowired
         TratamientoRepository repoTratamiento;
 
+        @Autowired
+        AdministradorRepository repoAdministrador;
+
         @Override
         public void run(ApplicationArguments args) throws Exception {
+
+                // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                // ---- ADMINISTRADOR ----
+                repoAdministrador.save(new Administrador("admin@correo.com", "admin"));
 
                 // --- VETERINARIOS ---
                 // Veterinario #1 - Dr. Juan Perez
@@ -3133,19 +3140,19 @@ public class DataBaseInit implements ApplicationRunner {
                         tratamiento.setVeterinario(veterinarios.get(random.nextInt(veterinarios.size())));
 
                         boolean posible = true;
-                        do{
+                        do {
                                 int index = random.nextInt(medicamentos.size());
-                                if (medicamentos.get(index).getUnidadesDisponibles()>0){
-                                        medicamentos.get(index).setUnidadesDisponibles(medicamentos.get(index).getUnidadesDisponibles()-1);
-                                        medicamentos.get(index).setUnidadesVendidas(medicamentos.get(index).getUnidadesVendidas()+1);
+                                if (medicamentos.get(index).getUnidadesDisponibles() > 0) {
+                                        medicamentos.get(index).setUnidadesDisponibles(
+                                                        medicamentos.get(index).getUnidadesDisponibles() - 1);
+                                        medicamentos.get(index).setUnidadesVendidas(
+                                                        medicamentos.get(index).getUnidadesVendidas() + 1);
                                         tratamiento.setMedicamento(medicamentos.get(index));
                                         posible = true;
-                                }
-                                else{
+                                } else {
                                         posible = false;
                                 }
-                        }
-                        while(!posible);
+                        } while (!posible);
                         System.out.println("ID de la mascota");
                         System.out.println(tratamiento.getMascota().getId());
                         System.out.println("Nombre del medicamento");
