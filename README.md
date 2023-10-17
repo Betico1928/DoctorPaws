@@ -43,6 +43,7 @@ El propósito central de este proyecto es digitalizar las operaciones de una cl�
 
 ## Especificaciones Adicionales
 
+
 - Se puede registrar una mascota con un campo de enfermedad como "vacío" hasta que sea atendida.
 - Una mascota puede ser tratada por múltiples veterinarios y viceversa.
 - Un dueño puede tener múltiples mascotas hospitalizadas.
@@ -50,6 +51,33 @@ El propósito central de este proyecto es digitalizar las operaciones de una cl�
 - Aunque una mascota puede sufrir múltiples enfermedades durante su vida, en el sistema solo se registra una enfermedad a la vez.
 - No se usará herencia en el diseño del sistema.
 - No es esencial rastrear cambios en el estado de la mascota (como peso o enfermedad), pero es vital rastrear tratamientos realizados.
+
+## Actualización del uso de este repositorio
+
+Puesto que la parte de interfaz visual del cliente fue movida en su totalidad a Angular, este repositorio tiene una nueva funcionalidad que es 
+atender a las peticiones realizadas por el cliente desde la página web en Angular a través de REST. Los siguientes son los _controladores_ que son responsables
+de devolver los resultados de las consultas hechas desde el apartado front-end y que son enviadas por REST:
+
+### *1. AdminController*
+    Controlador de Admin requerido para las peticiones en su Dashboard (Ver ganancias, Ver ingresos)
+
+### *2. Autenticacion Controller*
+    Controlador de Autenticacion requerido para autenticar el inicio de sesión de un usuario o veterinario
+
+### *3. Mascota Controller*
+    Controlador de Mascota requerido para su CRUD y otras peticiones del Admin en su dashboard. (Ver total mascotas activas)
+
+### *4. Medicamento Controller*
+    Controlador de Mascota requerido para su CRUD.
+
+### *5. Tratamiento Controller*
+    Controlador de Tratamiento requerido para su CRUD y otras peticiones del veterinario en su dashboard (Ver tratamientos)
+
+### *6. Usuario Controller*
+    Controlador de Usuario requerido para su CRUD y otras peticiones para su Dashboard (Ver mascota)
+
+### *7. Veterinario Controller*
+    Controlador de Veterinario requerido para su CRUD y otras peticiones del Admin en su dashboard (Ver veterinarios activos)
 
 ## Desarrollo y Contribución
 

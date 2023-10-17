@@ -20,9 +20,16 @@ import com.javeriana.drpaws.proyecto.servicio.Veterinario.VeterinarioService;
 @RequestMapping("/autenticacion")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AutenticacionController {
+
+    /*
+     * Servicio de usuario
+     */
     @Autowired
     UsuarioService usuarioService;
 
+    /*
+     *  Servicio de veterinario
+     */
     @Autowired
     VeterinarioService veterinarioService;
 

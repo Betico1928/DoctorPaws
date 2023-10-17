@@ -7,6 +7,9 @@ import com.javeriana.drpaws.proyecto.entidad.Mascota;
 
 public interface MascotaRepository extends JpaRepository<Mascota, Long> {
 
+
+    // Consultas personalizadas para el repositorio Mascota
+    // Devuelve la cantidad de mascotasactivas
     @Query("SELECT COUNT(m) FROM Mascota m WHERE m.activo = true")
     long countMascotasActivas();
 

@@ -23,46 +23,49 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    // http://localhost:8080/usuario/all -> Vista de todos los usuarios
+    // Devuelve todos los usuarios
+    // http://localhost:8080/usuario/all
     @GetMapping("/all")
     public List<Usuario> getAllUsuarios() {
 
         return usuarioService.searchAll();
     }
 
-    // http://localhost:8080/usuario/find/1 -> Vista de un usuario en específico
+    // Devuelve el usuario buscado por su id
+    // http://localhost:8080/usuario/find/1
     @GetMapping("/find/{id}")
     public Usuario getUsuario(@PathVariable("id") Long id) {
         return usuarioService.searchById(id);
 
     }
 
+    // Devuelve las mascotas asociadas a un usuario por su id
+    //  http://localhost:8080/usuario/find/1/mascotas
     @GetMapping("/find/{id}/mascotas")
     public List<Mascota> getMascotasByUsuarioID(@PathVariable("id") Long id) {
         return usuarioService.getMascotasByUsuarioID(id);
     }
 
-    // http://localhost:8080/usuario/add -> Vista del formulario para crear un
-    // usuario
 
-    // http://localhost:8080/usuario/agregar -> Agregar un usuario
+    // Agrega un usuario al sistema
+    // http://localhost:8080/usuario/add
     @PostMapping("/add")
     public void agregarUsuario(@RequestBody Usuario usuario) {
         usuarioService.add(usuario);
 
     }
 
-    // http://localhost:8080/usuario/delete/1 -> Eliminar un usuario
+    // Elimina a un usuario dado su id
+    // http://localhost:8080/usuario/delete/id
     @DeleteMapping("/delete/{id}")
     public void deleteUsuario(@PathVariable("id") Long id) {
         usuarioService.deleteById(id);
 
     }
 
-    // http://localhost:8080/usuario/update/1 -> Vista del formulario para
-    // actualizar un usuario
 
-    // http://localhost:8080/usuario/actualizar/1 -> Actualizar un usuario
+    // Actualiza a un usuario dado su id
+    // http://localhost:8080/usuario/actualizar/id
     @PostMapping("/update/{id}")
     public void updateUsuario(@PathVariable("id") Long id, @RequestBody Usuario usuario) {
 
