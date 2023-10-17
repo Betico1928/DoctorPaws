@@ -1,15 +1,5 @@
 package com.javeriana.drpaws.proyecto.controlador;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.javeriana.drpaws.proyecto.controlador.DTO.CedulaDTO;
 import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Administrador;
@@ -18,6 +8,10 @@ import com.javeriana.drpaws.proyecto.entidad.Veterinario;
 import com.javeriana.drpaws.proyecto.servicio.Administrador.AdministradorService;
 import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 import com.javeriana.drpaws.proyecto.servicio.Veterinario.VeterinarioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/autenticacion")
