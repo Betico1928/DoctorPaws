@@ -71,7 +71,7 @@ public class AdminController {
     }
 
     // Las tres drogas más vendidas en los tratamientos
-    // http://localhost:8080/admin/query/find-Top3
+    // http://localhost:8080/admin/query/find-top3
     @GetMapping("/query/find-top3")
     public List<Object[]> findTop3Tratamientos() {
         return tratamientoService.findTop3Treatments();

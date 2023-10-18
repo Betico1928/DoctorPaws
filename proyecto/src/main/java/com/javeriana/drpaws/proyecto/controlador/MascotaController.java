@@ -1,5 +1,6 @@
 package com.javeriana.drpaws.proyecto.controlador;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,8 @@ import java.util.List;
 public class MascotaController {
     @Autowired
     MascotaService mascotaService;
+
+    private Logger logger = org.slf4j.LoggerFactory.getLogger(MascotaController.class);
 
     // http://localhost:8080/mascota/all -> Vista de todas las mascotas
     @GetMapping("/all")
@@ -52,7 +55,7 @@ public class MascotaController {
         mascotaService.deleteById(id);
     }
 
-    // http://localhost:8080/mascota/actualizar/1 -> Actualizar una mascota
+    // http://localhost:8080/mascota/update/1 -> Actualizar una mascota
     @PostMapping("/update/{id}")
     public void updateMascota(@PathVariable("id") Long id, @RequestBody Mascota mascota) {
         System.out.println("\nInformación de la mascota a actualizar:");
@@ -69,6 +72,7 @@ public class MascotaController {
         mascotaService.update(mascota);
     }
 
+    // http://localhost:8080/mascota/tratamientos/1 -> Vista de los tratamientos de una mascota
     @GetMapping("/tratamientos/{id}")
     public List<Tratamiento> getTratamientosByNombreMascota(@PathVariable("id") Long id) {
         return mascotaService.getTratamientosByNombreMascota(id);

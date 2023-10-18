@@ -1,14 +1,12 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Medicamento {
