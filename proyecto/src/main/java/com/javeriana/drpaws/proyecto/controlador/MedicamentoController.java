@@ -31,8 +31,8 @@ public class MedicamentoController {
     }
 
     
-    // Devuelve un medicamento identificado por su ID
-    // http://localhost:8080/medicamentos/find/{id}
+    // Añadir un medicamento
+    // http://localhost:8080/medicamentos/add
     @PostMapping("/add")
     public void addMedicamento(@RequestBody Medicamento medicamento) {
         medicamentoServicio.add(medicamento);
@@ -46,7 +46,7 @@ public class MedicamentoController {
     }
 
     // Elimina un medicamento del sistema dado su ID
-    // http://localhost:8080/medicamentos/update/{id}
+    // http://localhost:8080/medicamentos/delete/{id}
     @DeleteMapping("/delete/{id}")
     public void deleteMedicamento(@PathVariable("id") Long id) {
         medicamentoServicio.deleteById(id);

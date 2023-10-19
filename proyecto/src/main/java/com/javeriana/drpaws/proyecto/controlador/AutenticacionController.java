@@ -64,7 +64,7 @@ public class AutenticacionController {
         }
     }
 
-    // http://localhost:8080/autenticacion/vet -> Autenticar un veterinario
+    // http://localhost:8080/autenticacion/admin -> Autenticar un administrador
     @PostMapping("/admin")
     public ResponseEntity<Object> autenticarAdmin(@RequestBody CredencialesDTO credenciales) {
 

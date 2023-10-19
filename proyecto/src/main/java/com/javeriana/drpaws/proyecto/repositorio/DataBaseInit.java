@@ -44,7 +44,7 @@ public class DataBaseInit implements ApplicationRunner {
 
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 // ---- ADMINISTRADOR ----
-                repoAdministrador.save(new Administrador("admin@correo.com", "admin"));
+                repoAdministrador.save(new Administrador("admin@drpaws.com", "admin"));
 
                 // --- VETERINARIOS ---
                 // Veterinario #1 - Dr. Juan Perez
