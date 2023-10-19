@@ -69,5 +69,29 @@ public class UsuarioRepositoryTest {
             throw e;  // Vuelve a lanzar el error para que el test falle si estás en un entorno de pruebas
         }
     }
+
+
+    // Tercera prueba: Buscar por correo y contrasenna:
+    @Test
+    public void UsuarioRepository_testFindByCorreoAndContrasenna_Usuario()
+    {
+        // 1. Arrange:
+        Usuario usuarioABuscarPorCorreoYContrasenna = new Usuario("1193215807", "Alberto Vigna", "a-vigna@javeriana.edu.co", "+57 318 523 4355", "passwordJeje", "path/to/imageuser80");
+        logger.info(() -> "Usuario a buscar: " + usuarioABuscarPorCorreoYContrasenna.toString());
+
+        // 2. Act:
+        Usuario usuarioBuscadoPorCorreoYContrasenna = usuarioRepository.save(usuarioABuscarPorCorreoYContrasenna);
+
+        // 3. Assert:
+        try
+        {
+            Assertions.assertThat(usuarioRepository.findByCorreoAndContrasenna(usuarioBuscadoPorCorreoYContrasenna.getCorreo(), usuarioBuscadoPorCorreoYContrasenna.getContrasenna())).isEqualTo(usuarioBuscadoPorCorreoYContrasenna);
+            logger.info(() -> "Prueba de buscar a un usuario por correo y contrasenna exitosa");
+        }
+        catch (AssertionError e) {
+            logger.error(() -> "Error en la prueba de buscar a un usuario por correo y contrasenna");
+            throw e;  // Vuelve a lanzar el error para que el test falle si estás en un entorno de pruebas
+        }
+    }
 }
 
