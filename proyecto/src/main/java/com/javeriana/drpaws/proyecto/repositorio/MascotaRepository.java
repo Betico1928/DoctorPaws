@@ -14,5 +14,4 @@ public interface MascotaRepository extends JpaRepository<Mascota, Long> {
     long countMascotasActivas();
 
     Mascota findByNombre(String nombre);
-
 }
