@@ -112,12 +112,4 @@ public class Veterinario {
     public void getTratamientos() {
 
     }
-
-    @Override
-    public String toString() {
-        return "Veterinario [id=" + id + ", especialidad=" + especialidad + ", nombre=" + nombre + ", email=" + email
-                + ", password=" + password + ", imagen=" + imagen + ", activo=" + activo + ", mascotas=" + mascotas
-                + "]";
-    }
-
 }
