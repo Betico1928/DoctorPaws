@@ -52,7 +52,7 @@ public interface TratamientoRepository extends JpaRepository<Tratamiento, Long> 
 
         // Consulta personalizada ajustada para la anotación query
         // Devuelve las ganancias totales con la formula descrita en la clausula select
-        @Query("SELECT cast(sum(m.unidadesVendidas*m.precioVenta-m.precioVenta) as java.math.BigDecimal) " +
+        @Query("SELECT cast(sum(m.unidadesVendidas*m.precioVenta-m.precioCompra) as java.math.BigDecimal) " +
                         "FROM Medicamento m " +
                         "WHERE m.unidadesVendidas > 0")
         Object computeProfit();
