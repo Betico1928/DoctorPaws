@@ -16,7 +16,6 @@ public class TratamientoController {
     @Autowired
     private TratamientoService tratamientoService;
 
-
     // Obtiene todos los tratamientos del sistema
     // http://localhost:8080/tratamientos/all
     @GetMapping("/all")
@@ -25,7 +24,6 @@ public class TratamientoController {
         return tratamientoService.getAll();
     }
 
-    
     // Obtiene un tratamiento por su ID
     // http://localhost:8080/tratamientos/id
     @GetMapping("/{id}")
@@ -34,16 +32,21 @@ public class TratamientoController {
 
     }
 
-
-    // Agrega un tratamiento al sistema, recibiendo como parametro un objeto de tipo tratamiento en cuerpo de respuesta
+    // Agrega un tratamiento al sistema, recibiendo como parametro un objeto de tipo
+    // tratamiento en cuerpo de respuesta
     // http://localhost:8080/tratamientos/add
     @PostMapping("/add")
-    public void createTratamiento(@RequestBody Tratamiento tratamiento) {
-        tratamientoService.add(tratamiento);
+    public void createTratamiento(
+            @RequestBody Tratamiento tratamiento,
+            @RequestParam Long idMascota,
+            @RequestParam Long idMedicamento,
+            @RequestParam Long idVeterinario) {
+        tratamientoService.add(tratamiento, idMascota, idMedicamento, idVeterinario);
 
     }
 
-    // Actualiza un tratamiento dado su id y recibe como parametro el id de ese tratamiento y el tratamiento actualizado
+    // Actualiza un tratamiento dado su id y recibe como parametro el id de ese
+    // tratamiento y el tratamiento actualizado
     // http://localhost:8080/tratamientos/update/id
     @PostMapping("/update/{id}")
     public void updateTratamiento(@PathVariable Long id, @RequestBody Tratamiento tratamiento) {
@@ -51,7 +54,8 @@ public class TratamientoController {
 
     }
 
-    // Elimina un tratamiento dado su id del sistema y recibe como parametro el id del tratamiento
+    // Elimina un tratamiento dado su id del sistema y recibe como parametro el id
+    // del tratamiento
     // http://localhost:8080/tratamientos/delete/id
     @DeleteMapping("/delete/{id}")
     public void deleteTratamiento(@PathVariable Long id) {
