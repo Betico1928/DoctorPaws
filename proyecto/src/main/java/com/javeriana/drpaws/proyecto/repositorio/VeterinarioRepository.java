@@ -1,22 +1,21 @@
 package com.javeriana.drpaws.proyecto.repositorio;
 
-import java.util.HashMap;
-import java.util.Map;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
 
-@Repository
-public class VeterinarioRepository {
+public interface VeterinarioRepository extends JpaRepository<Veterinario, Long> {
+    public Veterinario findByEmail(String email);
 
-    private Map<String, Veterinario> veterinarios = new HashMap<>();
+    // Consulta personalizada
+    // Devuelve la cuenta de veterinarios activos en la veterinaria
+    @Query("SELECT COUNT(v) FROM Veterinario v WHERE v.activo = true")
+    Long countVeterinariosActivos();
 
-    public VeterinarioRepository() {
-        veterinarios.put("veterinario1@example.com", new Veterinario("veterinario1@example.com", "password1"));
-        veterinarios.put("veterinario2@example.com", new Veterinario("veterinario2@example.com", "password2"));
-        // Puedes agregar más datos de ejemplo aquí
-    }
+    // Consulta personalizada
+    // Devuelve la cuenta de veterinarios inactivos en la veterinaria
+    @Query("SELECT COUNT(v) FROM Veterinario v WHERE v.activo = false")
+    Long countVeterinariosInactivos();
 
-    public Veterinario findByEmail(String email) {
-        return veterinarios.get(email);
-    }
 }

@@ -3,6 +3,8 @@ package com.javeriana.drpaws.proyecto.entidad;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -22,14 +24,12 @@ public class Veterinario {
     private String password;
     private String imagen;
 
+    private boolean activo = true;
+
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "tratamiento", joinColumns = @JoinColumn(name = "veterinario_id"), inverseJoinColumns = @JoinColumn(name = "mascota_id"))
     private List<Mascota> mascotas = new ArrayList<>();
-
-    public Veterinario(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
 
     public Veterinario() {
 
@@ -101,4 +101,15 @@ public class Veterinario {
         this.mascotas = mascotas;
     }
 
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public void getTratamientos() {
+
+    }
 }

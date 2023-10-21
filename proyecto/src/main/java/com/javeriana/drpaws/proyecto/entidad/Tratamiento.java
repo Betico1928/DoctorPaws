@@ -1,13 +1,13 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Tratamiento {
@@ -15,58 +15,54 @@ public class Tratamiento {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
-    private Veterinario veterinario;
+    private String nombre;
 
+    private String descripcion;
+
+    private LocalDate fechaInicio;
+
+    private LocalDate fechaFin;
+
+    private float costo;
+
+    private String frecuencia;
+
+    @JsonIgnore
     @ManyToOne
     private Mascota mascota;
 
+    @JsonIgnore
+    @ManyToOne
+    private Veterinario veterinario;
+
+    @JsonIgnore
     @ManyToOne
     private Medicamento medicamento;
 
-    private String nombre;
-
-    private String fecha;
-
-    public Tratamiento(String nombre, String fecha) {
+    // Constructor
+    public Tratamiento(Long id, String nombre, String descripcion, LocalDate fechaInicio, LocalDate fechaFin,
+            float costo,
+            String frecuencia) {
+        this.id = id;
         this.nombre = nombre;
-        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.costo = costo;
+        this.frecuencia = frecuencia;
     }
 
+    // Constructor Vacío
     public Tratamiento() {
-
     }
 
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
+    // Getters y Setters
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Veterinario getVeterinario() {
-        return veterinario;
-    }
-
-    public void setVeterinario(Veterinario veterinario) {
-        this.veterinario = veterinario;
-    }
-
-    public Mascota getMascota() {
-        return mascota;
-    }
-
-    public void setMascota(Mascota mascota) {
-        this.mascota = mascota;
     }
 
     public String getNombre() {
@@ -77,6 +73,46 @@ public class Tratamiento {
         this.nombre = nombre;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public float getCosto() {
+        return costo;
+    }
+
+    public void setCosto(float costo) {
+        this.costo = costo;
+    }
+
+    public String getFrecuencia() {
+        return frecuencia;
+    }
+
+    public void setFrecuencia(String frecuencia) {
+        this.frecuencia = frecuencia;
+    }
+
+    public Mascota getMascota() {
+        return mascota;
+    }
+
+    public void setMascota(Mascota mascota) {
+        this.mascota = mascota;
+    }
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
+
     public Medicamento getMedicamento() {
         return medicamento;
     }
@@ -85,4 +121,19 @@ public class Tratamiento {
         this.medicamento = medicamento;
     }
 
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
+    }
 }
