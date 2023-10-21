@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
@@ -15,6 +16,7 @@ import jakarta.transaction.Transactional;
 
 @Controller
 @Transactional
+@Profile("default")
 public class DataBaseInit implements ApplicationRunner {
 
     @Autowired
