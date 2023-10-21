@@ -52,6 +52,16 @@ public class Tratamiento {
         this.frecuencia = frecuencia;
     }
 
+    public Tratamiento(String nombre, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, float costo,
+            String frecuencia) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.costo = costo;
+        this.frecuencia = frecuencia;
+    }
+
     // Constructor Vacío
     public Tratamiento() {
     }
