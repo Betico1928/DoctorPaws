@@ -35,10 +35,10 @@ public interface TratamientoRepository extends JpaRepository<Tratamiento, Long> 
 
         // Consulta personalizada ajustada para la anotación query
         // Devuelve los tres medicamentos más usados en el los tratamientos
-        @Query("SELECT m.nombre, COUNT(m.unidadesVendidas) " +
+        @Query("SELECT m.nombre, m.unidadesVendidas " +
                         "FROM Tratamiento t INNER JOIN Medicamento m ON t.medicamento.id = m.id " +
                         "GROUP BY m.nombre " +
-                        "ORDER BY COUNT(m.unidadesVendidas) DESC " +
+                        "ORDER BY m.unidadesVendidas DESC " +
                         "LIMIT 3")
         List<Object[]> findTop3Treatments();
 

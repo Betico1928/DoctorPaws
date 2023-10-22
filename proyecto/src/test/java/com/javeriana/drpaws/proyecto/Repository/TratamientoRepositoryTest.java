@@ -140,12 +140,12 @@ public class TratamientoRepositoryTest {
                 // 3. Assert:
                 Assertions.assertThat(top3Treatments).hasSize(3);
 
-                // Assertions.assertThat(top3Treatments.get(0)).containsExactly("Medicamento 4",
-                // 400);
-                // Assertions.assertThat(top3Treatments.get(1)).containsExactly("Medicamento 3",
-                // 300L);
-                // Assertions.assertThat(top3Treatments.get(2)).containsExactly("Medicamento 2",
-                // 400L);
+                 Assertions.assertThat(top3Treatments.get(0)).containsExactly("Medicamento 4",
+                 400);
+                Assertions.assertThat(top3Treatments.get(1)).containsExactly("Medicamento 2",
+                200);
+                Assertions.assertThat(top3Treatments.get(2)).containsExactly("Medicamento 1",
+                 100);
         }
 
 }
