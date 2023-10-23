@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E009A57D-C778-076F-FCAB-BA8B66582A17" name="Tratamiento">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:15:05 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Nombre" id="1C78C036-D82A-05CB-7BA0-F73EDC6ECCE7">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:15:46 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Causa" id="219E780D-999A-6620-FA55-0599EE3F4684">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:16:47 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Veterinario_ID" id="5C661395-BCF3-AA18-4287-C574F4D0D2E2">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:18:13 UTC</createdTime>
+<generatorID>A652C764-8EB2-C9E1-4E71-E83B90A1593C</generatorID>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<referedAttribute>8AC3FB1A-72FE-3418-0688-6968DC34F3C5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Mascota_ID" id="249933C8-A97B-5A9E-2D6E-BC98CCD5E407">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:18:50 UTC</createdTime>
+<generatorID>D2C77143-B2AC-A2ED-2684-884D99A14D4F</generatorID>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<referedAttribute>E0777798-56F1-8549-1DB0-4BCD6C909C01</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Droga_ID" id="1D9E160F-F965-CACA-F928-72308BC78F96">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:44:30 UTC</createdTime>
+<generatorID>D459DEAA-AC1E-FA45-BDB3-8DEBAA325B1A</generatorID>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<referedAttribute>F80C71E4-E787-71F3-AE0B-5DCF2E4E12B2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BC34005B-D2A7-AF05-0438-345248A35432" name="Tratamiento PK">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:18:22 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5C661395-BCF3-AA18-4287-C574F4D0D2E2</attributeRef>
+<attributeRef>249933C8-A97B-5A9E-2D6E-BC98CCD5E407</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

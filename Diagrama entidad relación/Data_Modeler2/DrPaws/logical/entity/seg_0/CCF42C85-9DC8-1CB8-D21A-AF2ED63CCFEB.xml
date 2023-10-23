@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CCF42C85-9DC8-1CB8-D21A-AF2ED63CCFEB" name="Mascota">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:07:29 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="E0777798-56F1-8549-1DB0-4BCD6C909C01">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:07:56 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="1530DEF1-0D4E-252A-86CF-7F4E3FB09D7C">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:09:56 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Raza" id="B487743F-0BE2-EF1E-7A7E-FB9921F78BEE">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:10:09 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Peso" id="C1E5CA94-3A3E-F97F-452A-6DF668C32E65">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:10:28 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,3,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Enfermedad" id="6D840383-F6A5-2B67-6888-F608CA760B16">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:11:22 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Dueño_ID" id="A9C8E623-22F4-D184-E5A9-0BD829B5C290">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:11:54 UTC</createdTime>
+<generatorID>17C4992D-A1D0-734E-FF5C-C5A6263AD4B9</generatorID>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<referedAttribute>73183F4D-B295-0D01-2BB2-5AE1B09B5F33</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4FE40E8B-5416-B71E-E809-18AAA4339B75" name="Mascota PK">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:09:55 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E0777798-56F1-8549-1DB0-4BCD6C909C01</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

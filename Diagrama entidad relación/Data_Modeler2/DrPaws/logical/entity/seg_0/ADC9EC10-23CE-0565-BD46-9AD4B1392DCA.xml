@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="ADC9EC10-23CE-0565-BD46-9AD4B1392DCA" name="Veterinario">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:13:31 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="8AC3FB1A-72FE-3418-0688-6968DC34F3C5">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:13:38 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cedula" id="EB81BE9F-765F-25A0-5C20-80EA8E372B14">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:13:42 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Especialidad" id="52F50A46-A47A-4194-32C5-79221A769995">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:13:46 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Foto" id="9E40C479-1160-93A5-C7F2-1AA93F58B637">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:13:48 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="57589AFC-355D-F1C4-78C5-61A18413E1A6" name="Veterinario PK">
+<createdBy>santi</createdBy>
+<createdTime>2023-09-10 02:15:00 UTC</createdTime>
+<ownerDesignName>DrPaws</ownerDesignName>
+<engineerTo>
+<item key="EC608334-4D0B-693C-B8A1-8F223652EB34" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8AC3FB1A-72FE-3418-0688-6968DC34F3C5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
