@@ -89,6 +89,16 @@ public class MascotaControllerTest
                 .andExpect(jsonPath("$.id").value(1L));
     }
 
+    // Test para probar si no existe la mascota:
+    @Test
+    public void testGetMascotaById_NotFound() throws Exception {
+        when(mascotaService.searchById(1L)).thenReturn(null);
+
+        mockMvc.perform(get("/mascota/find/1"))
+                .andExpect(status().isNotFound());
+    }
+
+
 
     // Agregar una mascota.
     @Test

@@ -2,6 +2,7 @@ package com.javeriana.drpaws.proyecto.controlador;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +29,20 @@ public class MascotaController {
 
     // http://localhost:8080/mascota/find/1 -> Vista de una mascota en específico
     @GetMapping("/find/{id}")
-    public Mascota getMascotaById(Model model, @PathVariable("id") Long id) {
-        return mascotaService.searchById(id);
+    public ResponseEntity<Mascota> getMascotaById(Model model, @PathVariable("id") Long id)
+    {
+        Mascota mascota = mascotaService.searchById(id);
+
+        if(mascota == null)
+        {
+            logger.error("Mascota con id " + id + " no existe.");
+            return ResponseEntity.notFound().build();
+        }
+        else
+        {
+            logger.info("Mascota con id " + id + " encontrada.");
+            return ResponseEntity.ok(mascota);
+        }
     }
 
     // http://localhost:8080/mascota/agregar -> Agregar una mascota
