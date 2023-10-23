@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -62,6 +63,16 @@ public class MascotaControllerTest
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(sizeMatcher);
+    }
+
+    // Test para probar si no hay mascotas:
+    @Test
+    public void testGetAllMascotas_NoMascotas() throws Exception {
+        when(mascotaService.searchAll()).thenReturn(Collections.emptyList());
+
+        mockMvc.perform(get("/mascota/all"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
     }
 
 
