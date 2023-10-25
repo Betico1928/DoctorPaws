@@ -47,9 +47,11 @@ public class MascotaController {
 
     // http://localhost:8080/mascota/agregar -> Agregar una mascota
     @PostMapping("/agregar")
-    public void agregarMascota(@RequestBody Mascota mascota) {
+    public void agregarMascota(@RequestBody Mascota mascota)
+    {
         System.out.println("\nInformación de la mascota a añadir:");
         System.out.println("+-----------------+--------------------------------+");
+        System.out.printf("| %-15s | %-30s |\n", "Dueño", mascota.getUsuario().getNombre());
         System.out.printf("| %-15s | %-30s |\n", "Nombre", mascota.getNombre());
         System.out.printf("| %-15s | %-30s |\n", "Raza", mascota.getRaza());
         System.out.printf("| %-15s | %-30s |\n", "Edad", mascota.getEdad() + " años");
