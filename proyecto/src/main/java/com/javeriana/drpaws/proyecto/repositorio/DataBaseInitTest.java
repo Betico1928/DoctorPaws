@@ -1,5 +1,13 @@
 package com.javeriana.drpaws.proyecto.repositorio;
 
+import com.javeriana.drpaws.proyecto.entidad.*;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Controller;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,19 +17,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import com.javeriana.drpaws.proyecto.entidad.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Controller;
 
-import jakarta.transaction.Transactional;
 
-@Profile("default")
+@Profile("test")
 @Controller
 @Transactional
-public class DataBaseInit implements ApplicationRunner {
+public class DataBaseInitTest implements ApplicationRunner {
 
         @Autowired
         MascotaRepository repoMascota;
