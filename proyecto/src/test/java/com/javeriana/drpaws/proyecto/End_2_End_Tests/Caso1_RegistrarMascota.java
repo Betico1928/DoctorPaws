@@ -40,6 +40,6 @@ public class Caso1_RegistrarMascota
     @Test
     public void testRegistrarMascota()
     {
-
+        driver.get("http://localhost:4200/home");
     }
 }
