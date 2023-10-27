@@ -1,7 +1,7 @@
 package com.javeriana.drpaws.proyecto.End_2_End_Tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
@@ -79,27 +79,27 @@ public class Caso2_SuministrarTratamiento
         // Nombre de la mascota
         WebElement inputNombreMascota = driver.findElement(By.id("nombre"));
         String actualValue = inputNombreMascota.getAttribute("value");
-        Assert.assertEquals("Luna", actualValue);
+        Assertions.assertEquals("Luna", actualValue);
 
         // Raza de la mascota
         WebElement inputRazaMascota = driver.findElement(By.id("raza"));
         actualValue = inputRazaMascota.getAttribute("value");
-        Assert.assertEquals("Labrador Retriever", actualValue);
+        Assertions.assertEquals("Labrador Retriever", actualValue);
 
         // Edad de la mascota
         WebElement inputEdadMascota = driver.findElement(By.id("edad"));
         actualValue = inputEdadMascota.getAttribute("value");
-        Assert.assertEquals("11", actualValue);
+        Assertions.assertEquals("11", actualValue);
 
         // Peso de la mascota
         WebElement inputPesoMascota = driver.findElement(By.id("peso"));
         actualValue = inputPesoMascota.getAttribute("value");
-        Assert.assertEquals("4.3", actualValue);
+        Assertions.assertEquals("4.3", actualValue);
 
         // Enfermedad de la mascota
         WebElement inputEnfermedadMascota = driver.findElement(By.id("enfermedad"));
         actualValue = inputEnfermedadMascota.getAttribute("value");
-        Assert.assertEquals("Sarna (ácaros)", actualValue);
+        Assertions.assertEquals("Sarna (ácaros)", actualValue);
 
         // Introducir los valores para el tratamiento:
         WebElement inputNombreTratamiento = driver.findElement(By.id("nombreTratamiento"));
@@ -164,10 +164,10 @@ public class Caso2_SuministrarTratamiento
         String pesoActual = pesoMascota.getText();
 
         // Hacer assertions sobre los valores
-        Assert.assertEquals("Luna", nombreActual);
-        Assert.assertEquals("Labrador Retriever", razaActual);
-        Assert.assertEquals("11", edadActual);
-        Assert.assertEquals("4.3", pesoActual);
+        Assertions.assertEquals("Luna", nombreActual);
+        Assertions.assertEquals("Labrador Retriever", razaActual);
+        Assertions.assertEquals("11", edadActual);
+        Assertions.assertEquals("4.3", pesoActual);
 
         // Hacer scroll down para visualizar la tabla de tratamientos:
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
