@@ -137,7 +137,7 @@ public class MascotaControllerTest
                         .content(objectMapper.writeValueAsString(mascota)))
                 .andExpect(status().isOk());
 
-        verify(mascotaService, times(1)).update(any(Mascota.class));
+        verify(mascotaService, times(1)).update(any(Mascota.class),anyLong());
     }
 
     @Test

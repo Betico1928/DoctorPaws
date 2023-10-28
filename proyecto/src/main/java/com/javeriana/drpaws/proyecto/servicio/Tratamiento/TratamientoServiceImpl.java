@@ -66,6 +66,14 @@ public class TratamientoServiceImpl implements TratamientoService {
         tratamiento.setMedicamento(medicamento);
         tratamiento.setVeterinario(veterinario);
 
+        // El front-end verifica que solo aparezcan medicamentos con unidades disponibles 
+
+        // Se actualiza el numero de unidades disponibles 
+        medicamento.setUnidadesDisponibles(medicamento.getUnidadesDisponibles()-1);
+
+        // Se actualiza el numero de unidades disponibles
+        medicamento.setUnidadesVendidas(medicamento.getUnidadesVendidas()+1);
+
         // Save the Tratamiento object
         repo.save(tratamiento);
     }

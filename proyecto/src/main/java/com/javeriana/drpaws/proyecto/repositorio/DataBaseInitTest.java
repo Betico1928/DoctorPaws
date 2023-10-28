@@ -1402,7 +1402,7 @@ public class DataBaseInitTest implements ApplicationRunner {
 
 
                 // Extrayendo los medicamentos desde el Excel:
-                String csvFile = "/Users/tars/Desktop/UNIVERSITY/6to Semestre/Desarrollo Web/DoctorPaws/DoctorPaws/Archivos Varios/MEDICAMENTOS_VETERINARIA.csv";
+                String csvFile = "src/main/resources/static/Archivos Varios/MEDICAMENTOS_VETERINARIA.csv";
                 String line;
                 String csvSplitBy = ";"; // Separador de las celdas, en este caso punto y coma
 

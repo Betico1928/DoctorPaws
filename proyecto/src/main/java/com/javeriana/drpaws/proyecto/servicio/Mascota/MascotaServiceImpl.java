@@ -38,7 +38,19 @@ public class MascotaServiceImpl implements com.javeriana.drpaws.proyecto.servici
     }
 
     @Override
-    public void update(Mascota mascota) {
+    public void update(Mascota mascota, Long id) {
+        // A pesar de que solo se cambian unos datos de la mascota
+        // Actualizar la mascota en la base de datos con el objeto 
+        // devuelto por front-end hace que se pierdan datos cruciales
+        // para los usuarios y tratamientos
+        Mascota mascota_previa = repo.findById(id).get();
+
+        // Se pasa el usuario anterior a la mascota actualizada
+        mascota.setUsuario(mascota_previa.getUsuario());
+
+        // Se pasan los veterinarios (tratamientos) anteriores a la mascota actualizada
+        mascota.setVeterinarios(mascota_previa.getVeterinarios());
+
         repo.save(mascota);
 
     }

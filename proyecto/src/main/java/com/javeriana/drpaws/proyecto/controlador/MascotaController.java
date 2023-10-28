@@ -84,7 +84,7 @@ public class MascotaController {
                 (mascota.getEnfermedad() != null ? mascota.getEnfermedad() : "Ninguna"));
         System.out.println("+-----------------+--------------------------------+");
 
-        mascotaService.update(mascota);
+        mascotaService.update(mascota, id);
     }
 
     // http://localhost:8080/mascota/tratamientos/1 -> Vista de los tratamientos de una mascota
