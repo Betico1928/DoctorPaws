@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.Collections;
@@ -1402,11 +1405,17 @@ public class DataBaseInitTest implements ApplicationRunner {
 
 
                 // Extrayendo los medicamentos desde el Excel:
-                String csvFile = "src/main/resources/static/Archivos Varios/MEDICAMENTOS_VETERINARIA.csv";
+                String csvFile = "static/Archivos Varios/MEDICAMENTOS_VETERINARIA.csv";
                 String line;
+
+                // Prueba para encontrar el archivo de medicamentos desde recursos
+                // Esto ayuda a que no dependamos del directorio de un usuario
+                ClassPathResource resource = new ClassPathResource(csvFile);
+                InputStream inputStream = resource.getInputStream();
+
                 String csvSplitBy = ";"; // Separador de las celdas, en este caso punto y coma
 
-                try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
 
                         // Opcional: omitir la primera línea si es el encabezado
                         br.readLine();
