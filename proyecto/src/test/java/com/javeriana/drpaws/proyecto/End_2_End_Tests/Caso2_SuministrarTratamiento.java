@@ -171,5 +171,40 @@ public class Caso2_SuministrarTratamiento
 
         // Hacer scroll down para visualizar la tabla de tratamientos:
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+        // Esperar para visualizar el tratamiento generado:
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Hacer scroll up
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, -document.body.scrollHeight)");
+
+        // Ir al login administrativo:
+        WebElement botonLoginAdministrativoAdmin = driver.findElement(By.cssSelector("a[ng-reflect-router-link='/login-administrativo']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", botonLoginAdministrativoAdmin);
+
+
+        // Comprobar que se cargó la página de login administrativo:
+        wait.until(ExpectedConditions.presenceOfElementLocated(new By.ByCssSelector("input[id='email']")));
+
+        // Ingresar credenciales:
+        WebElement inputEmailAdmin = driver.findElement(new By.ByCssSelector("input[id='email']"));
+        inputEmailAdmin.sendKeys("admin@drpaws.com");
+
+        WebElement inputPasswordAdmin = driver.findElement(new By.ByCssSelector("input[id='password']"));
+        inputPasswordAdmin.sendKeys("123");
+
+        WebElement botonLoginAdmin = driver.findElement(new By.ByCssSelector("button"));
+        botonLoginAdmin.click();
+
+        // Ingresar a la sección de estadisticas:
+        WebElement botonVisualizarEstadisticas = driver.findElement(By.cssSelector(".fa-chart-bar"));
+        botonVisualizarEstadisticas.click();
+
+        // Esperar a que carguen las estadisticas:
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".statistics")));
     }
 }
