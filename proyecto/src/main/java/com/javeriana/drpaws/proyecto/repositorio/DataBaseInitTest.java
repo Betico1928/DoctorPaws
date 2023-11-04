@@ -1492,57 +1492,93 @@ public class DataBaseInitTest implements ApplicationRunner {
                                 "Procedimiento quirúrgico para tratar cataratas o lesiones oculares"
                 };
 
+                String[] tratamientoFrecuencias = {
+                        "Diario",
+                        "Semanal",
+                        "Mensual",
+                        "Trimestral",
+                        "Anual",
+                        "Según necesidad",
+                        "Cada 3 días",
+                        "Cada 2 semanas",
+                        "Cada 6 meses",
+                        "Personalizado"
+                };
+
                 for (int i = 0; i < 100; i++) {
-                        Tratamiento tratamiento = new Tratamiento();
+
+                        // Patrón constructor para la clase tratamiento
+                        Tratamiento tratamientoEntity;
+
+                        // Datos para crear tratamiento con el patrón
+                        String nombreTratamiento, descripcionTratamiento, frecuencia;
+                        LocalDate startDate, endDate;
+                        float costo;
+                        Mascota mascotaTratamiento;
+                        Veterinario veterinarioTratamiento;
+                        Medicamento medicamentoTratamiento;
 
                         // Seleccionar nombres y descripciones al azar
-                        tratamiento.setNombre(nombresTratamientos[random.nextInt(nombresTratamientos.length)]);
-                        tratamiento.setDescripcion(
-                                        descripcionesTratamientos[random.nextInt(descripcionesTratamientos.length)]);
+                        nombreTratamiento = nombresTratamientos[random.nextInt(nombresTratamientos.length)];
+                        descripcionTratamiento = descripcionesTratamientos[random.nextInt(descripcionesTratamientos.length)];
 
-                        LocalDate startDate = LocalDate.now().minusMonths(1); // One month ago
+                        // Seleccionar una fecha de inicio del tratamiento que sea hace un mes para estadísticas en la página
+                        startDate = LocalDate.now().minusMonths(1); 
                         System.out.println("startDate: " + startDate);
-                        LocalDate endDate = LocalDate.now();
+                        endDate = LocalDate.now();
                         System.out.println("endDate: " + endDate);
 
-                        tratamiento.setFechaInicio(startDate);
-                        tratamiento.setFechaFin(endDate);
                         // Generar un costo aleatorio entre 50.000 y 950.000
                         float randomCost = (random.nextInt(950000 - 50000 + 1) + 50000) / 1000.0f;
 
                         // Asegurarse de que el formato siempre tiene tres dígitos después del punto
                         // decimal
                         DecimalFormat df = new DecimalFormat("#,000");
-                        randomCost = Float.parseFloat(df.format(randomCost));
+                        costo = Float.parseFloat(df.format(randomCost));
 
-                        tratamiento.setCosto(randomCost);
-
-                        tratamiento.setFrecuencia("Semanal");
+                        
+                        frecuencia = tratamientoFrecuencias[random.nextInt(tratamientoFrecuencias.length)];
+                        
 
                         // Obtener una mascota, veterinario, y medicamento al azar de las listas.
-                        tratamiento.setMascota(mascotas.get(random.nextInt(mascotas.size())));
-                        tratamiento.setVeterinario(veterinarios.get(random.nextInt(veterinarios.size())));
-
+                        mascotaTratamiento = mascotas.get(random.nextInt(mascotas.size()));
+                        veterinarioTratamiento = veterinarios.get(random.nextInt(veterinarios.size()));
+                        
+                        int index = 0;
                         boolean posible = true;
                         do {
-                                int index = random.nextInt(medicamentos.size());
+                                index = random.nextInt(medicamentos.size());
                                 if (medicamentos.get(index).getUnidadesDisponibles() > 0) {
                                         medicamentos.get(index).setUnidadesDisponibles(
                                                         medicamentos.get(index).getUnidadesDisponibles() - 1);
-                                        medicamentos.get(index).setUnidadesVendidas(
+                                         medicamentos.get(index).setUnidadesVendidas(
                                                         medicamentos.get(index).getUnidadesVendidas() + 1);
-                                        tratamiento.setMedicamento(medicamentos.get(index));
                                         posible = true;
                                 } else {
                                         posible = false;
                                 }
                         } while (!posible);
+
+                        medicamentoTratamiento = medicamentos.get(index);
+
+                        // Patrón constructor de tratamiento
+                        tratamientoEntity = Tratamiento.builder().nombre(nombreTratamiento)
+                                                                .descripcion(descripcionTratamiento)
+                                                                .fechaInicio(startDate)
+                                                                .fechaFin(endDate)
+                                                                .costo(costo)
+                                                                .frecuencia(frecuencia)
+                                                                .mascota(mascotaTratamiento)
+                                                                .veterinario(veterinarioTratamiento)
+                                                                .medicamento(medicamentoTratamiento)
+                                                                .build();
+
                         System.out.println("ID de la mascota");
-                        System.out.println(tratamiento.getMascota().getId());
+                        System.out.println(tratamientoEntity.getMascota().getId());
                         System.out.println("Nombre del medicamento");
-                        System.out.println(tratamiento.getMedicamento().getNombre());
+                        System.out.println(tratamientoEntity.getMedicamento().getNombre());
                         // Guardar el objeto tratamiento en la base de datos.
-                        repoTratamiento.save(tratamiento);
+                        repoTratamiento.save(tratamientoEntity);
                 }
 
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
