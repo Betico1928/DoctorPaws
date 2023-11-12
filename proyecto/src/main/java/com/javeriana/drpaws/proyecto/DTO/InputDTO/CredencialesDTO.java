@@ -1,4 +1,4 @@
-package com.javeriana.drpaws.proyecto.controlador.DTO;
+package com.javeriana.drpaws.proyecto.DTO.InputDTO;
 
 public class CredencialesDTO {
 

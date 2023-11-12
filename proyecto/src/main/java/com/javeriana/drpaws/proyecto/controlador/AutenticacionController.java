@@ -1,7 +1,9 @@
 package com.javeriana.drpaws.proyecto.controlador;
 
-import com.javeriana.drpaws.proyecto.controlador.DTO.CedulaDTO;
-import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
+import com.javeriana.drpaws.proyecto.DTO.InputDTO.CedulaDTO;
+import com.javeriana.drpaws.proyecto.DTO.InputDTO.CredencialesDTO;
+import com.javeriana.drpaws.proyecto.DTO.Veterinario.VetDTO;
+import com.javeriana.drpaws.proyecto.DTO.Veterinario.VetMapper;
 import com.javeriana.drpaws.proyecto.entidad.Administrador;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
@@ -52,11 +54,12 @@ public class AutenticacionController {
     public ResponseEntity<Object> autenticarVet(@RequestBody CredencialesDTO credenciales) {
 
         Veterinario veterinarioAutenticado = veterinarioService.autenticarVeterinario(credenciales);
+        VetDTO vetDTO = VetMapper.INSTANCE.convert(veterinarioAutenticado);
 
         if (veterinarioAutenticado.getId() != null) {
             System.out.println("Credenciales válidas - Puede entrar el veterinario con ID: "
                     + veterinarioAutenticado.getId() + "\n");
-            return ResponseEntity.ok(veterinarioAutenticado); // Credenciales válidas
+            return ResponseEntity.ok(vetDTO); // Credenciales válidas
         } else {
             System.out.println("Credenciales Incorrectas");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas\n"); // Credenciales

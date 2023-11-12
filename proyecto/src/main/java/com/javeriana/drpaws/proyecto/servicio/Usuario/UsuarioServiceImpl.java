@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javeriana.drpaws.proyecto.controlador.DTO.CedulaDTO;
+import com.javeriana.drpaws.proyecto.DTO.InputDTO.CedulaDTO;
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 import com.javeriana.drpaws.proyecto.repositorio.UsuarioRepository;

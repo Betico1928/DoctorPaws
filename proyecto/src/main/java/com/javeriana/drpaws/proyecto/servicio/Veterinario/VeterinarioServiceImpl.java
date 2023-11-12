@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
+import com.javeriana.drpaws.proyecto.DTO.InputDTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
 import com.javeriana.drpaws.proyecto.repositorio.VeterinarioRepository;
 

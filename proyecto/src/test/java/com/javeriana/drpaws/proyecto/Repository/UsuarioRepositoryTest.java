@@ -1,7 +1,6 @@
 package com.javeriana.drpaws.proyecto.Repository;
 
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
-import com.javeriana.drpaws.proyecto.repositorio.MascotaRepository;
 import com.javeriana.drpaws.proyecto.repositorio.UsuarioRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;

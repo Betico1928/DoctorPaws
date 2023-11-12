@@ -1,6 +1,6 @@
 package com.javeriana.drpaws.proyecto.servicio.Administrador;
 
-import com.javeriana.drpaws.proyecto.controlador.DTO.CredencialesDTO;
+import com.javeriana.drpaws.proyecto.DTO.InputDTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Administrador;
 
 public interface AdministradorService {

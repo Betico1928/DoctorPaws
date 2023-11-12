@@ -17,8 +17,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
 import com.javeriana.drpaws.proyecto.repositorio.VeterinarioRepository;
 
-import jakarta.transaction.Transactional;
-
 @DataJpaTest
 @RunWith(SpringRunner.class)
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
