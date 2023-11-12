@@ -16,7 +16,6 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import jakarta.transaction.Transactional;
@@ -43,15 +42,6 @@ public class DataBaseInit implements ApplicationRunner {
 
         @Autowired
         AdministradorRepository repoAdministrador;
-
-        @Autowired
-        PasswordEncoder passwordEncoder;
-
-        @Autowired
-        UserRepository userRepository;
-
-        @Autowired
-        RoleRepository roleRepository;
 
         @Override
         public void run(ApplicationArguments args) throws Exception {

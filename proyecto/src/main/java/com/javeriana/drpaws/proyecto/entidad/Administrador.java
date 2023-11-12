@@ -1,20 +1,11 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@NoArgsConstructor
 public class Administrador {
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private UserEntity user;
 
     @Id
     @GeneratedValue
@@ -23,11 +14,32 @@ public class Administrador {
     private String email;
     private String password;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Administrador() {
+    }
 
     public Administrador(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
+    public Long getId() {
+        return id;
+    }
 
 }
