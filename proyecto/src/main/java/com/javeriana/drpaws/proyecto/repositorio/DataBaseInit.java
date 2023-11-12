@@ -41,8 +41,35 @@ public class DataBaseInit implements ApplicationRunner {
         @Autowired
         AdministradorRepository repoAdministrador;
 
+        @Autowired
+        PasswordEncoder passwordEncoder;
+
+        @Autowired
+        RoleRepository roleRepository;
+
+        @Autowired
+        UserRepository userRepository;
+
         @Override
         public void run(ApplicationArguments args) throws Exception {
+
+
+                // Crear los tres roles
+                roleRepository.save(new Role("USUARIO"));
+                roleRepository.save(new Role("VETERINARIO"));
+                roleRepository.save(new Role("ADMINISTRADOR"));
+                
+                Veterinario saveVeterinario;
+                UserEntity userEntity;
+
+                // Guardar en la tabla de roles
+                //1. Crear un objeto
+                //2. Guardarlo en la tabla USER
+                //3. Agregar al objeto del paso 1, el ID obtenido en el paso 2
+                //4. Guardarlo en la tabla Veterinario
+
+
+
 
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 // ---- ADMINISTRADOR ----
@@ -50,20 +77,23 @@ public class DataBaseInit implements ApplicationRunner {
 
                 // --- VETERINARIOS ---
                 // Veterinario #1 - Dr. Juan Perez
-                repoVeterinario.save(new Veterinario("Cardiología", "Dr. Juan Perez", "perezj@email.com", "password1",
-                                "path/to/imagevet1"));
+                saveVeterinario = new Veterinario("Cardiología", "Dr. Juan Perez", "perezj@email.com", "password1",
+                                "path/to/imagevet1");
+                userEntity = saveUserVeterinario(saveVeterinario);
+                saveVeterinario.setUser(userEntity);
+                repoVeterinario.save(saveVeterinario);
 
                 // Veterinario #2 - Dra. Maria Rodriguez
-                repoVeterinario.save(new Veterinario("Cirugía", "Dra. Maria Rodriguez", "rodrim@email.com", "password2",
-                                "path/to/imagevet2"));
+                saveVeterinario = new Veterinario("Cirugía", "Dra. Maria Rodriguez", "rodrim@email.com", "password2",
+                                "path/to/imagevet2");
 
                 // Veterinario #3 - Dr. Carlos Garcia
-                repoVeterinario.save(new Veterinario("Dermatología", "Dr. Carlos Garcia", "garciac@email.com",
-                                "password3", "path/to/imagevet3"));
+                saveVeterinario = new Veterinario("Dermatología", "Dr. Carlos Garcia", "garciac@email.com",
+                                "password3", "path/to/imagevet3");
 
                 // Veterinario #4 - Dra. Laura Lopez
-                repoVeterinario.save(new Veterinario("Oftalmología", "Dra. Laura Lopez", "lopezl@email.com",
-                                "password4", "path/to/imagevet4"));
+                saveVeterinario = new Veterinario("Oftalmología", "Dra. Laura Lopez", "lopezl@email.com",
+                                "password4", "path/to/imagevet4");
 
                 // Veterinario #5 - Dr. Pedro Gutierrez
                 repoVeterinario.save(new Veterinario("Ortopedia", "Dr. Pedro Gutierrez", "gutierrezp@email.com",
@@ -3199,5 +3229,15 @@ public class DataBaseInit implements ApplicationRunner {
                 System.out.println("\n------------------------------------------------------");
                 System.out.println("- - - - - - - - - REPOSITORIO CARGADO - - - - - - - - -");
                 System.out.println("------------------------------------------------------\n");
+        }
+
+        private UserEntity saveUserVeterinario(Veterinario veterinario){
+                UserEntity userEntity = new UserEntity();
+                userEntity.setUsername(veterinario.getEmail());
+                userEntity.setPassword(passwordEncoder.encode(veterinario.getPassword()));
+                Role roles = roleRepository.findByName("VETERINARIO").get();
+                userEntity.setRoles(List.of(roles));
+                return userRepository.save(userEntity);
+
         }
 }
