@@ -2,6 +2,8 @@ package com.javeriana.drpaws.proyecto.controlador;
 
 import com.javeriana.drpaws.proyecto.DTO.InputDTO.CedulaDTO;
 import com.javeriana.drpaws.proyecto.DTO.InputDTO.CredencialesDTO;
+import com.javeriana.drpaws.proyecto.DTO.Usuario.UsuDTO;
+import com.javeriana.drpaws.proyecto.DTO.Usuario.UsuMapper;
 import com.javeriana.drpaws.proyecto.DTO.Veterinario.VetDTO;
 import com.javeriana.drpaws.proyecto.DTO.Veterinario.VetMapper;
 import com.javeriana.drpaws.proyecto.entidad.Administrador;
@@ -40,9 +42,10 @@ public class AutenticacionController {
     public ResponseEntity<Object> autenticarUser(@RequestBody CedulaDTO credenciales) {
         System.out.println("Cedula recibida para autenticación:" + credenciales.getCedula());
         Usuario usuarioAutenticado = usuarioService.autenticarUsuario(credenciales);
+        UsuDTO usuDTO = UsuMapper.INSTANCE.convert(usuarioAutenticado);
 
         if (usuarioAutenticado.getId() != null) {
-            return ResponseEntity.ok(usuarioAutenticado); // Credenciales válidas
+            return ResponseEntity.ok(usuDTO); // Credenciales válidas
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas"); // Credenciales
                                                                                                     // inválidas

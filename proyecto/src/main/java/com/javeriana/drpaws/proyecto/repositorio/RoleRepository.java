@@ -8,4 +8,5 @@ import com.javeriana.drpaws.proyecto.entidad.Role;
 
 public interface RoleRepository extends JpaRepository<Role,Long> {
     Optional<Role> findByName(String name);
+    
 }

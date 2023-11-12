@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -16,6 +17,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import jakarta.transaction.Transactional;
@@ -43,553 +45,608 @@ public class DataBaseInit implements ApplicationRunner {
         @Autowired
         AdministradorRepository repoAdministrador;
 
+        @Autowired
+        PasswordEncoder passwordEncoder;
+
+        @Autowired
+        UserRepository usuarioRepository;
+
+        @Autowired
+        RoleRepository roleRepository;
+
         @Override
         public void run(ApplicationArguments args) throws Exception {
 
+                // Creación de roles
+                roleRepository.save(new Role("USUARIO"));
+                roleRepository.save(new Role("VETERINARIO"));
+                roleRepository.save(new Role("ADMINISTRADOR"));
+
+                // Objetos necesarios
+                UserEntity userEntity;
+
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 // ---- ADMINISTRADOR ----
-                repoAdministrador.save(new Administrador("admin@drpaws.com", "admin"));
+                List<Administrador> saveAdministradores = new ArrayList<>();
+                saveAdministradores.add(new Administrador("admin@drpaws.com", "admin"));
+
+                for (Administrador admin : saveAdministradores) {
+                        userEntity = saveUserAdministrador(admin);
+                        admin.setUser(userEntity);
+                        repoAdministrador.save(admin);
+                }
 
                 // --- VETERINARIOS ---
+
+                // ...
+
+                // Create a list to store Veterinario objects
+                List<Veterinario> saveVeterinarios = new ArrayList<>();
+
                 // Veterinario #1 - Dr. Juan Perez
-                repoVeterinario.save(new Veterinario("Cardiología", "Dr. Juan Perez", "perezj@email.com", "password1",
-                                "path/to/imagevet1"));
+                saveVeterinarios.add(new Veterinario("Cardiología", "Dr. Juan Perez", "perezj@email.com", "password1",
+                                "path/to/imagevet1")); // 1
 
                 // Veterinario #2 - Dra. Maria Rodriguez
-                repoVeterinario.save(new Veterinario("Cirugía", "Dra. Maria Rodriguez", "rodrim@email.com", "password2",
-                                "path/to/imagevet2"));
+                saveVeterinarios.add(new Veterinario("Cirugía", "Dra. Maria Rodriguez", "rodrim@email.com", "password2",
+                                "path/to/imagevet2")); // 2
 
                 // Veterinario #3 - Dr. Carlos Garcia
-                repoVeterinario.save(new Veterinario("Dermatología", "Dr. Carlos Garcia", "garciac@email.com",
-                                "password3", "path/to/imagevet3"));
+                saveVeterinarios.add(
+                                new Veterinario("Dermatología", "Dr. Carlos Garcia", "garciac@email.com", "password3",
+                                                "path/to/imagevet3")); // 3
 
                 // Veterinario #4 - Dra. Laura Lopez
-                repoVeterinario.save(new Veterinario("Oftalmología", "Dra. Laura Lopez", "lopezl@email.com",
-                                "password4", "path/to/imagevet4"));
+                saveVeterinarios.add(
+                                new Veterinario("Oftalmología", "Dra. Laura Lopez", "lopezl@email.com", "password4",
+                                                "path/to/imagevet4")); // 4
 
                 // Veterinario #5 - Dr. Pedro Gutierrez
-                repoVeterinario.save(new Veterinario("Ortopedia", "Dr. Pedro Gutierrez", "gutierrezp@email.com",
-                                "password5", "path/to/imagevet5"));
+                saveVeterinarios.add(new Veterinario("Ortopedia", "Dr. Pedro Gutierrez", "gutierrezp@email.com",
+                                "password5", "path/to/imagevet5")); // 5
 
                 // Veterinario #6 - Dra. Isabel Morales
-                repoVeterinario.save(new Veterinario("Odontología", "Dra. Isabel Morales", "moralesi@email.com",
-                                "password6", "path/to/imagevet6"));
+                saveVeterinarios.add(new Veterinario("Odontología", "Dra. Isabel Morales", "moralesi@email.com",
+                                "password6", "path/to/imagevet6")); // 6
 
                 // Veterinario #7 - Dr. Fernando Torres
-                repoVeterinario.save(new Veterinario("Radiología", "Dr. Fernando Torres", "torresf@email.com",
-                                "password7", "path/to/imagevet7"));
+                saveVeterinarios.add(
+                                new Veterinario("Radiología", "Dr. Fernando Torres", "torresf@email.com", "password7",
+                                                "path/to/imagevet7")); // 7
 
                 // Veterinario #8 - Dra. Gabriela Soto
-                repoVeterinario.save(new Veterinario("Neurología", "Dra. Gabriela Soto", "sotog@email.com", "password8",
-                                "path/to/imagevet8"));
+                saveVeterinarios.add(new Veterinario("Neurología", "Dra. Gabriela Soto", "sotog@email.com", "password8",
+                                "path/to/imagevet8")); // 8
 
                 // Veterinario #9 - Dr. Sergio Mendez
-                repoVeterinario.save(new Veterinario("Endocrinología", "Dr. Sergio Mendez", "mendezs@email.com",
-                                "password9", "path/to/imagevet9"));
+                saveVeterinarios.add(new Veterinario("Endocrinología", "Dr. Sergio Mendez", "mendezs@email.com",
+                                "password9", "path/to/imagevet9")); // 9
 
                 // Veterinario #10 - Dra. Rosa Maldonado
-                repoVeterinario.save(new Veterinario("Gastroenterología", "Dra. Rosa Maldonado", "maldonador@email.com",
-                                "password10", "path/to/imagevet10"));
+                saveVeterinarios.add(new Veterinario("Gastroenterología", "Dra. Rosa Maldonado", "maldonador@email.com",
+                                "password10", "path/to/imagevet10")); // 10
 
                 // Veterinario #11 - Dr. Alberto Ruiz
-                repoVeterinario.save(new Veterinario("Oncología", "Dr. Alberto Ruiz", "ruiza@email.com", "password11",
-                                "path/to/imagevet11"));
+                saveVeterinarios.add(new Veterinario("Oncología", "Dr. Alberto Ruiz", "ruiza@email.com", "password11",
+                                "path/to/imagevet11")); // 11
 
                 // Veterinario #12 - Dra. Patricia Ponce
-                repoVeterinario.save(new Veterinario("Urología", "Dra. Patricia Ponce", "poncep@email.com",
-                                "password12", "path/to/imagevet12"));
+                saveVeterinarios.add(
+                                new Veterinario("Urología", "Dra. Patricia Ponce", "poncep@email.com", "password12",
+                                                "path/to/imagevet12")); // 12
 
                 // Veterinario #13 - Dr. Rafael Vargas
-                repoVeterinario.save(new Veterinario("Anestesiología", "Dr. Rafael Vargas", "vargasr@email.com",
-                                "password13", "path/to/imagevet13"));
+                saveVeterinarios.add(new Veterinario("Anestesiología", "Dr. Rafael Vargas", "vargasr@email.com",
+                                "password13", "path/to/imagevet13")); // 13
 
                 // Veterinario #14 - Dra. Teresa Delgado
-                repoVeterinario.save(new Veterinario("Inmunología", "Dra. Teresa Delgado", "delgadot@email.com",
-                                "password14", "path/to/imagevet14"));
+                saveVeterinarios.add(new Veterinario("Inmunología", "Dra. Teresa Delgado", "delgadot@email.com",
+                                "password14", "path/to/imagevet14")); // 14
 
                 // Veterinario #15 - Dr. Guillermo Navarro
-                repoVeterinario.save(new Veterinario("Hematología", "Dr. Guillermo Navarro", "navarrog@email.com",
-                                "password15", "path/to/imagevet15"));
+                saveVeterinarios.add(new Veterinario("Hematología", "Dr. Guillermo Navarro", "navarrog@email.com",
+                                "password15", "path/to/imagevet15")); // 15
 
                 // Veterinario #16 - Dra. Alicia Ortega
-                repoVeterinario.save(new Veterinario("Fisioterapia", "Dra. Alicia Ortega", "ortegaa@email.com",
-                                "password16", "path/to/imagevet16"));
+                saveVeterinarios.add(new Veterinario("Fisioterapia", "Dra. Alicia Ortega", "ortegaa@email.com",
+                                "password16", "path/to/imagevet16")); // 16
 
                 // Veterinario #17 - Dr. Jorge Pena
-                repoVeterinario.save(new Veterinario("Genética", "Dr. Jorge Pena", "penaj@email.com", "password17",
-                                "path/to/imagevet17"));
+                saveVeterinarios.add(new Veterinario("Genética", "Dr. Jorge Pena", "penaj@email.com", "password17",
+                                "path/to/imagevet17")); // 17
 
                 // Veterinario #18 - Dra. Carmen Lara
-                repoVeterinario.save(new Veterinario("Geriatría", "Dra. Carmen Lara", "larac@email.com", "password18",
-                                "path/to/imagevet18"));
+                saveVeterinarios.add(new Veterinario("Geriatría", "Dra. Carmen Lara", "larac@email.com", "password18",
+                                "path/to/imagevet18")); // 18
 
                 // Veterinario #19 - Dr. Enrique Dominguez
-                repoVeterinario.save(new Veterinario("Rehabilitación", "Dr. Enrique Dominguez", "domingueze@email.com",
-                                "password19", "path/to/imagevet19"));
+                saveVeterinarios.add(new Veterinario("Rehabilitación", "Dr. Enrique Dominguez", "domingueze@email.com",
+                                "password19", "path/to/imagevet19")); // 19
 
                 // Veterinario #20 - Dra. Monica Rios
-                repoVeterinario.save(new Veterinario("Nutrición", "Dra. Monica Rios", "riosm@email.com", "password20",
-                                "path/to/imagevet20"));
+                saveVeterinarios.add(new Veterinario("Nutrición", "Dra. Monica Rios", "riosm@email.com", "password20",
+                                "path/to/imagevet20")); // 20
+
+                // Loop through the list and save each Veterinario
+                for (Veterinario vet : saveVeterinarios) {
+                        userEntity = saveUserVeterinario(vet);
+                        vet.setUser(userEntity);
+                        repoVeterinario.save(vet);
+                }
 
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
                 // USUARIOS
-                // Usuario #1 - Selena Gomez
-                repoUsuario.save(new Usuario("111111100", "Selena Gomez", "selena-gomez@yahoo.com", "+57 269 508 6240",
+                List<Usuario> saveUsuarios = new ArrayList<>();
+
+                // Usuario #1 - John Doe
+                saveUsuarios.add(new Usuario("111111100", "John Doe", "john.doe@example.com", "+57 123 456 7890",
                                 "password1", "path/to/imageuser1"));
 
-                // Usuario #2 - Cristina Peña
-                repoUsuario.save(
-                                new Usuario("111111101", "Cristina Peña", "cristina-peña@yahoo.com", "+57 540 196 5692",
-                                                "password2", "path/to/imageuser2"));
+                // Usuario #2 - Jane Doe
+                saveUsuarios.add(new Usuario("111111101", "Jane Doe", "jane.doe@example.com", "+57 123 456 7891",
+                                "password2", "path/to/imageuser2"));
 
-                // Usuario #3 - Reese Witherspoon
-                repoUsuario.save(new Usuario("111111102", "Reese Witherspoon", "reese-witherspoon@yahoo.com",
-                                "+57 492 051 1235", "password3", "path/to/imageuser3"));
+                // Usuario #3 - Bob Smith
+                saveUsuarios.add(new Usuario("111111102", "Bob Smith", "bob.smith@example.com", "+57 123 456 7892",
+                                "password3", "path/to/imageuser3"));
 
-                // Usuario #4 - Bruno Mars
-                repoUsuario.save(new Usuario("111111103", "Bruno Mars", "bruno-mars@hotmail.com", "+57 900 657 2603",
+                // Usuario #4 - Alice Johnson
+                saveUsuarios.add(new Usuario("111111103", "Alice Johnson", "alice.johnson@example.com",
+                                "+57 123 456 7893",
                                 "password4", "path/to/imageuser4"));
 
-                // Usuario #5 - Phil Collins
-                repoUsuario.save(
-                                new Usuario("111111104", "Phil Collins", "phil-collins@hotmail.com", "+57 235 239 2334",
-                                                "password5", "path/to/imageuser5"));
+                // Usuario #5 - Michael Brown
+                saveUsuarios.add(new Usuario("111111104", "Michael Brown", "michael.brown@example.com",
+                                "+57 123 456 7894",
+                                "password5", "path/to/imageuser5"));
 
-                // Usuario #6 - Charlie Puth
-                repoUsuario.save(new Usuario("111111105", "Charlie Puth", "charlie-puth@gmail.com", "+57 725 485 0559",
+                // Usuario #6 - Emily Davis
+                saveUsuarios.add(new Usuario("111111105", "Emily Davis", "emily.davis@example.com", "+57 123 456 7895",
                                 "password6", "path/to/imageuser6"));
 
-                // Usuario #7 - Prince Rogers
-                repoUsuario.save(new Usuario("111111106", "Prince Rogers", "prince-rogers@hotmail.com",
-                                "+57 508 549 5570",
-                                "password7", "path/to/imageuser7"));
+                // Usuario #7 - Christopher Wilson
+                saveUsuarios.add(new Usuario("111111106", "Christopher Wilson", "christopher.wilson@example.com",
+                                "+57 123 456 7896", "password7", "path/to/imageuser7"));
 
-                // Usuario #8 - Henry Cavill
-                repoUsuario.save(
-                                new Usuario("111111107", "Henry Cavill", "henry-cavill@outlook.com", "+57 009 465 9939",
+                // Usuario #8 - Olivia Moore
+                saveUsuarios.add(
+                                new Usuario("111111107", "Olivia Moore", "olivia.moore@example.com", "+57 123 456 7897",
                                                 "password8", "path/to/imageuser8"));
 
-                // Usuario #9 - James Arthur
-                repoUsuario.save(
-                                new Usuario("111111108", "James Arthur", "james-arthur@outlook.com", "+57 722 621 6258",
-                                                "password9", "path/to/imageuser9"));
+                // Usuario #9 - Daniel Taylor
+                saveUsuarios.add(new Usuario("111111108", "Daniel Taylor", "daniel.taylor@example.com",
+                                "+57 123 456 7898",
+                                "password9", "path/to/imageuser9"));
 
-                // Usuario #10 - Iggy Azalea
-                repoUsuario.save(new Usuario("111111109", "Iggy Azalea", "iggy-azalea@outlook.com", "+57 153 883 7972",
-                                "password10", "path/to/imageuser10"));
+                // Usuario #10 - Sophia Anderson
+                saveUsuarios.add(new Usuario("111111109", "Sophia Anderson", "sophia.anderson@example.com",
+                                "+57 123 456 7899", "password10", "path/to/imageuser10"));
 
-                // Usuario #11 - Celine Dion
-                repoUsuario.save(new Usuario("111111110", "Celine Dion", "celine-dion@outlook.com", "+57 255 740 6425",
-                                "password11", "path/to/imageuser11"));
+                // Usuario #11 - Matthew Thomas
+                saveUsuarios.add(new Usuario("111111110", "Matthew Thomas", "matthew.thomas@example.com",
+                                "+57 123 456 7800", "password11", "path/to/imageuser11"));
 
-                // Usuario #12 - John Legend
-                repoUsuario.save(new Usuario("111111111", "John Legend", "john-legend@gmail.com", "+57 524 524 8337",
+                // Usuario #12 - Ava Jackson
+                saveUsuarios.add(new Usuario("111111111", "Ava Jackson", "ava.jackson@example.com", "+57 123 456 7801",
                                 "password12", "path/to/imageuser12"));
 
-                // Usuario #13 - Madonna Ciccone
-                repoUsuario.save(new Usuario("111111112", "Madonna Ciccone", "madonna-ciccone@outlook.com",
-                                "+57 354 075 6752",
+                // Usuario #13 - Ethan White
+                saveUsuarios.add(new Usuario("111111112", "Ethan White", "ethan.white@example.com", "+57 123 456 7802",
                                 "password13", "path/to/imageuser13"));
 
-                // Usuario #14 - Natalie Portman
-                repoUsuario.save(new Usuario("111111113", "Natalie Portman", "natalie-portman@hotmail.com",
-                                "+57 268 588 1644",
+                // Usuario #14 - Emma Harris
+                saveUsuarios.add(new Usuario("111111113", "Emma Harris", "emma.harris@example.com", "+57 123 456 7803",
                                 "password14", "path/to/imageuser14"));
 
-                // Usuario #15 - Diana Morales
-                repoUsuario.save(new Usuario("111111114", "Diana Morales", "diana-morales@hotmail.com",
-                                "+57 561 268 1718",
-                                "password15", "path/to/imageuser15"));
+                // Usuario #15 - Christopher Hall
+                saveUsuarios.add(new Usuario("111111114", "Christopher Hall", "christopher.hall@example.com",
+                                "+57 123 456 7804", "password15", "path/to/imageuser15"));
 
-                // Usuario #16 - Chris Hemsworth
-                repoUsuario.save(new Usuario("111111115", "Chris Hemsworth", "chris-hemsworth@gmail.com",
-                                "+57 774 728 4449",
+                // Usuario #16 - Madison Walker
+                saveUsuarios.add(new Usuario("111111115", "Madison Walker", "madison.walker@example.com",
+                                "+57 123 456 7805",
                                 "password16", "path/to/imageuser16"));
 
-                // Usuario #17 - Robbie Williams
-                repoUsuario.save(new Usuario("111111116", "Robbie Williams", "robbie-williams@gmail.com",
-                                "+57 453 712 6365",
-                                "password17", "path/to/imageuser17"));
+                // Usuario #17 - Joseph Young
+                saveUsuarios.add(
+                                new Usuario("111111116", "Joseph Young", "joseph.young@example.com", "+57 123 456 7806",
+                                                "password17", "path/to/imageuser17"));
 
-                // Usuario #18 - Robbie Williams
-                repoUsuario.save(new Usuario("111111117", "Robbie Williams", "robbie-williams@outlook.com",
-                                "+57 102 518 0975",
-                                "password18", "path/to/imageuser18"));
+                // Usuario #18 - Mia Martinez
+                saveUsuarios.add(
+                                new Usuario("111111117", "Mia Martinez", "mia.martinez@example.com", "+57 123 456 7807",
+                                                "password18", "path/to/imageuser18"));
 
-                // Usuario #19 - Jeremy Renner
-                repoUsuario.save(new Usuario("111111118", "Jeremy Renner", "jeremy-renner@hotmail.com",
-                                "+57 584 397 7164",
-                                "password19", "path/to/imageuser19"));
+                // Usuario #19 - James Rodriguez
+                saveUsuarios.add(new Usuario("111111118", "James Rodriguez", "james.rodriguez@example.com",
+                                "+57 123 456 7808", "password19", "path/to/imageuser19"));
 
-                // Usuario #20 - Jose Soto
-                repoUsuario.save(new Usuario("111111119", "Jose Soto", "jose-soto@yahoo.com", "+57 387 614 6770",
-                                "password20",
-                                "path/to/imageuser20"));
+                // Usuario #20 - Sofia Garcia
+                saveUsuarios.add(
+                                new Usuario("111111119", "Sofia Garcia", "sofia.garcia@example.com", "+57 123 456 7809",
+                                                "password20", "path/to/imageuser20"));
 
-                // Usuario #21 - Alejandro Salamanca
-                repoUsuario.save(new Usuario("111111120", "Alejandro Salamanca", "alejandro-salamanca@outlook.com",
-                                "+57 741 768 7901", "password21", "path/to/imageuser21"));
+                // Usuario #21 - Michael Miller
+                saveUsuarios.add(new Usuario("111111120", "Michael Miller", "michael.miller@example.com",
+                                "+57 123 456 7810", "password21", "path/to/imageuser21"));
 
-                // Usuario #22 - Paulina Rubio
-                repoUsuario.save(
-                                new Usuario("111111121", "Paulina Rubio", "paulina-rubio@gmail.com", "+57 318 682 5662",
-                                                "password22", "path/to/imageuser22"));
+                // Usuario #22 - Emily Davis
+                saveUsuarios.add(new Usuario("111111121", "Emily Davis", "emily.davis@example.com", "+57 123 456 7811",
+                                "password22", "path/to/imageuser22"));
 
-                // Usuario #23 - Chris Evans
-                repoUsuario.save(new Usuario("111111122", "Chris Evans", "chris-evans@gmail.com", "+57 617 945 8023",
+                // Usuario #23 - David Johnson
+                saveUsuarios.add(new Usuario("111111122", "David Johnson", "david.johnson@example.com",
+                                "+57 123 456 7812",
                                 "password23", "path/to/imageuser23"));
 
-                // Usuario #24 - Chris Hemsworth
-                repoUsuario.save(new Usuario("111111123", "Chris Hemsworth", "chris-hemsworth@hotmail.com",
-                                "+57 965 587 3207",
+                // Usuario #24 - Emma White
+                saveUsuarios.add(new Usuario("111111123", "Emma White", "emma.white@example.com", "+57 123 456 7813",
                                 "password24", "path/to/imageuser24"));
 
-                // Usuario #25 - Kylie Minogue
-                repoUsuario.save(new Usuario("111111124", "Kylie Minogue", "kylie-minogue@outlook.com",
-                                "+57 128 651 8233",
-                                "password25", "path/to/imageuser25"));
+                // Usuario #25 - Matthew Wilson
+                saveUsuarios.add(new Usuario("111111124", "Matthew Wilson", "matthew.wilson@example.com",
+                                "+57 123 456 7814", "password25", "path/to/imageuser25"));
 
                 // Usuario #26 - Gloria Estefan
-                repoUsuario.save(new Usuario("111111125", "Gloria Estefan", "gloria-estefan@hotmail.com",
-                                "+57 257 426 7253",
-                                "password26", "path/to/imageuser26"));
+                saveUsuarios.add(new Usuario("111111125", "Gloria Estefan", "gloria.estefan@example.com",
+                                "+57 123 456 7815", "password26", "path/to/imageuser26"));
 
                 // Usuario #27 - Elton John
-                repoUsuario.save(new Usuario("111111126", "Elton John", "elton-john@yahoo.com", "+57 087 398 7418",
+                saveUsuarios.add(new Usuario("111111126", "Elton John", "elton.john@example.com", "+57 123 456 7816",
                                 "password27", "path/to/imageuser27"));
 
                 // Usuario #28 - Jake Gyllenhaal
-                repoUsuario.save(new Usuario("111111127", "Jake Gyllenhaal", "jake-gyllenhaal@outlook.com",
-                                "+57 892 259 1975",
-                                "password28", "path/to/imageuser28"));
+                saveUsuarios.add(new Usuario("111111127", "Jake Gyllenhaal", "jake.gyllenhaal@example.com",
+                                "+57 123 456 7817", "password28", "path/to/imageuser28"));
 
                 // Usuario #29 - Diana Morales
-                repoUsuario.save(new Usuario("111111128", "Diana Morales", "diana-morales@hotmail.com",
-                                "+57 250 314 0277",
+                saveUsuarios.add(new Usuario("111111128", "Diana Morales", "diana.morales@example.com",
+                                "+57 123 456 7818",
                                 "password29", "path/to/imageuser29"));
 
                 // Usuario #30 - Shakira Ripoll
-                repoUsuario.save(new Usuario("111111129", "Shakira Ripoll", "shakira-ripoll@gmail.com",
-                                "+57 293 503 4739",
+                saveUsuarios.add(new Usuario("111111129", "Shakira Ripoll", "shakira.ripoll@example.com",
+                                "+57 123 456 7819",
                                 "password30", "path/to/imageuser30"));
 
                 // Usuario #31 - Michael Fassbender
-                repoUsuario.save(new Usuario("111111130", "Michael Fassbender", "michael-fassbender@outlook.com",
-                                "+57 351 684 4230", "password31", "path/to/imageuser31"));
+                saveUsuarios.add(new Usuario("111111130", "Michael Fassbender", "michael.fassbender@example.com",
+                                "+57 123 456 7820", "password31", "path/to/imageuser31"));
 
                 // Usuario #32 - Justin Bieber
-                repoUsuario.save(
-                                new Usuario("111111131", "Justin Bieber", "justin-bieber@gmail.com", "+57 756 981 1661",
-                                                "password32", "path/to/imageuser32"));
+                saveUsuarios.add(new Usuario("111111131", "Justin Bieber", "justin.bieber@example.com",
+                                "+57 123 456 7821",
+                                "password32", "path/to/imageuser32"));
 
                 // Usuario #33 - David Guzman
-                repoUsuario.save(new Usuario("111111132", "David Guzman", "david-guzman@gmail.com", "+57 838 403 2528",
-                                "password33", "path/to/imageuser33"));
+                saveUsuarios.add(
+                                new Usuario("111111132", "David Guzman", "david.guzman@example.com", "+57 123 456 7822",
+                                                "password33", "path/to/imageuser33"));
 
                 // Usuario #34 - Jennifer Lopez
-                repoUsuario.save(new Usuario("111111133", "Jennifer Lopez", "jennifer-lopez@gmail.com",
-                                "+57 137 135 6808",
+                saveUsuarios.add(new Usuario("111111133", "Jennifer Lopez", "jennifer.lopez@example.com",
+                                "+57 123 456 7823",
                                 "password34", "path/to/imageuser34"));
 
                 // Usuario #35 - Gabriel Mora
-                repoUsuario.save(new Usuario("111111134", "Gabriel Mora", "gabriel-mora@yahoo.com", "+57 688 196 5293",
-                                "password35", "path/to/imageuser35"));
+                saveUsuarios.add(
+                                new Usuario("111111134", "Gabriel Mora", "gabriel.mora@example.com", "+57 123 456 7824",
+                                                "password35", "path/to/imageuser35"));
 
                 // Usuario #36 - Fernanda Lopes
-                repoUsuario.save(new Usuario("111111135", "Fernanda Lopes", "fernanda-lopes@gmail.com",
-                                "+57 825 272 4721",
+                saveUsuarios.add(new Usuario("111111135", "Fernanda Lopes", "fernanda.lopes@example.com",
+                                "+57 123 456 7825",
                                 "password36", "path/to/imageuser36"));
 
                 // Usuario #37 - Christina Aguilera
-                repoUsuario.save(new Usuario("111111136", "Christina Aguilera", "christina-aguilera@outlook.com",
-                                "+57 516 136 5571", "password37", "path/to/imageuser37"));
+                saveUsuarios.add(new Usuario("111111136", "Christina Aguilera", "christina.aguilera@example.com",
+                                "+57 123 456 7826", "password37", "path/to/imageuser37"));
 
                 // Usuario #38 - Ben Affleck
-                repoUsuario.save(new Usuario("111111137", "Ben Affleck", "ben-affleck@hotmail.com", "+57 550 985 7774",
+                saveUsuarios.add(new Usuario("111111137", "Ben Affleck", "ben.affleck@example.com", "+57 123 456 7827",
                                 "password38", "path/to/imageuser38"));
 
                 // Usuario #39 - Ed Sheeran
-                repoUsuario.save(new Usuario("111111138", "Ed Sheeran", "ed-sheeran@gmail.com", "+57 238 569 6440",
+                saveUsuarios.add(new Usuario("111111138", "Ed Sheeran", "ed.sheeran@example.com", "+57 123 456 7828",
                                 "password39", "path/to/imageuser39"));
 
                 // Usuario #40 - Fernanda Lopes
-                repoUsuario.save(new Usuario("111111139", "Fernanda Lopes", "fernanda-lopes@yahoo.com",
-                                "+57 328 098 4121",
+                saveUsuarios.add(new Usuario("111111139", "Fernanda Lopes", "fernanda.lopes@example.com",
+                                "+57 123 456 7829",
                                 "password40", "path/to/imageuser40"));
 
                 // Usuario #41 - Jose Soto
-                repoUsuario.save(new Usuario("111111140", "Jose Soto", "jose-soto@yahoo.com", "+57 811 996 9728",
-                                "password41",
-                                "path/to/imageuser41"));
+                saveUsuarios.add(new Usuario("111111140", "Jose Soto", "jose.soto@example.com", "+57 123 456 7830",
+                                "password41", "path/to/imageuser41"));
 
                 // Usuario #42 - Andres Salamanca
-                repoUsuario.save(new Usuario("111111141", "Andres Salamanca", "andres-salamanca@yahoo.com",
-                                "+57 561 586 2136",
-                                "password42", "path/to/imageuser42"));
+                saveUsuarios.add(new Usuario("111111141", "Andres Salamanca", "andres.salamanca@example.com",
+                                "+57 123 456 7831", "password42", "path/to/imageuser42"));
 
                 // Usuario #43 - Paul Rudd
-                repoUsuario.save(new Usuario("111111142", "Paul Rudd", "paul-rudd@gmail.com", "+57 680 017 6889",
-                                "password43",
-                                "path/to/imageuser43"));
+                saveUsuarios.add(new Usuario("111111142", "Paul Rudd", "paul.rudd@example.com", "+57 123 456 7832",
+                                "password43", "path/to/imageuser43"));
 
                 // Usuario #44 - Idris Elba
-                repoUsuario.save(new Usuario("111111143", "Idris Elba", "idris-elba@outlook.com", "+57 600 216 9869",
+                saveUsuarios.add(new Usuario("111111143", "Idris Elba", "idris.elba@example.com", "+57 123 456 7833",
                                 "password44", "path/to/imageuser44"));
 
                 // Usuario #45 - Shawn Mendes
-                repoUsuario.save(new Usuario("111111144", "Shawn Mendes", "shawn-mendes@yahoo.com", "+57 806 491 6857",
-                                "password45", "path/to/imageuser45"));
+                saveUsuarios.add(
+                                new Usuario("111111144", "Shawn Mendes", "shawn.mendes@example.com", "+57 123 456 7834",
+                                                "password45", "path/to/imageuser45"));
 
                 // Usuario #46 - Leonardo DiCaprio
-                repoUsuario.save(new Usuario("111111145", "Leonardo DiCaprio", "leonardo-dicaprio@yahoo.com",
-                                "+57 163 447 1060", "password46", "path/to/imageuser46"));
+                saveUsuarios.add(new Usuario("111111145", "Leonardo DiCaprio", "leonardo.dicaprio@example.com",
+                                "+57 123 456 7835", "password46", "path/to/imageuser46"));
 
                 // Usuario #47 - Jose Soto
-                repoUsuario.save(new Usuario("111111146", "Jose Soto", "jose-soto@gmail.com", "+57 491 724 5350",
-                                "password47",
-                                "path/to/imageuser47"));
+                saveUsuarios.add(new Usuario("111111146", "Jose Soto", "jose.soto@example.com", "+57 123 456 7836",
+                                "password47", "path/to/imageuser47"));
 
                 // Usuario #48 - Tom Cruise
-                repoUsuario.save(new Usuario("111111147", "Tom Cruise", "tom-cruise@yahoo.com", "+57 407 632 2211",
+                saveUsuarios.add(new Usuario("111111147", "Tom Cruise", "tom.cruise@example.com", "+57 123 456 7837",
                                 "password48", "path/to/imageuser48"));
 
                 // Usuario #49 - Jessie J
-                repoUsuario.save(new Usuario("111111148", "Jessie J", "jessie-j@hotmail.com", "+57 789 745 8069",
-                                "password49",
-                                "path/to/imageuser49"));
+                saveUsuarios.add(new Usuario("111111148", "Jessie J", "jessie.j@example.com", "+57 123 456 7838",
+                                "password49", "path/to/imageuser49"));
 
                 // Usuario #50 - Ariana Grande
-                repoUsuario.save(new Usuario("111111149", "Ariana Grande", "ariana-grande@hotmail.com",
-                                "+57 911 194 4887",
+                saveUsuarios.add(new Usuario("111111149", "Ariana Grande", "ariana.grande@example.com",
+                                "+57 123 456 7839",
                                 "password50", "path/to/imageuser50"));
 
-                // Usuario #51 - Michael Fassbender
-                repoUsuario.save(new Usuario("111111150", "Michael Fassbender", "michael-fassbender@gmail.com",
-                                "+57 915 217 9328", "password51", "path/to/imageuser51"));
+                // Usuario #51 - Mark Johnson
+                saveUsuarios.add(
+                                new Usuario("111111150", "Mark Johnson", "mark.johnson@example.com", "+57 123 456 7840",
+                                                "password51", "path/to/imageuser51"));
 
-                // Usuario #52 - Enrique Iglesias
-                repoUsuario.save(new Usuario("111111151", "Enrique Iglesias", "enrique-iglesias@hotmail.com",
-                                "+57 602 278 8027", "password52", "path/to/imageuser52"));
+                // Usuario #52 - Natalie Davis
+                saveUsuarios.add(new Usuario("111111151", "Natalie Davis", "natalie.davis@example.com",
+                                "+57 123 456 7841",
+                                "password52", "path/to/imageuser52"));
 
-                // Usuario #53 - Taylor Swift
-                repoUsuario.save(
-                                new Usuario("111111152", "Taylor Swift", "taylor-swift@outlook.com", "+57 195 995 5240",
+                // Usuario #53 - Oliver White
+                saveUsuarios.add(
+                                new Usuario("111111152", "Oliver White", "oliver.white@example.com", "+57 123 456 7842",
                                                 "password53", "path/to/imageuser53"));
 
-                // Usuario #54 - Sergio Aguilar
-                repoUsuario.save(new Usuario("111111153", "Sergio Aguilar", "sergio-aguilar@outlook.com",
-                                "+57 173 073 5783",
+                // Usuario #54 - Lily Taylor
+                saveUsuarios.add(new Usuario("111111153", "Lily Taylor", "lily.taylor@example.com", "+57 123 456 7843",
                                 "password54", "path/to/imageuser54"));
 
-                // Usuario #55 - Luis Miguel
-                repoUsuario.save(new Usuario("111111154", "Luis Miguel", "luis-miguel@hotmail.com", "+57 505 315 8612",
+                // Usuario #55 - Benjamin Martinez
+                saveUsuarios.add(new Usuario("111111154", "Benjamin Martinez", "benjamin.martinez@example.com",
+                                "+57 123 456 7844",
                                 "password55", "path/to/imageuser55"));
 
-                // Usuario #56 - Sergio Aguilar
-                repoUsuario.save(new Usuario("111111155", "Sergio Aguilar", "sergio-aguilar@yahoo.com",
-                                "+57 830 810 7924",
+                // Usuario #56 - Zoey Rodriguez
+                saveUsuarios.add(new Usuario("111111155", "Zoey Rodriguez", "zoey.rodriguez@example.com",
+                                "+57 123 456 7845",
                                 "password56", "path/to/imageuser56"));
 
-                // Usuario #57 - John Legend
-                repoUsuario.save(new Usuario("111111156", "John Legend", "john-legend@gmail.com", "+57 080 346 8830",
+                // Usuario #57 - Samuel Garcia
+                saveUsuarios.add(new Usuario("111111156", "Samuel Garcia", "samuel.garcia@example.com",
+                                "+57 123 456 7846",
                                 "password57", "path/to/imageuser57"));
 
-                // Usuario #58 - Madonna Ciccone
-                repoUsuario.save(new Usuario("111111157", "Madonna Ciccone", "madonna-ciccone@hotmail.com",
-                                "+57 217 218 0208",
+                // Usuario #58 - Penelope Anderson
+                saveUsuarios.add(new Usuario("111111157", "Penelope Anderson", "penelope.anderson@example.com",
+                                "+57 123 456 7847",
                                 "password58", "path/to/imageuser58"));
 
-                // Usuario #59 - Jessie J
-                repoUsuario.save(new Usuario("111111158", "Jessie J", "jessie-j@gmail.com", "+57 046 402 5878",
-                                "password59",
-                                "path/to/imageuser59"));
+                // Usuario #59 - William Smith
+                saveUsuarios.add(new Usuario("111111158", "William Smith", "william.smith@example.com",
+                                "+57 123 456 7848",
+                                "password59", "path/to/imageuser59"));
 
-                // Usuario #60 - Miley Cyrus
-                repoUsuario.save(new Usuario("111111159", "Miley Cyrus", "miley-cyrus@gmail.com", "+57 251 107 5561",
+                // Usuario #60 - Sophia Johnson
+                saveUsuarios.add(new Usuario("111111159", "Sophia Johnson", "sophia.johnson@example.com",
+                                "+57 123 456 7849",
                                 "password60", "path/to/imageuser60"));
 
-                // Usuario #61 - Kate Winslet
-                repoUsuario.save(new Usuario("111111160", "Kate Winslet", "kate-winslet@gmail.com", "+57 506 766 7150",
-                                "password61", "path/to/imageuser61"));
+                // Usuario #61 - Samuel Davis
+                saveUsuarios.add(
+                                new Usuario("111111160", "Samuel Davis", "samuel.davis@example.com", "+57 123 456 7850",
+                                                "password61", "path/to/imageuser61"));
 
-                // Usuario #62 - Zayn Malik
-                repoUsuario.save(new Usuario("111111161", "Zayn Malik", "zayn-malik@gmail.com", "+57 967 376 4610",
+                // Usuario #62 - Zoe White
+                saveUsuarios.add(new Usuario("111111161", "Zoe White", "zoe.white@example.com", "+57 123 456 7851",
                                 "password62", "path/to/imageuser62"));
 
-                // Usuario #63 - Kate Winslet
-                repoUsuario.save(new Usuario("111111162", "Kate Winslet", "kate-winslet@yahoo.com", "+57 134 337 1006",
+                // Usuario #63 - Oliver Taylor
+                saveUsuarios.add(new Usuario("111111162", "Oliver Taylor", "oliver.taylor@example.com",
+                                "+57 123 456 7852",
                                 "password63", "path/to/imageuser63"));
 
-                // Usuario #64 - Paula Bermudez
-                repoUsuario.save(new Usuario("111111163", "Paula Bermudez", "paula-bermudez@yahoo.com",
-                                "+57 300 799 0051",
+                // Usuario #64 - Lily Martinez
+                saveUsuarios.add(new Usuario("111111163", "Lily Martinez", "lily.martinez@example.com",
+                                "+57 123 456 7853",
                                 "password64", "path/to/imageuser64"));
 
-                // Usuario #65 - Jennifer Lopez
-                repoUsuario.save(new Usuario("111111164", "Jennifer Lopez", "jennifer-lopez@hotmail.com",
-                                "+57 147 355 3937",
+                // Usuario #65 - Benjamin Rodriguez
+                saveUsuarios.add(new Usuario("111111164", "Benjamin Rodriguez", "benjamin.rodriguez@example.com",
+                                "+57 123 456 7854",
                                 "password65", "path/to/imageuser65"));
 
-                // Usuario #66 - Jay Z Carter
-                repoUsuario.save(new Usuario("111111165", "Jay Z Carter", "jay-z@outlook.com", "+57 127 266 1892",
-                                "password66",
-                                "path/to/imageuser66"));
+                // Usuario #66 - Zoey Garcia
+                saveUsuarios.add(new Usuario("111111165", "Zoey Garcia", "zoey.garcia@example.com", "+57 123 456 7855",
+                                "password66", "path/to/imageuser66"));
 
-                // Usuario #67 - Felipe Castro
-                repoUsuario.save(
-                                new Usuario("111111166", "Felipe Castro", "felipe-castro@yahoo.com", "+57 376 814 4341",
-                                                "password67", "path/to/imageuser67"));
+                // Usuario #67 - Samuel Anderson
+                saveUsuarios.add(new Usuario("111111166", "Samuel Anderson", "samuel.anderson@example.com",
+                                "+57 123 456 7856",
+                                "password67", "path/to/imageuser67"));
 
-                // Usuario #68 - Chris Hemsworth
-                repoUsuario.save(new Usuario("111111167", "Chris Hemsworth", "chris-hemsworth@outlook.com",
-                                "+57 277 133 1176",
+                // Usuario #68 - Penelope Smith
+                saveUsuarios.add(new Usuario("111111167", "Penelope Smith", "penelope.smith@example.com",
+                                "+57 123 456 7857",
                                 "password68", "path/to/imageuser68"));
 
-                // Usuario #69 - Leonardo DiCaprio
-                repoUsuario.save(new Usuario("111111168", "Leonardo DiCaprio", "leonardo-dicaprio@hotmail.com",
-                                "+57 077 661 4732", "password69", "path/to/imageuser69"));
+                // Usuario #69 - William Taylor
+                saveUsuarios.add(new Usuario("111111168", "William Taylor", "william.taylor@example.com",
+                                "+57 123 456 7858",
+                                "password69", "path/to/imageuser69"));
 
-                // Usuario #70 - Dua Lipa
-                repoUsuario.save(new Usuario("111111169", "Dua Lipa", "dua-lipa@hotmail.com", "+57 411 796 4473",
-                                "password70",
-                                "path/to/imageuser70"));
+                // Usuario #70 - Sophia Martinez
+                saveUsuarios.add(new Usuario("111111169", "Sophia Martinez", "sophia.martinez@example.com",
+                                "+57 123 456 7859",
+                                "password70", "path/to/imageuser70"));
 
-                // Usuario #71 - Oscar Ortiz
-                repoUsuario.save(new Usuario("111111170", "Oscar Ortiz", "oscar-ortiz@hotmail.com", "+57 756 078 3735",
+                // Usuario #71 - Samuel Rodriguez
+                saveUsuarios.add(new Usuario("111111170", "Samuel Rodriguez", "samuel.rodriguez@example.com",
+                                "+57 123 456 7860",
                                 "password71", "path/to/imageuser71"));
 
-                // Usuario #72 - Aaron Taylor-Johnson
-                repoUsuario.save(new Usuario("111111171", "Aaron Taylor-Johnson", "aaron-taylor-johnson@hotmail.com",
-                                "+57 632 143 1712", "password72", "path/to/imageuser72"));
+                // Usuario #72 - Zoe Garcia
+                saveUsuarios.add(new Usuario("111111171", "Zoe Garcia", "zoe.garcia@example.com", "+57 123 456 7861",
+                                "password72", "path/to/imageuser72"));
 
-                // Usuario #73 - Silvia Carreras
-                repoUsuario.save(new Usuario("111111172", "Silvia Carreras", "silvia-carreras@gmail.com",
-                                "+57 107 634 8954",
+                // Usuario #73 - Oliver Anderson
+                saveUsuarios.add(new Usuario("111111172", "Oliver Anderson", "oliver.anderson@example.com",
+                                "+57 123 456 7862",
                                 "password73", "path/to/imageuser73"));
 
-                // Usuario #74 - Iggy Azalea
-                repoUsuario.save(new Usuario("111111173", "Iggy Azalea", "iggy-azalea@hotmail.com", "+57 973 430 2772",
+                // Usuario #74 - Lily Smith
+                saveUsuarios.add(new Usuario("111111173", "Lily Smith", "lily.smith@example.com", "+57 123 456 7863",
                                 "password74", "path/to/imageuser74"));
 
-                // Usuario #75 - George Michael
-                repoUsuario.save(new Usuario("111111174", "George Michael", "george-michael@outlook.com",
-                                "+57 864 300 6445",
+                // Usuario #75 - Benjamin Taylor
+                saveUsuarios.add(new Usuario("111111174", "Benjamin Taylor", "benjamin.taylor@example.com",
+                                "+57 123 456 7864",
                                 "password75", "path/to/imageuser75"));
 
-                // Usuario #76 - J Balvin
-                repoUsuario.save(new Usuario("111111175", "J Balvin", "j-balvin@yahoo.com", "+57 046 678 5480",
-                                "password76",
-                                "path/to/imageuser76"));
+                // Usuario #76 - Zoey Martinez
+                saveUsuarios.add(new Usuario("111111175", "Zoey Martinez", "zoey.martinez@example.com",
+                                "+57 123 456 7865",
+                                "password76", "path/to/imageuser76"));
 
-                // Usuario #77 - Felipe Castro
-                repoUsuario.save(
-                                new Usuario("111111176", "Felipe Castro", "felipe-castro@yahoo.com", "+57 293 604 1945",
-                                                "password77", "path/to/imageuser77"));
+                // Usuario #77 - Samuel Rodriguez
+                saveUsuarios.add(new Usuario("111111176", "Samuel Rodriguez", "samuel.rodriguez@example.com",
+                                "+57 123 456 7866",
+                                "password77", "path/to/imageuser77"));
 
-                // Usuario #78 - Jason Momoa
-                repoUsuario.save(new Usuario("111111177", "Jason Momoa", "jason-momoa@yahoo.com", "+57 840 906 3111",
+                // Usuario #78 - Penelope Garcia
+                saveUsuarios.add(new Usuario("111111177", "Penelope Garcia", "penelope.garcia@example.com",
+                                "+57 123 456 7867",
                                 "password78", "path/to/imageuser78"));
 
-                // Usuario #79 - Will Smith
-                repoUsuario.save(new Usuario("111111178", "Will Smith", "will-smith@hotmail.com", "+57 952 188 7599",
+                // Usuario #79 - William Anderson
+                saveUsuarios.add(new Usuario("111111178", "William Anderson", "william.anderson@example.com",
+                                "+57 123 456 7868",
                                 "password79", "path/to/imageuser79"));
 
-                // Usuario #80 - Luisa Gomez
-                repoUsuario.save(new Usuario("111111179", "Luisa Gomez", "luisa-gomez@gmail.com", "+57 578 876 8309",
-                                "password80", "path/to/imageuser80"));
+                // Usuario #80 - Sophia Smith
+                saveUsuarios.add(
+                                new Usuario("111111179", "Sophia Smith", "sophia.smith@example.com", "+57 123 456 7869",
+                                                "password80", "path/to/imageuser80"));
 
-                // Usuario #81 - Britney Spears
-                repoUsuario.save(new Usuario("111111180", "Britney Spears", "britney-spears@yahoo.com",
-                                "+57 875 420 3319",
+                // Usuario #81 - Samuel Taylor
+                saveUsuarios.add(new Usuario("111111180", "Samuel Taylor", "samuel.taylor@example.com",
+                                "+57 123 456 7870",
                                 "password81", "path/to/imageuser81"));
 
-                // Usuario #82 - Beyonce Knowles
-                repoUsuario.save(new Usuario("111111181", "Beyonce Knowles", "beyonce-knowles@hotmail.com",
-                                "+57 738 793 7024",
-                                "password82", "path/to/imageuser82"));
+                // Usuario #82 - Zoe Martinez
+                saveUsuarios.add(
+                                new Usuario("111111181", "Zoe Martinez", "zoe.martinez@example.com", "+57 123 456 7871",
+                                                "password82", "path/to/imageuser82"));
 
-                // Usuario #83 - Sam Smith
-                repoUsuario.save(new Usuario("111111182", "Sam Smith", "sam-smith@outlook.com", "+57 245 609 2317",
+                // Usuario #83 - Oliver Rodriguez
+                saveUsuarios.add(new Usuario("111111182", "Oliver Rodriguez", "oliver.rodriguez@example.com",
+                                "+57 123 456 7872",
                                 "password83", "path/to/imageuser83"));
 
-                // Usuario #84 - Ariana Grande
-                repoUsuario.save(
-                                new Usuario("111111183", "Ariana Grande", "ariana-grande@yahoo.com", "+57 719 148 0654",
-                                                "password84", "path/to/imageuser84"));
+                // Usuario #84 - Lily Garcia
+                saveUsuarios.add(new Usuario("111111183", "Lily Garcia", "lily.garcia@example.com", "+57 123 456 7873",
+                                "password84", "path/to/imageuser84"));
 
-                // Usuario #85 - Chris Evans
-                repoUsuario.save(new Usuario("111111184", "Chris Evans", "chris-evans@yahoo.com", "+57 926 333 7720",
+                // Usuario #85 - Benjamin Anderson
+                saveUsuarios.add(new Usuario("111111184", "Benjamin Anderson", "benjamin.anderson@example.com",
+                                "+57 123 456 7874",
                                 "password85", "path/to/imageuser85"));
 
-                // Usuario #86 - Denzel Washington
-                repoUsuario.save(new Usuario("111111185", "Denzel Washington", "denzel-washington@outlook.com",
-                                "+57 083 196 5308", "password86", "path/to/imageuser86"));
+                // Usuario #86 - Zoey Smith
+                saveUsuarios.add(new Usuario("111111185", "Zoey Smith", "zoey.smith@example.com", "+57 123 456 7875",
+                                "password86", "path/to/imageuser86"));
 
-                // Usuario #87 - Zayn Malik
-                repoUsuario.save(new Usuario("111111186", "Zayn Malik", "zayn-malik@outlook.com", "+57 397 735 9688",
+                // Usuario #87 - Samuel Taylor
+                saveUsuarios.add(new Usuario("111111186", "Samuel Taylor", "samuel.taylor@example.com",
+                                "+57 123 456 7876",
                                 "password87", "path/to/imageuser87"));
 
-                // Usuario #88 - Zayn Malik
-                repoUsuario.save(new Usuario("111111187", "Zayn Malik", "zayn-malik@yahoo.com", "+57 531 594 3247",
+                // Usuario #88 - Penelope Martinez
+                saveUsuarios.add(new Usuario("111111187", "Penelope Martinez", "penelope.martinez@example.com",
+                                "+57 123 456 7877",
                                 "password88", "path/to/imageuser88"));
 
-                // Usuario #89 - Jay Z Carter
-                repoUsuario.save(new Usuario("111111188", "Jay Z Carter", "jay-z@outlook.com", "+57 200 264 9064",
-                                "password89",
-                                "path/to/imageuser89"));
+                // Usuario #89 - William Rodriguez
+                saveUsuarios.add(new Usuario("111111188", "William Rodriguez", "william.rodriguez@example.com",
+                                "+57 123 456 7878",
+                                "password89", "path/to/imageuser89"));
 
-                // Usuario #90 - Denzel Washington
-                repoUsuario.save(new Usuario("111111189", "Denzel Washington", "denzel-washington@hotmail.com",
-                                "+57 185 906 1061", "password90", "path/to/imageuser90"));
+                // Usuario #90 - Sophia Garcia
+                saveUsuarios.add(new Usuario("111111189", "Sophia Garcia", "sophia.garcia@example.com",
+                                "+57 123 456 7879",
+                                "password90", "path/to/imageuser90"));
 
-                // Usuario #91 - Shakira Ripoll
-                repoUsuario.save(new Usuario("111111190", "Shakira Ripoll", "shakira-ripoll@gmail.com",
-                                "+57 905 117 4210",
+                // Usuario #91 - Samuel Anderson
+                saveUsuarios.add(new Usuario("111111190", "Samuel Anderson", "samuel.anderson@example.com",
+                                "+57 123 456 7880",
                                 "password91", "path/to/imageuser91"));
 
-                // Usuario #92 - Troye Sivan
-                repoUsuario.save(new Usuario("111111191", "Troye Sivan", "troye-sivan@yahoo.com", "+57 012 677 7248",
+                // Usuario #92 - Zoe Smith
+                saveUsuarios.add(new Usuario("111111191", "Zoe Smith", "zoe.smith@example.com", "+57 123 456 7881",
                                 "password92", "path/to/imageuser92"));
 
-                // Usuario #93 - Katy Perry
-                repoUsuario.save(new Usuario("111111192", "Katy Perry", "katy-perry@outlook.com", "+57 319 129 0661",
+                // Usuario #93 - Oliver Taylor
+                saveUsuarios.add(new Usuario("111111192", "Oliver Taylor", "oliver.taylor@example.com",
+                                "+57 123 456 7882",
                                 "password93", "path/to/imageuser93"));
 
-                // Usuario #94 - Rita Ora
-                repoUsuario.save(new Usuario("111111193", "Rita Ora", "rita-ora@hotmail.com", "+57 640 421 8868",
-                                "password94",
-                                "path/to/imageuser94"));
+                // Usuario #94 - Lily Martinez
+                saveUsuarios.add(new Usuario("111111193", "Lily Martinez", "lily.martinez@example.com",
+                                "+57 123 456 7883",
+                                "password94", "path/to/imageuser94"));
 
-                // Usuario #95 - Chris Evans
-                repoUsuario.save(new Usuario("111111194", "Chris Evans", "chris-evans@hotmail.com", "+57 377 329 1348",
+                // Usuario #95 - Benjamin Rodriguez
+                saveUsuarios.add(new Usuario("111111194", "Benjamin Rodriguez", "benjamin.rodriguez@example.com",
+                                "+57 123 456 7884",
                                 "password95", "path/to/imageuser95"));
 
-                // Usuario #96 - Michael Jackson
-                repoUsuario.save(new Usuario("111111195", "Michael Jackson", "michael-jackson@hotmail.com",
-                                "+57 062 442 8940",
+                // Usuario #96 - Zoey Garcia
+                saveUsuarios.add(new Usuario("111111195", "Zoey Garcia", "zoey.garcia@example.com", "+57 123 456 7885",
                                 "password96", "path/to/imageuser96"));
 
-                // Usuario #97 - Jessie J
-                repoUsuario.save(new Usuario("111111196", "Jessie J", "jessie-j@outlook.com", "+57 121 237 6215",
-                                "password97",
-                                "path/to/imageuser97"));
+                // Usuario #97 - Samuel Anderson
+                saveUsuarios.add(new Usuario("111111196", "Samuel Anderson", "samuel.anderson@example.com",
+                                "+57 123 456 7886",
+                                "password97", "path/to/imageuser97"));
 
-                // Usuario #98 - Ana Ortegon
-                repoUsuario.save(new Usuario("111111197", "Ana Ortegon", "ana-ortegon@hotmail.com", "+57 554 560 8232",
+                // Usuario #98 - Penelope Smith
+                saveUsuarios.add(new Usuario("111111197", "Penelope Smith", "penelope.smith@example.com",
+                                "+57 123 456 7887",
                                 "password98", "path/to/imageuser98"));
 
-                // Usuario #99 - Rihanna Fenty
-                repoUsuario.save(
-                                new Usuario("111111198", "Rihanna Fenty", "rihanna-fenty@gmail.com", "+57 584 072 6152",
-                                                "password99", "path/to/imageuser99"));
+                // Usuario #99 - William Taylor
+                saveUsuarios.add(new Usuario("111111198", "William Taylor", "william.taylor@example.com",
+                                "+57 123 456 7888",
+                                "password99", "path/to/imageuser99"));
 
-                // Usuario #100 - Charlie Puth
-                repoUsuario.save(
-                                new Usuario("111111199", "Charlie Puth", "charlie-puth@hotmail.com", "+57 871 059 1751",
-                                                "password100", "path/to/imageuser100"));
+                // Usuario #100 - Sophia Martinez
+                saveUsuarios.add(new Usuario("111111199", "Sophia Martinez", "sophia.martinez@example.com",
+                                "+57 123 456 7889",
+                                "password100", "path/to/imageuser100"));
+
+                // Print the list of users
+                for (Usuario usuario : saveUsuarios) {
+                        userEntity = saveUserUsuario(usuario);
+                        usuario.setUser(userEntity);
+                        repoUsuario.save(usuario);
+                }
 
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1401,18 +1458,15 @@ public class DataBaseInit implements ApplicationRunner {
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
                 // Extrayendo los medicamentos desde el Excel:
                 String csvFile = "static/Archivos Varios/MEDICAMENTOS_VETERINARIA.csv";
                 String line;
 
                 // Prueba para encontrar el archivo de medicamentos desde recursos
-                // Sirve para no tener problemas con el directorio del usuario que corre el proyecto
+                // Sirve para no tener problemas con el directorio del usuario que corre el
+                // proyecto
                 ClassPathResource resource = new ClassPathResource(csvFile);
                 InputStream inputStream = resource.getInputStream();
-
-
 
                 String csvSplitBy = ";"; // Separador de las celdas, en este caso punto y coma
 
@@ -1494,16 +1548,16 @@ public class DataBaseInit implements ApplicationRunner {
                 };
 
                 String[] tratamientoFrecuencias = {
-                        "Diario",
-                        "Semanal",
-                        "Mensual",
-                        "Trimestral",
-                        "Anual",
-                        "Según necesidad",
-                        "Cada 3 días",
-                        "Cada 2 semanas",
-                        "Cada 6 meses",
-                        "Personalizado"
+                                "Diario",
+                                "Semanal",
+                                "Mensual",
+                                "Trimestral",
+                                "Anual",
+                                "Según necesidad",
+                                "Cada 3 días",
+                                "Cada 2 semanas",
+                                "Cada 6 meses",
+                                "Personalizado"
                 };
 
                 for (int i = 0; i < 100; i++) {
@@ -1521,10 +1575,12 @@ public class DataBaseInit implements ApplicationRunner {
 
                         // Seleccionar nombres y descripciones al azar
                         nombreTratamiento = nombresTratamientos[random.nextInt(nombresTratamientos.length)];
-                        descripcionTratamiento = descripcionesTratamientos[random.nextInt(descripcionesTratamientos.length)];
+                        descripcionTratamiento = descripcionesTratamientos[random
+                                        .nextInt(descripcionesTratamientos.length)];
 
-                        // Seleccionar una fecha de inicio del tratamiento que sea hace un mes para estadísticas en la página
-                        startDate = LocalDate.now().minusMonths(1); 
+                        // Seleccionar una fecha de inicio del tratamiento que sea hace un mes para
+                        // estadísticas en la página
+                        startDate = LocalDate.now().minusMonths(1);
                         System.out.println("startDate: " + startDate);
                         endDate = LocalDate.now();
                         System.out.println("endDate: " + endDate);
@@ -1537,14 +1593,12 @@ public class DataBaseInit implements ApplicationRunner {
                         DecimalFormat df = new DecimalFormat("#,000");
                         costo = Float.parseFloat(df.format(randomCost));
 
-                        
                         frecuencia = tratamientoFrecuencias[random.nextInt(tratamientoFrecuencias.length)];
-                        
 
                         // Obtener una mascota, veterinario, y medicamento al azar de las listas.
                         mascotaTratamiento = mascotas.get(random.nextInt(mascotas.size()));
                         veterinarioTratamiento = veterinarios.get(random.nextInt(veterinarios.size()));
-                        
+
                         int index = 0;
                         boolean posible = true;
                         do {
@@ -1552,7 +1606,7 @@ public class DataBaseInit implements ApplicationRunner {
                                 if (medicamentos.get(index).getUnidadesDisponibles() > 0) {
                                         medicamentos.get(index).setUnidadesDisponibles(
                                                         medicamentos.get(index).getUnidadesDisponibles() - 1);
-                                         medicamentos.get(index).setUnidadesVendidas(
+                                        medicamentos.get(index).setUnidadesVendidas(
                                                         medicamentos.get(index).getUnidadesVendidas() + 1);
                                         posible = true;
                                 } else {
@@ -1564,15 +1618,15 @@ public class DataBaseInit implements ApplicationRunner {
 
                         // Patrón constructor de tratamiento
                         tratamientoEntity = Tratamiento.builder().nombre(nombreTratamiento)
-                                                                .descripcion(descripcionTratamiento)
-                                                                .fechaInicio(startDate)
-                                                                .fechaFin(endDate)
-                                                                .costo(costo)
-                                                                .frecuencia(frecuencia)
-                                                                .mascota(mascotaTratamiento)
-                                                                .veterinario(veterinarioTratamiento)
-                                                                .medicamento(medicamentoTratamiento)
-                                                                .build();
+                                        .descripcion(descripcionTratamiento)
+                                        .fechaInicio(startDate)
+                                        .fechaFin(endDate)
+                                        .costo(costo)
+                                        .frecuencia(frecuencia)
+                                        .mascota(mascotaTratamiento)
+                                        .veterinario(veterinarioTratamiento)
+                                        .medicamento(medicamentoTratamiento)
+                                        .build();
 
                         System.out.println("ID de la mascota");
                         System.out.println(tratamientoEntity.getMascota().getId());
@@ -1618,5 +1672,32 @@ public class DataBaseInit implements ApplicationRunner {
                 System.out.println("\n------------------------------------------------------");
                 System.out.println("- - - - - - - - - REPOSITORIO CARGADO - - - - - - - - -");
                 System.out.println("------------------------------------------------------\n");
+        }
+
+        private UserEntity saveUserVeterinario(Veterinario veterinario) {
+                UserEntity userEntity = new UserEntity();
+                userEntity.setUsername(veterinario.getEmail());
+                userEntity.setPassword(passwordEncoder.encode(veterinario.getPassword()));
+                Role roles = roleRepository.findByName("VETERINARIO").get();
+                userEntity.setRoles(List.of(roles));
+                return usuarioRepository.save(userEntity);
+        }
+
+        private UserEntity saveUserUsuario(Usuario usuario) {
+                UserEntity userEntity = new UserEntity();
+                userEntity.setUsername(usuario.getCedula());
+                userEntity.setPassword(passwordEncoder.encode("1234"));
+                Role roles = roleRepository.findByName("USUARIO").get();
+                userEntity.setRoles(List.of(roles));
+                return usuarioRepository.save(userEntity);
+        }
+
+        private UserEntity saveUserAdministrador(Administrador admin) {
+                UserEntity userEntity = new UserEntity();
+                userEntity.setUsername(admin.getEmail());
+                userEntity.setPassword(passwordEncoder.encode(admin.getPassword()));
+                Role roles = roleRepository.findByName("ADMINISTRADOR").get();
+                userEntity.setRoles(List.of(roles));
+                return usuarioRepository.save(userEntity);
         }
 }
