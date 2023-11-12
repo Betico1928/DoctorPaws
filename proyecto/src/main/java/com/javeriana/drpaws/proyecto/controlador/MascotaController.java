@@ -47,7 +47,7 @@ public class MascotaController {
 
     // http://localhost:8080/mascota/agregar -> Agregar una mascota
     @PostMapping("/agregar")
-    public void agregarMascota(@RequestBody Mascota mascota)
+    public ResponseEntity<Mascota> agregarMascota(@RequestBody Mascota mascota)
     {
         System.out.println("\nInformación de la mascota a añadir:");
         System.out.println("+-----------------+--------------------------------+");
@@ -61,6 +61,7 @@ public class MascotaController {
         System.out.println("+-----------------+--------------------------------+");
 
         mascotaService.add(mascota);
+        return ResponseEntity.ok(mascota);
     }
 
     // http://localhost:8080/mascota/delete/1 -> Eliminar una mascota

@@ -52,12 +52,17 @@ public class VeterinarioServiceImpl implements VeterinarioService {
         String contrasena = credenciales.getContrasenna();
 
         Veterinario veterinario = repo.findByEmail(correo);
-        System.out.println(veterinario);
+        System.out.println("Se encontro");
+        System.out.println("Correo del :" + veterinario.getEmail());
+        System.out.println("Contraseña "+ veterinario.getPassword() );
+        System.out.println(veterinario.toString());
 
         if (veterinario != null && veterinario.getPassword().equals(contrasena)) {
+            System.out.println("HOLA");
             return veterinario;
 
         } else {
+            System.out.println("hola 2");
             return new Veterinario();
 
         }

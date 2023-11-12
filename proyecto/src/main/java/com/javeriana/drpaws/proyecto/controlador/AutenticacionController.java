@@ -53,7 +53,9 @@ public class AutenticacionController {
     @PostMapping("/vet")
     public ResponseEntity<Object> autenticarVet(@RequestBody CredencialesDTO credenciales) {
 
+        System.out.println("Correo: " + credenciales.getCorreo()+ "Contraseña: " + credenciales.getContrasenna());
         Veterinario veterinarioAutenticado = veterinarioService.autenticarVeterinario(credenciales);
+        System.out.println("Nombre" +veterinarioAutenticado.getNombre());
         VetDTO vetDTO = VetMapper.INSTANCE.convert(veterinarioAutenticado);
 
         if (veterinarioAutenticado.getId() != null) {
