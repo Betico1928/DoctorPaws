@@ -124,11 +124,13 @@
 				<version>3.11.0</version>
 				<configuration>
 					<annotationProcessorPaths>
-						<path>
-							<groupId>org.mapstruct</groupId>
-							<artifactId>mapstruct-processor</artifactId>
-							<version>1.5.5.Final</version>
-						</path>
+						<annotationProcessorPaths>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+								<version>1.18.30</version>
+							</path>
+						</annotationProcessorPaths>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
