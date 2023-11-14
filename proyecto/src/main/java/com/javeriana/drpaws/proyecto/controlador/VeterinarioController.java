@@ -2,6 +2,9 @@ package com.javeriana.drpaws.proyecto.controlador;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.javeriana.drpaws.proyecto.entidad.UserEntity;
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
+import com.javeriana.drpaws.proyecto.repositorio.UserRepository;
+import com.javeriana.drpaws.proyecto.security.CustomUserDetailsService;
 import com.javeriana.drpaws.proyecto.servicio.Veterinario.VeterinarioService;
 
 @RestController
@@ -19,7 +25,17 @@ import com.javeriana.drpaws.proyecto.servicio.Veterinario.VeterinarioService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class VeterinarioController {
 
+
+    @Autowired
     private final VeterinarioService veterinarioService;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+
+
 
     public VeterinarioController(VeterinarioService veterinarioService) {
         this.veterinarioService = veterinarioService;
@@ -35,8 +51,17 @@ public class VeterinarioController {
 
     // Para crear a un veterinario
     // http://localhost:8080/veterinario/add
+    // Se cambia el método de agregar estudiante
     @PostMapping("/add")
-    public void createVeterinario(@RequestBody Veterinario veterinario) {
+    public ResponseEntity createVeterinario(@RequestBody Veterinario veterinario) {
+        if(userRepository.existsByUsername(veterinario.getEmail())){
+            return new ResponseEntity<String>("Este usuario ya existe", HttpStatus.BAD_REQUEST);
+        }
+        UserEntity userEntity = customUserDetailsService.saveVeterinario(veterinario);
+        // Se le asigna el rol de veterinario al nuevo veterinario creado
+        veterinario.setUser(userEntity);
+
+
         System.out.println("\nInformación del veterinario a crear:");
         System.out.println("+----------------+-------------------------------------+");
         System.out.printf("| %-14s | %-35s |\n", "ID", veterinario.getId());
@@ -48,7 +73,10 @@ public class VeterinarioController {
         System.out.printf("| %-14s | %-35s |\n", "Activo", veterinario.isActivo() ? "Sí" : "No");
         System.out.println("+----------------+-------------------------------------+");
 
-        veterinarioService.add(veterinario);
+         veterinarioService.add(veterinario);
+
+        return new ResponseEntity<Veterinario>(veterinario, HttpStatus.CREATED);
+ 
     }
 
     // Para actualizar a un veterinario en especifico:

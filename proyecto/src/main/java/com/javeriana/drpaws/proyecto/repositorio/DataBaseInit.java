@@ -1686,7 +1686,7 @@ public class DataBaseInit implements ApplicationRunner {
         private UserEntity saveUserUsuario(Usuario usuario) {
                 UserEntity userEntity = new UserEntity();
                 userEntity.setUsername(usuario.getCedula());
-                userEntity.setPassword(passwordEncoder.encode("1234"));
+                userEntity.setPassword(passwordEncoder.encode("123"));
                 Role roles = roleRepository.findByName("USUARIO").get();
                 userEntity.setRoles(List.of(roles));
                 return usuarioRepository.save(userEntity);

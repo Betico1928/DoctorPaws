@@ -2,19 +2,18 @@ package com.javeriana.drpaws.proyecto.controlador;
 
 import com.javeriana.drpaws.proyecto.DTO.InputDTO.CedulaDTO;
 import com.javeriana.drpaws.proyecto.DTO.InputDTO.CredencialesDTO;
-import com.javeriana.drpaws.proyecto.DTO.Usuario.UsuDTO;
-import com.javeriana.drpaws.proyecto.DTO.Usuario.UsuMapper;
-import com.javeriana.drpaws.proyecto.DTO.Veterinario.VetDTO;
-import com.javeriana.drpaws.proyecto.DTO.Veterinario.VetMapper;
 import com.javeriana.drpaws.proyecto.entidad.Administrador;
-import com.javeriana.drpaws.proyecto.entidad.Usuario;
-import com.javeriana.drpaws.proyecto.entidad.Veterinario;
+import com.javeriana.drpaws.proyecto.security.JWTGenerator;
 import com.javeriana.drpaws.proyecto.servicio.Administrador.AdministradorService;
 import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 import com.javeriana.drpaws.proyecto.servicio.Veterinario.VeterinarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -37,9 +36,16 @@ public class AutenticacionController {
     @Autowired
     AdministradorService administradorService;
 
+    @Autowired
+    AuthenticationManager authenticationManager;
+
+    @Autowired
+    JWTGenerator jwtGenerator;
+
     // http://localhost:8080/autenticacion/user -> Autenticar un usuario
     @PostMapping("/user")
-    public ResponseEntity<Object> autenticarUser(@RequestBody CedulaDTO credenciales) {
+    public ResponseEntity autenticarUser(@RequestBody CedulaDTO credenciales) {
+        /*
         System.out.println("Cedula recibida para autenticación:" + credenciales.getCedula());
         Usuario usuarioAutenticado = usuarioService.autenticarUsuario(credenciales);
         UsuDTO usuDTO = UsuMapper.INSTANCE.convert(usuarioAutenticado);
@@ -50,13 +56,29 @@ public class AutenticacionController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas"); // Credenciales
                                                                                                     // inválidas
         }
+        */
+
+        // Un objeto que guarda mis crendenciales
+        // Método para autenticarme
+        Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(credenciales.getCedula(),"123")
+        );
+
+        // Guarda mi autenticación
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String token = jwtGenerator.generateToken(authentication);
+        System.out.println("Usuario Token"+token);
+
+        return new ResponseEntity<String>(token, HttpStatus.OK);
     }
 
     // http://localhost:8080/autenticacion/vet -> Autenticar un veterinario
     @PostMapping("/vet")
-    public ResponseEntity<Object> autenticarVet(@RequestBody CredencialesDTO credenciales) {
-
-        System.out.println("Correo: " + credenciales.getCorreo()+ "Contraseña: " + credenciales.getContrasenna());
+    public ResponseEntity autenticarVet(@RequestBody CredencialesDTO credenciales) {
+        /**
+         * ResponseEntity<Object>
+         *         System.out.println("Correo: " + credenciales.getCorreo()+ "Contraseña: " + credenciales.getContrasenna());
         Veterinario veterinarioAutenticado = veterinarioService.autenticarVeterinario(credenciales);
         System.out.println("Nombre" +veterinarioAutenticado.getNombre());
         VetDTO vetDTO = VetMapper.INSTANCE.convert(veterinarioAutenticado);
@@ -70,6 +92,20 @@ public class AutenticacionController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas\n"); // Credenciales
                                                                                                       // inválidas
         }
+         */
+
+        Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(credenciales.getCorreo(),credenciales.getContrasenna())
+        );
+
+        // Guarda mi autenticación
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String token = jwtGenerator.generateToken(authentication);
+        System.out.println("Token"+token);
+
+
+
+        return new ResponseEntity<String>(token, HttpStatus.OK);
     }
 
     // http://localhost:8080/autenticacion/admin -> Autenticar un administrador
