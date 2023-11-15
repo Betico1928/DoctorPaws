@@ -46,6 +46,7 @@ public class SecurityConfig {
                         .requestMatchers("/tratamientos/**").hasAnyAuthority("VETERINARIO","ADMINISTRADOR")
                         .requestMatchers("/medicamentos/**").hasAnyAuthority("VETERINARIO","ADMINISTRADOR")
                         .requestMatchers("/usuario/**").hasAnyAuthority("VETERINARIO","ADMINISTRADOR")
+                        .requestMatchers("/veterinario/**").hasAuthority("ADMINISTRADOR")
                         .requestMatchers("/admin/**").hasAuthority("ADMINISTRADOR")                    
                         // TODAS LAS PAGINAS
                         .anyRequest().permitAll()
