@@ -1,7 +1,5 @@
 package com.javeriana.drpaws.proyecto.entidad;
 
-import org.mapstruct.Named;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;

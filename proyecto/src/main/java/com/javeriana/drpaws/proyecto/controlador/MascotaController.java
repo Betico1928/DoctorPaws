@@ -49,6 +49,7 @@ public class MascotaController {
     @PostMapping("/agregar")
     public ResponseEntity<Mascota> agregarMascota(@RequestBody Mascota mascota)
     {
+
         System.out.println("\nInformación de la mascota a añadir:");
         System.out.println("+-----------------+--------------------------------+");
         System.out.printf("| %-15s | %-30s |\n", "Dueño", mascota.getUsuario().getNombre());

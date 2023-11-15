@@ -3,6 +3,8 @@ package com.javeriana.drpaws.proyecto.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
+import com.javeriana.drpaws.proyecto.entidad.UserEntity;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
+import com.javeriana.drpaws.proyecto.repositorio.UserRepository;
+import com.javeriana.drpaws.proyecto.security.CustomUserDetailsService;
 import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 
 @RestController
@@ -22,6 +27,12 @@ import com.javeriana.drpaws.proyecto.servicio.Usuario.UsuarioService;
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
+
+     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
 
     // Devuelve todos los usuarios
     // http://localhost:8080/usuario/all
@@ -50,8 +61,17 @@ public class UsuarioController {
     // Agrega un usuario al sistema
     // http://localhost:8080/usuario/add
     @PostMapping("/add")
-    public void agregarUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity agregarUsuario(@RequestBody Usuario usuario) {
+        if(userRepository.existsByUsername(usuario.getCedula())){
+            return new ResponseEntity<String>("Ya existe el usuario", HttpStatus.BAD_REQUEST);
+        }
+        UserEntity userEntity = customUserDetailsService.saveUsuario(usuario);
+        // Se le asigna el rol de veterinario al nuevo veterinario creado
+        usuario.setUser(userEntity);
         usuarioService.add(usuario);
+
+        return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
+
 
     }
 
