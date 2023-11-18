@@ -8,14 +8,14 @@ public class CredencialesDTO {
      * Se envia en el cuerpo de la petición el correo y la contraseña 
      */
     private String correo;
-    private String contrasenna;
+    private String password;
 
     public CredencialesDTO() {
     }
 
     public CredencialesDTO(String correo, String contrasena) {
         this.correo = correo;
-        this.contrasenna = contrasena;
+        this.password = contrasena;
     }
 
     public String getCorreo() {
@@ -23,7 +23,7 @@ public class CredencialesDTO {
     }
 
     public String getContrasenna() {
-        return contrasenna;
+        return password;
     }
 
     public void setCorreo(String correo) {
@@ -31,7 +31,7 @@ public class CredencialesDTO {
     }
 
     public void setContrasenna(String contrasena) {
-        this.contrasenna = contrasena;
+        this.password = contrasena;
     }
 
 }

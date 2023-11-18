@@ -44,7 +44,7 @@ public class AutenticacionController {
 
     // http://localhost:8080/autenticacion/user -> Autenticar un usuario
     @PostMapping("/user")
-    public ResponseEntity autenticarUser(@RequestBody CedulaDTO credenciales) {
+    public ResponseEntity autenticarUser(@RequestBody CredencialesDTO credenciales) {
         /*
         System.out.println("Cedula recibida para autenticación:" + credenciales.getCedula());
         Usuario usuarioAutenticado = usuarioService.autenticarUsuario(credenciales);
@@ -61,7 +61,7 @@ public class AutenticacionController {
         // Un objeto que guarda mis crendenciales
         // Método para autenticarme
         Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(credenciales.getCedula(),"123")
+            new UsernamePasswordAuthenticationToken(credenciales.getCorreo(),"123")
         );
 
         // Guarda mi autenticación

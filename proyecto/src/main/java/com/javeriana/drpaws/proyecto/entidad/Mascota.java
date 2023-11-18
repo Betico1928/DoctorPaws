@@ -31,6 +31,7 @@ public class Mascota {
     private String imagen;
     private boolean activo = true;
 
+    @JsonIgnore
     @ManyToOne
     private Usuario usuario;
 

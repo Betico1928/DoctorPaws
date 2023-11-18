@@ -41,6 +41,13 @@ public class SecurityConfig {
                         // USUARIOS
                         .requestMatchers("/usuario/find/**").hasAuthority("USUARIO")
                         .requestMatchers("/mascota/find/**").hasAuthority("USUARIO")
+                        .requestMatchers("/usuario/details").hasAuthority("USUARIO")
+                        // PAGINA PARA VER UNA MASCOTA
+                        .requestMatchers("/mascota/find/**").hasAnyAuthority("USUARIO","VETERINARIO")
+                        .requestMatchers("/mascota/tratamientos/**").hasAnyAuthority("USUARIO","VETERINARIO")
+
+                        // VETERINARIOS
+                        .requestMatchers("/veterinario/details").hasAuthority("VETERINARIO")
                         // VETERINARIOS Y ADMIN
                         .requestMatchers("/mascota/**").hasAnyAuthority("VETERINARIO","ADMINISTRADOR")
                         .requestMatchers("/tratamientos/**").hasAnyAuthority("VETERINARIO","ADMINISTRADOR")

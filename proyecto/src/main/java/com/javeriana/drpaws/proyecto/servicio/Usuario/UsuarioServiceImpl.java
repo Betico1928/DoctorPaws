@@ -16,6 +16,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     UsuarioRepository repo;
 
     @Override
+    public Usuario searchByCedula(String cedula){
+        return repo.findByCedula(cedula);
+    }
+
+    @Override
     public Usuario searchById(Long id) {
         return repo.findById(id).get();
 
