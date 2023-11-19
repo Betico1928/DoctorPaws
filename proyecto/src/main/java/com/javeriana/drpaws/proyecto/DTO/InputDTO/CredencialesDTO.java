@@ -13,16 +13,16 @@ public class CredencialesDTO {
     public CredencialesDTO() {
     }
 
-    public CredencialesDTO(String correo, String contrasena) {
+    public CredencialesDTO(String correo, String password) {
         this.correo = correo;
-        this.password = contrasena;
+        this.password = password;
     }
 
     public String getCorreo() {
         return correo;
     }
 
-    public String getContrasenna() {
+    public String getPassword() {
         return password;
     }
 
@@ -30,7 +30,7 @@ public class CredencialesDTO {
         this.correo = correo;
     }
 
-    public void setContrasenna(String contrasena) {
+    public void setPassword(String contrasena) {
         this.password = contrasena;
     }
 

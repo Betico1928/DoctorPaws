@@ -1,6 +1,5 @@
 package com.javeriana.drpaws.proyecto.controlador;
 
-import com.javeriana.drpaws.proyecto.DTO.InputDTO.CedulaDTO;
 import com.javeriana.drpaws.proyecto.DTO.InputDTO.CredencialesDTO;
 import com.javeriana.drpaws.proyecto.entidad.Administrador;
 import com.javeriana.drpaws.proyecto.security.JWTGenerator;
@@ -45,18 +44,6 @@ public class AutenticacionController {
     // http://localhost:8080/autenticacion/user -> Autenticar un usuario
     @PostMapping("/user")
     public ResponseEntity autenticarUser(@RequestBody CredencialesDTO credenciales) {
-        /*
-        System.out.println("Cedula recibida para autenticación:" + credenciales.getCedula());
-        Usuario usuarioAutenticado = usuarioService.autenticarUsuario(credenciales);
-        UsuDTO usuDTO = UsuMapper.INSTANCE.convert(usuarioAutenticado);
-
-        if (usuarioAutenticado.getId() != null) {
-            return ResponseEntity.ok(usuDTO); // Credenciales válidas
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas"); // Credenciales
-                                                                                                    // inválidas
-        }
-        */
 
         // Un objeto que guarda mis crendenciales
         // Método para autenticarme
@@ -74,8 +61,8 @@ public class AutenticacionController {
     }
 
     // http://localhost:8080/autenticacion/vet -> Autenticar un veterinario
-    @PostMapping("/vet")
-    public ResponseEntity autenticarVet(@RequestBody CredencialesDTO credenciales) {
+    @PostMapping("/administrativo")
+    public ResponseEntity autenticarAdministrativo(@RequestBody CredencialesDTO credenciales) {
         /**
          * ResponseEntity<Object>
          *         System.out.println("Correo: " + credenciales.getCorreo()+ "Contraseña: " + credenciales.getContrasenna());
@@ -94,14 +81,15 @@ public class AutenticacionController {
         }
          */
 
+         System.out.println("Credenciales" + credenciales.getCorreo() + " " + credenciales.getPassword());
         Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(credenciales.getCorreo(),credenciales.getContrasenna())
+            new UsernamePasswordAuthenticationToken(credenciales.getCorreo(),credenciales.getPassword())
         );
 
         // Guarda mi autenticación
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtGenerator.generateToken(authentication);
-        System.out.println("Token"+token);
+        System.out.println("Token Administrativo: "+token);
 
 
 

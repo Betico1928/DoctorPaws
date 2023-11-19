@@ -58,7 +58,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserEntity saveVeterinario(Veterinario veterinario){
         UserEntity user = new UserEntity();
         user.setUsername(veterinario.getEmail());
-        user.setPassword(veterinario.getPassword());
+        user.setPassword(passwordEncoder.encode(veterinario.getPassword()));
 
         // Asignarle su rol
         Role roles = roleRepository.findByName("VETERINARIO").get();
@@ -70,7 +70,7 @@ public class CustomUserDetailsService implements UserDetailsService {
      public UserEntity saveUsuario(Usuario usuario){
         UserEntity user = new UserEntity();
         user.setUsername(usuario.getCedula());
-        user.setPassword("123");
+        user.setPassword(passwordEncoder.encode("123"));
 
         // Asignarle su rol
         Role roles = roleRepository.findByName("USUARIO").get();

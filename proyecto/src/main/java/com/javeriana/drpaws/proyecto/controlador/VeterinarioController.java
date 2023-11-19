@@ -46,7 +46,7 @@ public class VeterinarioController {
 
     // Para buscar a un veterinario en especifico:
     // http://localhost:8080/veterinario/{id}
-    @GetMapping("/{id}")
+    @GetMapping("/find/{id}")
     public Veterinario getVeterinario(@PathVariable("id") Long id) {
         System.out.println("Buscando al veterinario con ID: " + id);
         return veterinarioService.searchById(id);
