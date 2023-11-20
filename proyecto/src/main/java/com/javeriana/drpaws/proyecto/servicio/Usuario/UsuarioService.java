@@ -7,6 +7,10 @@ import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
 
 public interface UsuarioService {
+
+    // Retorna un usuario dado su cedula
+    public Usuario searchByCedula(String cedula);
+
     // Retorna un usuario dado su id
     public Usuario searchById(Long id);
 

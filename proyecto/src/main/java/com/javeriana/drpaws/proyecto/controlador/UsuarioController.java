@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.javeriana.drpaws.proyecto.DTO.Usuario.UsuDTO;
+import com.javeriana.drpaws.proyecto.DTO.Usuario.UsuMapper;
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.UserEntity;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
@@ -90,6 +93,26 @@ public class UsuarioController {
     public void updateUsuario(@PathVariable("id") Long id, @RequestBody Usuario usuario) {
 
         usuarioService.update(usuario);
+
+    }
+
+    // Autentica a un usuario con el JWT
+    @GetMapping("/details")
+    public ResponseEntity<UsuDTO> buscarEstudiante(){
+        // Se asume que un usuario que llega a esta URL ya está autenticado
+
+        Usuario usuario = usuarioService.searchByCedula(
+            SecurityContextHolder.getContext().getAuthentication().getName()
+        );
+
+        UsuDTO usuDTO = UsuMapper.INSTANCE.convert(usuario);
+
+
+        if(usuario == null){
+            return new ResponseEntity<UsuDTO>(new UsuDTO(), HttpStatus.NOT_FOUND);
+        }else{
+            return new ResponseEntity<UsuDTO>(usuDTO, HttpStatus.OK);
+        }
 
     }
 

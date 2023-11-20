@@ -58,10 +58,13 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserEntity saveVeterinario(Veterinario veterinario){
         UserEntity user = new UserEntity();
         user.setUsername(veterinario.getEmail());
-        user.setPassword(veterinario.getPassword());
+        user.setPassword(passwordEncoder.encode("123"));
+
+        System.out.println("Contraseña del usuario" + user.getPassword());
 
         // Asignarle su rol
         Role roles = roleRepository.findByName("VETERINARIO").get();
+        System.out.println("Roles: "+roles.toString());
         user.setRoles(List.of(roles));
         return user;
     }
@@ -70,10 +73,12 @@ public class CustomUserDetailsService implements UserDetailsService {
      public UserEntity saveUsuario(Usuario usuario){
         UserEntity user = new UserEntity();
         user.setUsername(usuario.getCedula());
-        user.setPassword("123");
+        user.setPassword(passwordEncoder.encode("123"));
 
         // Asignarle su rol
         Role roles = roleRepository.findByName("USUARIO").get();
+        System.out.println("Roles: "+roles.toString());
+
         user.setRoles(List.of(roles));
         return user;
     }

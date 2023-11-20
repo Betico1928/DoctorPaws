@@ -24,9 +24,9 @@ import lombok.ToString.Exclude;
 public class Veterinario {
 
     @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.ALL)
     private UserEntity user;
-    
+
     @Id
     @GeneratedValue
     private Long id;

@@ -15,7 +15,7 @@ public class AdminitradorServiceImpl implements AdministradorService {
     @Override
     public Administrador autenticarAdministrador(CredencialesDTO credenciales) {
         String correo = credenciales.getCorreo();
-        String contrasena = credenciales.getContrasenna();
+        String contrasena = credenciales.getPassword();
 
         Administrador administrador = repo.findByEmail(correo);
         System.out.println(administrador);

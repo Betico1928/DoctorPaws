@@ -48,7 +48,6 @@ public class Usuario {
         this.imagen = imagen;
     }
 
-
     @Override
     public String toString() {
         return "Usuario [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", correo=" + correo + ", celular="

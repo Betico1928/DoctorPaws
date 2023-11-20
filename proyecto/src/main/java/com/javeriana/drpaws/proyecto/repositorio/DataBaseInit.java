@@ -83,6 +83,10 @@ public class DataBaseInit implements ApplicationRunner {
                 // Create a list to store Veterinario objects
                 List<Veterinario> saveVeterinarios = new ArrayList<>();
 
+                // Veterinario #0 - Admin
+                 saveVeterinarios.add(new Veterinario("Administración", "Dr. Admin", "admin_veterinario@drpaws.com", "admin",
+                                "path/to/imagevet20")); // 20
+
                 // Veterinario #1 - Dr. Juan Perez
                 saveVeterinarios.add(new Veterinario("Cardiología", "Dr. Juan Perez", "perezj@email.com", "password1",
                                 "path/to/imagevet1")); // 1
@@ -1560,6 +1564,9 @@ public class DataBaseInit implements ApplicationRunner {
                                 "Personalizado"
                 };
 
+                // Para asegurar que el primer usuario tenga mascotas con tratamiento
+                int indices[] = { 0, 1 };
+
                 for (int i = 0; i < 100; i++) {
 
                         // Patrón constructor para la clase tratamiento
@@ -1596,7 +1603,12 @@ public class DataBaseInit implements ApplicationRunner {
                         frecuencia = tratamientoFrecuencias[random.nextInt(tratamientoFrecuencias.length)];
 
                         // Obtener una mascota, veterinario, y medicamento al azar de las listas.
-                        mascotaTratamiento = mascotas.get(random.nextInt(mascotas.size()));
+                        if (i < 2) {
+                                // Se va a asginar un tratamiento para una del mascota del primer usuario
+                                mascotaTratamiento = mascotas.get(i);
+                        } else {
+                                mascotaTratamiento = mascotas.get(random.nextInt(mascotas.size()));
+                        }
                         veterinarioTratamiento = veterinarios.get(random.nextInt(veterinarios.size()));
 
                         int index = 0;
@@ -1646,13 +1658,20 @@ public class DataBaseInit implements ApplicationRunner {
                 // Retrieve all Mascota objects
                 // Agregado arriba - List<Mascota> mascotas = repoMascota.findAll();
 
-                // Shuffle the list of Mascota objects to randomize their order
-                Collections.shuffle(mascotas);
+                boolean hacerShuffle = true;
 
                 // Iterate through Usuario objects
                 for (Usuario usuario : usuarios) {
+
+                        // Esta condición asegura que el usuario va a recibir mascotas que tienen tratamientos
+                        if (hacerShuffle && usuario.getId() > 1) {
+                                // Shuffle the list of Mascota objects to randomize their order
+                                Collections.shuffle(mascotas);
+                                hacerShuffle = false;
+                        }
                         // Take the first two Mascota objects from the shuffled list
                         if (mascotas.size() >= 2) {
+
                                 Mascota mascota1 = mascotas.remove(0);
                                 Mascota mascota2 = mascotas.remove(0);
 

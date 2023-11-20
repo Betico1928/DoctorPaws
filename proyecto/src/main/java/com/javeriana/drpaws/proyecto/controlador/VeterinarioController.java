@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.javeriana.drpaws.proyecto.DTO.Veterinario.VetDTO;
+import com.javeriana.drpaws.proyecto.DTO.Veterinario.VetMapper;
 import com.javeriana.drpaws.proyecto.entidad.UserEntity;
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
 import com.javeriana.drpaws.proyecto.repositorio.UserRepository;
@@ -43,7 +46,7 @@ public class VeterinarioController {
 
     // Para buscar a un veterinario en especifico:
     // http://localhost:8080/veterinario/{id}
-    @GetMapping("/{id}")
+    @GetMapping("/find/{id}")
     public Veterinario getVeterinario(@PathVariable("id") Long id) {
         System.out.println("Buscando al veterinario con ID: " + id);
         return veterinarioService.searchById(id);
@@ -58,6 +61,7 @@ public class VeterinarioController {
             return new ResponseEntity<String>("Este usuario ya existe", HttpStatus.BAD_REQUEST);
         }
         UserEntity userEntity = customUserDetailsService.saveVeterinario(veterinario);
+        System.out.println("Contraseña " + userEntity.getPassword());
         // Se le asigna el rol de veterinario al nuevo veterinario creado
         veterinario.setUser(userEntity);
 
@@ -111,5 +115,22 @@ public class VeterinarioController {
     public List<Veterinario> getAllVeterinarios() {
         System.out.println("Buscando a todos los veterinarios...");
         return veterinarioService.searchAll();
+    }
+
+    // Verifica que un veterinario ya está autenticado
+    @GetMapping("/details")
+    public ResponseEntity<VetDTO> buscarVeterinario(){
+        // Se asume que el veterinario ya está autenticado
+        Veterinario veterinario =veterinarioService.searchByEmail(
+            SecurityContextHolder.getContext().getAuthentication().getName()
+        );
+        VetDTO vetDTO = null;
+
+        if(veterinario  == null) {
+            return new ResponseEntity<VetDTO>(vetDTO,HttpStatus.NOT_FOUND);
+        }else{
+            vetDTO = VetMapper.INSTANCE.convert(veterinario);
+            return new ResponseEntity<VetDTO>(vetDTO,HttpStatus.OK);
+        }
     }
 }

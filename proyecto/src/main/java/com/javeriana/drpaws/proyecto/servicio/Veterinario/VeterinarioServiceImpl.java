@@ -6,13 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javeriana.drpaws.proyecto.DTO.InputDTO.CredencialesDTO;
+import com.javeriana.drpaws.proyecto.entidad.UserEntity;
 import com.javeriana.drpaws.proyecto.entidad.Veterinario;
+import com.javeriana.drpaws.proyecto.repositorio.UserRepository;
 import com.javeriana.drpaws.proyecto.repositorio.VeterinarioRepository;
 
 @Service
 public class VeterinarioServiceImpl implements VeterinarioService {
     @Autowired
     VeterinarioRepository repo;
+
+    @Autowired
+    UserRepository userRepository; // Add UserRepository
 
     @Override
     public Veterinario searchById(Long id) {
@@ -49,12 +54,12 @@ public class VeterinarioServiceImpl implements VeterinarioService {
     @Override
     public Veterinario autenticarVeterinario(CredencialesDTO credenciales) {
         String correo = credenciales.getCorreo();
-        String contrasena = credenciales.getContrasenna();
+        String contrasena = credenciales.getPassword();
 
         Veterinario veterinario = repo.findByEmail(correo);
         System.out.println("Se encontro");
         System.out.println("Correo del :" + veterinario.getEmail());
-        System.out.println("Contraseña "+ veterinario.getPassword() );
+        System.out.println("Contraseña " + veterinario.getPassword());
         System.out.println(veterinario.toString());
 
         if (veterinario != null && veterinario.getPassword().equals(contrasena)) {
@@ -83,7 +88,8 @@ public class VeterinarioServiceImpl implements VeterinarioService {
     // Devuleve la cantidad de veterinarios inactivos en el sistema
     @Override
     public Long obtenerCantidadVeterinariosInactivos() {
-        //cambiarEstadoVeterinarios(); // Funcion de prueba para verificar que se contaban los veterinarios inactivos del sistema
+        // cambiarEstadoVeterinarios(); // Funcion de prueba para verificar que se
+        // contaban los veterinarios inactivos del sistema
         return repo.countVeterinariosInactivos();
     }
 

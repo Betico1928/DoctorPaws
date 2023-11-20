@@ -8,12 +8,21 @@ import org.springframework.stereotype.Service;
 import com.javeriana.drpaws.proyecto.DTO.InputDTO.CedulaDTO;
 import com.javeriana.drpaws.proyecto.entidad.Mascota;
 import com.javeriana.drpaws.proyecto.entidad.Usuario;
+import com.javeriana.drpaws.proyecto.repositorio.UserRepository;
 import com.javeriana.drpaws.proyecto.repositorio.UsuarioRepository;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     UsuarioRepository repo;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Override
+    public Usuario searchByCedula(String cedula) {
+        return repo.findByCedula(cedula);
+    }
 
     @Override
     public Usuario searchById(Long id) {
@@ -42,21 +51,20 @@ public class UsuarioServiceImpl implements UsuarioService {
         return repo.findAll();
 
     }
-    
+
     // Obtiene las mascotas de un usuario dado su id
     @Override
     public List<Mascota> getMascotasByUsuarioID(Long id) {
         return repo.findMascotasById(id);
     }
-    
 
     @Override
     public Usuario findByCorreo(String correo) {
         return repo.findByCorreo(correo);
     }
 
-    // Recibe un objeto de tipo CEDULODTO que contiene las 
-    // credenciales necesarias para poder autenticarse en 
+    // Recibe un objeto de tipo CEDULODTO que contiene las
+    // credenciales necesarias para poder autenticarse en
     // este caso su cedula
     @Override
     public Usuario autenticarUsuario(CedulaDTO credenciales) {
