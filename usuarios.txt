@@ -1,0 +1,14 @@
+Usuarios que siempre tienen mascota con tratamientos
+cedula:111111100
+cedula:111111101
+
+Usuario Administrador
+correo: admin@drpaws.com
+contraseña: admin
+
+Veterinarios
+correo:perezj@email.com
+contraseña:password1
+
+correo:rodrim@email.com
+contraseña:password2
