@@ -83,6 +83,10 @@ public class DataBaseInit implements ApplicationRunner {
                 // Create a list to store Veterinario objects
                 List<Veterinario> saveVeterinarios = new ArrayList<>();
 
+                // Veterinario #0 - Admin
+                 saveVeterinarios.add(new Veterinario("Administración", "Dr. Admin", "admin_veterinario@drpaws.com", "admin",
+                                "path/to/imagevet20")); // 20
+
                 // Veterinario #1 - Dr. Juan Perez
                 saveVeterinarios.add(new Veterinario("Cardiología", "Dr. Juan Perez", "perezj@email.com", "password1",
                                 "path/to/imagevet1")); // 1

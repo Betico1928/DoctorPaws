@@ -26,6 +26,7 @@ public class AdminController {
     @Autowired
     private VeterinarioService veterinarioService;
 
+    
     // Para obtener la cantidad de mascotas en la veterinaria
     // http://localhost:8080/admin/query/total-mascotas
     @GetMapping("/query/total-mascotas")

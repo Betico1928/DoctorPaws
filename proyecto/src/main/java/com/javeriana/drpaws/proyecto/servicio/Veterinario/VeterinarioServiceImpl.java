@@ -38,14 +38,6 @@ public class VeterinarioServiceImpl implements VeterinarioService {
 
     @Override
     public void add(Veterinario veterinario) {
-        // Save the associated UserEntity first
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUsername(veterinario.getEmail()); // Assuming email is the username
-        userEntity.setPassword(veterinario.getPassword());
-        userRepository.save(userEntity);
-
-        // Set the saved UserEntity to the Veterinario and save the Veterinario
-        veterinario.setUser(userEntity);
         repo.save(veterinario);
     }
 

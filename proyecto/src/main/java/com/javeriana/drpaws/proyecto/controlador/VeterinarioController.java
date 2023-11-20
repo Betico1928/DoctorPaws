@@ -61,6 +61,7 @@ public class VeterinarioController {
             return new ResponseEntity<String>("Este usuario ya existe", HttpStatus.BAD_REQUEST);
         }
         UserEntity userEntity = customUserDetailsService.saveVeterinario(veterinario);
+        System.out.println("Contraseña " + userEntity.getPassword());
         // Se le asigna el rol de veterinario al nuevo veterinario creado
         veterinario.setUser(userEntity);
 

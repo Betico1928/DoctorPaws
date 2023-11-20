@@ -96,21 +96,4 @@ public class AutenticacionController {
         return new ResponseEntity<String>(token, HttpStatus.OK);
     }
 
-    // http://localhost:8080/autenticacion/admin -> Autenticar un administrador
-    @PostMapping("/admin")
-    public ResponseEntity<Object> autenticarAdmin(@RequestBody CredencialesDTO credenciales) {
-
-        Administrador administradorAutenticado = administradorService.autenticarAdministrador(credenciales);
-
-        if (administradorAutenticado.getId() != null) {
-            System.out.println("Credenciales válidas - Puede entrar el administrador con ID: "
-                    + administradorAutenticado.getId() + "\n");
-            return ResponseEntity.ok(administradorAutenticado); // Credenciales válidas
-        } else {
-            System.out.println("Credenciales Incorrectas");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas\n"); // Credenciales
-                                                                                                      // inválidas
-        }
-    }
-
 }
