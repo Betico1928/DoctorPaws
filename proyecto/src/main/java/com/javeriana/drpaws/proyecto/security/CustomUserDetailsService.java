@@ -58,7 +58,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserEntity saveVeterinario(Veterinario veterinario){
         UserEntity user = new UserEntity();
         user.setUsername(veterinario.getEmail());
-        user.setPassword(passwordEncoder.encode("123"));
+        user.setPassword(passwordEncoder.encode(veterinario.getPassword()));
 
         System.out.println("Contraseña del usuario" + user.getPassword());
 

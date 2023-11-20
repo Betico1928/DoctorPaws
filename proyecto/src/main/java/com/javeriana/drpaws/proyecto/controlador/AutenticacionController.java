@@ -60,7 +60,7 @@ public class AutenticacionController {
         return new ResponseEntity<String>(token, HttpStatus.OK);
     }
 
-    // http://localhost:8080/autenticacion/vet -> Autenticar un veterinario
+    // http://localhost:8080/autenticacion/administrativo -> Autenticar un veterinario o administrador
     @PostMapping("/administrativo")
     public ResponseEntity autenticarAdministrativo(@RequestBody CredencialesDTO credenciales) {
         /**

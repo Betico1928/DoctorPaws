@@ -61,7 +61,7 @@ public class VeterinarioController {
             return new ResponseEntity<String>("Este usuario ya existe", HttpStatus.BAD_REQUEST);
         }
         UserEntity userEntity = customUserDetailsService.saveVeterinario(veterinario);
-        System.out.println("Contraseña " + userEntity.getPassword());
+        //System.out.println("Contraseña " + userEntity.getPassword());
         // Se le asigna el rol de veterinario al nuevo veterinario creado
         veterinario.setUser(userEntity);
 
@@ -87,6 +87,19 @@ public class VeterinarioController {
     // http://localhost:8080/veterinario/update/{id}
     @PostMapping("/update/{id}")
     public void updateVeterinario(@PathVariable("id") Long id, @RequestBody Veterinario veterinario) {
+
+        // Se obtiene el veterinario anterior
+        Veterinario anterior = veterinarioService.searchById(id);
+        
+        // Se crea un entidad de usuario para el veterinario nuevo
+        UserEntity userEntity = customUserDetailsService.saveVeterinario(veterinario);
+
+        // Se asigna los nuevos valores de correo y contraseña al user entity del veterinario anterior
+        userRepository.findByUsername(anterior.getEmail()).get().setUsername(userEntity.getUsername());
+        userRepository.findByUsername(anterior.getEmail()).get().setPassword(userEntity.getPassword());
+
+
+
         System.out.println("\nInformación del veterinario a actualizar:");
         System.out.println("+----------------+-------------------------------------+");
         System.out.printf("| %-14s | %-35s |\n", "ID", veterinario.getId());
